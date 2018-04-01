@@ -1,10 +1,10 @@
 # Kleister: SDK for Javascript
 
 [![Build Status](http://github.dronehippie.de/api/badges/kleister/kleister-js/status.svg)](http://github.dronehippie.de/kleister/kleister-js)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3b314b2be7ca4855978df1637bd61676)](https://www.codacy.com/app/tboerger/kleister-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kleister/kleister-js&amp;utm_campaign=Badge_Grade)
-[![Join the Matrix chat at https://matrix.to/#/#kleister:matrix.org](https://img.shields.io/badge/matrix-%23kleister%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#kleister:matrix.org)
 [![Stories in Ready](https://badge.waffle.io/kleister/kleister-api.svg?label=ready&title=Ready)](http://waffle.io/kleister/kleister-api)
-
+[![Join the Matrix chat at https://matrix.to/#/#kleister:matrix.org](https://img.shields.io/badge/matrix-%23kleister%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#kleister:matrix.org)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/07a31363df38474c907eb649f62e4990)](https://www.codacy.com/app/kleister/kleister-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kleister/kleister-js&amp;utm_campaign=Badge_Grade)
+[![npm version](https://badge.fury.io/js/kleister.svg)](https://badge.fury.io/js/kleister)
 
 **This project is under heavy development, it's not in a working state yet!**
 
