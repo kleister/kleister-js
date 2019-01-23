@@ -28,7 +28,7 @@
     "babel-eslint": "8.2.6",
     "babel-loader": "7.1.4",
     "babel-plugin-add-module-exports": "0.3.3",
-    "babel-preset-env": "1.6.1",
+    "babel-preset-env": "1.7.0",
     "cross-env": "5.2.0",
     "eslint": "4.19.1",
     "eslint-config-standard": "11.0.0",
