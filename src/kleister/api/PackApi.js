@@ -16,11 +16,13 @@ import ApiClient from '../ApiClient'
 import Build from '../model/Build'
 import BuildVersion from '../model/BuildVersion'
 import BuildVersionParams from '../model/BuildVersionParams'
+import GeneralError from '../model/GeneralError'
 import Pack from '../model/Pack'
 import PackTeamParams from '../model/PackTeamParams'
 import PackUserParams from '../model/PackUserParams'
 import TeamPack from '../model/TeamPack'
 import UserPack from '../model/UserPack'
+import ValidationError from '../model/ValidationError'
 /* eslint-enable no-unused-vars */
 
 /**
@@ -45,7 +47,7 @@ export default class PackApi {
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
      * @param {module:kleister/model/BuildVersionParams} params The version data to append to build
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendBuildToVersionWithHttpInfo (packId, buildId, params) {
     let postBody = params
@@ -76,7 +78,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/builds/{build_id}/versions', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -89,7 +91,7 @@ export default class PackApi {
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
      * @param {module:kleister/model/BuildVersionParams} params The version data to append to build
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendBuildToVersion (packId, buildId, params) {
     return this.appendBuildToVersionWithHttpInfo(packId, buildId, params)
@@ -102,7 +104,7 @@ export default class PackApi {
      * Assign a team to pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackTeamParams} params The pack team data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendPackToTeamWithHttpInfo (packId, params) {
     let postBody = params
@@ -128,7 +130,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/teams', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +142,7 @@ export default class PackApi {
      * Assign a team to pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackTeamParams} params The pack team data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendPackToTeam (packId, params) {
     return this.appendPackToTeamWithHttpInfo(packId, params)
@@ -153,7 +155,7 @@ export default class PackApi {
      * Assign a user to pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackUserParams} params The pack user data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendPackToUserWithHttpInfo (packId, params) {
     let postBody = params
@@ -179,7 +181,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/users', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -191,7 +193,7 @@ export default class PackApi {
      * Assign a user to pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackUserParams} params The pack user data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendPackToUser (packId, params) {
     return this.appendPackToUserWithHttpInfo(packId, params)
@@ -299,7 +301,7 @@ export default class PackApi {
      * Delete a specific build for a pack
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteBuildWithHttpInfo (packId, buildId) {
     let postBody = null
@@ -326,7 +328,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/builds/{build_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -338,7 +340,7 @@ export default class PackApi {
      * Delete a specific build for a pack
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteBuild (packId, buildId) {
     return this.deleteBuildWithHttpInfo(packId, buildId)
@@ -352,7 +354,7 @@ export default class PackApi {
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
      * @param {module:kleister/model/BuildVersionParams} params The version data to unlink from build
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteBuildFromVersionWithHttpInfo (packId, buildId, params) {
     let postBody = params
@@ -383,7 +385,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/builds/{build_id}/versions', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -396,7 +398,7 @@ export default class PackApi {
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
      * @param {module:kleister/model/BuildVersionParams} params The version data to unlink from build
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteBuildFromVersion (packId, buildId, params) {
     return this.deleteBuildFromVersionWithHttpInfo(packId, buildId, params)
@@ -408,7 +410,7 @@ export default class PackApi {
   /**
      * Delete a specific pack
      * @param {String} packId A pack UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deletePackWithHttpInfo (packId) {
     let postBody = null
@@ -430,7 +432,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -441,7 +443,7 @@ export default class PackApi {
   /**
      * Delete a specific pack
      * @param {String} packId A pack UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deletePack (packId) {
     return this.deletePackWithHttpInfo(packId)
@@ -454,7 +456,7 @@ export default class PackApi {
      * Remove a team from pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackTeamParams} params The pack team data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deletePackFromTeamWithHttpInfo (packId, params) {
     let postBody = params
@@ -480,7 +482,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/teams', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -492,7 +494,7 @@ export default class PackApi {
      * Remove a team from pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackTeamParams} params The pack team data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deletePackFromTeam (packId, params) {
     return this.deletePackFromTeamWithHttpInfo(packId, params)
@@ -505,7 +507,7 @@ export default class PackApi {
      * Remove a user from pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackUserParams} params The pack user data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deletePackFromUserWithHttpInfo (packId, params) {
     let postBody = params
@@ -531,7 +533,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/users', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -543,7 +545,7 @@ export default class PackApi {
      * Remove a user from pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackUserParams} params The pack user data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deletePackFromUser (packId, params) {
     return this.deletePackFromUserWithHttpInfo(packId, params)
@@ -781,7 +783,7 @@ export default class PackApi {
      * Update team perms for pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackTeamParams} params The pack team data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitPackTeamWithHttpInfo (packId, params) {
     let postBody = params
@@ -807,7 +809,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/teams', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -819,7 +821,7 @@ export default class PackApi {
      * Update team perms for pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackTeamParams} params The pack team data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitPackTeam (packId, params) {
     return this.permitPackTeamWithHttpInfo(packId, params)
@@ -832,7 +834,7 @@ export default class PackApi {
      * Update user perms for pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackUserParams} params The pack user data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitPackUserWithHttpInfo (packId, params) {
     let postBody = params
@@ -858,7 +860,7 @@ export default class PackApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/packs/{pack_id}/users', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -870,7 +872,7 @@ export default class PackApi {
      * Update user perms for pack
      * @param {String} packId A pack UUID or slug
      * @param {module:kleister/model/PackUserParams} params The pack user data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitPackUser (packId, params) {
     return this.permitPackUserWithHttpInfo(packId, params)

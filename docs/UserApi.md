@@ -1,6 +1,6 @@
 # Kleister.UserApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.kleister.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## appendUserToMod
 
-> Object appendUserToMod(userId, params)
+> GeneralError appendUserToMod(userId, params)
 
 Assign a mod to user
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## appendUserToPack
 
-> Object appendUserToPack(userId, params)
+> GeneralError appendUserToPack(userId, params)
 
 Assign a pack to user
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ No authorization required
 
 ## appendUserToTeam
 
-> Object appendUserToTeam(userId, params)
+> GeneralError appendUserToTeam(userId, params)
 
 Assign a team to user
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ No authorization required
 
 ## deleteUser
 
-> Object deleteUser(userId)
+> GeneralError deleteUser(userId)
 
 Delete a specific user
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ No authorization required
 
 ## deleteUserFromMod
 
-> Object deleteUserFromMod(userId, params)
+> GeneralError deleteUserFromMod(userId, params)
 
 Remove a mod from user
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ No authorization required
 
 ## deleteUserFromPack
 
-> Object deleteUserFromPack(userId, params)
+> GeneralError deleteUserFromPack(userId, params)
 
 Remove a pack from user
 
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ No authorization required
 
 ## deleteUserFromTeam
 
-> Object deleteUserFromTeam(userId, params)
+> GeneralError deleteUserFromTeam(userId, params)
 
 Remove a team from user
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -538,7 +538,7 @@ No authorization required
 
 ## permitUserMod
 
-> Object permitUserMod(userId, params)
+> GeneralError permitUserMod(userId, params)
 
 Update mod perms for user
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -582,7 +582,7 @@ No authorization required
 
 ## permitUserPack
 
-> Object permitUserPack(userId, params)
+> GeneralError permitUserPack(userId, params)
 
 Update pack perms for user
 
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -626,7 +626,7 @@ No authorization required
 
 ## permitUserTeam
 
-> Object permitUserTeam(userId, params)
+> GeneralError permitUserTeam(userId, params)
 
 Update team perms for user
 
@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 

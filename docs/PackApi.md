@@ -1,6 +1,6 @@
 # Kleister.PackApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.kleister.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 ## appendBuildToVersion
 
-> Object appendBuildToVersion(packId, buildId, params)
+> GeneralError appendBuildToVersion(packId, buildId, params)
 
 Assign a version to a build
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ No authorization required
 
 ## appendPackToTeam
 
-> Object appendPackToTeam(packId, params)
+> GeneralError appendPackToTeam(packId, params)
 
 Assign a team to pack
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -120,7 +120,7 @@ No authorization required
 
 ## appendPackToUser
 
-> Object appendPackToUser(packId, params)
+> GeneralError appendPackToUser(packId, params)
 
 Assign a user to pack
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -250,7 +250,7 @@ No authorization required
 
 ## deleteBuild
 
-> Object deleteBuild(packId, buildId)
+> GeneralError deleteBuild(packId, buildId)
 
 Delete a specific build for a pack
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ No authorization required
 
 ## deleteBuildFromVersion
 
-> Object deleteBuildFromVersion(packId, buildId, params)
+> GeneralError deleteBuildFromVersion(packId, buildId, params)
 
 Unlink a version from a build
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ No authorization required
 
 ## deletePack
 
-> Object deletePack(packId)
+> GeneralError deletePack(packId)
 
 Delete a specific pack
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -382,7 +382,7 @@ No authorization required
 
 ## deletePackFromTeam
 
-> Object deletePackFromTeam(packId, params)
+> GeneralError deletePackFromTeam(packId, params)
 
 Remove a team from pack
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -426,7 +426,7 @@ No authorization required
 
 ## deletePackFromUser
 
-> Object deletePackFromUser(packId, params)
+> GeneralError deletePackFromUser(packId, params)
 
 Remove a user from pack
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -678,7 +678,7 @@ No authorization required
 
 ## permitPackTeam
 
-> Object permitPackTeam(packId, params)
+> GeneralError permitPackTeam(packId, params)
 
 Update team perms for pack
 
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -722,7 +722,7 @@ No authorization required
 
 ## permitPackUser
 
-> Object permitPackUser(packId, params)
+> GeneralError permitPackUser(packId, params)
 
 Update user perms for pack
 
@@ -752,7 +752,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 

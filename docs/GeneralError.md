@@ -1,10 +1,10 @@
-# Kleister.InlineObject
+# Kleister.GeneralError
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **String** |  | 
-**password** | **String** |  | 
+**status** | **Number** |  | 
+**message** | **String** |  | 
 
 

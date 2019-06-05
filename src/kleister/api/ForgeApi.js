@@ -16,6 +16,8 @@ import ApiClient from '../ApiClient'
 import Build from '../model/Build'
 import Forge from '../model/Forge'
 import ForgeBuildParams from '../model/ForgeBuildParams'
+import GeneralError from '../model/GeneralError'
+import ValidationError from '../model/ValidationError'
 /* eslint-enable no-unused-vars */
 
 /**
@@ -267,7 +269,7 @@ export default class ForgeApi {
 
   /**
      * Update the available Forge versions
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   updateForgeWithHttpInfo () {
     let postBody = null
@@ -284,7 +286,7 @@ export default class ForgeApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/forge', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -294,7 +296,7 @@ export default class ForgeApi {
 
   /**
      * Update the available Forge versions
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   updateForge () {
     return this.updateForgeWithHttpInfo()

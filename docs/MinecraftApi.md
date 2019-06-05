@@ -1,6 +1,6 @@
 # Kleister.MinecraftApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.kleister.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -225,7 +225,7 @@ No authorization required
 
 ## updateMinecraft
 
-> Object updateMinecraft()
+> GeneralError updateMinecraft()
 
 Update the available Minecraft versions
 
@@ -249,7 +249,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 

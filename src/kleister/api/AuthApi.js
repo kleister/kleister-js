@@ -13,9 +13,10 @@
 
 /* eslint-disable no-unused-vars */
 import ApiClient from '../ApiClient'
+import AuthLogin from '../model/AuthLogin'
 import AuthToken from '../model/AuthToken'
 import AuthVerify from '../model/AuthVerify'
-import InlineObject from '../model/InlineObject'
+import GeneralError from '../model/GeneralError'
 /* eslint-enable no-unused-vars */
 
 /**
@@ -37,7 +38,7 @@ export default class AuthApi {
 
   /**
      * Authenticate an user by credentials
-     * @param {module:kleister/model/InlineObject} params
+     * @param {module:kleister/model/AuthLogin} params The credentials to authenticate
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/AuthToken} and HTTP response
      */
   loginUserWithHttpInfo (params) {
@@ -69,7 +70,7 @@ export default class AuthApi {
 
   /**
      * Authenticate an user by credentials
-     * @param {module:kleister/model/InlineObject} params
+     * @param {module:kleister/model/AuthLogin} params The credentials to authenticate
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/AuthToken}
      */
   loginUser (params) {

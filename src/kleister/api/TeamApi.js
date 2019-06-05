@@ -13,6 +13,7 @@
 
 /* eslint-disable no-unused-vars */
 import ApiClient from '../ApiClient'
+import GeneralError from '../model/GeneralError'
 import Team from '../model/Team'
 import TeamMod from '../model/TeamMod'
 import TeamModParams from '../model/TeamModParams'
@@ -20,6 +21,7 @@ import TeamPack from '../model/TeamPack'
 import TeamPackParams from '../model/TeamPackParams'
 import TeamUser from '../model/TeamUser'
 import TeamUserParams from '../model/TeamUserParams'
+import ValidationError from '../model/ValidationError'
 /* eslint-enable no-unused-vars */
 
 /**
@@ -43,7 +45,7 @@ export default class TeamApi {
      * Assign a mod to team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamModParams} params The team mod data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendTeamToModWithHttpInfo (teamId, params) {
     let postBody = params
@@ -69,7 +71,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/mods', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +83,7 @@ export default class TeamApi {
      * Assign a mod to team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamModParams} params The team mod data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendTeamToMod (teamId, params) {
     return this.appendTeamToModWithHttpInfo(teamId, params)
@@ -94,7 +96,7 @@ export default class TeamApi {
      * Assign a pack to team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamPackParams} params The team pack data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendTeamToPackWithHttpInfo (teamId, params) {
     let postBody = params
@@ -120,7 +122,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/packs', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -132,7 +134,7 @@ export default class TeamApi {
      * Assign a pack to team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamPackParams} params The team pack data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendTeamToPack (teamId, params) {
     return this.appendTeamToPackWithHttpInfo(teamId, params)
@@ -145,7 +147,7 @@ export default class TeamApi {
      * Assign a user to team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamUserParams} params The team user data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendTeamToUserWithHttpInfo (teamId, params) {
     let postBody = params
@@ -171,7 +173,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/users', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -183,7 +185,7 @@ export default class TeamApi {
      * Assign a user to team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamUserParams} params The team user data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendTeamToUser (teamId, params) {
     return this.appendTeamToUserWithHttpInfo(teamId, params)
@@ -239,7 +241,7 @@ export default class TeamApi {
   /**
      * Delete a specific team
      * @param {String} teamId A team UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteTeamWithHttpInfo (teamId) {
     let postBody = null
@@ -261,7 +263,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -272,7 +274,7 @@ export default class TeamApi {
   /**
      * Delete a specific team
      * @param {String} teamId A team UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteTeam (teamId) {
     return this.deleteTeamWithHttpInfo(teamId)
@@ -285,7 +287,7 @@ export default class TeamApi {
      * Remove a mod from team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamModParams} params The team mod data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteTeamFromModWithHttpInfo (teamId, params) {
     let postBody = params
@@ -311,7 +313,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/mods', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -323,7 +325,7 @@ export default class TeamApi {
      * Remove a mod from team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamModParams} params The team mod data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteTeamFromMod (teamId, params) {
     return this.deleteTeamFromModWithHttpInfo(teamId, params)
@@ -336,7 +338,7 @@ export default class TeamApi {
      * Remove a pack from team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamPackParams} params The team pack data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteTeamFromPackWithHttpInfo (teamId, params) {
     let postBody = params
@@ -362,7 +364,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/packs', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -374,7 +376,7 @@ export default class TeamApi {
      * Remove a pack from team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamPackParams} params The team pack data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteTeamFromPack (teamId, params) {
     return this.deleteTeamFromPackWithHttpInfo(teamId, params)
@@ -387,7 +389,7 @@ export default class TeamApi {
      * Remove a user from team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamUserParams} params The team user data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteTeamFromUserWithHttpInfo (teamId, params) {
     let postBody = params
@@ -413,7 +415,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/users', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -425,7 +427,7 @@ export default class TeamApi {
      * Remove a user from team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamUserParams} params The team user data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteTeamFromUser (teamId, params) {
     return this.deleteTeamFromUserWithHttpInfo(teamId, params)
@@ -611,7 +613,7 @@ export default class TeamApi {
      * Update mod perms for team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamModParams} params The team mod data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitTeamModWithHttpInfo (teamId, params) {
     let postBody = params
@@ -637,7 +639,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/mods', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -649,7 +651,7 @@ export default class TeamApi {
      * Update mod perms for team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamModParams} params The team mod data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitTeamMod (teamId, params) {
     return this.permitTeamModWithHttpInfo(teamId, params)
@@ -662,7 +664,7 @@ export default class TeamApi {
      * Update pack perms for team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamPackParams} params The team pack data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitTeamPackWithHttpInfo (teamId, params) {
     let postBody = params
@@ -688,7 +690,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/packs', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -700,7 +702,7 @@ export default class TeamApi {
      * Update pack perms for team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamPackParams} params The team pack data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitTeamPack (teamId, params) {
     return this.permitTeamPackWithHttpInfo(teamId, params)
@@ -713,7 +715,7 @@ export default class TeamApi {
      * Update user perms for team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamUserParams} params The team user data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitTeamUserWithHttpInfo (teamId, params) {
     let postBody = params
@@ -739,7 +741,7 @@ export default class TeamApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/teams/{team_id}/users', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -751,7 +753,7 @@ export default class TeamApi {
      * Update user perms for team
      * @param {String} teamId A team UUID or slug
      * @param {module:kleister/model/TeamUserParams} params The team user data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitTeamUser (teamId, params) {
     return this.permitTeamUserWithHttpInfo(teamId, params)

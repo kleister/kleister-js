@@ -12,6 +12,7 @@
  */
 
 import ApiClient from './ApiClient'
+import AuthLogin from './model/AuthLogin'
 import AuthToken from './model/AuthToken'
 import AuthVerify from './model/AuthVerify'
 import Build from './model/Build'
@@ -19,7 +20,7 @@ import BuildVersion from './model/BuildVersion'
 import BuildVersionParams from './model/BuildVersionParams'
 import Forge from './model/Forge'
 import ForgeBuildParams from './model/ForgeBuildParams'
-import InlineObject from './model/InlineObject'
+import GeneralError from './model/GeneralError'
 import Minecraft from './model/Minecraft'
 import MinecraftBuildParams from './model/MinecraftBuildParams'
 import Mod from './model/Mod'
@@ -42,6 +43,8 @@ import UserModParams from './model/UserModParams'
 import UserPack from './model/UserPack'
 import UserPackParams from './model/UserPackParams'
 import UserTeamParams from './model/UserTeamParams'
+import ValidationError from './model/ValidationError'
+import ValidationErrorErrors from './model/ValidationErrorErrors'
 import Version from './model/Version'
 import VersionBuildParams from './model/VersionBuildParams'
 import AuthApi from './api/AuthApi'
@@ -92,6 +95,12 @@ export {
   ApiClient,
 
   /**
+     * The AuthLogin model constructor.
+     * @property {module:kleister/model/AuthLogin}
+     */
+  AuthLogin,
+
+  /**
      * The AuthToken model constructor.
      * @property {module:kleister/model/AuthToken}
      */
@@ -134,10 +143,10 @@ export {
   ForgeBuildParams,
 
   /**
-     * The InlineObject model constructor.
-     * @property {module:kleister/model/InlineObject}
+     * The GeneralError model constructor.
+     * @property {module:kleister/model/GeneralError}
      */
-  InlineObject,
+  GeneralError,
 
   /**
      * The Minecraft model constructor.
@@ -270,6 +279,18 @@ export {
      * @property {module:kleister/model/UserTeamParams}
      */
   UserTeamParams,
+
+  /**
+     * The ValidationError model constructor.
+     * @property {module:kleister/model/ValidationError}
+     */
+  ValidationError,
+
+  /**
+     * The ValidationErrorErrors model constructor.
+     * @property {module:kleister/model/ValidationErrorErrors}
+     */
+  ValidationErrorErrors,
 
   /**
      * The Version model constructor.

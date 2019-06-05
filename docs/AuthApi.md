@@ -1,6 +1,6 @@
 # Kleister.AuthApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.kleister.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,7 +22,7 @@ Authenticate an user by credentials
 import Kleister from 'kleister';
 
 let apiInstance = new Kleister.AuthApi();
-let params = new Kleister.InlineObject(); // InlineObject | 
+let params = new Kleister.AuthLogin(); // AuthLogin | The credentials to authenticate
 apiInstance.loginUser(params).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -36,7 +36,7 @@ apiInstance.loginUser(params).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**InlineObject**](InlineObject.md)|  | 
+ **params** | [**AuthLogin**](AuthLogin.md)| The credentials to authenticate | 
 
 ### Return type
 

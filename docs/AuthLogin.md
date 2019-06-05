@@ -1,0 +1,10 @@
+# Kleister.AuthLogin
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**username** | **String** |  | 
+**password** | **String** |  | 
+
+

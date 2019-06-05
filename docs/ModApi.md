@@ -1,6 +1,6 @@
 # Kleister.ModApi
 
-All URIs are relative to *http://http:/api/v1*
+All URIs are relative to *http://try.kleister.tech/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 ## appendModToTeam
 
-> Object appendModToTeam(modId, params)
+> GeneralError appendModToTeam(modId, params)
 
 Assign a team to mod
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 
 ## appendModToUser
 
-> Object appendModToUser(modId, params)
+> GeneralError appendModToUser(modId, params)
 
 Assign a user to mod
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ No authorization required
 
 ## appendVersionToBuild
 
-> Object appendVersionToBuild(modId, versionId, params)
+> GeneralError appendVersionToBuild(modId, versionId, params)
 
 Assign a build to a version
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -250,7 +250,7 @@ No authorization required
 
 ## deleteMod
 
-> Object deleteMod(modId)
+> GeneralError deleteMod(modId)
 
 Delete a specific mod
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ No authorization required
 
 ## deleteModFromTeam
 
-> Object deleteModFromTeam(modId, params)
+> GeneralError deleteModFromTeam(modId, params)
 
 Remove a team from mod
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ No authorization required
 
 ## deleteModFromUser
 
-> Object deleteModFromUser(modId, params)
+> GeneralError deleteModFromUser(modId, params)
 
 Remove a user from mod
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -380,7 +380,7 @@ No authorization required
 
 ## deleteVersion
 
-> Object deleteVersion(modId, versionId)
+> GeneralError deleteVersion(modId, versionId)
 
 Delete a specific version for a mod
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ No authorization required
 
 ## deleteVersionFromBuild
 
-> Object deleteVersionFromBuild(modId, versionId, params)
+> GeneralError deleteVersionFromBuild(modId, versionId, params)
 
 Unlink a build from a version
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -678,7 +678,7 @@ No authorization required
 
 ## permitModTeam
 
-> Object permitModTeam(modId, params)
+> GeneralError permitModTeam(modId, params)
 
 Update team perms for mod
 
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 
@@ -722,7 +722,7 @@ No authorization required
 
 ## permitModUser
 
-> Object permitModUser(modId, params)
+> GeneralError permitModUser(modId, params)
 
 Update user perms for mod
 
@@ -752,7 +752,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**GeneralError**](GeneralError.md)
 
 ### Authorization
 

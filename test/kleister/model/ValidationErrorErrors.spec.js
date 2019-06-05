@@ -29,7 +29,7 @@
   var instance
 
   beforeEach(function () {
-    instance = new Kleister.InlineObject()
+    instance = new Kleister.ValidationErrorErrors()
   })
 
   /* eslint-disable no-unused-vars */
@@ -46,22 +46,22 @@
   }
   /* eslint-enable no-unused-vars */
 
-  describe('InlineObject', function () {
-    it('should create an instance of InlineObject', function () {
-      // uncomment below and update the code to test InlineObject
-      // var instane = new Kleister.InlineObject();
-      // expect(instance).to.be.a(Kleister.InlineObject);
+  describe('ValidationErrorErrors', function () {
+    it('should create an instance of ValidationErrorErrors', function () {
+      // uncomment below and update the code to test ValidationErrorErrors
+      // var instane = new Kleister.ValidationErrorErrors();
+      // expect(instance).to.be.a(Kleister.ValidationErrorErrors);
     })
 
-    it('should have the property username (base name: "username")', function () {
-      // uncomment below and update the code to test the property username
-      // var instane = new Kleister.InlineObject();
+    it('should have the property field (base name: "field")', function () {
+      // uncomment below and update the code to test the property field
+      // var instane = new Kleister.ValidationErrorErrors();
       // expect(instance).to.be();
     })
 
-    it('should have the property password (base name: "password")', function () {
-      // uncomment below and update the code to test the property password
-      // var instane = new Kleister.InlineObject();
+    it('should have the property message (base name: "message")', function () {
+      // uncomment below and update the code to test the property message
+      // var instane = new Kleister.ValidationErrorErrors();
       // expect(instance).to.be();
     })
   })

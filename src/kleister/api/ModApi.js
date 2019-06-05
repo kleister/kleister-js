@@ -14,11 +14,13 @@
 /* eslint-disable no-unused-vars */
 import ApiClient from '../ApiClient'
 import BuildVersion from '../model/BuildVersion'
+import GeneralError from '../model/GeneralError'
 import Mod from '../model/Mod'
 import ModTeamParams from '../model/ModTeamParams'
 import ModUserParams from '../model/ModUserParams'
 import TeamMod from '../model/TeamMod'
 import UserMod from '../model/UserMod'
+import ValidationError from '../model/ValidationError'
 import Version from '../model/Version'
 import VersionBuildParams from '../model/VersionBuildParams'
 /* eslint-enable no-unused-vars */
@@ -44,7 +46,7 @@ export default class ModApi {
      * Assign a team to mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModTeamParams} params The mod team data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendModToTeamWithHttpInfo (modId, params) {
     let postBody = params
@@ -70,7 +72,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/teams', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -82,7 +84,7 @@ export default class ModApi {
      * Assign a team to mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModTeamParams} params The mod team data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendModToTeam (modId, params) {
     return this.appendModToTeamWithHttpInfo(modId, params)
@@ -95,7 +97,7 @@ export default class ModApi {
      * Assign a user to mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModUserParams} params The mod user data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendModToUserWithHttpInfo (modId, params) {
     let postBody = params
@@ -121,7 +123,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/users', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -133,7 +135,7 @@ export default class ModApi {
      * Assign a user to mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModUserParams} params The mod user data to assign
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendModToUser (modId, params) {
     return this.appendModToUserWithHttpInfo(modId, params)
@@ -147,7 +149,7 @@ export default class ModApi {
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
      * @param {module:kleister/model/VersionBuildParams} params The build data to append to version
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   appendVersionToBuildWithHttpInfo (modId, versionId, params) {
     let postBody = params
@@ -178,7 +180,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/versions/{version_id}/builds', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -191,7 +193,7 @@ export default class ModApi {
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
      * @param {module:kleister/model/VersionBuildParams} params The build data to append to version
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   appendVersionToBuild (modId, versionId, params) {
     return this.appendVersionToBuildWithHttpInfo(modId, versionId, params)
@@ -298,7 +300,7 @@ export default class ModApi {
   /**
      * Delete a specific mod
      * @param {String} modId A mod UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteModWithHttpInfo (modId) {
     let postBody = null
@@ -320,7 +322,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -331,7 +333,7 @@ export default class ModApi {
   /**
      * Delete a specific mod
      * @param {String} modId A mod UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteMod (modId) {
     return this.deleteModWithHttpInfo(modId)
@@ -344,7 +346,7 @@ export default class ModApi {
      * Remove a team from mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModTeamParams} params The mod team data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteModFromTeamWithHttpInfo (modId, params) {
     let postBody = params
@@ -370,7 +372,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/teams', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -382,7 +384,7 @@ export default class ModApi {
      * Remove a team from mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModTeamParams} params The mod team data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteModFromTeam (modId, params) {
     return this.deleteModFromTeamWithHttpInfo(modId, params)
@@ -395,7 +397,7 @@ export default class ModApi {
      * Remove a user from mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModUserParams} params The mod user data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteModFromUserWithHttpInfo (modId, params) {
     let postBody = params
@@ -421,7 +423,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/users', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -433,7 +435,7 @@ export default class ModApi {
      * Remove a user from mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModUserParams} params The mod user data to delete
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteModFromUser (modId, params) {
     return this.deleteModFromUserWithHttpInfo(modId, params)
@@ -446,7 +448,7 @@ export default class ModApi {
      * Delete a specific version for a mod
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteVersionWithHttpInfo (modId, versionId) {
     let postBody = null
@@ -473,7 +475,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/versions/{version_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -485,7 +487,7 @@ export default class ModApi {
      * Delete a specific version for a mod
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteVersion (modId, versionId) {
     return this.deleteVersionWithHttpInfo(modId, versionId)
@@ -499,7 +501,7 @@ export default class ModApi {
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
      * @param {module:kleister/model/VersionBuildParams} params The build data to unlink from version
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   deleteVersionFromBuildWithHttpInfo (modId, versionId, params) {
     let postBody = params
@@ -530,7 +532,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/versions/{version_id}/builds', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -543,7 +545,7 @@ export default class ModApi {
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
      * @param {module:kleister/model/VersionBuildParams} params The build data to unlink from version
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   deleteVersionFromBuild (modId, versionId, params) {
     return this.deleteVersionFromBuildWithHttpInfo(modId, versionId, params)
@@ -781,7 +783,7 @@ export default class ModApi {
      * Update team perms for mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModTeamParams} params The mod team data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitModTeamWithHttpInfo (modId, params) {
     let postBody = params
@@ -807,7 +809,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/teams', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -819,7 +821,7 @@ export default class ModApi {
      * Update team perms for mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModTeamParams} params The mod team data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitModTeam (modId, params) {
     return this.permitModTeamWithHttpInfo(modId, params)
@@ -832,7 +834,7 @@ export default class ModApi {
      * Update user perms for mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModUserParams} params The mod user data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   permitModUserWithHttpInfo (modId, params) {
     let postBody = params
@@ -858,7 +860,7 @@ export default class ModApi {
     let authNames = []
     let contentTypes = ['application/json']
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/mods/{mod_id}/users', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -870,7 +872,7 @@ export default class ModApi {
      * Update user perms for mod
      * @param {String} modId A mod UUID or slug
      * @param {module:kleister/model/ModUserParams} params The mod user data to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   permitModUser (modId, params) {
     return this.permitModUserWithHttpInfo(modId, params)

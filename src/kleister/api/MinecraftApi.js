@@ -14,8 +14,10 @@
 /* eslint-disable no-unused-vars */
 import ApiClient from '../ApiClient'
 import Build from '../model/Build'
+import GeneralError from '../model/GeneralError'
 import Minecraft from '../model/Minecraft'
 import MinecraftBuildParams from '../model/MinecraftBuildParams'
+import ValidationError from '../model/ValidationError'
 /* eslint-enable no-unused-vars */
 
 /**
@@ -267,7 +269,7 @@ export default class MinecraftApi {
 
   /**
      * Update the available Minecraft versions
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
   updateMinecraftWithHttpInfo () {
     let postBody = null
@@ -284,7 +286,7 @@ export default class MinecraftApi {
     let authNames = []
     let contentTypes = []
     let accepts = ['application/json']
-    let returnType = Object
+    let returnType = GeneralError
     return this.apiClient.callApi(
       '/minecraft', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
@@ -294,7 +296,7 @@ export default class MinecraftApi {
 
   /**
      * Update the available Minecraft versions
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
   updateMinecraft () {
     return this.updateMinecraftWithHttpInfo()
