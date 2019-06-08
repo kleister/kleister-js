@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.MinecraftBuildParams);
     })
 
-    it('should have the property minecraft (base name: "minecraft")', function () {
-      // uncomment below and update the code to test the property minecraft
-      // var instane = new Kleister.MinecraftBuildParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property pack (base name: "pack")', function () {
       // uncomment below and update the code to test the property pack
       // var instane = new Kleister.MinecraftBuildParams();

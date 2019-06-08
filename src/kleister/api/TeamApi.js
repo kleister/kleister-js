@@ -44,18 +44,18 @@ export default class TeamApi {
   /**
      * Assign a mod to team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamModParams} params The team mod data to assign
+     * @param {module:kleister/model/TeamModParams} teamMod The team mod data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendTeamToModWithHttpInfo (teamId, params) {
-    let postBody = params
+  appendTeamToModWithHttpInfo (teamId, teamMod) {
+    let postBody = teamMod
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling appendTeamToMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendTeamToMod")
+    // verify the required parameter 'teamMod' is set
+    if (teamMod === undefined || teamMod === null) {
+      throw new Error("Missing the required parameter 'teamMod' when calling appendTeamToMod")
     }
 
     let pathParams = {
@@ -82,11 +82,11 @@ export default class TeamApi {
   /**
      * Assign a mod to team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamModParams} params The team mod data to assign
+     * @param {module:kleister/model/TeamModParams} teamMod The team mod data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendTeamToMod (teamId, params) {
-    return this.appendTeamToModWithHttpInfo(teamId, params)
+  appendTeamToMod (teamId, teamMod) {
+    return this.appendTeamToModWithHttpInfo(teamId, teamMod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -95,18 +95,18 @@ export default class TeamApi {
   /**
      * Assign a pack to team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamPackParams} params The team pack data to assign
+     * @param {module:kleister/model/TeamPackParams} teamPack The team pack data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendTeamToPackWithHttpInfo (teamId, params) {
-    let postBody = params
+  appendTeamToPackWithHttpInfo (teamId, teamPack) {
+    let postBody = teamPack
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling appendTeamToPack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendTeamToPack")
+    // verify the required parameter 'teamPack' is set
+    if (teamPack === undefined || teamPack === null) {
+      throw new Error("Missing the required parameter 'teamPack' when calling appendTeamToPack")
     }
 
     let pathParams = {
@@ -133,11 +133,11 @@ export default class TeamApi {
   /**
      * Assign a pack to team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamPackParams} params The team pack data to assign
+     * @param {module:kleister/model/TeamPackParams} teamPack The team pack data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendTeamToPack (teamId, params) {
-    return this.appendTeamToPackWithHttpInfo(teamId, params)
+  appendTeamToPack (teamId, teamPack) {
+    return this.appendTeamToPackWithHttpInfo(teamId, teamPack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -146,18 +146,18 @@ export default class TeamApi {
   /**
      * Assign a user to team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamUserParams} params The team user data to assign
+     * @param {module:kleister/model/TeamUserParams} teamUser The team user data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendTeamToUserWithHttpInfo (teamId, params) {
-    let postBody = params
+  appendTeamToUserWithHttpInfo (teamId, teamUser) {
+    let postBody = teamUser
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling appendTeamToUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendTeamToUser")
+    // verify the required parameter 'teamUser' is set
+    if (teamUser === undefined || teamUser === null) {
+      throw new Error("Missing the required parameter 'teamUser' when calling appendTeamToUser")
     }
 
     let pathParams = {
@@ -184,11 +184,11 @@ export default class TeamApi {
   /**
      * Assign a user to team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamUserParams} params The team user data to assign
+     * @param {module:kleister/model/TeamUserParams} teamUser The team user data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendTeamToUser (teamId, params) {
-    return this.appendTeamToUserWithHttpInfo(teamId, params)
+  appendTeamToUser (teamId, teamUser) {
+    return this.appendTeamToUserWithHttpInfo(teamId, teamUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -196,14 +196,14 @@ export default class TeamApi {
 
   /**
      * Create a new team
-     * @param {module:kleister/model/Team} params The team data to create
+     * @param {module:kleister/model/Team} team The team data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Team} and HTTP response
      */
-  createTeamWithHttpInfo (params) {
-    let postBody = params
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling createTeam")
+  createTeamWithHttpInfo (team) {
+    let postBody = team
+    // verify the required parameter 'team' is set
+    if (team === undefined || team === null) {
+      throw new Error("Missing the required parameter 'team' when calling createTeam")
     }
 
     let pathParams = {
@@ -228,11 +228,11 @@ export default class TeamApi {
 
   /**
      * Create a new team
-     * @param {module:kleister/model/Team} params The team data to create
+     * @param {module:kleister/model/Team} team The team data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Team}
      */
-  createTeam (params) {
-    return this.createTeamWithHttpInfo(params)
+  createTeam (team) {
+    return this.createTeamWithHttpInfo(team)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -286,18 +286,18 @@ export default class TeamApi {
   /**
      * Remove a mod from team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamModParams} params The team mod data to delete
+     * @param {module:kleister/model/TeamModParams} teamMod The team mod data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteTeamFromModWithHttpInfo (teamId, params) {
-    let postBody = params
+  deleteTeamFromModWithHttpInfo (teamId, teamMod) {
+    let postBody = teamMod
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling deleteTeamFromMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteTeamFromMod")
+    // verify the required parameter 'teamMod' is set
+    if (teamMod === undefined || teamMod === null) {
+      throw new Error("Missing the required parameter 'teamMod' when calling deleteTeamFromMod")
     }
 
     let pathParams = {
@@ -324,11 +324,11 @@ export default class TeamApi {
   /**
      * Remove a mod from team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamModParams} params The team mod data to delete
+     * @param {module:kleister/model/TeamModParams} teamMod The team mod data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteTeamFromMod (teamId, params) {
-    return this.deleteTeamFromModWithHttpInfo(teamId, params)
+  deleteTeamFromMod (teamId, teamMod) {
+    return this.deleteTeamFromModWithHttpInfo(teamId, teamMod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -337,18 +337,18 @@ export default class TeamApi {
   /**
      * Remove a pack from team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamPackParams} params The team pack data to delete
+     * @param {module:kleister/model/TeamPackParams} teamPack The team pack data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteTeamFromPackWithHttpInfo (teamId, params) {
-    let postBody = params
+  deleteTeamFromPackWithHttpInfo (teamId, teamPack) {
+    let postBody = teamPack
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling deleteTeamFromPack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteTeamFromPack")
+    // verify the required parameter 'teamPack' is set
+    if (teamPack === undefined || teamPack === null) {
+      throw new Error("Missing the required parameter 'teamPack' when calling deleteTeamFromPack")
     }
 
     let pathParams = {
@@ -375,11 +375,11 @@ export default class TeamApi {
   /**
      * Remove a pack from team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamPackParams} params The team pack data to delete
+     * @param {module:kleister/model/TeamPackParams} teamPack The team pack data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteTeamFromPack (teamId, params) {
-    return this.deleteTeamFromPackWithHttpInfo(teamId, params)
+  deleteTeamFromPack (teamId, teamPack) {
+    return this.deleteTeamFromPackWithHttpInfo(teamId, teamPack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -388,18 +388,18 @@ export default class TeamApi {
   /**
      * Remove a user from team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamUserParams} params The team user data to delete
+     * @param {module:kleister/model/TeamUserParams} teamUser The team user data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteTeamFromUserWithHttpInfo (teamId, params) {
-    let postBody = params
+  deleteTeamFromUserWithHttpInfo (teamId, teamUser) {
+    let postBody = teamUser
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling deleteTeamFromUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteTeamFromUser")
+    // verify the required parameter 'teamUser' is set
+    if (teamUser === undefined || teamUser === null) {
+      throw new Error("Missing the required parameter 'teamUser' when calling deleteTeamFromUser")
     }
 
     let pathParams = {
@@ -426,11 +426,11 @@ export default class TeamApi {
   /**
      * Remove a user from team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamUserParams} params The team user data to delete
+     * @param {module:kleister/model/TeamUserParams} teamUser The team user data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteTeamFromUser (teamId, params) {
-    return this.deleteTeamFromUserWithHttpInfo(teamId, params)
+  deleteTeamFromUser (teamId, teamUser) {
+    return this.deleteTeamFromUserWithHttpInfo(teamId, teamUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -612,18 +612,18 @@ export default class TeamApi {
   /**
      * Update mod perms for team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamModParams} params The team mod data to update
+     * @param {module:kleister/model/TeamModParams} teamMod The team mod data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitTeamModWithHttpInfo (teamId, params) {
-    let postBody = params
+  permitTeamModWithHttpInfo (teamId, teamMod) {
+    let postBody = teamMod
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling permitTeamMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitTeamMod")
+    // verify the required parameter 'teamMod' is set
+    if (teamMod === undefined || teamMod === null) {
+      throw new Error("Missing the required parameter 'teamMod' when calling permitTeamMod")
     }
 
     let pathParams = {
@@ -650,11 +650,11 @@ export default class TeamApi {
   /**
      * Update mod perms for team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamModParams} params The team mod data to update
+     * @param {module:kleister/model/TeamModParams} teamMod The team mod data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitTeamMod (teamId, params) {
-    return this.permitTeamModWithHttpInfo(teamId, params)
+  permitTeamMod (teamId, teamMod) {
+    return this.permitTeamModWithHttpInfo(teamId, teamMod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -663,18 +663,18 @@ export default class TeamApi {
   /**
      * Update pack perms for team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamPackParams} params The team pack data to update
+     * @param {module:kleister/model/TeamPackParams} teamPack The team pack data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitTeamPackWithHttpInfo (teamId, params) {
-    let postBody = params
+  permitTeamPackWithHttpInfo (teamId, teamPack) {
+    let postBody = teamPack
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling permitTeamPack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitTeamPack")
+    // verify the required parameter 'teamPack' is set
+    if (teamPack === undefined || teamPack === null) {
+      throw new Error("Missing the required parameter 'teamPack' when calling permitTeamPack")
     }
 
     let pathParams = {
@@ -701,11 +701,11 @@ export default class TeamApi {
   /**
      * Update pack perms for team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamPackParams} params The team pack data to update
+     * @param {module:kleister/model/TeamPackParams} teamPack The team pack data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitTeamPack (teamId, params) {
-    return this.permitTeamPackWithHttpInfo(teamId, params)
+  permitTeamPack (teamId, teamPack) {
+    return this.permitTeamPackWithHttpInfo(teamId, teamPack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -714,18 +714,18 @@ export default class TeamApi {
   /**
      * Update user perms for team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamUserParams} params The team user data to update
+     * @param {module:kleister/model/TeamUserParams} teamUser The team user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitTeamUserWithHttpInfo (teamId, params) {
-    let postBody = params
+  permitTeamUserWithHttpInfo (teamId, teamUser) {
+    let postBody = teamUser
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling permitTeamUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitTeamUser")
+    // verify the required parameter 'teamUser' is set
+    if (teamUser === undefined || teamUser === null) {
+      throw new Error("Missing the required parameter 'teamUser' when calling permitTeamUser")
     }
 
     let pathParams = {
@@ -752,11 +752,11 @@ export default class TeamApi {
   /**
      * Update user perms for team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/TeamUserParams} params The team user data to update
+     * @param {module:kleister/model/TeamUserParams} teamUser The team user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitTeamUser (teamId, params) {
-    return this.permitTeamUserWithHttpInfo(teamId, params)
+  permitTeamUser (teamId, teamUser) {
+    return this.permitTeamUserWithHttpInfo(teamId, teamUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -810,18 +810,18 @@ export default class TeamApi {
   /**
      * Update a specific team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/Team} params The team data to update
+     * @param {module:kleister/model/Team} team The team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Team} and HTTP response
      */
-  updateTeamWithHttpInfo (teamId, params) {
-    let postBody = params
+  updateTeamWithHttpInfo (teamId, team) {
+    let postBody = team
     // verify the required parameter 'teamId' is set
     if (teamId === undefined || teamId === null) {
       throw new Error("Missing the required parameter 'teamId' when calling updateTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updateTeam")
+    // verify the required parameter 'team' is set
+    if (team === undefined || team === null) {
+      throw new Error("Missing the required parameter 'team' when calling updateTeam")
     }
 
     let pathParams = {
@@ -848,11 +848,11 @@ export default class TeamApi {
   /**
      * Update a specific team
      * @param {String} teamId A team UUID or slug
-     * @param {module:kleister/model/Team} params The team data to update
+     * @param {module:kleister/model/Team} team The team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Team}
      */
-  updateTeam (teamId, params) {
-    return this.updateTeamWithHttpInfo(teamId, params)
+  updateTeam (teamId, team) {
+    return this.updateTeamWithHttpInfo(teamId, team)
       .then(function (responseAndData) {
         return responseAndData.data
       })

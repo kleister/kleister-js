@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.UserModParams);
     })
 
-    it('should have the property user (base name: "user")', function () {
-      // uncomment below and update the code to test the property user
-      // var instane = new Kleister.UserModParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property mod (base name: "mod")', function () {
       // uncomment below and update the code to test the property mod
       // var instane = new Kleister.UserModParams();

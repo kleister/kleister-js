@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## appendMinecraftToBuild
 
-> [Build] appendMinecraftToBuild(minecraftId, params)
+> [Build] appendMinecraftToBuild(minecraftId, minecraftBuild)
 
 Assign a build to a Minecraft version
 
@@ -26,8 +26,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.MinecraftApi();
 let minecraftId = "minecraftId_example"; // String | A minecraft UUID or slug
-let params = new Kleister.MinecraftBuildParams(); // MinecraftBuildParams | The build data to append
-apiInstance.appendMinecraftToBuild(minecraftId, params).then((data) => {
+let minecraftBuild = new Kleister.MinecraftBuildParams(); // MinecraftBuildParams | The build data to append
+apiInstance.appendMinecraftToBuild(minecraftId, minecraftBuild).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -41,7 +41,7 @@ apiInstance.appendMinecraftToBuild(minecraftId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **minecraftId** | **String**| A minecraft UUID or slug | 
- **params** | [**MinecraftBuildParams**](MinecraftBuildParams.md)| The build data to append | 
+ **minecraftBuild** | [**MinecraftBuildParams**](MinecraftBuildParams.md)| The build data to append | 
 
 ### Return type
 
@@ -59,7 +59,7 @@ No authorization required
 
 ## deleteMinecraftFromBuild
 
-> [Build] deleteMinecraftFromBuild(minecraftId, params)
+> [Build] deleteMinecraftFromBuild(minecraftId, minecraftBuild)
 
 Unlink a build from a Minecraft version
 
@@ -70,8 +70,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.MinecraftApi();
 let minecraftId = "minecraftId_example"; // String | A minecraft UUID or slug
-let params = new Kleister.MinecraftBuildParams(); // MinecraftBuildParams | The build data to unlink
-apiInstance.deleteMinecraftFromBuild(minecraftId, params).then((data) => {
+let minecraftBuild = new Kleister.MinecraftBuildParams(); // MinecraftBuildParams | The build data to unlink
+apiInstance.deleteMinecraftFromBuild(minecraftId, minecraftBuild).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -85,7 +85,7 @@ apiInstance.deleteMinecraftFromBuild(minecraftId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **minecraftId** | **String**| A minecraft UUID or slug | 
- **params** | [**MinecraftBuildParams**](MinecraftBuildParams.md)| The build data to unlink | 
+ **minecraftBuild** | [**MinecraftBuildParams**](MinecraftBuildParams.md)| The build data to unlink | 
 
 ### Return type
 

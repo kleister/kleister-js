@@ -24,7 +24,7 @@ class UserMod {
      * @alias module:kleister/model/UserMod
      * @param userId {String}
      * @param modId {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/UserMod.PermEnum}
      */
   constructor (userId, modId, perm) {
     UserMod.initialize(this, userId, modId, perm)
@@ -77,8 +77,34 @@ UserMod.prototype['user_id'] = undefined
 UserMod.prototype['mod_id'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/UserMod.PermEnum} perm
  */
 UserMod.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+UserMod['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default UserMod

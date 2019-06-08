@@ -53,18 +53,6 @@
       // expect(instance).to.be.a(Kleister.BuildVersionParams);
     })
 
-    it('should have the property pack (base name: "pack")', function () {
-      // uncomment below and update the code to test the property pack
-      // var instane = new Kleister.BuildVersionParams();
-      // expect(instance).to.be();
-    })
-
-    it('should have the property build (base name: "build")', function () {
-      // uncomment below and update the code to test the property build
-      // var instane = new Kleister.BuildVersionParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property mod (base name: "mod")', function () {
       // uncomment below and update the code to test the property mod
       // var instane = new Kleister.BuildVersionParams();

@@ -40,18 +40,18 @@ export default class ForgeApi {
   /**
      * Assign a build to a Forge version
      * @param {String} forgeId A forge UUID or slug
-     * @param {module:kleister/model/ForgeBuildParams} params The build data to append
+     * @param {module:kleister/model/ForgeBuildParams} forgeBuild The build data to append
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:kleister/model/Build>} and HTTP response
      */
-  appendForgeToBuildWithHttpInfo (forgeId, params) {
-    let postBody = params
+  appendForgeToBuildWithHttpInfo (forgeId, forgeBuild) {
+    let postBody = forgeBuild
     // verify the required parameter 'forgeId' is set
     if (forgeId === undefined || forgeId === null) {
       throw new Error("Missing the required parameter 'forgeId' when calling appendForgeToBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendForgeToBuild")
+    // verify the required parameter 'forgeBuild' is set
+    if (forgeBuild === undefined || forgeBuild === null) {
+      throw new Error("Missing the required parameter 'forgeBuild' when calling appendForgeToBuild")
     }
 
     let pathParams = {
@@ -78,11 +78,11 @@ export default class ForgeApi {
   /**
      * Assign a build to a Forge version
      * @param {String} forgeId A forge UUID or slug
-     * @param {module:kleister/model/ForgeBuildParams} params The build data to append
+     * @param {module:kleister/model/ForgeBuildParams} forgeBuild The build data to append
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:kleister/model/Build>}
      */
-  appendForgeToBuild (forgeId, params) {
-    return this.appendForgeToBuildWithHttpInfo(forgeId, params)
+  appendForgeToBuild (forgeId, forgeBuild) {
+    return this.appendForgeToBuildWithHttpInfo(forgeId, forgeBuild)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -91,18 +91,18 @@ export default class ForgeApi {
   /**
      * Unlink a build from a Forge version
      * @param {String} forgeId A forge UUID or slug
-     * @param {module:kleister/model/ForgeBuildParams} params The build data to unlink
+     * @param {module:kleister/model/ForgeBuildParams} forgeBuild The build data to unlink
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:kleister/model/Build>} and HTTP response
      */
-  deleteForgeFromBuildWithHttpInfo (forgeId, params) {
-    let postBody = params
+  deleteForgeFromBuildWithHttpInfo (forgeId, forgeBuild) {
+    let postBody = forgeBuild
     // verify the required parameter 'forgeId' is set
     if (forgeId === undefined || forgeId === null) {
       throw new Error("Missing the required parameter 'forgeId' when calling deleteForgeFromBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteForgeFromBuild")
+    // verify the required parameter 'forgeBuild' is set
+    if (forgeBuild === undefined || forgeBuild === null) {
+      throw new Error("Missing the required parameter 'forgeBuild' when calling deleteForgeFromBuild")
     }
 
     let pathParams = {
@@ -129,11 +129,11 @@ export default class ForgeApi {
   /**
      * Unlink a build from a Forge version
      * @param {String} forgeId A forge UUID or slug
-     * @param {module:kleister/model/ForgeBuildParams} params The build data to unlink
+     * @param {module:kleister/model/ForgeBuildParams} forgeBuild The build data to unlink
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:kleister/model/Build>}
      */
-  deleteForgeFromBuild (forgeId, params) {
-    return this.deleteForgeFromBuildWithHttpInfo(forgeId, params)
+  deleteForgeFromBuild (forgeId, forgeBuild) {
+    return this.deleteForgeFromBuildWithHttpInfo(forgeId, forgeBuild)
       .then(function (responseAndData) {
         return responseAndData.data
       })

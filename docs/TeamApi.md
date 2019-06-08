@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## appendTeamToMod
 
-> GeneralError appendTeamToMod(teamId, params)
+> GeneralError appendTeamToMod(teamId, teamMod)
 
 Assign a mod to team
 
@@ -37,8 +37,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamModParams(); // TeamModParams | The team mod data to assign
-apiInstance.appendTeamToMod(teamId, params).then((data) => {
+let teamMod = new Kleister.TeamModParams(); // TeamModParams | The team mod data to assign
+apiInstance.appendTeamToMod(teamId, teamMod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -52,7 +52,7 @@ apiInstance.appendTeamToMod(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamModParams**](TeamModParams.md)| The team mod data to assign | 
+ **teamMod** | [**TeamModParams**](TeamModParams.md)| The team mod data to assign | 
 
 ### Return type
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## appendTeamToPack
 
-> GeneralError appendTeamToPack(teamId, params)
+> GeneralError appendTeamToPack(teamId, teamPack)
 
 Assign a pack to team
 
@@ -81,8 +81,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamPackParams(); // TeamPackParams | The team pack data to assign
-apiInstance.appendTeamToPack(teamId, params).then((data) => {
+let teamPack = new Kleister.TeamPackParams(); // TeamPackParams | The team pack data to assign
+apiInstance.appendTeamToPack(teamId, teamPack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -96,7 +96,7 @@ apiInstance.appendTeamToPack(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamPackParams**](TeamPackParams.md)| The team pack data to assign | 
+ **teamPack** | [**TeamPackParams**](TeamPackParams.md)| The team pack data to assign | 
 
 ### Return type
 
@@ -114,7 +114,7 @@ No authorization required
 
 ## appendTeamToUser
 
-> GeneralError appendTeamToUser(teamId, params)
+> GeneralError appendTeamToUser(teamId, teamUser)
 
 Assign a user to team
 
@@ -125,8 +125,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamUserParams(); // TeamUserParams | The team user data to assign
-apiInstance.appendTeamToUser(teamId, params).then((data) => {
+let teamUser = new Kleister.TeamUserParams(); // TeamUserParams | The team user data to assign
+apiInstance.appendTeamToUser(teamId, teamUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -140,7 +140,7 @@ apiInstance.appendTeamToUser(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamUserParams**](TeamUserParams.md)| The team user data to assign | 
+ **teamUser** | [**TeamUserParams**](TeamUserParams.md)| The team user data to assign | 
 
 ### Return type
 
@@ -158,7 +158,7 @@ No authorization required
 
 ## createTeam
 
-> Team createTeam(params)
+> Team createTeam(team)
 
 Create a new team
 
@@ -168,8 +168,8 @@ Create a new team
 import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
-let params = new Kleister.Team(); // Team | The team data to create
-apiInstance.createTeam(params).then((data) => {
+let team = new Kleister.Team(); // Team | The team data to create
+apiInstance.createTeam(team).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -182,7 +182,7 @@ apiInstance.createTeam(params).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**Team**](Team.md)| The team data to create | 
+ **team** | [**Team**](Team.md)| The team data to create | 
 
 ### Return type
 
@@ -242,7 +242,7 @@ No authorization required
 
 ## deleteTeamFromMod
 
-> GeneralError deleteTeamFromMod(teamId, params)
+> GeneralError deleteTeamFromMod(teamId, teamMod)
 
 Remove a mod from team
 
@@ -253,8 +253,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamModParams(); // TeamModParams | The team mod data to delete
-apiInstance.deleteTeamFromMod(teamId, params).then((data) => {
+let teamMod = new Kleister.TeamModParams(); // TeamModParams | The team mod data to delete
+apiInstance.deleteTeamFromMod(teamId, teamMod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -268,7 +268,7 @@ apiInstance.deleteTeamFromMod(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamModParams**](TeamModParams.md)| The team mod data to delete | 
+ **teamMod** | [**TeamModParams**](TeamModParams.md)| The team mod data to delete | 
 
 ### Return type
 
@@ -286,7 +286,7 @@ No authorization required
 
 ## deleteTeamFromPack
 
-> GeneralError deleteTeamFromPack(teamId, params)
+> GeneralError deleteTeamFromPack(teamId, teamPack)
 
 Remove a pack from team
 
@@ -297,8 +297,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamPackParams(); // TeamPackParams | The team pack data to delete
-apiInstance.deleteTeamFromPack(teamId, params).then((data) => {
+let teamPack = new Kleister.TeamPackParams(); // TeamPackParams | The team pack data to delete
+apiInstance.deleteTeamFromPack(teamId, teamPack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -312,7 +312,7 @@ apiInstance.deleteTeamFromPack(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamPackParams**](TeamPackParams.md)| The team pack data to delete | 
+ **teamPack** | [**TeamPackParams**](TeamPackParams.md)| The team pack data to delete | 
 
 ### Return type
 
@@ -330,7 +330,7 @@ No authorization required
 
 ## deleteTeamFromUser
 
-> GeneralError deleteTeamFromUser(teamId, params)
+> GeneralError deleteTeamFromUser(teamId, teamUser)
 
 Remove a user from team
 
@@ -341,8 +341,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamUserParams(); // TeamUserParams | The team user data to delete
-apiInstance.deleteTeamFromUser(teamId, params).then((data) => {
+let teamUser = new Kleister.TeamUserParams(); // TeamUserParams | The team user data to delete
+apiInstance.deleteTeamFromUser(teamId, teamUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -356,7 +356,7 @@ apiInstance.deleteTeamFromUser(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamUserParams**](TeamUserParams.md)| The team user data to delete | 
+ **teamUser** | [**TeamUserParams**](TeamUserParams.md)| The team user data to delete | 
 
 ### Return type
 
@@ -538,7 +538,7 @@ No authorization required
 
 ## permitTeamMod
 
-> GeneralError permitTeamMod(teamId, params)
+> GeneralError permitTeamMod(teamId, teamMod)
 
 Update mod perms for team
 
@@ -549,8 +549,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamModParams(); // TeamModParams | The team mod data to update
-apiInstance.permitTeamMod(teamId, params).then((data) => {
+let teamMod = new Kleister.TeamModParams(); // TeamModParams | The team mod data to update
+apiInstance.permitTeamMod(teamId, teamMod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -564,7 +564,7 @@ apiInstance.permitTeamMod(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamModParams**](TeamModParams.md)| The team mod data to update | 
+ **teamMod** | [**TeamModParams**](TeamModParams.md)| The team mod data to update | 
 
 ### Return type
 
@@ -582,7 +582,7 @@ No authorization required
 
 ## permitTeamPack
 
-> GeneralError permitTeamPack(teamId, params)
+> GeneralError permitTeamPack(teamId, teamPack)
 
 Update pack perms for team
 
@@ -593,8 +593,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamPackParams(); // TeamPackParams | The team pack data to update
-apiInstance.permitTeamPack(teamId, params).then((data) => {
+let teamPack = new Kleister.TeamPackParams(); // TeamPackParams | The team pack data to update
+apiInstance.permitTeamPack(teamId, teamPack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -608,7 +608,7 @@ apiInstance.permitTeamPack(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamPackParams**](TeamPackParams.md)| The team pack data to update | 
+ **teamPack** | [**TeamPackParams**](TeamPackParams.md)| The team pack data to update | 
 
 ### Return type
 
@@ -626,7 +626,7 @@ No authorization required
 
 ## permitTeamUser
 
-> GeneralError permitTeamUser(teamId, params)
+> GeneralError permitTeamUser(teamId, teamUser)
 
 Update user perms for team
 
@@ -637,8 +637,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.TeamUserParams(); // TeamUserParams | The team user data to update
-apiInstance.permitTeamUser(teamId, params).then((data) => {
+let teamUser = new Kleister.TeamUserParams(); // TeamUserParams | The team user data to update
+apiInstance.permitTeamUser(teamId, teamUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -652,7 +652,7 @@ apiInstance.permitTeamUser(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**TeamUserParams**](TeamUserParams.md)| The team user data to update | 
+ **teamUser** | [**TeamUserParams**](TeamUserParams.md)| The team user data to update | 
 
 ### Return type
 
@@ -712,7 +712,7 @@ No authorization required
 
 ## updateTeam
 
-> Team updateTeam(teamId, params)
+> Team updateTeam(teamId, team)
 
 Update a specific team
 
@@ -723,8 +723,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.TeamApi();
 let teamId = "teamId_example"; // String | A team UUID or slug
-let params = new Kleister.Team(); // Team | The team data to update
-apiInstance.updateTeam(teamId, params).then((data) => {
+let team = new Kleister.Team(); // Team | The team data to update
+apiInstance.updateTeam(teamId, team).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -738,7 +738,7 @@ apiInstance.updateTeam(teamId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **teamId** | **String**| A team UUID or slug | 
- **params** | [**Team**](Team.md)| The team data to update | 
+ **team** | [**Team**](Team.md)| The team data to update | 
 
 ### Return type
 

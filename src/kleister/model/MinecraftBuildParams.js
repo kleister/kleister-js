@@ -22,12 +22,11 @@ class MinecraftBuildParams {
   /**
      * Constructs a new <code>MinecraftBuildParams</code>.
      * @alias module:kleister/model/MinecraftBuildParams
-     * @param minecraft {String}
      * @param pack {String}
      * @param build {String}
      */
-  constructor (minecraft, pack, build) {
-    MinecraftBuildParams.initialize(this, minecraft, pack, build)
+  constructor (pack, build) {
+    MinecraftBuildParams.initialize(this, pack, build)
   }
 
   /**
@@ -35,8 +34,7 @@ class MinecraftBuildParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, minecraft, pack, build) {
-    obj['minecraft'] = minecraft
+  static initialize (obj, pack, build) {
     obj['pack'] = pack
     obj['build'] = build
   }
@@ -52,9 +50,6 @@ class MinecraftBuildParams {
     if (data) {
       obj = obj || new MinecraftBuildParams()
 
-      if (data.hasOwnProperty('minecraft')) {
-        obj['minecraft'] = ApiClient.convertToType(data['minecraft'], 'String')
-      }
       if (data.hasOwnProperty('pack')) {
         obj['pack'] = ApiClient.convertToType(data['pack'], 'String')
       }
@@ -65,11 +60,6 @@ class MinecraftBuildParams {
     return obj
   }
 }
-
-/**
- * @member {String} minecraft
- */
-MinecraftBuildParams.prototype['minecraft'] = undefined
 
 /**
  * @member {String} pack

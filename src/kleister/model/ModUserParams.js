@@ -22,12 +22,11 @@ class ModUserParams {
   /**
      * Constructs a new <code>ModUserParams</code>.
      * @alias module:kleister/model/ModUserParams
-     * @param mod {String}
      * @param user {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/ModUserParams.PermEnum}
      */
-  constructor (mod, user, perm) {
-    ModUserParams.initialize(this, mod, user, perm)
+  constructor (user, perm) {
+    ModUserParams.initialize(this, user, perm)
   }
 
   /**
@@ -35,8 +34,7 @@ class ModUserParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, mod, user, perm) {
-    obj['mod'] = mod
+  static initialize (obj, user, perm) {
     obj['user'] = user
     obj['perm'] = perm
   }
@@ -52,9 +50,6 @@ class ModUserParams {
     if (data) {
       obj = obj || new ModUserParams()
 
-      if (data.hasOwnProperty('mod')) {
-        obj['mod'] = ApiClient.convertToType(data['mod'], 'String')
-      }
       if (data.hasOwnProperty('user')) {
         obj['user'] = ApiClient.convertToType(data['user'], 'String')
       }
@@ -67,18 +62,39 @@ class ModUserParams {
 }
 
 /**
- * @member {String} mod
- */
-ModUserParams.prototype['mod'] = undefined
-
-/**
  * @member {String} user
  */
 ModUserParams.prototype['user'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/ModUserParams.PermEnum} perm
  */
 ModUserParams.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ModUserParams['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default ModUserParams

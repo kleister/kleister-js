@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.TeamPackParams);
     })
 
-    it('should have the property team (base name: "team")', function () {
-      // uncomment below and update the code to test the property team
-      // var instane = new Kleister.TeamPackParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property pack (base name: "pack")', function () {
       // uncomment below and update the code to test the property pack
       // var instane = new Kleister.TeamPackParams();

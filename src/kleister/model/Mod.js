@@ -99,7 +99,7 @@ Mod.prototype['slug'] = undefined
 Mod.prototype['name'] = undefined
 
 /**
- * @member {String} side
+ * @member {module:kleister/model/Mod.SideEnum} side
  */
 Mod.prototype['side'] = undefined
 
@@ -132,5 +132,31 @@ Mod.prototype['created_at'] = undefined
  * @member {Date} updated_at
  */
 Mod.prototype['updated_at'] = undefined
+
+/**
+ * Allowed values for the <code>side</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Mod['SideEnum'] = {
+
+  /**
+     * value: "both"
+     * @const
+     */
+  'both': 'both',
+
+  /**
+     * value: "server"
+     * @const
+     */
+  'server': 'server',
+
+  /**
+     * value: "client"
+     * @const
+     */
+  'client': 'client'
+}
 
 export default Mod

@@ -114,14 +114,14 @@ export default class ProfileApi {
 
   /**
      * Retrieve an unlimited auth token
-     * @param {module:kleister/model/Profile} params The profile data to update
+     * @param {module:kleister/model/Profile} profile The profile data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Profile} and HTTP response
      */
-  updateProfileWithHttpInfo (params) {
-    let postBody = params
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updateProfile")
+  updateProfileWithHttpInfo (profile) {
+    let postBody = profile
+    // verify the required parameter 'profile' is set
+    if (profile === undefined || profile === null) {
+      throw new Error("Missing the required parameter 'profile' when calling updateProfile")
     }
 
     let pathParams = {
@@ -146,11 +146,11 @@ export default class ProfileApi {
 
   /**
      * Retrieve an unlimited auth token
-     * @param {module:kleister/model/Profile} params The profile data to update
+     * @param {module:kleister/model/Profile} profile The profile data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Profile}
      */
-  updateProfile (params) {
-    return this.updateProfileWithHttpInfo(params)
+  updateProfile (profile) {
+    return this.updateProfileWithHttpInfo(profile)
       .then(function (responseAndData) {
         return responseAndData.data
       })

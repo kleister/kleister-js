@@ -22,12 +22,11 @@ class UserModParams {
   /**
      * Constructs a new <code>UserModParams</code>.
      * @alias module:kleister/model/UserModParams
-     * @param user {String}
      * @param mod {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/UserModParams.PermEnum}
      */
-  constructor (user, mod, perm) {
-    UserModParams.initialize(this, user, mod, perm)
+  constructor (mod, perm) {
+    UserModParams.initialize(this, mod, perm)
   }
 
   /**
@@ -35,8 +34,7 @@ class UserModParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, user, mod, perm) {
-    obj['user'] = user
+  static initialize (obj, mod, perm) {
     obj['mod'] = mod
     obj['perm'] = perm
   }
@@ -52,9 +50,6 @@ class UserModParams {
     if (data) {
       obj = obj || new UserModParams()
 
-      if (data.hasOwnProperty('user')) {
-        obj['user'] = ApiClient.convertToType(data['user'], 'String')
-      }
       if (data.hasOwnProperty('mod')) {
         obj['mod'] = ApiClient.convertToType(data['mod'], 'String')
       }
@@ -67,18 +62,39 @@ class UserModParams {
 }
 
 /**
- * @member {String} user
- */
-UserModParams.prototype['user'] = undefined
-
-/**
  * @member {String} mod
  */
 UserModParams.prototype['mod'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/UserModParams.PermEnum} perm
  */
 UserModParams.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+UserModParams['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default UserModParams

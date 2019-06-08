@@ -24,7 +24,7 @@ class TeamPack {
      * @alias module:kleister/model/TeamPack
      * @param teamId {String}
      * @param packId {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/TeamPack.PermEnum}
      */
   constructor (teamId, packId, perm) {
     TeamPack.initialize(this, teamId, packId, perm)
@@ -77,8 +77,34 @@ TeamPack.prototype['team_id'] = undefined
 TeamPack.prototype['pack_id'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/TeamPack.PermEnum} perm
  */
 TeamPack.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+TeamPack['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default TeamPack

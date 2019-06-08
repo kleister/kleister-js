@@ -22,13 +22,11 @@ class BuildVersionParams {
   /**
      * Constructs a new <code>BuildVersionParams</code>.
      * @alias module:kleister/model/BuildVersionParams
-     * @param pack {String}
-     * @param build {String}
      * @param mod {String}
      * @param version {String}
      */
-  constructor (pack, build, mod, version) {
-    BuildVersionParams.initialize(this, pack, build, mod, version)
+  constructor (mod, version) {
+    BuildVersionParams.initialize(this, mod, version)
   }
 
   /**
@@ -36,9 +34,7 @@ class BuildVersionParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, pack, build, mod, version) {
-    obj['pack'] = pack
-    obj['build'] = build
+  static initialize (obj, mod, version) {
     obj['mod'] = mod
     obj['version'] = version
   }
@@ -54,12 +50,6 @@ class BuildVersionParams {
     if (data) {
       obj = obj || new BuildVersionParams()
 
-      if (data.hasOwnProperty('pack')) {
-        obj['pack'] = ApiClient.convertToType(data['pack'], 'String')
-      }
-      if (data.hasOwnProperty('build')) {
-        obj['build'] = ApiClient.convertToType(data['build'], 'String')
-      }
       if (data.hasOwnProperty('mod')) {
         obj['mod'] = ApiClient.convertToType(data['mod'], 'String')
       }
@@ -70,16 +60,6 @@ class BuildVersionParams {
     return obj
   }
 }
-
-/**
- * @member {String} pack
- */
-BuildVersionParams.prototype['pack'] = undefined
-
-/**
- * @member {String} build
- */
-BuildVersionParams.prototype['build'] = undefined
 
 /**
  * @member {String} mod

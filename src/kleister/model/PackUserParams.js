@@ -22,12 +22,11 @@ class PackUserParams {
   /**
      * Constructs a new <code>PackUserParams</code>.
      * @alias module:kleister/model/PackUserParams
-     * @param pack {String}
      * @param user {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/PackUserParams.PermEnum}
      */
-  constructor (pack, user, perm) {
-    PackUserParams.initialize(this, pack, user, perm)
+  constructor (user, perm) {
+    PackUserParams.initialize(this, user, perm)
   }
 
   /**
@@ -35,8 +34,7 @@ class PackUserParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, pack, user, perm) {
-    obj['pack'] = pack
+  static initialize (obj, user, perm) {
     obj['user'] = user
     obj['perm'] = perm
   }
@@ -52,9 +50,6 @@ class PackUserParams {
     if (data) {
       obj = obj || new PackUserParams()
 
-      if (data.hasOwnProperty('pack')) {
-        obj['pack'] = ApiClient.convertToType(data['pack'], 'String')
-      }
       if (data.hasOwnProperty('user')) {
         obj['user'] = ApiClient.convertToType(data['user'], 'String')
       }
@@ -67,18 +62,39 @@ class PackUserParams {
 }
 
 /**
- * @member {String} pack
- */
-PackUserParams.prototype['pack'] = undefined
-
-/**
  * @member {String} user
  */
 PackUserParams.prototype['user'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/PackUserParams.PermEnum} perm
  */
 PackUserParams.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PackUserParams['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default PackUserParams

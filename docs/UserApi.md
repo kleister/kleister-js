@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## appendUserToMod
 
-> GeneralError appendUserToMod(userId, params)
+> GeneralError appendUserToMod(userId, userMod)
 
 Assign a mod to user
 
@@ -37,8 +37,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserModParams(); // UserModParams | The user mod data to assign
-apiInstance.appendUserToMod(userId, params).then((data) => {
+let userMod = new Kleister.UserModParams(); // UserModParams | The user mod data to assign
+apiInstance.appendUserToMod(userId, userMod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -52,7 +52,7 @@ apiInstance.appendUserToMod(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserModParams**](UserModParams.md)| The user mod data to assign | 
+ **userMod** | [**UserModParams**](UserModParams.md)| The user mod data to assign | 
 
 ### Return type
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## appendUserToPack
 
-> GeneralError appendUserToPack(userId, params)
+> GeneralError appendUserToPack(userId, userPack)
 
 Assign a pack to user
 
@@ -81,8 +81,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserPackParams(); // UserPackParams | The user pack data to assign
-apiInstance.appendUserToPack(userId, params).then((data) => {
+let userPack = new Kleister.UserPackParams(); // UserPackParams | The user pack data to assign
+apiInstance.appendUserToPack(userId, userPack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -96,7 +96,7 @@ apiInstance.appendUserToPack(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserPackParams**](UserPackParams.md)| The user pack data to assign | 
+ **userPack** | [**UserPackParams**](UserPackParams.md)| The user pack data to assign | 
 
 ### Return type
 
@@ -114,7 +114,7 @@ No authorization required
 
 ## appendUserToTeam
 
-> GeneralError appendUserToTeam(userId, params)
+> GeneralError appendUserToTeam(userId, userTeam)
 
 Assign a team to user
 
@@ -125,8 +125,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserTeamParams(); // UserTeamParams | The user team data to assign
-apiInstance.appendUserToTeam(userId, params).then((data) => {
+let userTeam = new Kleister.UserTeamParams(); // UserTeamParams | The user team data to assign
+apiInstance.appendUserToTeam(userId, userTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -140,7 +140,7 @@ apiInstance.appendUserToTeam(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserTeamParams**](UserTeamParams.md)| The user team data to assign | 
+ **userTeam** | [**UserTeamParams**](UserTeamParams.md)| The user team data to assign | 
 
 ### Return type
 
@@ -158,7 +158,7 @@ No authorization required
 
 ## createUser
 
-> User createUser(params)
+> User createUser(user)
 
 Create a new user
 
@@ -168,8 +168,8 @@ Create a new user
 import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
-let params = new Kleister.User(); // User | The user data to create
-apiInstance.createUser(params).then((data) => {
+let user = new Kleister.User(); // User | The user data to create
+apiInstance.createUser(user).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -182,7 +182,7 @@ apiInstance.createUser(params).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**User**](User.md)| The user data to create | 
+ **user** | [**User**](User.md)| The user data to create | 
 
 ### Return type
 
@@ -242,7 +242,7 @@ No authorization required
 
 ## deleteUserFromMod
 
-> GeneralError deleteUserFromMod(userId, params)
+> GeneralError deleteUserFromMod(userId, userMod)
 
 Remove a mod from user
 
@@ -253,8 +253,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserModParams(); // UserModParams | The user mod data to delete
-apiInstance.deleteUserFromMod(userId, params).then((data) => {
+let userMod = new Kleister.UserModParams(); // UserModParams | The user mod data to delete
+apiInstance.deleteUserFromMod(userId, userMod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -268,7 +268,7 @@ apiInstance.deleteUserFromMod(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserModParams**](UserModParams.md)| The user mod data to delete | 
+ **userMod** | [**UserModParams**](UserModParams.md)| The user mod data to delete | 
 
 ### Return type
 
@@ -286,7 +286,7 @@ No authorization required
 
 ## deleteUserFromPack
 
-> GeneralError deleteUserFromPack(userId, params)
+> GeneralError deleteUserFromPack(userId, userPack)
 
 Remove a pack from user
 
@@ -297,8 +297,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserPackParams(); // UserPackParams | The user pack data to delete
-apiInstance.deleteUserFromPack(userId, params).then((data) => {
+let userPack = new Kleister.UserPackParams(); // UserPackParams | The user pack data to delete
+apiInstance.deleteUserFromPack(userId, userPack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -312,7 +312,7 @@ apiInstance.deleteUserFromPack(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserPackParams**](UserPackParams.md)| The user pack data to delete | 
+ **userPack** | [**UserPackParams**](UserPackParams.md)| The user pack data to delete | 
 
 ### Return type
 
@@ -330,7 +330,7 @@ No authorization required
 
 ## deleteUserFromTeam
 
-> GeneralError deleteUserFromTeam(userId, params)
+> GeneralError deleteUserFromTeam(userId, userTeam)
 
 Remove a team from user
 
@@ -341,8 +341,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserTeamParams(); // UserTeamParams | The user team data to delete
-apiInstance.deleteUserFromTeam(userId, params).then((data) => {
+let userTeam = new Kleister.UserTeamParams(); // UserTeamParams | The user team data to delete
+apiInstance.deleteUserFromTeam(userId, userTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -356,7 +356,7 @@ apiInstance.deleteUserFromTeam(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserTeamParams**](UserTeamParams.md)| The user team data to delete | 
+ **userTeam** | [**UserTeamParams**](UserTeamParams.md)| The user team data to delete | 
 
 ### Return type
 
@@ -538,7 +538,7 @@ No authorization required
 
 ## permitUserMod
 
-> GeneralError permitUserMod(userId, params)
+> GeneralError permitUserMod(userId, userMod)
 
 Update mod perms for user
 
@@ -549,8 +549,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserModParams(); // UserModParams | The user mod data to update
-apiInstance.permitUserMod(userId, params).then((data) => {
+let userMod = new Kleister.UserModParams(); // UserModParams | The user mod data to update
+apiInstance.permitUserMod(userId, userMod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -564,7 +564,7 @@ apiInstance.permitUserMod(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserModParams**](UserModParams.md)| The user mod data to update | 
+ **userMod** | [**UserModParams**](UserModParams.md)| The user mod data to update | 
 
 ### Return type
 
@@ -582,7 +582,7 @@ No authorization required
 
 ## permitUserPack
 
-> GeneralError permitUserPack(userId, params)
+> GeneralError permitUserPack(userId, userPack)
 
 Update pack perms for user
 
@@ -593,8 +593,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserPackParams(); // UserPackParams | The user pack data to update
-apiInstance.permitUserPack(userId, params).then((data) => {
+let userPack = new Kleister.UserPackParams(); // UserPackParams | The user pack data to update
+apiInstance.permitUserPack(userId, userPack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -608,7 +608,7 @@ apiInstance.permitUserPack(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserPackParams**](UserPackParams.md)| The user pack data to update | 
+ **userPack** | [**UserPackParams**](UserPackParams.md)| The user pack data to update | 
 
 ### Return type
 
@@ -626,7 +626,7 @@ No authorization required
 
 ## permitUserTeam
 
-> GeneralError permitUserTeam(userId, params)
+> GeneralError permitUserTeam(userId, userTeam)
 
 Update team perms for user
 
@@ -637,8 +637,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.UserTeamParams(); // UserTeamParams | The user team data to update
-apiInstance.permitUserTeam(userId, params).then((data) => {
+let userTeam = new Kleister.UserTeamParams(); // UserTeamParams | The user team data to update
+apiInstance.permitUserTeam(userId, userTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -652,7 +652,7 @@ apiInstance.permitUserTeam(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**UserTeamParams**](UserTeamParams.md)| The user team data to update | 
+ **userTeam** | [**UserTeamParams**](UserTeamParams.md)| The user team data to update | 
 
 ### Return type
 
@@ -712,7 +712,7 @@ No authorization required
 
 ## updateUser
 
-> User updateUser(userId, params)
+> User updateUser(userId, user)
 
 Update a specific user
 
@@ -723,8 +723,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.UserApi();
 let userId = "userId_example"; // String | A user UUID or slug
-let params = new Kleister.User(); // User | The user data to update
-apiInstance.updateUser(userId, params).then((data) => {
+let user = new Kleister.User(); // User | The user data to update
+apiInstance.updateUser(userId, user).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -738,7 +738,7 @@ apiInstance.updateUser(userId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| A user UUID or slug | 
- **params** | [**User**](User.md)| The user data to update | 
+ **user** | [**User**](User.md)| The user data to update | 
 
 ### Return type
 

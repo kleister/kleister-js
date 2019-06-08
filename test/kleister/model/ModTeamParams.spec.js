@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.ModTeamParams);
     })
 
-    it('should have the property mod (base name: "mod")', function () {
-      // uncomment below and update the code to test the property mod
-      // var instane = new Kleister.ModTeamParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property team (base name: "team")', function () {
       // uncomment below and update the code to test the property team
       // var instane = new Kleister.ModTeamParams();

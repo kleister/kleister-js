@@ -88,7 +88,7 @@ No authorization required
 
 ## updateProfile
 
-> Profile updateProfile(params)
+> Profile updateProfile(profile)
 
 Retrieve an unlimited auth token
 
@@ -98,8 +98,8 @@ Retrieve an unlimited auth token
 import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ProfileApi();
-let params = new Kleister.Profile(); // Profile | The profile data to update
-apiInstance.updateProfile(params).then((data) => {
+let profile = new Kleister.Profile(); // Profile | The profile data to update
+apiInstance.updateProfile(profile).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -112,7 +112,7 @@ apiInstance.updateProfile(params).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**Profile**](Profile.md)| The profile data to update | 
+ **profile** | [**Profile**](Profile.md)| The profile data to update | 
 
 ### Return type
 

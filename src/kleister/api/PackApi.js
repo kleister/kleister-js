@@ -46,11 +46,11 @@ export default class PackApi {
      * Assign a version to a build
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @param {module:kleister/model/BuildVersionParams} params The version data to append to build
+     * @param {module:kleister/model/BuildVersionParams} buildVersion The version data to append to build
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendBuildToVersionWithHttpInfo (packId, buildId, params) {
-    let postBody = params
+  appendBuildToVersionWithHttpInfo (packId, buildId, buildVersion) {
+    let postBody = buildVersion
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling appendBuildToVersion")
@@ -59,9 +59,9 @@ export default class PackApi {
     if (buildId === undefined || buildId === null) {
       throw new Error("Missing the required parameter 'buildId' when calling appendBuildToVersion")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendBuildToVersion")
+    // verify the required parameter 'buildVersion' is set
+    if (buildVersion === undefined || buildVersion === null) {
+      throw new Error("Missing the required parameter 'buildVersion' when calling appendBuildToVersion")
     }
 
     let pathParams = {
@@ -90,11 +90,11 @@ export default class PackApi {
      * Assign a version to a build
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @param {module:kleister/model/BuildVersionParams} params The version data to append to build
+     * @param {module:kleister/model/BuildVersionParams} buildVersion The version data to append to build
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendBuildToVersion (packId, buildId, params) {
-    return this.appendBuildToVersionWithHttpInfo(packId, buildId, params)
+  appendBuildToVersion (packId, buildId, buildVersion) {
+    return this.appendBuildToVersionWithHttpInfo(packId, buildId, buildVersion)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -103,18 +103,18 @@ export default class PackApi {
   /**
      * Assign a team to pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackTeamParams} params The pack team data to assign
+     * @param {module:kleister/model/PackTeamParams} packTeam The pack team data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendPackToTeamWithHttpInfo (packId, params) {
-    let postBody = params
+  appendPackToTeamWithHttpInfo (packId, packTeam) {
+    let postBody = packTeam
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling appendPackToTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendPackToTeam")
+    // verify the required parameter 'packTeam' is set
+    if (packTeam === undefined || packTeam === null) {
+      throw new Error("Missing the required parameter 'packTeam' when calling appendPackToTeam")
     }
 
     let pathParams = {
@@ -141,11 +141,11 @@ export default class PackApi {
   /**
      * Assign a team to pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackTeamParams} params The pack team data to assign
+     * @param {module:kleister/model/PackTeamParams} packTeam The pack team data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendPackToTeam (packId, params) {
-    return this.appendPackToTeamWithHttpInfo(packId, params)
+  appendPackToTeam (packId, packTeam) {
+    return this.appendPackToTeamWithHttpInfo(packId, packTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -154,18 +154,18 @@ export default class PackApi {
   /**
      * Assign a user to pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackUserParams} params The pack user data to assign
+     * @param {module:kleister/model/PackUserParams} packUser The pack user data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendPackToUserWithHttpInfo (packId, params) {
-    let postBody = params
+  appendPackToUserWithHttpInfo (packId, packUser) {
+    let postBody = packUser
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling appendPackToUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendPackToUser")
+    // verify the required parameter 'packUser' is set
+    if (packUser === undefined || packUser === null) {
+      throw new Error("Missing the required parameter 'packUser' when calling appendPackToUser")
     }
 
     let pathParams = {
@@ -192,11 +192,11 @@ export default class PackApi {
   /**
      * Assign a user to pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackUserParams} params The pack user data to assign
+     * @param {module:kleister/model/PackUserParams} packUser The pack user data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendPackToUser (packId, params) {
-    return this.appendPackToUserWithHttpInfo(packId, params)
+  appendPackToUser (packId, packUser) {
+    return this.appendPackToUserWithHttpInfo(packId, packUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -205,18 +205,18 @@ export default class PackApi {
   /**
      * Create a new build for a pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/Build} params The build data to create
+     * @param {module:kleister/model/Build} build The build data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Build} and HTTP response
      */
-  createBuildWithHttpInfo (packId, params) {
-    let postBody = params
+  createBuildWithHttpInfo (packId, build) {
+    let postBody = build
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling createBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling createBuild")
+    // verify the required parameter 'build' is set
+    if (build === undefined || build === null) {
+      throw new Error("Missing the required parameter 'build' when calling createBuild")
     }
 
     let pathParams = {
@@ -243,11 +243,11 @@ export default class PackApi {
   /**
      * Create a new build for a pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/Build} params The build data to create
+     * @param {module:kleister/model/Build} build The build data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Build}
      */
-  createBuild (packId, params) {
-    return this.createBuildWithHttpInfo(packId, params)
+  createBuild (packId, build) {
+    return this.createBuildWithHttpInfo(packId, build)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -255,14 +255,14 @@ export default class PackApi {
 
   /**
      * Create a new pack
-     * @param {module:kleister/model/Pack} params The pack data to create
+     * @param {module:kleister/model/Pack} pack The pack data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Pack} and HTTP response
      */
-  createPackWithHttpInfo (params) {
-    let postBody = params
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling createPack")
+  createPackWithHttpInfo (pack) {
+    let postBody = pack
+    // verify the required parameter 'pack' is set
+    if (pack === undefined || pack === null) {
+      throw new Error("Missing the required parameter 'pack' when calling createPack")
     }
 
     let pathParams = {
@@ -287,11 +287,11 @@ export default class PackApi {
 
   /**
      * Create a new pack
-     * @param {module:kleister/model/Pack} params The pack data to create
+     * @param {module:kleister/model/Pack} pack The pack data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Pack}
      */
-  createPack (params) {
-    return this.createPackWithHttpInfo(params)
+  createPack (pack) {
+    return this.createPackWithHttpInfo(pack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -353,11 +353,11 @@ export default class PackApi {
      * Unlink a version from a build
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @param {module:kleister/model/BuildVersionParams} params The version data to unlink from build
+     * @param {module:kleister/model/BuildVersionParams} buildVersion The version data to unlink from build
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteBuildFromVersionWithHttpInfo (packId, buildId, params) {
-    let postBody = params
+  deleteBuildFromVersionWithHttpInfo (packId, buildId, buildVersion) {
+    let postBody = buildVersion
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling deleteBuildFromVersion")
@@ -366,9 +366,9 @@ export default class PackApi {
     if (buildId === undefined || buildId === null) {
       throw new Error("Missing the required parameter 'buildId' when calling deleteBuildFromVersion")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteBuildFromVersion")
+    // verify the required parameter 'buildVersion' is set
+    if (buildVersion === undefined || buildVersion === null) {
+      throw new Error("Missing the required parameter 'buildVersion' when calling deleteBuildFromVersion")
     }
 
     let pathParams = {
@@ -397,11 +397,11 @@ export default class PackApi {
      * Unlink a version from a build
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @param {module:kleister/model/BuildVersionParams} params The version data to unlink from build
+     * @param {module:kleister/model/BuildVersionParams} buildVersion The version data to unlink from build
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteBuildFromVersion (packId, buildId, params) {
-    return this.deleteBuildFromVersionWithHttpInfo(packId, buildId, params)
+  deleteBuildFromVersion (packId, buildId, buildVersion) {
+    return this.deleteBuildFromVersionWithHttpInfo(packId, buildId, buildVersion)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -455,18 +455,18 @@ export default class PackApi {
   /**
      * Remove a team from pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackTeamParams} params The pack team data to delete
+     * @param {module:kleister/model/PackTeamParams} packTeam The pack team data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deletePackFromTeamWithHttpInfo (packId, params) {
-    let postBody = params
+  deletePackFromTeamWithHttpInfo (packId, packTeam) {
+    let postBody = packTeam
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling deletePackFromTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deletePackFromTeam")
+    // verify the required parameter 'packTeam' is set
+    if (packTeam === undefined || packTeam === null) {
+      throw new Error("Missing the required parameter 'packTeam' when calling deletePackFromTeam")
     }
 
     let pathParams = {
@@ -493,11 +493,11 @@ export default class PackApi {
   /**
      * Remove a team from pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackTeamParams} params The pack team data to delete
+     * @param {module:kleister/model/PackTeamParams} packTeam The pack team data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deletePackFromTeam (packId, params) {
-    return this.deletePackFromTeamWithHttpInfo(packId, params)
+  deletePackFromTeam (packId, packTeam) {
+    return this.deletePackFromTeamWithHttpInfo(packId, packTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -506,18 +506,18 @@ export default class PackApi {
   /**
      * Remove a user from pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackUserParams} params The pack user data to delete
+     * @param {module:kleister/model/PackUserParams} packUser The pack user data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deletePackFromUserWithHttpInfo (packId, params) {
-    let postBody = params
+  deletePackFromUserWithHttpInfo (packId, packUser) {
+    let postBody = packUser
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling deletePackFromUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deletePackFromUser")
+    // verify the required parameter 'packUser' is set
+    if (packUser === undefined || packUser === null) {
+      throw new Error("Missing the required parameter 'packUser' when calling deletePackFromUser")
     }
 
     let pathParams = {
@@ -544,11 +544,11 @@ export default class PackApi {
   /**
      * Remove a user from pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackUserParams} params The pack user data to delete
+     * @param {module:kleister/model/PackUserParams} packUser The pack user data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deletePackFromUser (packId, params) {
-    return this.deletePackFromUserWithHttpInfo(packId, params)
+  deletePackFromUser (packId, packUser) {
+    return this.deletePackFromUserWithHttpInfo(packId, packUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -782,18 +782,18 @@ export default class PackApi {
   /**
      * Update team perms for pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackTeamParams} params The pack team data to update
+     * @param {module:kleister/model/PackTeamParams} packTeam The pack team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitPackTeamWithHttpInfo (packId, params) {
-    let postBody = params
+  permitPackTeamWithHttpInfo (packId, packTeam) {
+    let postBody = packTeam
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling permitPackTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitPackTeam")
+    // verify the required parameter 'packTeam' is set
+    if (packTeam === undefined || packTeam === null) {
+      throw new Error("Missing the required parameter 'packTeam' when calling permitPackTeam")
     }
 
     let pathParams = {
@@ -820,11 +820,11 @@ export default class PackApi {
   /**
      * Update team perms for pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackTeamParams} params The pack team data to update
+     * @param {module:kleister/model/PackTeamParams} packTeam The pack team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitPackTeam (packId, params) {
-    return this.permitPackTeamWithHttpInfo(packId, params)
+  permitPackTeam (packId, packTeam) {
+    return this.permitPackTeamWithHttpInfo(packId, packTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -833,18 +833,18 @@ export default class PackApi {
   /**
      * Update user perms for pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackUserParams} params The pack user data to update
+     * @param {module:kleister/model/PackUserParams} packUser The pack user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitPackUserWithHttpInfo (packId, params) {
-    let postBody = params
+  permitPackUserWithHttpInfo (packId, packUser) {
+    let postBody = packUser
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling permitPackUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitPackUser")
+    // verify the required parameter 'packUser' is set
+    if (packUser === undefined || packUser === null) {
+      throw new Error("Missing the required parameter 'packUser' when calling permitPackUser")
     }
 
     let pathParams = {
@@ -871,11 +871,11 @@ export default class PackApi {
   /**
      * Update user perms for pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/PackUserParams} params The pack user data to update
+     * @param {module:kleister/model/PackUserParams} packUser The pack user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitPackUser (packId, params) {
-    return this.permitPackUserWithHttpInfo(packId, params)
+  permitPackUser (packId, packUser) {
+    return this.permitPackUserWithHttpInfo(packId, packUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -982,11 +982,11 @@ export default class PackApi {
      * Update a specific build for a pack
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @param {module:kleister/model/Build} params The build data to update
+     * @param {module:kleister/model/Build} build The build data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Build} and HTTP response
      */
-  updateBuildWithHttpInfo (packId, buildId, params) {
-    let postBody = params
+  updateBuildWithHttpInfo (packId, buildId, build) {
+    let postBody = build
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling updateBuild")
@@ -995,9 +995,9 @@ export default class PackApi {
     if (buildId === undefined || buildId === null) {
       throw new Error("Missing the required parameter 'buildId' when calling updateBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updateBuild")
+    // verify the required parameter 'build' is set
+    if (build === undefined || build === null) {
+      throw new Error("Missing the required parameter 'build' when calling updateBuild")
     }
 
     let pathParams = {
@@ -1026,11 +1026,11 @@ export default class PackApi {
      * Update a specific build for a pack
      * @param {String} packId A pack UUID or slug
      * @param {String} buildId A build UUID or slug
-     * @param {module:kleister/model/Build} params The build data to update
+     * @param {module:kleister/model/Build} build The build data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Build}
      */
-  updateBuild (packId, buildId, params) {
-    return this.updateBuildWithHttpInfo(packId, buildId, params)
+  updateBuild (packId, buildId, build) {
+    return this.updateBuildWithHttpInfo(packId, buildId, build)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -1039,18 +1039,18 @@ export default class PackApi {
   /**
      * Update a specific pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/Pack} params The pack data to update
+     * @param {module:kleister/model/Pack} pack The pack data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Pack} and HTTP response
      */
-  updatePackWithHttpInfo (packId, params) {
-    let postBody = params
+  updatePackWithHttpInfo (packId, pack) {
+    let postBody = pack
     // verify the required parameter 'packId' is set
     if (packId === undefined || packId === null) {
       throw new Error("Missing the required parameter 'packId' when calling updatePack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updatePack")
+    // verify the required parameter 'pack' is set
+    if (pack === undefined || pack === null) {
+      throw new Error("Missing the required parameter 'pack' when calling updatePack")
     }
 
     let pathParams = {
@@ -1077,11 +1077,11 @@ export default class PackApi {
   /**
      * Update a specific pack
      * @param {String} packId A pack UUID or slug
-     * @param {module:kleister/model/Pack} params The pack data to update
+     * @param {module:kleister/model/Pack} pack The pack data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Pack}
      */
-  updatePack (packId, params) {
-    return this.updatePackWithHttpInfo(packId, params)
+  updatePack (packId, pack) {
+    return this.updatePackWithHttpInfo(packId, pack)
       .then(function (responseAndData) {
         return responseAndData.data
       })

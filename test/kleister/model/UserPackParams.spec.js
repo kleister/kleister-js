@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.UserPackParams);
     })
 
-    it('should have the property user (base name: "user")', function () {
-      // uncomment below and update the code to test the property user
-      // var instane = new Kleister.UserPackParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property pack (base name: "pack")', function () {
       // uncomment below and update the code to test the property pack
       // var instane = new Kleister.UserPackParams();

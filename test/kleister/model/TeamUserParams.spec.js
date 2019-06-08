@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.TeamUserParams);
     })
 
-    it('should have the property team (base name: "team")', function () {
-      // uncomment below and update the code to test the property team
-      // var instane = new Kleister.TeamUserParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property user (base name: "user")', function () {
       // uncomment below and update the code to test the property user
       // var instane = new Kleister.TeamUserParams();

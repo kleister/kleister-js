@@ -22,12 +22,11 @@ class PackTeamParams {
   /**
      * Constructs a new <code>PackTeamParams</code>.
      * @alias module:kleister/model/PackTeamParams
-     * @param pack {String}
      * @param team {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/PackTeamParams.PermEnum}
      */
-  constructor (pack, team, perm) {
-    PackTeamParams.initialize(this, pack, team, perm)
+  constructor (team, perm) {
+    PackTeamParams.initialize(this, team, perm)
   }
 
   /**
@@ -35,8 +34,7 @@ class PackTeamParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, pack, team, perm) {
-    obj['pack'] = pack
+  static initialize (obj, team, perm) {
     obj['team'] = team
     obj['perm'] = perm
   }
@@ -52,9 +50,6 @@ class PackTeamParams {
     if (data) {
       obj = obj || new PackTeamParams()
 
-      if (data.hasOwnProperty('pack')) {
-        obj['pack'] = ApiClient.convertToType(data['pack'], 'String')
-      }
       if (data.hasOwnProperty('team')) {
         obj['team'] = ApiClient.convertToType(data['team'], 'String')
       }
@@ -67,18 +62,39 @@ class PackTeamParams {
 }
 
 /**
- * @member {String} pack
- */
-PackTeamParams.prototype['pack'] = undefined
-
-/**
  * @member {String} team
  */
 PackTeamParams.prototype['team'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/PackTeamParams.PermEnum} perm
  */
 PackTeamParams.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+PackTeamParams['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default PackTeamParams

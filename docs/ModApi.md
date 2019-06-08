@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 ## appendModToTeam
 
-> GeneralError appendModToTeam(modId, params)
+> GeneralError appendModToTeam(modId, modTeam)
 
 Assign a team to mod
 
@@ -41,8 +41,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.ModTeamParams(); // ModTeamParams | The mod team data to assign
-apiInstance.appendModToTeam(modId, params).then((data) => {
+let modTeam = new Kleister.ModTeamParams(); // ModTeamParams | The mod team data to assign
+apiInstance.appendModToTeam(modId, modTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -56,7 +56,7 @@ apiInstance.appendModToTeam(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**ModTeamParams**](ModTeamParams.md)| The mod team data to assign | 
+ **modTeam** | [**ModTeamParams**](ModTeamParams.md)| The mod team data to assign | 
 
 ### Return type
 
@@ -74,7 +74,7 @@ No authorization required
 
 ## appendModToUser
 
-> GeneralError appendModToUser(modId, params)
+> GeneralError appendModToUser(modId, modUser)
 
 Assign a user to mod
 
@@ -85,8 +85,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.ModUserParams(); // ModUserParams | The mod user data to assign
-apiInstance.appendModToUser(modId, params).then((data) => {
+let modUser = new Kleister.ModUserParams(); // ModUserParams | The mod user data to assign
+apiInstance.appendModToUser(modId, modUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -100,7 +100,7 @@ apiInstance.appendModToUser(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**ModUserParams**](ModUserParams.md)| The mod user data to assign | 
+ **modUser** | [**ModUserParams**](ModUserParams.md)| The mod user data to assign | 
 
 ### Return type
 
@@ -118,7 +118,7 @@ No authorization required
 
 ## appendVersionToBuild
 
-> GeneralError appendVersionToBuild(modId, versionId, params)
+> GeneralError appendVersionToBuild(modId, versionId, versionBuild)
 
 Assign a build to a version
 
@@ -130,8 +130,8 @@ import Kleister from 'kleister';
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
 let versionId = "versionId_example"; // String | A version UUID or slug
-let params = new Kleister.VersionBuildParams(); // VersionBuildParams | The build data to append to version
-apiInstance.appendVersionToBuild(modId, versionId, params).then((data) => {
+let versionBuild = new Kleister.VersionBuildParams(); // VersionBuildParams | The build data to append to version
+apiInstance.appendVersionToBuild(modId, versionId, versionBuild).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
  **versionId** | **String**| A version UUID or slug | 
- **params** | [**VersionBuildParams**](VersionBuildParams.md)| The build data to append to version | 
+ **versionBuild** | [**VersionBuildParams**](VersionBuildParams.md)| The build data to append to version | 
 
 ### Return type
 
@@ -164,7 +164,7 @@ No authorization required
 
 ## createMod
 
-> Mod createMod(params)
+> Mod createMod(mod)
 
 Create a new mod
 
@@ -174,8 +174,8 @@ Create a new mod
 import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
-let params = new Kleister.Mod(); // Mod | The mod data to create
-apiInstance.createMod(params).then((data) => {
+let mod = new Kleister.Mod(); // Mod | The mod data to create
+apiInstance.createMod(mod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -188,7 +188,7 @@ apiInstance.createMod(params).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**Mod**](Mod.md)| The mod data to create | 
+ **mod** | [**Mod**](Mod.md)| The mod data to create | 
 
 ### Return type
 
@@ -206,7 +206,7 @@ No authorization required
 
 ## createVersion
 
-> Version createVersion(modId, params)
+> Version createVersion(modId, version)
 
 Create a new version for a mod
 
@@ -217,8 +217,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.Version(); // Version | The version data to create
-apiInstance.createVersion(modId, params).then((data) => {
+let version = new Kleister.Version(); // Version | The version data to create
+apiInstance.createVersion(modId, version).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -232,7 +232,7 @@ apiInstance.createVersion(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**Version**](Version.md)| The version data to create | 
+ **version** | [**Version**](Version.md)| The version data to create | 
 
 ### Return type
 
@@ -292,7 +292,7 @@ No authorization required
 
 ## deleteModFromTeam
 
-> GeneralError deleteModFromTeam(modId, params)
+> GeneralError deleteModFromTeam(modId, modTeam)
 
 Remove a team from mod
 
@@ -303,8 +303,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.ModTeamParams(); // ModTeamParams | The mod team data to delete
-apiInstance.deleteModFromTeam(modId, params).then((data) => {
+let modTeam = new Kleister.ModTeamParams(); // ModTeamParams | The mod team data to delete
+apiInstance.deleteModFromTeam(modId, modTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -318,7 +318,7 @@ apiInstance.deleteModFromTeam(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**ModTeamParams**](ModTeamParams.md)| The mod team data to delete | 
+ **modTeam** | [**ModTeamParams**](ModTeamParams.md)| The mod team data to delete | 
 
 ### Return type
 
@@ -336,7 +336,7 @@ No authorization required
 
 ## deleteModFromUser
 
-> GeneralError deleteModFromUser(modId, params)
+> GeneralError deleteModFromUser(modId, modUser)
 
 Remove a user from mod
 
@@ -347,8 +347,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.ModUserParams(); // ModUserParams | The mod user data to delete
-apiInstance.deleteModFromUser(modId, params).then((data) => {
+let modUser = new Kleister.ModUserParams(); // ModUserParams | The mod user data to delete
+apiInstance.deleteModFromUser(modId, modUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -362,7 +362,7 @@ apiInstance.deleteModFromUser(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**ModUserParams**](ModUserParams.md)| The mod user data to delete | 
+ **modUser** | [**ModUserParams**](ModUserParams.md)| The mod user data to delete | 
 
 ### Return type
 
@@ -424,7 +424,7 @@ No authorization required
 
 ## deleteVersionFromBuild
 
-> GeneralError deleteVersionFromBuild(modId, versionId, params)
+> GeneralError deleteVersionFromBuild(modId, versionId, versionBuild)
 
 Unlink a build from a version
 
@@ -436,8 +436,8 @@ import Kleister from 'kleister';
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
 let versionId = "versionId_example"; // String | A version UUID or slug
-let params = new Kleister.VersionBuildParams(); // VersionBuildParams | The build data to unlink from version
-apiInstance.deleteVersionFromBuild(modId, versionId, params).then((data) => {
+let versionBuild = new Kleister.VersionBuildParams(); // VersionBuildParams | The build data to unlink from version
+apiInstance.deleteVersionFromBuild(modId, versionId, versionBuild).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
  **versionId** | **String**| A version UUID or slug | 
- **params** | [**VersionBuildParams**](VersionBuildParams.md)| The build data to unlink from version | 
+ **versionBuild** | [**VersionBuildParams**](VersionBuildParams.md)| The build data to unlink from version | 
 
 ### Return type
 
@@ -678,7 +678,7 @@ No authorization required
 
 ## permitModTeam
 
-> GeneralError permitModTeam(modId, params)
+> GeneralError permitModTeam(modId, modTeam)
 
 Update team perms for mod
 
@@ -689,8 +689,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.ModTeamParams(); // ModTeamParams | The mod team data to update
-apiInstance.permitModTeam(modId, params).then((data) => {
+let modTeam = new Kleister.ModTeamParams(); // ModTeamParams | The mod team data to update
+apiInstance.permitModTeam(modId, modTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -704,7 +704,7 @@ apiInstance.permitModTeam(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**ModTeamParams**](ModTeamParams.md)| The mod team data to update | 
+ **modTeam** | [**ModTeamParams**](ModTeamParams.md)| The mod team data to update | 
 
 ### Return type
 
@@ -722,7 +722,7 @@ No authorization required
 
 ## permitModUser
 
-> GeneralError permitModUser(modId, params)
+> GeneralError permitModUser(modId, modUser)
 
 Update user perms for mod
 
@@ -733,8 +733,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.ModUserParams(); // ModUserParams | The mod user data to update
-apiInstance.permitModUser(modId, params).then((data) => {
+let modUser = new Kleister.ModUserParams(); // ModUserParams | The mod user data to update
+apiInstance.permitModUser(modId, modUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -748,7 +748,7 @@ apiInstance.permitModUser(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**ModUserParams**](ModUserParams.md)| The mod user data to update | 
+ **modUser** | [**ModUserParams**](ModUserParams.md)| The mod user data to update | 
 
 ### Return type
 
@@ -852,7 +852,7 @@ No authorization required
 
 ## updateMod
 
-> Mod updateMod(modId, params)
+> Mod updateMod(modId, mod)
 
 Update a specific mod
 
@@ -863,8 +863,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
-let params = new Kleister.Mod(); // Mod | The mod data to update
-apiInstance.updateMod(modId, params).then((data) => {
+let mod = new Kleister.Mod(); // Mod | The mod data to update
+apiInstance.updateMod(modId, mod).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -878,7 +878,7 @@ apiInstance.updateMod(modId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
- **params** | [**Mod**](Mod.md)| The mod data to update | 
+ **mod** | [**Mod**](Mod.md)| The mod data to update | 
 
 ### Return type
 
@@ -896,7 +896,7 @@ No authorization required
 
 ## updateVersion
 
-> Version updateVersion(modId, versionId, params)
+> Version updateVersion(modId, versionId, version)
 
 Update a specific version for a mod
 
@@ -908,8 +908,8 @@ import Kleister from 'kleister';
 let apiInstance = new Kleister.ModApi();
 let modId = "modId_example"; // String | A mod UUID or slug
 let versionId = "versionId_example"; // String | A version UUID or slug
-let params = new Kleister.Version(); // Version | The version data to update
-apiInstance.updateVersion(modId, versionId, params).then((data) => {
+let version = new Kleister.Version(); // Version | The version data to update
+apiInstance.updateVersion(modId, versionId, version).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -924,7 +924,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **modId** | **String**| A mod UUID or slug | 
  **versionId** | **String**| A version UUID or slug | 
- **params** | [**Version**](Version.md)| The version data to update | 
+ **version** | [**Version**](Version.md)| The version data to update | 
 
 ### Return type
 

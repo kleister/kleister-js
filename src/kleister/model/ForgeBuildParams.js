@@ -22,12 +22,11 @@ class ForgeBuildParams {
   /**
      * Constructs a new <code>ForgeBuildParams</code>.
      * @alias module:kleister/model/ForgeBuildParams
-     * @param forge {String}
      * @param pack {String}
      * @param build {String}
      */
-  constructor (forge, pack, build) {
-    ForgeBuildParams.initialize(this, forge, pack, build)
+  constructor (pack, build) {
+    ForgeBuildParams.initialize(this, pack, build)
   }
 
   /**
@@ -35,8 +34,7 @@ class ForgeBuildParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, forge, pack, build) {
-    obj['forge'] = forge
+  static initialize (obj, pack, build) {
     obj['pack'] = pack
     obj['build'] = build
   }
@@ -52,9 +50,6 @@ class ForgeBuildParams {
     if (data) {
       obj = obj || new ForgeBuildParams()
 
-      if (data.hasOwnProperty('forge')) {
-        obj['forge'] = ApiClient.convertToType(data['forge'], 'String')
-      }
       if (data.hasOwnProperty('pack')) {
         obj['pack'] = ApiClient.convertToType(data['pack'], 'String')
       }
@@ -65,11 +60,6 @@ class ForgeBuildParams {
     return obj
   }
 }
-
-/**
- * @member {String} forge
- */
-ForgeBuildParams.prototype['forge'] = undefined
 
 /**
  * @member {String} pack

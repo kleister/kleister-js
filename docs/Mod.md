@@ -16,3 +16,16 @@ Name | Type | Description | Notes
 **updatedAt** | **Date** |  | [optional] 
 
 
+
+## Enum: SideEnum
+
+
+* `both` (value: `"both"`)
+
+* `server` (value: `"server"`)
+
+* `client` (value: `"client"`)
+
+
+
+

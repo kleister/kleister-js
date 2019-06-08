@@ -53,12 +53,6 @@
       // expect(instance).to.be.a(Kleister.ForgeBuildParams);
     })
 
-    it('should have the property forge (base name: "forge")', function () {
-      // uncomment below and update the code to test the property forge
-      // var instane = new Kleister.ForgeBuildParams();
-      // expect(instance).to.be();
-    })
-
     it('should have the property pack (base name: "pack")', function () {
       // uncomment below and update the code to test the property pack
       // var instane = new Kleister.ForgeBuildParams();

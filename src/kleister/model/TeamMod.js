@@ -24,7 +24,7 @@ class TeamMod {
      * @alias module:kleister/model/TeamMod
      * @param teamId {String}
      * @param modId {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/TeamMod.PermEnum}
      */
   constructor (teamId, modId, perm) {
     TeamMod.initialize(this, teamId, modId, perm)
@@ -77,8 +77,34 @@ TeamMod.prototype['team_id'] = undefined
 TeamMod.prototype['mod_id'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/TeamMod.PermEnum} perm
  */
 TeamMod.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+TeamMod['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default TeamMod

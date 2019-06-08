@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## appendForgeToBuild
 
-> [Build] appendForgeToBuild(forgeId, params)
+> [Build] appendForgeToBuild(forgeId, forgeBuild)
 
 Assign a build to a Forge version
 
@@ -26,8 +26,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ForgeApi();
 let forgeId = "forgeId_example"; // String | A forge UUID or slug
-let params = new Kleister.ForgeBuildParams(); // ForgeBuildParams | The build data to append
-apiInstance.appendForgeToBuild(forgeId, params).then((data) => {
+let forgeBuild = new Kleister.ForgeBuildParams(); // ForgeBuildParams | The build data to append
+apiInstance.appendForgeToBuild(forgeId, forgeBuild).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -41,7 +41,7 @@ apiInstance.appendForgeToBuild(forgeId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **forgeId** | **String**| A forge UUID or slug | 
- **params** | [**ForgeBuildParams**](ForgeBuildParams.md)| The build data to append | 
+ **forgeBuild** | [**ForgeBuildParams**](ForgeBuildParams.md)| The build data to append | 
 
 ### Return type
 
@@ -59,7 +59,7 @@ No authorization required
 
 ## deleteForgeFromBuild
 
-> [Build] deleteForgeFromBuild(forgeId, params)
+> [Build] deleteForgeFromBuild(forgeId, forgeBuild)
 
 Unlink a build from a Forge version
 
@@ -70,8 +70,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.ForgeApi();
 let forgeId = "forgeId_example"; // String | A forge UUID or slug
-let params = new Kleister.ForgeBuildParams(); // ForgeBuildParams | The build data to unlink
-apiInstance.deleteForgeFromBuild(forgeId, params).then((data) => {
+let forgeBuild = new Kleister.ForgeBuildParams(); // ForgeBuildParams | The build data to unlink
+apiInstance.deleteForgeFromBuild(forgeId, forgeBuild).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -85,7 +85,7 @@ apiInstance.deleteForgeFromBuild(forgeId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **forgeId** | **String**| A forge UUID or slug | 
- **params** | [**ForgeBuildParams**](ForgeBuildParams.md)| The build data to unlink | 
+ **forgeBuild** | [**ForgeBuildParams**](ForgeBuildParams.md)| The build data to unlink | 
 
 ### Return type
 

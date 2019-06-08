@@ -24,7 +24,7 @@ class UserPack {
      * @alias module:kleister/model/UserPack
      * @param userId {String}
      * @param packId {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/UserPack.PermEnum}
      */
   constructor (userId, packId, perm) {
     UserPack.initialize(this, userId, packId, perm)
@@ -77,8 +77,34 @@ UserPack.prototype['user_id'] = undefined
 UserPack.prototype['pack_id'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/UserPack.PermEnum} perm
  */
 UserPack.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+UserPack['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default UserPack

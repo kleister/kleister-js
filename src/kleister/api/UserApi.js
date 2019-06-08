@@ -44,18 +44,18 @@ export default class UserApi {
   /**
      * Assign a mod to user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserModParams} params The user mod data to assign
+     * @param {module:kleister/model/UserModParams} userMod The user mod data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendUserToModWithHttpInfo (userId, params) {
-    let postBody = params
+  appendUserToModWithHttpInfo (userId, userMod) {
+    let postBody = userMod
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling appendUserToMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendUserToMod")
+    // verify the required parameter 'userMod' is set
+    if (userMod === undefined || userMod === null) {
+      throw new Error("Missing the required parameter 'userMod' when calling appendUserToMod")
     }
 
     let pathParams = {
@@ -82,11 +82,11 @@ export default class UserApi {
   /**
      * Assign a mod to user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserModParams} params The user mod data to assign
+     * @param {module:kleister/model/UserModParams} userMod The user mod data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendUserToMod (userId, params) {
-    return this.appendUserToModWithHttpInfo(userId, params)
+  appendUserToMod (userId, userMod) {
+    return this.appendUserToModWithHttpInfo(userId, userMod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -95,18 +95,18 @@ export default class UserApi {
   /**
      * Assign a pack to user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserPackParams} params The user pack data to assign
+     * @param {module:kleister/model/UserPackParams} userPack The user pack data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendUserToPackWithHttpInfo (userId, params) {
-    let postBody = params
+  appendUserToPackWithHttpInfo (userId, userPack) {
+    let postBody = userPack
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling appendUserToPack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendUserToPack")
+    // verify the required parameter 'userPack' is set
+    if (userPack === undefined || userPack === null) {
+      throw new Error("Missing the required parameter 'userPack' when calling appendUserToPack")
     }
 
     let pathParams = {
@@ -133,11 +133,11 @@ export default class UserApi {
   /**
      * Assign a pack to user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserPackParams} params The user pack data to assign
+     * @param {module:kleister/model/UserPackParams} userPack The user pack data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendUserToPack (userId, params) {
-    return this.appendUserToPackWithHttpInfo(userId, params)
+  appendUserToPack (userId, userPack) {
+    return this.appendUserToPackWithHttpInfo(userId, userPack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -146,18 +146,18 @@ export default class UserApi {
   /**
      * Assign a team to user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserTeamParams} params The user team data to assign
+     * @param {module:kleister/model/UserTeamParams} userTeam The user team data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendUserToTeamWithHttpInfo (userId, params) {
-    let postBody = params
+  appendUserToTeamWithHttpInfo (userId, userTeam) {
+    let postBody = userTeam
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling appendUserToTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendUserToTeam")
+    // verify the required parameter 'userTeam' is set
+    if (userTeam === undefined || userTeam === null) {
+      throw new Error("Missing the required parameter 'userTeam' when calling appendUserToTeam")
     }
 
     let pathParams = {
@@ -184,11 +184,11 @@ export default class UserApi {
   /**
      * Assign a team to user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserTeamParams} params The user team data to assign
+     * @param {module:kleister/model/UserTeamParams} userTeam The user team data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendUserToTeam (userId, params) {
-    return this.appendUserToTeamWithHttpInfo(userId, params)
+  appendUserToTeam (userId, userTeam) {
+    return this.appendUserToTeamWithHttpInfo(userId, userTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -196,14 +196,14 @@ export default class UserApi {
 
   /**
      * Create a new user
-     * @param {module:kleister/model/User} params The user data to create
+     * @param {module:kleister/model/User} user The user data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/User} and HTTP response
      */
-  createUserWithHttpInfo (params) {
-    let postBody = params
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling createUser")
+  createUserWithHttpInfo (user) {
+    let postBody = user
+    // verify the required parameter 'user' is set
+    if (user === undefined || user === null) {
+      throw new Error("Missing the required parameter 'user' when calling createUser")
     }
 
     let pathParams = {
@@ -228,11 +228,11 @@ export default class UserApi {
 
   /**
      * Create a new user
-     * @param {module:kleister/model/User} params The user data to create
+     * @param {module:kleister/model/User} user The user data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/User}
      */
-  createUser (params) {
-    return this.createUserWithHttpInfo(params)
+  createUser (user) {
+    return this.createUserWithHttpInfo(user)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -286,18 +286,18 @@ export default class UserApi {
   /**
      * Remove a mod from user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserModParams} params The user mod data to delete
+     * @param {module:kleister/model/UserModParams} userMod The user mod data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteUserFromModWithHttpInfo (userId, params) {
-    let postBody = params
+  deleteUserFromModWithHttpInfo (userId, userMod) {
+    let postBody = userMod
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling deleteUserFromMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteUserFromMod")
+    // verify the required parameter 'userMod' is set
+    if (userMod === undefined || userMod === null) {
+      throw new Error("Missing the required parameter 'userMod' when calling deleteUserFromMod")
     }
 
     let pathParams = {
@@ -324,11 +324,11 @@ export default class UserApi {
   /**
      * Remove a mod from user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserModParams} params The user mod data to delete
+     * @param {module:kleister/model/UserModParams} userMod The user mod data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteUserFromMod (userId, params) {
-    return this.deleteUserFromModWithHttpInfo(userId, params)
+  deleteUserFromMod (userId, userMod) {
+    return this.deleteUserFromModWithHttpInfo(userId, userMod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -337,18 +337,18 @@ export default class UserApi {
   /**
      * Remove a pack from user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserPackParams} params The user pack data to delete
+     * @param {module:kleister/model/UserPackParams} userPack The user pack data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteUserFromPackWithHttpInfo (userId, params) {
-    let postBody = params
+  deleteUserFromPackWithHttpInfo (userId, userPack) {
+    let postBody = userPack
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling deleteUserFromPack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteUserFromPack")
+    // verify the required parameter 'userPack' is set
+    if (userPack === undefined || userPack === null) {
+      throw new Error("Missing the required parameter 'userPack' when calling deleteUserFromPack")
     }
 
     let pathParams = {
@@ -375,11 +375,11 @@ export default class UserApi {
   /**
      * Remove a pack from user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserPackParams} params The user pack data to delete
+     * @param {module:kleister/model/UserPackParams} userPack The user pack data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteUserFromPack (userId, params) {
-    return this.deleteUserFromPackWithHttpInfo(userId, params)
+  deleteUserFromPack (userId, userPack) {
+    return this.deleteUserFromPackWithHttpInfo(userId, userPack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -388,18 +388,18 @@ export default class UserApi {
   /**
      * Remove a team from user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserTeamParams} params The user team data to delete
+     * @param {module:kleister/model/UserTeamParams} userTeam The user team data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteUserFromTeamWithHttpInfo (userId, params) {
-    let postBody = params
+  deleteUserFromTeamWithHttpInfo (userId, userTeam) {
+    let postBody = userTeam
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling deleteUserFromTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteUserFromTeam")
+    // verify the required parameter 'userTeam' is set
+    if (userTeam === undefined || userTeam === null) {
+      throw new Error("Missing the required parameter 'userTeam' when calling deleteUserFromTeam")
     }
 
     let pathParams = {
@@ -426,11 +426,11 @@ export default class UserApi {
   /**
      * Remove a team from user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserTeamParams} params The user team data to delete
+     * @param {module:kleister/model/UserTeamParams} userTeam The user team data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteUserFromTeam (userId, params) {
-    return this.deleteUserFromTeamWithHttpInfo(userId, params)
+  deleteUserFromTeam (userId, userTeam) {
+    return this.deleteUserFromTeamWithHttpInfo(userId, userTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -612,18 +612,18 @@ export default class UserApi {
   /**
      * Update mod perms for user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserModParams} params The user mod data to update
+     * @param {module:kleister/model/UserModParams} userMod The user mod data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitUserModWithHttpInfo (userId, params) {
-    let postBody = params
+  permitUserModWithHttpInfo (userId, userMod) {
+    let postBody = userMod
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling permitUserMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitUserMod")
+    // verify the required parameter 'userMod' is set
+    if (userMod === undefined || userMod === null) {
+      throw new Error("Missing the required parameter 'userMod' when calling permitUserMod")
     }
 
     let pathParams = {
@@ -650,11 +650,11 @@ export default class UserApi {
   /**
      * Update mod perms for user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserModParams} params The user mod data to update
+     * @param {module:kleister/model/UserModParams} userMod The user mod data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitUserMod (userId, params) {
-    return this.permitUserModWithHttpInfo(userId, params)
+  permitUserMod (userId, userMod) {
+    return this.permitUserModWithHttpInfo(userId, userMod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -663,18 +663,18 @@ export default class UserApi {
   /**
      * Update pack perms for user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserPackParams} params The user pack data to update
+     * @param {module:kleister/model/UserPackParams} userPack The user pack data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitUserPackWithHttpInfo (userId, params) {
-    let postBody = params
+  permitUserPackWithHttpInfo (userId, userPack) {
+    let postBody = userPack
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling permitUserPack")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitUserPack")
+    // verify the required parameter 'userPack' is set
+    if (userPack === undefined || userPack === null) {
+      throw new Error("Missing the required parameter 'userPack' when calling permitUserPack")
     }
 
     let pathParams = {
@@ -701,11 +701,11 @@ export default class UserApi {
   /**
      * Update pack perms for user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserPackParams} params The user pack data to update
+     * @param {module:kleister/model/UserPackParams} userPack The user pack data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitUserPack (userId, params) {
-    return this.permitUserPackWithHttpInfo(userId, params)
+  permitUserPack (userId, userPack) {
+    return this.permitUserPackWithHttpInfo(userId, userPack)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -714,18 +714,18 @@ export default class UserApi {
   /**
      * Update team perms for user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserTeamParams} params The user team data to update
+     * @param {module:kleister/model/UserTeamParams} userTeam The user team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitUserTeamWithHttpInfo (userId, params) {
-    let postBody = params
+  permitUserTeamWithHttpInfo (userId, userTeam) {
+    let postBody = userTeam
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling permitUserTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitUserTeam")
+    // verify the required parameter 'userTeam' is set
+    if (userTeam === undefined || userTeam === null) {
+      throw new Error("Missing the required parameter 'userTeam' when calling permitUserTeam")
     }
 
     let pathParams = {
@@ -752,11 +752,11 @@ export default class UserApi {
   /**
      * Update team perms for user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/UserTeamParams} params The user team data to update
+     * @param {module:kleister/model/UserTeamParams} userTeam The user team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitUserTeam (userId, params) {
-    return this.permitUserTeamWithHttpInfo(userId, params)
+  permitUserTeam (userId, userTeam) {
+    return this.permitUserTeamWithHttpInfo(userId, userTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -810,18 +810,18 @@ export default class UserApi {
   /**
      * Update a specific user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/User} params The user data to update
+     * @param {module:kleister/model/User} user The user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/User} and HTTP response
      */
-  updateUserWithHttpInfo (userId, params) {
-    let postBody = params
+  updateUserWithHttpInfo (userId, user) {
+    let postBody = user
     // verify the required parameter 'userId' is set
     if (userId === undefined || userId === null) {
       throw new Error("Missing the required parameter 'userId' when calling updateUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updateUser")
+    // verify the required parameter 'user' is set
+    if (user === undefined || user === null) {
+      throw new Error("Missing the required parameter 'user' when calling updateUser")
     }
 
     let pathParams = {
@@ -848,11 +848,11 @@ export default class UserApi {
   /**
      * Update a specific user
      * @param {String} userId A user UUID or slug
-     * @param {module:kleister/model/User} params The user data to update
+     * @param {module:kleister/model/User} user The user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/User}
      */
-  updateUser (userId, params) {
-    return this.updateUserWithHttpInfo(userId, params)
+  updateUser (userId, user) {
+    return this.updateUserWithHttpInfo(userId, user)
       .then(function (responseAndData) {
         return responseAndData.data
       })

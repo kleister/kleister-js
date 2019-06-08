@@ -22,12 +22,11 @@ class TeamModParams {
   /**
      * Constructs a new <code>TeamModParams</code>.
      * @alias module:kleister/model/TeamModParams
-     * @param team {String}
      * @param mod {String}
-     * @param perm {String}
+     * @param perm {module:kleister/model/TeamModParams.PermEnum}
      */
-  constructor (team, mod, perm) {
-    TeamModParams.initialize(this, team, mod, perm)
+  constructor (mod, perm) {
+    TeamModParams.initialize(this, mod, perm)
   }
 
   /**
@@ -35,8 +34,7 @@ class TeamModParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-  static initialize (obj, team, mod, perm) {
-    obj['team'] = team
+  static initialize (obj, mod, perm) {
     obj['mod'] = mod
     obj['perm'] = perm
   }
@@ -52,9 +50,6 @@ class TeamModParams {
     if (data) {
       obj = obj || new TeamModParams()
 
-      if (data.hasOwnProperty('team')) {
-        obj['team'] = ApiClient.convertToType(data['team'], 'String')
-      }
       if (data.hasOwnProperty('mod')) {
         obj['mod'] = ApiClient.convertToType(data['mod'], 'String')
       }
@@ -67,18 +62,39 @@ class TeamModParams {
 }
 
 /**
- * @member {String} team
- */
-TeamModParams.prototype['team'] = undefined
-
-/**
  * @member {String} mod
  */
 TeamModParams.prototype['mod'] = undefined
 
 /**
- * @member {String} perm
+ * @member {module:kleister/model/TeamModParams.PermEnum} perm
  */
 TeamModParams.prototype['perm'] = undefined
+
+/**
+ * Allowed values for the <code>perm</code> property.
+ * @enum {String}
+ * @readonly
+ */
+TeamModParams['PermEnum'] = {
+
+  /**
+     * value: "user"
+     * @const
+     */
+  'user': 'user',
+
+  /**
+     * value: "admin"
+     * @const
+     */
+  'admin': 'admin',
+
+  /**
+     * value: "owner"
+     * @const
+     */
+  'owner': 'owner'
+}
 
 export default TeamModParams

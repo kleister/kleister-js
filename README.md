@@ -72,8 +72,8 @@ var Kleister = require('kleister');
 
 
 var api = new Kleister.AuthApi()
-var params = new Kleister.AuthLogin(); // {AuthLogin} The credentials to authenticate
-api.loginUser(params).then(function(data) {
+var authLogin = new Kleister.AuthLogin(); // {AuthLogin} The credentials to authenticate
+api.loginUser(authLogin).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

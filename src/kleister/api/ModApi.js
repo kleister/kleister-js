@@ -45,18 +45,18 @@ export default class ModApi {
   /**
      * Assign a team to mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModTeamParams} params The mod team data to assign
+     * @param {module:kleister/model/ModTeamParams} modTeam The mod team data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendModToTeamWithHttpInfo (modId, params) {
-    let postBody = params
+  appendModToTeamWithHttpInfo (modId, modTeam) {
+    let postBody = modTeam
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling appendModToTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendModToTeam")
+    // verify the required parameter 'modTeam' is set
+    if (modTeam === undefined || modTeam === null) {
+      throw new Error("Missing the required parameter 'modTeam' when calling appendModToTeam")
     }
 
     let pathParams = {
@@ -83,11 +83,11 @@ export default class ModApi {
   /**
      * Assign a team to mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModTeamParams} params The mod team data to assign
+     * @param {module:kleister/model/ModTeamParams} modTeam The mod team data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendModToTeam (modId, params) {
-    return this.appendModToTeamWithHttpInfo(modId, params)
+  appendModToTeam (modId, modTeam) {
+    return this.appendModToTeamWithHttpInfo(modId, modTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -96,18 +96,18 @@ export default class ModApi {
   /**
      * Assign a user to mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModUserParams} params The mod user data to assign
+     * @param {module:kleister/model/ModUserParams} modUser The mod user data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendModToUserWithHttpInfo (modId, params) {
-    let postBody = params
+  appendModToUserWithHttpInfo (modId, modUser) {
+    let postBody = modUser
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling appendModToUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendModToUser")
+    // verify the required parameter 'modUser' is set
+    if (modUser === undefined || modUser === null) {
+      throw new Error("Missing the required parameter 'modUser' when calling appendModToUser")
     }
 
     let pathParams = {
@@ -134,11 +134,11 @@ export default class ModApi {
   /**
      * Assign a user to mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModUserParams} params The mod user data to assign
+     * @param {module:kleister/model/ModUserParams} modUser The mod user data to assign
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendModToUser (modId, params) {
-    return this.appendModToUserWithHttpInfo(modId, params)
+  appendModToUser (modId, modUser) {
+    return this.appendModToUserWithHttpInfo(modId, modUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -148,11 +148,11 @@ export default class ModApi {
      * Assign a build to a version
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @param {module:kleister/model/VersionBuildParams} params The build data to append to version
+     * @param {module:kleister/model/VersionBuildParams} versionBuild The build data to append to version
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  appendVersionToBuildWithHttpInfo (modId, versionId, params) {
-    let postBody = params
+  appendVersionToBuildWithHttpInfo (modId, versionId, versionBuild) {
+    let postBody = versionBuild
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling appendVersionToBuild")
@@ -161,9 +161,9 @@ export default class ModApi {
     if (versionId === undefined || versionId === null) {
       throw new Error("Missing the required parameter 'versionId' when calling appendVersionToBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendVersionToBuild")
+    // verify the required parameter 'versionBuild' is set
+    if (versionBuild === undefined || versionBuild === null) {
+      throw new Error("Missing the required parameter 'versionBuild' when calling appendVersionToBuild")
     }
 
     let pathParams = {
@@ -192,11 +192,11 @@ export default class ModApi {
      * Assign a build to a version
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @param {module:kleister/model/VersionBuildParams} params The build data to append to version
+     * @param {module:kleister/model/VersionBuildParams} versionBuild The build data to append to version
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  appendVersionToBuild (modId, versionId, params) {
-    return this.appendVersionToBuildWithHttpInfo(modId, versionId, params)
+  appendVersionToBuild (modId, versionId, versionBuild) {
+    return this.appendVersionToBuildWithHttpInfo(modId, versionId, versionBuild)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -204,14 +204,14 @@ export default class ModApi {
 
   /**
      * Create a new mod
-     * @param {module:kleister/model/Mod} params The mod data to create
+     * @param {module:kleister/model/Mod} mod The mod data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Mod} and HTTP response
      */
-  createModWithHttpInfo (params) {
-    let postBody = params
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling createMod")
+  createModWithHttpInfo (mod) {
+    let postBody = mod
+    // verify the required parameter 'mod' is set
+    if (mod === undefined || mod === null) {
+      throw new Error("Missing the required parameter 'mod' when calling createMod")
     }
 
     let pathParams = {
@@ -236,11 +236,11 @@ export default class ModApi {
 
   /**
      * Create a new mod
-     * @param {module:kleister/model/Mod} params The mod data to create
+     * @param {module:kleister/model/Mod} mod The mod data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Mod}
      */
-  createMod (params) {
-    return this.createModWithHttpInfo(params)
+  createMod (mod) {
+    return this.createModWithHttpInfo(mod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -249,18 +249,18 @@ export default class ModApi {
   /**
      * Create a new version for a mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/Version} params The version data to create
+     * @param {module:kleister/model/Version} version The version data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Version} and HTTP response
      */
-  createVersionWithHttpInfo (modId, params) {
-    let postBody = params
+  createVersionWithHttpInfo (modId, version) {
+    let postBody = version
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling createVersion")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling createVersion")
+    // verify the required parameter 'version' is set
+    if (version === undefined || version === null) {
+      throw new Error("Missing the required parameter 'version' when calling createVersion")
     }
 
     let pathParams = {
@@ -287,11 +287,11 @@ export default class ModApi {
   /**
      * Create a new version for a mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/Version} params The version data to create
+     * @param {module:kleister/model/Version} version The version data to create
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Version}
      */
-  createVersion (modId, params) {
-    return this.createVersionWithHttpInfo(modId, params)
+  createVersion (modId, version) {
+    return this.createVersionWithHttpInfo(modId, version)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -345,18 +345,18 @@ export default class ModApi {
   /**
      * Remove a team from mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModTeamParams} params The mod team data to delete
+     * @param {module:kleister/model/ModTeamParams} modTeam The mod team data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteModFromTeamWithHttpInfo (modId, params) {
-    let postBody = params
+  deleteModFromTeamWithHttpInfo (modId, modTeam) {
+    let postBody = modTeam
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling deleteModFromTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteModFromTeam")
+    // verify the required parameter 'modTeam' is set
+    if (modTeam === undefined || modTeam === null) {
+      throw new Error("Missing the required parameter 'modTeam' when calling deleteModFromTeam")
     }
 
     let pathParams = {
@@ -383,11 +383,11 @@ export default class ModApi {
   /**
      * Remove a team from mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModTeamParams} params The mod team data to delete
+     * @param {module:kleister/model/ModTeamParams} modTeam The mod team data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteModFromTeam (modId, params) {
-    return this.deleteModFromTeamWithHttpInfo(modId, params)
+  deleteModFromTeam (modId, modTeam) {
+    return this.deleteModFromTeamWithHttpInfo(modId, modTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -396,18 +396,18 @@ export default class ModApi {
   /**
      * Remove a user from mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModUserParams} params The mod user data to delete
+     * @param {module:kleister/model/ModUserParams} modUser The mod user data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteModFromUserWithHttpInfo (modId, params) {
-    let postBody = params
+  deleteModFromUserWithHttpInfo (modId, modUser) {
+    let postBody = modUser
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling deleteModFromUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteModFromUser")
+    // verify the required parameter 'modUser' is set
+    if (modUser === undefined || modUser === null) {
+      throw new Error("Missing the required parameter 'modUser' when calling deleteModFromUser")
     }
 
     let pathParams = {
@@ -434,11 +434,11 @@ export default class ModApi {
   /**
      * Remove a user from mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModUserParams} params The mod user data to delete
+     * @param {module:kleister/model/ModUserParams} modUser The mod user data to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteModFromUser (modId, params) {
-    return this.deleteModFromUserWithHttpInfo(modId, params)
+  deleteModFromUser (modId, modUser) {
+    return this.deleteModFromUserWithHttpInfo(modId, modUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -500,11 +500,11 @@ export default class ModApi {
      * Unlink a build from a version
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @param {module:kleister/model/VersionBuildParams} params The build data to unlink from version
+     * @param {module:kleister/model/VersionBuildParams} versionBuild The build data to unlink from version
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  deleteVersionFromBuildWithHttpInfo (modId, versionId, params) {
-    let postBody = params
+  deleteVersionFromBuildWithHttpInfo (modId, versionId, versionBuild) {
+    let postBody = versionBuild
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling deleteVersionFromBuild")
@@ -513,9 +513,9 @@ export default class ModApi {
     if (versionId === undefined || versionId === null) {
       throw new Error("Missing the required parameter 'versionId' when calling deleteVersionFromBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteVersionFromBuild")
+    // verify the required parameter 'versionBuild' is set
+    if (versionBuild === undefined || versionBuild === null) {
+      throw new Error("Missing the required parameter 'versionBuild' when calling deleteVersionFromBuild")
     }
 
     let pathParams = {
@@ -544,11 +544,11 @@ export default class ModApi {
      * Unlink a build from a version
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @param {module:kleister/model/VersionBuildParams} params The build data to unlink from version
+     * @param {module:kleister/model/VersionBuildParams} versionBuild The build data to unlink from version
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  deleteVersionFromBuild (modId, versionId, params) {
-    return this.deleteVersionFromBuildWithHttpInfo(modId, versionId, params)
+  deleteVersionFromBuild (modId, versionId, versionBuild) {
+    return this.deleteVersionFromBuildWithHttpInfo(modId, versionId, versionBuild)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -782,18 +782,18 @@ export default class ModApi {
   /**
      * Update team perms for mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModTeamParams} params The mod team data to update
+     * @param {module:kleister/model/ModTeamParams} modTeam The mod team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitModTeamWithHttpInfo (modId, params) {
-    let postBody = params
+  permitModTeamWithHttpInfo (modId, modTeam) {
+    let postBody = modTeam
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling permitModTeam")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitModTeam")
+    // verify the required parameter 'modTeam' is set
+    if (modTeam === undefined || modTeam === null) {
+      throw new Error("Missing the required parameter 'modTeam' when calling permitModTeam")
     }
 
     let pathParams = {
@@ -820,11 +820,11 @@ export default class ModApi {
   /**
      * Update team perms for mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModTeamParams} params The mod team data to update
+     * @param {module:kleister/model/ModTeamParams} modTeam The mod team data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitModTeam (modId, params) {
-    return this.permitModTeamWithHttpInfo(modId, params)
+  permitModTeam (modId, modTeam) {
+    return this.permitModTeamWithHttpInfo(modId, modTeam)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -833,18 +833,18 @@ export default class ModApi {
   /**
      * Update user perms for mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModUserParams} params The mod user data to update
+     * @param {module:kleister/model/ModUserParams} modUser The mod user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/GeneralError} and HTTP response
      */
-  permitModUserWithHttpInfo (modId, params) {
-    let postBody = params
+  permitModUserWithHttpInfo (modId, modUser) {
+    let postBody = modUser
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling permitModUser")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling permitModUser")
+    // verify the required parameter 'modUser' is set
+    if (modUser === undefined || modUser === null) {
+      throw new Error("Missing the required parameter 'modUser' when calling permitModUser")
     }
 
     let pathParams = {
@@ -871,11 +871,11 @@ export default class ModApi {
   /**
      * Update user perms for mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/ModUserParams} params The mod user data to update
+     * @param {module:kleister/model/ModUserParams} modUser The mod user data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/GeneralError}
      */
-  permitModUser (modId, params) {
-    return this.permitModUserWithHttpInfo(modId, params)
+  permitModUser (modId, modUser) {
+    return this.permitModUserWithHttpInfo(modId, modUser)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -981,18 +981,18 @@ export default class ModApi {
   /**
      * Update a specific mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/Mod} params The mod data to update
+     * @param {module:kleister/model/Mod} mod The mod data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Mod} and HTTP response
      */
-  updateModWithHttpInfo (modId, params) {
-    let postBody = params
+  updateModWithHttpInfo (modId, mod) {
+    let postBody = mod
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling updateMod")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updateMod")
+    // verify the required parameter 'mod' is set
+    if (mod === undefined || mod === null) {
+      throw new Error("Missing the required parameter 'mod' when calling updateMod")
     }
 
     let pathParams = {
@@ -1019,11 +1019,11 @@ export default class ModApi {
   /**
      * Update a specific mod
      * @param {String} modId A mod UUID or slug
-     * @param {module:kleister/model/Mod} params The mod data to update
+     * @param {module:kleister/model/Mod} mod The mod data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Mod}
      */
-  updateMod (modId, params) {
-    return this.updateModWithHttpInfo(modId, params)
+  updateMod (modId, mod) {
+    return this.updateModWithHttpInfo(modId, mod)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -1033,11 +1033,11 @@ export default class ModApi {
      * Update a specific version for a mod
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @param {module:kleister/model/Version} params The version data to update
+     * @param {module:kleister/model/Version} version The version data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:kleister/model/Version} and HTTP response
      */
-  updateVersionWithHttpInfo (modId, versionId, params) {
-    let postBody = params
+  updateVersionWithHttpInfo (modId, versionId, version) {
+    let postBody = version
     // verify the required parameter 'modId' is set
     if (modId === undefined || modId === null) {
       throw new Error("Missing the required parameter 'modId' when calling updateVersion")
@@ -1046,9 +1046,9 @@ export default class ModApi {
     if (versionId === undefined || versionId === null) {
       throw new Error("Missing the required parameter 'versionId' when calling updateVersion")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling updateVersion")
+    // verify the required parameter 'version' is set
+    if (version === undefined || version === null) {
+      throw new Error("Missing the required parameter 'version' when calling updateVersion")
     }
 
     let pathParams = {
@@ -1077,11 +1077,11 @@ export default class ModApi {
      * Update a specific version for a mod
      * @param {String} modId A mod UUID or slug
      * @param {String} versionId A version UUID or slug
-     * @param {module:kleister/model/Version} params The version data to update
+     * @param {module:kleister/model/Version} version The version data to update
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:kleister/model/Version}
      */
-  updateVersion (modId, versionId, params) {
-    return this.updateVersionWithHttpInfo(modId, versionId, params)
+  updateVersion (modId, versionId, version) {
+    return this.updateVersionWithHttpInfo(modId, versionId, version)
       .then(function (responseAndData) {
         return responseAndData.data
       })

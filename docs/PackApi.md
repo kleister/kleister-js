@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 ## appendBuildToVersion
 
-> GeneralError appendBuildToVersion(packId, buildId, params)
+> GeneralError appendBuildToVersion(packId, buildId, buildVersion)
 
 Assign a version to a build
 
@@ -42,8 +42,8 @@ import Kleister from 'kleister';
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
 let buildId = "buildId_example"; // String | A build UUID or slug
-let params = new Kleister.BuildVersionParams(); // BuildVersionParams | The version data to append to build
-apiInstance.appendBuildToVersion(packId, buildId, params).then((data) => {
+let buildVersion = new Kleister.BuildVersionParams(); // BuildVersionParams | The version data to append to build
+apiInstance.appendBuildToVersion(packId, buildId, buildVersion).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
  **buildId** | **String**| A build UUID or slug | 
- **params** | [**BuildVersionParams**](BuildVersionParams.md)| The version data to append to build | 
+ **buildVersion** | [**BuildVersionParams**](BuildVersionParams.md)| The version data to append to build | 
 
 ### Return type
 
@@ -76,7 +76,7 @@ No authorization required
 
 ## appendPackToTeam
 
-> GeneralError appendPackToTeam(packId, params)
+> GeneralError appendPackToTeam(packId, packTeam)
 
 Assign a team to pack
 
@@ -87,8 +87,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.PackTeamParams(); // PackTeamParams | The pack team data to assign
-apiInstance.appendPackToTeam(packId, params).then((data) => {
+let packTeam = new Kleister.PackTeamParams(); // PackTeamParams | The pack team data to assign
+apiInstance.appendPackToTeam(packId, packTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -102,7 +102,7 @@ apiInstance.appendPackToTeam(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**PackTeamParams**](PackTeamParams.md)| The pack team data to assign | 
+ **packTeam** | [**PackTeamParams**](PackTeamParams.md)| The pack team data to assign | 
 
 ### Return type
 
@@ -120,7 +120,7 @@ No authorization required
 
 ## appendPackToUser
 
-> GeneralError appendPackToUser(packId, params)
+> GeneralError appendPackToUser(packId, packUser)
 
 Assign a user to pack
 
@@ -131,8 +131,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.PackUserParams(); // PackUserParams | The pack user data to assign
-apiInstance.appendPackToUser(packId, params).then((data) => {
+let packUser = new Kleister.PackUserParams(); // PackUserParams | The pack user data to assign
+apiInstance.appendPackToUser(packId, packUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -146,7 +146,7 @@ apiInstance.appendPackToUser(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**PackUserParams**](PackUserParams.md)| The pack user data to assign | 
+ **packUser** | [**PackUserParams**](PackUserParams.md)| The pack user data to assign | 
 
 ### Return type
 
@@ -164,7 +164,7 @@ No authorization required
 
 ## createBuild
 
-> Build createBuild(packId, params)
+> Build createBuild(packId, build)
 
 Create a new build for a pack
 
@@ -175,8 +175,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.Build(); // Build | The build data to create
-apiInstance.createBuild(packId, params).then((data) => {
+let build = new Kleister.Build(); // Build | The build data to create
+apiInstance.createBuild(packId, build).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -190,7 +190,7 @@ apiInstance.createBuild(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**Build**](Build.md)| The build data to create | 
+ **build** | [**Build**](Build.md)| The build data to create | 
 
 ### Return type
 
@@ -208,7 +208,7 @@ No authorization required
 
 ## createPack
 
-> Pack createPack(params)
+> Pack createPack(pack)
 
 Create a new pack
 
@@ -218,8 +218,8 @@ Create a new pack
 import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
-let params = new Kleister.Pack(); // Pack | The pack data to create
-apiInstance.createPack(params).then((data) => {
+let pack = new Kleister.Pack(); // Pack | The pack data to create
+apiInstance.createPack(pack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -232,7 +232,7 @@ apiInstance.createPack(params).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**Pack**](Pack.md)| The pack data to create | 
+ **pack** | [**Pack**](Pack.md)| The pack data to create | 
 
 ### Return type
 
@@ -294,7 +294,7 @@ No authorization required
 
 ## deleteBuildFromVersion
 
-> GeneralError deleteBuildFromVersion(packId, buildId, params)
+> GeneralError deleteBuildFromVersion(packId, buildId, buildVersion)
 
 Unlink a version from a build
 
@@ -306,8 +306,8 @@ import Kleister from 'kleister';
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
 let buildId = "buildId_example"; // String | A build UUID or slug
-let params = new Kleister.BuildVersionParams(); // BuildVersionParams | The version data to unlink from build
-apiInstance.deleteBuildFromVersion(packId, buildId, params).then((data) => {
+let buildVersion = new Kleister.BuildVersionParams(); // BuildVersionParams | The version data to unlink from build
+apiInstance.deleteBuildFromVersion(packId, buildId, buildVersion).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
  **buildId** | **String**| A build UUID or slug | 
- **params** | [**BuildVersionParams**](BuildVersionParams.md)| The version data to unlink from build | 
+ **buildVersion** | [**BuildVersionParams**](BuildVersionParams.md)| The version data to unlink from build | 
 
 ### Return type
 
@@ -382,7 +382,7 @@ No authorization required
 
 ## deletePackFromTeam
 
-> GeneralError deletePackFromTeam(packId, params)
+> GeneralError deletePackFromTeam(packId, packTeam)
 
 Remove a team from pack
 
@@ -393,8 +393,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.PackTeamParams(); // PackTeamParams | The pack team data to delete
-apiInstance.deletePackFromTeam(packId, params).then((data) => {
+let packTeam = new Kleister.PackTeamParams(); // PackTeamParams | The pack team data to delete
+apiInstance.deletePackFromTeam(packId, packTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -408,7 +408,7 @@ apiInstance.deletePackFromTeam(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**PackTeamParams**](PackTeamParams.md)| The pack team data to delete | 
+ **packTeam** | [**PackTeamParams**](PackTeamParams.md)| The pack team data to delete | 
 
 ### Return type
 
@@ -426,7 +426,7 @@ No authorization required
 
 ## deletePackFromUser
 
-> GeneralError deletePackFromUser(packId, params)
+> GeneralError deletePackFromUser(packId, packUser)
 
 Remove a user from pack
 
@@ -437,8 +437,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.PackUserParams(); // PackUserParams | The pack user data to delete
-apiInstance.deletePackFromUser(packId, params).then((data) => {
+let packUser = new Kleister.PackUserParams(); // PackUserParams | The pack user data to delete
+apiInstance.deletePackFromUser(packId, packUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -452,7 +452,7 @@ apiInstance.deletePackFromUser(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**PackUserParams**](PackUserParams.md)| The pack user data to delete | 
+ **packUser** | [**PackUserParams**](PackUserParams.md)| The pack user data to delete | 
 
 ### Return type
 
@@ -678,7 +678,7 @@ No authorization required
 
 ## permitPackTeam
 
-> GeneralError permitPackTeam(packId, params)
+> GeneralError permitPackTeam(packId, packTeam)
 
 Update team perms for pack
 
@@ -689,8 +689,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.PackTeamParams(); // PackTeamParams | The pack team data to update
-apiInstance.permitPackTeam(packId, params).then((data) => {
+let packTeam = new Kleister.PackTeamParams(); // PackTeamParams | The pack team data to update
+apiInstance.permitPackTeam(packId, packTeam).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -704,7 +704,7 @@ apiInstance.permitPackTeam(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**PackTeamParams**](PackTeamParams.md)| The pack team data to update | 
+ **packTeam** | [**PackTeamParams**](PackTeamParams.md)| The pack team data to update | 
 
 ### Return type
 
@@ -722,7 +722,7 @@ No authorization required
 
 ## permitPackUser
 
-> GeneralError permitPackUser(packId, params)
+> GeneralError permitPackUser(packId, packUser)
 
 Update user perms for pack
 
@@ -733,8 +733,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.PackUserParams(); // PackUserParams | The pack user data to update
-apiInstance.permitPackUser(packId, params).then((data) => {
+let packUser = new Kleister.PackUserParams(); // PackUserParams | The pack user data to update
+apiInstance.permitPackUser(packId, packUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -748,7 +748,7 @@ apiInstance.permitPackUser(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**PackUserParams**](PackUserParams.md)| The pack user data to update | 
+ **packUser** | [**PackUserParams**](PackUserParams.md)| The pack user data to update | 
 
 ### Return type
 
@@ -852,7 +852,7 @@ No authorization required
 
 ## updateBuild
 
-> Build updateBuild(packId, buildId, params)
+> Build updateBuild(packId, buildId, build)
 
 Update a specific build for a pack
 
@@ -864,8 +864,8 @@ import Kleister from 'kleister';
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
 let buildId = "buildId_example"; // String | A build UUID or slug
-let params = new Kleister.Build(); // Build | The build data to update
-apiInstance.updateBuild(packId, buildId, params).then((data) => {
+let build = new Kleister.Build(); // Build | The build data to update
+apiInstance.updateBuild(packId, buildId, build).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -880,7 +880,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
  **buildId** | **String**| A build UUID or slug | 
- **params** | [**Build**](Build.md)| The build data to update | 
+ **build** | [**Build**](Build.md)| The build data to update | 
 
 ### Return type
 
@@ -898,7 +898,7 @@ No authorization required
 
 ## updatePack
 
-> Pack updatePack(packId, params)
+> Pack updatePack(packId, pack)
 
 Update a specific pack
 
@@ -909,8 +909,8 @@ import Kleister from 'kleister';
 
 let apiInstance = new Kleister.PackApi();
 let packId = "packId_example"; // String | A pack UUID or slug
-let params = new Kleister.Pack(); // Pack | The pack data to update
-apiInstance.updatePack(packId, params).then((data) => {
+let pack = new Kleister.Pack(); // Pack | The pack data to update
+apiInstance.updatePack(packId, pack).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -924,7 +924,7 @@ apiInstance.updatePack(packId, params).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packId** | **String**| A pack UUID or slug | 
- **params** | [**Pack**](Pack.md)| The pack data to update | 
+ **pack** | [**Pack**](Pack.md)| The pack data to update | 
 
 ### Return type
 

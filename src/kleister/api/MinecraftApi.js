@@ -40,18 +40,18 @@ export default class MinecraftApi {
   /**
      * Assign a build to a Minecraft version
      * @param {String} minecraftId A minecraft UUID or slug
-     * @param {module:kleister/model/MinecraftBuildParams} params The build data to append
+     * @param {module:kleister/model/MinecraftBuildParams} minecraftBuild The build data to append
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:kleister/model/Build>} and HTTP response
      */
-  appendMinecraftToBuildWithHttpInfo (minecraftId, params) {
-    let postBody = params
+  appendMinecraftToBuildWithHttpInfo (minecraftId, minecraftBuild) {
+    let postBody = minecraftBuild
     // verify the required parameter 'minecraftId' is set
     if (minecraftId === undefined || minecraftId === null) {
       throw new Error("Missing the required parameter 'minecraftId' when calling appendMinecraftToBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling appendMinecraftToBuild")
+    // verify the required parameter 'minecraftBuild' is set
+    if (minecraftBuild === undefined || minecraftBuild === null) {
+      throw new Error("Missing the required parameter 'minecraftBuild' when calling appendMinecraftToBuild")
     }
 
     let pathParams = {
@@ -78,11 +78,11 @@ export default class MinecraftApi {
   /**
      * Assign a build to a Minecraft version
      * @param {String} minecraftId A minecraft UUID or slug
-     * @param {module:kleister/model/MinecraftBuildParams} params The build data to append
+     * @param {module:kleister/model/MinecraftBuildParams} minecraftBuild The build data to append
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:kleister/model/Build>}
      */
-  appendMinecraftToBuild (minecraftId, params) {
-    return this.appendMinecraftToBuildWithHttpInfo(minecraftId, params)
+  appendMinecraftToBuild (minecraftId, minecraftBuild) {
+    return this.appendMinecraftToBuildWithHttpInfo(minecraftId, minecraftBuild)
       .then(function (responseAndData) {
         return responseAndData.data
       })
@@ -91,18 +91,18 @@ export default class MinecraftApi {
   /**
      * Unlink a build from a Minecraft version
      * @param {String} minecraftId A minecraft UUID or slug
-     * @param {module:kleister/model/MinecraftBuildParams} params The build data to unlink
+     * @param {module:kleister/model/MinecraftBuildParams} minecraftBuild The build data to unlink
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:kleister/model/Build>} and HTTP response
      */
-  deleteMinecraftFromBuildWithHttpInfo (minecraftId, params) {
-    let postBody = params
+  deleteMinecraftFromBuildWithHttpInfo (minecraftId, minecraftBuild) {
+    let postBody = minecraftBuild
     // verify the required parameter 'minecraftId' is set
     if (minecraftId === undefined || minecraftId === null) {
       throw new Error("Missing the required parameter 'minecraftId' when calling deleteMinecraftFromBuild")
     }
-    // verify the required parameter 'params' is set
-    if (params === undefined || params === null) {
-      throw new Error("Missing the required parameter 'params' when calling deleteMinecraftFromBuild")
+    // verify the required parameter 'minecraftBuild' is set
+    if (minecraftBuild === undefined || minecraftBuild === null) {
+      throw new Error("Missing the required parameter 'minecraftBuild' when calling deleteMinecraftFromBuild")
     }
 
     let pathParams = {
@@ -129,11 +129,11 @@ export default class MinecraftApi {
   /**
      * Unlink a build from a Minecraft version
      * @param {String} minecraftId A minecraft UUID or slug
-     * @param {module:kleister/model/MinecraftBuildParams} params The build data to unlink
+     * @param {module:kleister/model/MinecraftBuildParams} minecraftBuild The build data to unlink
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:kleister/model/Build>}
      */
-  deleteMinecraftFromBuild (minecraftId, params) {
-    return this.deleteMinecraftFromBuildWithHttpInfo(minecraftId, params)
+  deleteMinecraftFromBuild (minecraftId, minecraftBuild) {
+    return this.deleteMinecraftFromBuildWithHttpInfo(minecraftId, minecraftBuild)
       .then(function (responseAndData) {
         return responseAndData.data
       })
