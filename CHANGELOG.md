@@ -13,6 +13,6 @@ The following sections list the changes for unreleased.
    Just prepared an initial basic version which could be released as a pre-alpha version to ship a
    minimal viable product.
 
-   https://github.com/kleister/kleister-desktop/issues/1
+   https://github.com/kleister/kleister-js/issues/1
 
 
