@@ -1,3 +1,10 @@
-invokerPackage: kleister
-projectName: kleister
-usePromises: true
+---
+npmName: kleister
+supportsES6: true
+useSingleRequestParameter: true
+withNodeImports: true
+withSeparateModelsAndApi: true
+apiPackage: api
+modelPackage: model
+
+...

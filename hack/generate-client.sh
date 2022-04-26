@@ -8,14 +8,14 @@ else
     ROOT=$(realpath -e $(dirname $0)/..)
 fi
 
-SPEC=${SPEC:-https://dl.kleister.tech/openapi/1.0.0-alpha1.yml}
+SPEC=${SPEC:-https://dl.kleister.eu/openapi/1.0.0-alpha1.yml}
 
 docker run --rm \
 	-v ${ROOT}:/generate \
-	openapitools/openapi-generator-cli:v4.0.0 \
+	openapitools/openapi-generator-cli:v5.4.0 \
 	generate \
 	-c /generate/openapi.yml \
-	-g javascript \
+	-g typescript-axios \
 	--git-repo-id kleister-js \
 	--git-user-id kleister \
 	--http-user-agent kleister-js/1.0.0-alpha1 \
@@ -23,8 +23,3 @@ docker run --rm \
 	-o /generate \
 	-t /generate/hack/openapi/templates \
 	--strict-spec true
-
-pushd ${ROOT}
-	yarn install
-	yarn lint --fix
-popd
