@@ -13,17 +13,19 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --outDir dist/"
+    "build": "tsc --outDir dist/",
+    "format": "prettier -w '**/*.{js,ts}'"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "^0.27.0"
   },
   "devDependencies": {
-    "@types/node": "^12.11.5",
-    "typescript": "^4.0"
+    "@types/node": "12.20.50",
+    "prettier": "2.6.2",
+    "typescript": "4.6.3"
   },
   "keywords": [
     "minecraft",

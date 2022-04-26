@@ -12,18 +12,18 @@ project:
 
 ## Environments
 
-*   Node.js
-*   Webpack
-*   Browserify
+-   Node.js
+-   Webpack
+-   Browserify
 
 ## Language level
 
-*   ES6
+-   ES6
 
 ## Module system
 
-*   CommonJS
-*   ES6 module system
+-   CommonJS
+-   ES6 module system
 
 ## Installation
 

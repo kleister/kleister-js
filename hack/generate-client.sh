@@ -23,3 +23,8 @@ docker run --rm \
 	-o /generate \
 	-t /generate/hack/openapi/templates \
 	--strict-spec true
+
+pushd ${ROOT}
+	yarn install
+	yarn format
+popd
