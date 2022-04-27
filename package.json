@@ -1,7 +1,7 @@
 {
   "name": "kleister",
   "version": "1.0.0-alpha1",
-  "description": "OpenAPI client for kleister",
+  "description": "OpenAPI client for Kleister",
   "homepage": "https://github.com/kleister/kleister-js#readme",
   "license": "Apache-2.0",
   "author": "Thomas Boerger <thomas@webhippie.de>",
