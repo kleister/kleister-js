@@ -1,6 +1,6 @@
 # Kleister: SDK for Javascript
 
-[![General Workflow](https://github.com/kleister/kleister-js/actions/workflows/general.yml/badge.svg)](https://github.com/kleister/kleister-js/actions/workflows/general.yml) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/de988a49ed9f4e3eae33faa17b5f08d4)](https://www.codacy.com/gh/kleister/kleister-js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kleister/kleister-js&amp;utm_campaign=Badge_Grade) [![Join the Matrix chat at https://matrix.to/#/#kleister:matrix.org](https://img.shields.io/badge/matrix-%23kleister%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#kleister:matrix.org) [![NPM Version](https://badge.fury.io/js/kleister.svg)](https://badge.fury.io/js/kleister)
+[![General Workflow](https://github.com/kleister/kleister-js/actions/workflows/general.yml/badge.svg)](https://github.com/kleister/kleister-js/actions/workflows/general.yml) [![Join the Matrix chat at https://matrix.to/#/#kleister:matrix.org](https://img.shields.io/badge/matrix-%23kleister%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#kleister:matrix.org) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/de988a49ed9f4e3eae33faa17b5f08d4)](https://www.codacy.com/gh/kleister/kleister-js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kleister/kleister-js&amp;utm_campaign=Badge_Grade) [![NPM Version](https://badge.fury.io/js/kleister.svg)](https://badge.fury.io/js/kleister)
 
 TBD
 
