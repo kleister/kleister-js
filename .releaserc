@@ -110,16 +110,85 @@
             }
         ],
         [
+            "semantic-release-replace-plugin",
+            {
+                "replacements": [
+                    {
+                        "files": [
+                            "openapi.yml"
+                        ],
+                        "from": "npmVersion: .*",
+                        "to": "npmVersion: ${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "openapi.yml",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    },
+                    {
+                        "files": [
+                            "README.md"
+                        ],
+                        "from": "Package version: .*",
+                        "to": "Package version: ${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "README.md",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    },
+                    {
+                        "files": [
+                            "README.md"
+                        ],
+                        "from": "kleisterjs@.*",
+                        "to": "kleisterjs@${nextRelease.version}",
+                        "results": [
+                            {
+                                "file": "README.md",
+                                "hasChanged": true,
+                                "numMatches": 1,
+                                "numReplacements": 1
+                            }
+                        ],
+                        "countMatches": true
+                    }
+                ]
+            }
+        ],
+        [
+            "@semantic-release/npm",
+            {
+                "npmPublish": true,
+                "tarballDir": "dist"
+            }
+        ],
+        [
             "@semantic-release/git",
             {
                 "message": "chore: release ${nextRelease.version}",
-                "assets": ["CHANGELOG.md"]
+                "assets": [
+                    "CHANGELOG.md",
+                    "package.json",
+                    "openapi.yml",
+                    "README.md",
+                    "package-lock.json"
+                ]
             }
         ],
         [
             "@semantic-release/github",
             {
-                "publish": true
+                "publish": true,
+                "assets": "dist/*.tgz"
             }
         ]
     ]

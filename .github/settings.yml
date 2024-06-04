@@ -3,7 +3,7 @@ repository:
   name: kleister-js
   description: "Kleister: SDK for Javascript"
   homepage: https://kleister.eu
-  topics: kleister, minecraft, sdk, client, grpc, javascript
+  topics: kleister, minecraft, sdk, openapi, javascript
 
   private: false
   has_issues: true
@@ -34,6 +34,7 @@ branches:
       restrictions:
         apps:
           - renovate
+          - kleister
         users: []
         teams:
           - admins
