@@ -14,9 +14,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildVersion } from "./build-version";
-// May contain unused imports in some cases
-// @ts-ignore
 import type { Fabric } from "./fabric";
 // May contain unused imports in some cases
 // @ts-ignore
@@ -46,12 +43,6 @@ export interface Build {
    * @memberof Build
    */
   id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
-  pack_id?: string;
   /**
    *
    * @type {Pack}
@@ -147,6 +138,18 @@ export interface Build {
    * @type {boolean}
    * @memberof Build
    */
+  latest?: boolean | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof Build
+   */
+  recommended?: boolean | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof Build
+   */
   public?: boolean | null;
   /**
    *
@@ -160,10 +163,4 @@ export interface Build {
    * @memberof Build
    */
   updated_at?: string;
-  /**
-   *
-   * @type {Array<BuildVersion>}
-   * @memberof Build
-   */
-  versions?: Array<BuildVersion> | null;
 }

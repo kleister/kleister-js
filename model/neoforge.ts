@@ -35,12 +35,6 @@ export interface Neoforge {
    * @type {string}
    * @memberof Neoforge
    */
-  minecraft?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Neoforge
-   */
   created_at?: string;
   /**
    *

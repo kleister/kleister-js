@@ -2504,7 +2504,7 @@ export interface TeamApiListTeamModsRequest {
 
   /**
    * Sorting column
-   * @type {'modname' | 'email' | 'fullname' | 'admin' | 'active'}
+   * @type {'slug' | 'name' | 'public'}
    * @memberof TeamApiListTeamMods
    */
   readonly sort?: ListTeamModsSortEnum;
@@ -2553,7 +2553,7 @@ export interface TeamApiListTeamPacksRequest {
 
   /**
    * Sorting column
-   * @type {'packname' | 'email' | 'fullname' | 'admin' | 'active'}
+   * @type {'slug' | 'name' | 'public'}
    * @memberof TeamApiListTeamPacks
    */
   readonly sort?: ListTeamPacksSortEnum;
@@ -3137,11 +3137,9 @@ export class TeamApi extends BaseAPI {
  * @export
  */
 export const ListTeamModsSortEnum = {
-  Modname: "modname",
-  Email: "email",
-  Fullname: "fullname",
-  Admin: "admin",
-  Active: "active",
+  Slug: "slug",
+  Name: "name",
+  Public: "public",
 } as const;
 export type ListTeamModsSortEnum =
   (typeof ListTeamModsSortEnum)[keyof typeof ListTeamModsSortEnum];
@@ -3158,11 +3156,9 @@ export type ListTeamModsOrderEnum =
  * @export
  */
 export const ListTeamPacksSortEnum = {
-  Packname: "packname",
-  Email: "email",
-  Fullname: "fullname",
-  Admin: "admin",
-  Active: "active",
+  Slug: "slug",
+  Name: "name",
+  Public: "public",
 } as const;
 export type ListTeamPacksSortEnum =
   (typeof ListTeamPacksSortEnum)[keyof typeof ListTeamPacksSortEnum];

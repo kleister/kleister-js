@@ -12,16 +12,6 @@
  * Do not edit the class manually.
  */
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { TeamMod } from "./team-mod";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserMod } from "./user-mod";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Version } from "./version";
-
 /**
  * Model to represent mod
  * @export
@@ -51,7 +41,7 @@ export interface Mod {
    * @type {string}
    * @memberof Mod
    */
-  side?: ModSideEnum | null;
+  side?: string | null;
   /**
    *
    * @type {string}
@@ -94,30 +84,4 @@ export interface Mod {
    * @memberof Mod
    */
   updated_at?: string;
-  /**
-   *
-   * @type {Array<Version>}
-   * @memberof Mod
-   */
-  versions?: Array<Version> | null;
-  /**
-   *
-   * @type {Array<UserMod>}
-   * @memberof Mod
-   */
-  users?: Array<UserMod> | null;
-  /**
-   *
-   * @type {Array<TeamMod>}
-   * @memberof Mod
-   */
-  teams?: Array<TeamMod> | null;
 }
-
-export const ModSideEnum = {
-  Both: "both",
-  Server: "server",
-  Client: "client",
-} as const;
-
-export type ModSideEnum = (typeof ModSideEnum)[keyof typeof ModSideEnum];

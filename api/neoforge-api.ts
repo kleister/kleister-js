@@ -779,7 +779,7 @@ export interface NeoforgeApiListNeoforgeBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
    * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly sort?: ListNeoforgeBuildsSortEnum;
@@ -929,8 +929,10 @@ export class NeoforgeApi extends BaseAPI {
  * @export
  */
 export const ListNeoforgeBuildsSortEnum = {
-  Name: "name",
-  Public: "public",
+  BuildName: "build_name",
+  BuildPublic: "build_public",
+  PackSlug: "pack_slug",
+  PackName: "pack_name",
 } as const;
 export type ListNeoforgeBuildsSortEnum =
   (typeof ListNeoforgeBuildsSortEnum)[keyof typeof ListNeoforgeBuildsSortEnum];

@@ -15,15 +15,6 @@
 // May contain unused imports in some cases
 // @ts-ignore
 import type { UserAuth } from "./user-auth";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserMod } from "./user-mod";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserPack } from "./user-pack";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserTeam } from "./user-team";
 
 /**
  * Model to represent user
@@ -97,22 +88,4 @@ export interface User {
    * @memberof User
    */
   auths?: Array<UserAuth> | null;
-  /**
-   *
-   * @type {Array<UserTeam>}
-   * @memberof User
-   */
-  teams?: Array<UserTeam> | null;
-  /**
-   *
-   * @type {Array<UserPack>}
-   * @memberof User
-   */
-  packs?: Array<UserPack> | null;
-  /**
-   *
-   * @type {Array<UserMod>}
-   * @memberof User
-   */
-  mods?: Array<UserMod> | null;
 }

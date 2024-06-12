@@ -12,10 +12,6 @@
  * Do not edit the class manually.
  */
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Pack } from "./pack";
-
 /**
  * Model to represent pack background
  * @export
@@ -28,18 +24,6 @@ export interface PackBack {
    * @memberof PackBack
    */
   id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof PackBack
-   */
-  pack_id?: string;
-  /**
-   *
-   * @type {Pack}
-   * @memberof PackBack
-   */
-  pack?: Pack;
   /**
    *
    * @type {string}

@@ -56,8 +56,6 @@ import type { Mods } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
-import type { User } from "../model";
-// @ts-ignore
 import type { Version } from "../model";
 // @ts-ignore
 import type { VersionBuildParams } from "../model";
@@ -1835,7 +1833,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       mod: Mod,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mod>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createMod(
         mod,
@@ -2555,7 +2553,7 @@ export const ModApiFactory = function (
     createMod(
       requestParameters: ModApiCreateModRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<User> {
+    ): AxiosPromise<Mod> {
       return localVarFp
         .createMod(requestParameters.mod, options)
         .then((request) => request(axios, basePath));
@@ -3219,7 +3217,7 @@ export interface ModApiListModsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {'slug' | 'name' | 'public'}
    * @memberof ModApiListMods
    */
   readonly sort?: ListModsSortEnum;
@@ -3275,7 +3273,7 @@ export interface ModApiListVersionBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
+   * @type {'name' | 'public'}
    * @memberof ModApiListVersionBuilds
    */
   readonly sort?: ListVersionBuildsSortEnum;
@@ -3324,7 +3322,7 @@ export interface ModApiListVersionsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
+   * @type {'name' | 'public'}
    * @memberof ModApiListVersions
    */
   readonly sort?: ListVersionsSortEnum;
@@ -3976,6 +3974,7 @@ export type ListModUsersOrderEnum =
  * @export
  */
 export const ListModsSortEnum = {
+  Slug: "slug",
   Name: "name",
   Public: "public",
 } as const;
@@ -3994,8 +3993,8 @@ export type ListModsOrderEnum =
  * @export
  */
 export const ListVersionBuildsSortEnum = {
-  Slug: "slug",
   Name: "name",
+  Public: "public",
 } as const;
 export type ListVersionBuildsSortEnum =
   (typeof ListVersionBuildsSortEnum)[keyof typeof ListVersionBuildsSortEnum];
@@ -4012,8 +4011,8 @@ export type ListVersionBuildsOrderEnum =
  * @export
  */
 export const ListVersionsSortEnum = {
-  Slug: "slug",
   Name: "name",
+  Public: "public",
 } as const;
 export type ListVersionsSortEnum =
   (typeof ListVersionsSortEnum)[keyof typeof ListVersionsSortEnum];

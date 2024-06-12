@@ -46,6 +46,8 @@ import type { Build } from "../model";
 // @ts-ignore
 import type { BuildVersionParams } from "../model";
 // @ts-ignore
+import type { BuildVersions } from "../model";
+// @ts-ignore
 import type { Builds } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
@@ -61,8 +63,6 @@ import type { PackUserParams } from "../model";
 import type { PackUsers } from "../model";
 // @ts-ignore
 import type { Packs } from "../model";
-// @ts-ignore
-import type { UserTeams } from "../model";
 /**
  * PackApi - axios parameter creator
  * @export
@@ -2076,7 +2076,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserTeams>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<BuildVersions>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listBuildVersions(
@@ -2676,7 +2676,7 @@ export const PackApiFactory = function (
     listBuildVersions(
       requestParameters: PackApiListBuildVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UserTeams> {
+    ): AxiosPromise<BuildVersions> {
       return localVarFp
         .listBuildVersions(
           requestParameters.packId,
@@ -3126,7 +3126,7 @@ export interface PackApiListBuildVersionsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
+   * @type {'name' | 'public'}
    * @memberof PackApiListBuildVersions
    */
   readonly sort?: ListBuildVersionsSortEnum;
@@ -3175,7 +3175,7 @@ export interface PackApiListBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
+   * @type {'name' | 'public'}
    * @memberof PackApiListBuilds
    */
   readonly sort?: ListBuildsSortEnum;
@@ -3315,7 +3315,7 @@ export interface PackApiListPacksRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {'slug' | 'name' | 'public'}
    * @memberof PackApiListPacks
    */
   readonly sort?: ListPacksSortEnum;
@@ -3916,8 +3916,8 @@ export class PackApi extends BaseAPI {
  * @export
  */
 export const ListBuildVersionsSortEnum = {
-  Slug: "slug",
   Name: "name",
+  Public: "public",
 } as const;
 export type ListBuildVersionsSortEnum =
   (typeof ListBuildVersionsSortEnum)[keyof typeof ListBuildVersionsSortEnum];
@@ -3934,8 +3934,8 @@ export type ListBuildVersionsOrderEnum =
  * @export
  */
 export const ListBuildsSortEnum = {
-  Slug: "slug",
   Name: "name",
+  Public: "public",
 } as const;
 export type ListBuildsSortEnum =
   (typeof ListBuildsSortEnum)[keyof typeof ListBuildsSortEnum];
@@ -3991,6 +3991,7 @@ export type ListPackUsersOrderEnum =
  * @export
  */
 export const ListPacksSortEnum = {
+  Slug: "slug",
   Name: "name",
   Public: "public",
 } as const;

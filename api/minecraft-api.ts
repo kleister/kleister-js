@@ -783,7 +783,7 @@ export interface MinecraftApiListMinecraftBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
    * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly sort?: ListMinecraftBuildsSortEnum;
@@ -933,8 +933,10 @@ export class MinecraftApi extends BaseAPI {
  * @export
  */
 export const ListMinecraftBuildsSortEnum = {
-  Name: "name",
-  Public: "public",
+  BuildName: "build_name",
+  BuildPublic: "build_public",
+  PackSlug: "pack_slug",
+  PackName: "pack_name",
 } as const;
 export type ListMinecraftBuildsSortEnum =
   (typeof ListMinecraftBuildsSortEnum)[keyof typeof ListMinecraftBuildsSortEnum];

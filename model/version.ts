@@ -14,9 +14,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BuildVersion } from "./build-version";
-// May contain unused imports in some cases
-// @ts-ignore
 import type { Mod } from "./mod";
 // May contain unused imports in some cases
 // @ts-ignore
@@ -40,12 +37,6 @@ export interface Version {
    * @memberof Version
    */
   file?: VersionFile;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
-  mod_id?: string;
   /**
    *
    * @type {Mod}
@@ -82,10 +73,4 @@ export interface Version {
    * @memberof Version
    */
   updated_at?: string;
-  /**
-   *
-   * @type {Array<BuildVersion>}
-   * @memberof Version
-   */
-  builds?: Array<BuildVersion> | null;
 }
