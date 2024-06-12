@@ -2504,7 +2504,7 @@ export interface UserApiListUserModsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
+   * @type {'slug' | 'name' | 'public'}
    * @memberof UserApiListUserMods
    */
   readonly sort?: ListUserModsSortEnum;
@@ -2553,7 +2553,7 @@ export interface UserApiListUserPacksRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
+   * @type {'slug' | 'name' | 'public'}
    * @memberof UserApiListUserPacks
    */
   readonly sort?: ListUserPacksSortEnum;
@@ -3139,6 +3139,7 @@ export class UserApi extends BaseAPI {
 export const ListUserModsSortEnum = {
   Slug: "slug",
   Name: "name",
+  Public: "public",
 } as const;
 export type ListUserModsSortEnum =
   (typeof ListUserModsSortEnum)[keyof typeof ListUserModsSortEnum];
@@ -3157,6 +3158,7 @@ export type ListUserModsOrderEnum =
 export const ListUserPacksSortEnum = {
   Slug: "slug",
   Name: "name",
+  Public: "public",
 } as const;
 export type ListUserPacksSortEnum =
   (typeof ListUserPacksSortEnum)[keyof typeof ListUserPacksSortEnum];

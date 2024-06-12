@@ -776,7 +776,7 @@ export interface ForgeApiListForgeBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
    * @memberof ForgeApiListForgeBuilds
    */
   readonly sort?: ListForgeBuildsSortEnum;
@@ -926,8 +926,10 @@ export class ForgeApi extends BaseAPI {
  * @export
  */
 export const ListForgeBuildsSortEnum = {
-  Name: "name",
-  Public: "public",
+  BuildName: "build_name",
+  BuildPublic: "build_public",
+  PackSlug: "pack_slug",
+  PackName: "pack_name",
 } as const;
 export type ListForgeBuildsSortEnum =
   (typeof ListForgeBuildsSortEnum)[keyof typeof ListForgeBuildsSortEnum];

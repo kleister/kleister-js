@@ -12,10 +12,6 @@
  * Do not edit the class manually.
  */
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Version } from "./version";
-
 /**
  * Model to represent version file
  * @export
@@ -28,18 +24,6 @@ export interface VersionFile {
    * @memberof VersionFile
    */
   id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof VersionFile
-   */
-  version_id?: string;
-  /**
-   *
-   * @type {Version}
-   * @memberof VersionFile
-   */
-  version?: Version;
   /**
    *
    * @type {string}

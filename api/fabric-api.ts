@@ -777,7 +777,7 @@ export interface FabricApiListFabricBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
    * @memberof FabricApiListFabricBuilds
    */
   readonly sort?: ListFabricBuildsSortEnum;
@@ -927,8 +927,10 @@ export class FabricApi extends BaseAPI {
  * @export
  */
 export const ListFabricBuildsSortEnum = {
-  Name: "name",
-  Public: "public",
+  BuildName: "build_name",
+  BuildPublic: "build_public",
+  PackSlug: "pack_slug",
+  PackName: "pack_name",
 } as const;
 export type ListFabricBuildsSortEnum =
   (typeof ListFabricBuildsSortEnum)[keyof typeof ListFabricBuildsSortEnum];

@@ -14,9 +14,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Build } from "./build";
-// May contain unused imports in some cases
-// @ts-ignore
 import type { PackBack } from "./pack-back";
 // May contain unused imports in some cases
 // @ts-ignore
@@ -24,12 +21,6 @@ import type { PackIcon } from "./pack-icon";
 // May contain unused imports in some cases
 // @ts-ignore
 import type { PackLogo } from "./pack-logo";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { TeamPack } from "./team-pack";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserPack } from "./user-pack";
 
 /**
  * Model to represent pack
@@ -66,30 +57,6 @@ export interface Pack {
    * @type {string}
    * @memberof Pack
    */
-  recommended_id?: string | null;
-  /**
-   *
-   * @type {Build}
-   * @memberof Pack
-   */
-  recommended?: Build;
-  /**
-   *
-   * @type {string}
-   * @memberof Pack
-   */
-  latest_id?: string | null;
-  /**
-   *
-   * @type {Build}
-   * @memberof Pack
-   */
-  latest?: Build;
-  /**
-   *
-   * @type {string}
-   * @memberof Pack
-   */
   slug?: string | null;
   /**
    *
@@ -121,22 +88,4 @@ export interface Pack {
    * @memberof Pack
    */
   updated_at?: string;
-  /**
-   *
-   * @type {Array<Build>}
-   * @memberof Pack
-   */
-  builds?: Array<Build> | null;
-  /**
-   *
-   * @type {Array<UserPack>}
-   * @memberof Pack
-   */
-  users?: Array<UserPack> | null;
-  /**
-   *
-   * @type {Array<TeamPack>}
-   * @memberof Pack
-   */
-  teams?: Array<TeamPack> | null;
 }

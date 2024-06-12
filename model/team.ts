@@ -12,16 +12,6 @@
  * Do not edit the class manually.
  */
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { TeamMod } from "./team-mod";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { TeamPack } from "./team-pack";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserTeam } from "./user-team";
-
 /**
  * Model to represent team
  * @export
@@ -58,22 +48,4 @@ export interface Team {
    * @memberof Team
    */
   updated_at?: string;
-  /**
-   *
-   * @type {Array<UserTeam>}
-   * @memberof Team
-   */
-  users?: Array<UserTeam> | null;
-  /**
-   *
-   * @type {Array<TeamPack>}
-   * @memberof Team
-   */
-  packs?: Array<TeamPack> | null;
-  /**
-   *
-   * @type {Array<TeamMod>}
-   * @memberof Team
-   */
-  mods?: Array<TeamMod> | null;
 }
