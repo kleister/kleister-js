@@ -198,6 +198,24 @@ export const ProfileApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
+      // authentication Cookie required
+      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
       localVarHeaderParameter["Content-Type"] = "application/json";
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
