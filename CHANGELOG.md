@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/kleister/kleister-js/compare/v1.0.1...v1.1.0) (2024-06-17)
+
+
+### Features
+
+* automated openapi client update ([64db2c5](https://github.com/kleister/kleister-js/commit/64db2c5686bb9fff43c7ea26420205ee7550c082))
+* automated openapi client update ([5b63c64](https://github.com/kleister/kleister-js/commit/5b63c64b26a30918938e1806faa9be07daa910ac))
+
+
+### Bugfixes
+
+* **deps:** update dependency prettier to v3.3.2 ([586629d](https://github.com/kleister/kleister-js/commit/586629dc64356ae8d186f3cd0be08a60cfa186d6))
+
 ## [1.0.1](https://github.com/kleister/kleister-js/compare/v1.0.0...v1.0.1) (2024-06-10)
 
 
