@@ -70,7 +70,7 @@ export interface TeamPack {
 }
 
 export const TeamPackPermEnum = {
-  Team: "team",
+  User: "user",
   Admin: "admin",
   Owner: "owner",
 } as const;

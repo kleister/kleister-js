@@ -33,7 +33,7 @@ export interface PackTeamParams {
 }
 
 export const PackTeamParamsPermEnum = {
-  Team: "team",
+  User: "user",
   Admin: "admin",
   Owner: "owner",
 } as const;

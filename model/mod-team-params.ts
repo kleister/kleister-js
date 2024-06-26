@@ -33,7 +33,7 @@ export interface ModTeamParams {
 }
 
 export const ModTeamParamsPermEnum = {
-  Team: "team",
+  User: "user",
   Admin: "admin",
   Owner: "owner",
 } as const;

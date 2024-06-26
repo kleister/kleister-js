@@ -70,7 +70,7 @@ export interface TeamMod {
 }
 
 export const TeamModPermEnum = {
-  Team: "team",
+  User: "user",
   Admin: "admin",
   Owner: "owner",
 } as const;
