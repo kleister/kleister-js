@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/kleister/kleister-js/compare/v1.1.0...v1.1.1) (2024-07-01)
+
+
+### Bugfixes
+
+* use right values for perm enum ([94c6560](https://github.com/kleister/kleister-js/commit/94c65609b937e7da1d22d6625724fe93f1b90b19))
+
 ## [1.1.0](https://github.com/kleister/kleister-js/compare/v1.0.1...v1.1.0) (2024-06-17)
 
 
