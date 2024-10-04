@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.0](https://github.com/kleister/kleister-js/compare/v1.2.0...v1.3.0) (2024-10-04)
+
+
+### Features
+
+* **deps:** update dependency @types/node to 12.11.5 - 20.15 ([f029585](https://github.com/kleister/kleister-js/commit/f029585a9cb5690370ca9382e13caf0c661a74c6))
+* **deps:** update dependency @types/node to 12.11.5 - 20.16 ([3438b7f](https://github.com/kleister/kleister-js/commit/3438b7f982fb8681bf3b64d91296a15c5ee6bed7))
+
+
+### Bugfixes
+
+* **deps:** update dependency axios to v1.7.3 ([8da6994](https://github.com/kleister/kleister-js/commit/8da69947d9616e1859f23da8ee03b9368884ca2d))
+* **deps:** update dependency axios to v1.7.4 [security] ([c66936e](https://github.com/kleister/kleister-js/commit/c66936e4ffce105bd31f9eba12c08554b71abd53))
+* **deps:** update dependency axios to v1.7.5 ([1ac6ea6](https://github.com/kleister/kleister-js/commit/1ac6ea6e223cf7a567db4c7b6c2e96782b6e3d52))
+* **deps:** update dependency axios to v1.7.6 ([7d13e7e](https://github.com/kleister/kleister-js/commit/7d13e7e47e300c672bcb5176675f0355e6ba2e59))
+* **deps:** update dependency axios to v1.7.7 ([05efa52](https://github.com/kleister/kleister-js/commit/05efa527e752ca1f883984b514c9b172fad063ea))
+
 ## [1.2.0](https://github.com/kleister/kleister-js/compare/v1.1.1...v1.2.0) (2024-07-15)
 
 
