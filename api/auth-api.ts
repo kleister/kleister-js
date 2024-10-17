@@ -49,6 +49,8 @@ import type { AuthToken } from "../model";
 import type { AuthVerify } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
+// @ts-ignore
+import type { Providers } from "../model";
 /**
  * AuthApi - axios parameter creator
  * @export
@@ -152,6 +154,45 @@ export const AuthApiAxiosParamCreator = function (
       if (state !== undefined) {
         localVarQueryParameter["state"] = state;
       }
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Fetch the available auth providers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    externalProviders: async (
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      const localVarPath = `/auth/providers`;
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "GET",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
@@ -414,6 +455,32 @@ export const AuthApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @summary Fetch the available auth providers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async externalProviders(
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Providers>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.externalProviders(options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["AuthApi.externalProviders"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
      * @summary Authenticate an user by credentials
      * @param {AuthLogin} authLogin The credentials to authenticate
      * @param {*} [options] Override http request option.
@@ -543,6 +610,19 @@ export const AuthApiFactory = function (
           requestParameters.state,
           options,
         )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Fetch the available auth providers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    externalProviders(
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<Providers> {
+      return localVarFp
+        .externalProviders(options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -695,6 +775,19 @@ export class AuthApi extends BaseAPI {
         requestParameters.state,
         options,
       )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Fetch the available auth providers
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof AuthApi
+   */
+  public externalProviders(options?: RawAxiosRequestConfig) {
+    return AuthApiFp(this.configuration)
+      .externalProviders(options)
       .then((request) => request(this.axios, this.basePath));
   }
 
