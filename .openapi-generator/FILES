@@ -58,6 +58,8 @@ model/pack-users.ts
 model/pack.ts
 model/packs.ts
 model/profile.ts
+model/provider.ts
+model/providers.ts
 model/quilt-build-params.ts
 model/quilt-builds.ts
 model/quilt.ts

@@ -39,6 +39,8 @@ export * from "./pack-user-params";
 export * from "./pack-users";
 export * from "./packs";
 export * from "./profile";
+export * from "./provider";
+export * from "./providers";
 export * from "./quilt";
 export * from "./quilt-build-params";
 export * from "./quilt-builds";
