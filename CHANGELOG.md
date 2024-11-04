@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.0](https://github.com/kleister/kleister-js/compare/v1.3.0...v2.0.0) (2024-11-04)
+
+
+### Features
+
+* automated openapi client update ([26e32d4](https://github.com/kleister/kleister-js/commit/26e32d44e4657b08e2ea10efc7bb8aaf9ccac70b))
+* **deps:** update dependency @types/node to 12.11.5 - 20.17 ([d1ebe10](https://github.com/kleister/kleister-js/commit/d1ebe10a07bda333b9463af28628bd4cd10b7929))
+* **deps:** update dependency @types/node to v22 ([4300e87](https://github.com/kleister/kleister-js/commit/4300e87584e20e76a6c0d0601c2b708c256d9d95))
+
 ## [1.3.0](https://github.com/kleister/kleister-js/compare/v1.2.0...v1.3.0) (2024-10-04)
 
 
