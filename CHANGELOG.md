@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.2.0](https://github.com/kleister/kleister-js/compare/v2.1.0...v2.2.0) (2024-12-02)
+
+
+### Features
+
+* automated openapi client update ([568639c](https://github.com/kleister/kleister-js/commit/568639c32d67a5ae67f6288d1fc72b56f7df1d92))
+* **deps:** update dependency @types/node to 12.11.5 - 22.10 ([#154](https://github.com/kleister/kleister-js/issues/154)) ([b6137a2](https://github.com/kleister/kleister-js/commit/b6137a275c17cc3fb38185795752249c69b56e10))
+* **deps:** update dependency prettier to v3.4.0 ([#155](https://github.com/kleister/kleister-js/issues/155)) ([b1e880a](https://github.com/kleister/kleister-js/commit/b1e880a0a4062acd8d6749bcb267f878efc2bfec))
+
+
+### Bugfixes
+
+* **deps:** update dependency axios to v1.7.8 ([#153](https://github.com/kleister/kleister-js/issues/153)) ([2c89e36](https://github.com/kleister/kleister-js/commit/2c89e36ea985d15352743b62edab8daa7eaa5e60))
+* **deps:** update dependency prettier to v3.4.1 ([#157](https://github.com/kleister/kleister-js/issues/157)) ([d25c707](https://github.com/kleister/kleister-js/commit/d25c7071cb0a134ab56920783e8fe4785e8d7f01))
+
 ## [2.1.0](https://github.com/kleister/kleister-js/compare/v2.0.0...v2.1.0) (2024-11-11)
 
 
