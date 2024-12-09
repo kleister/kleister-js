@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.1](https://github.com/kleister/kleister-js/compare/v2.2.0...v2.2.1) (2024-12-09)
+
+
+### Bugfixes
+
+* **deps:** update dependency axios to v1.7.9 ([#158](https://github.com/kleister/kleister-js/issues/158)) ([2e132e9](https://github.com/kleister/kleister-js/commit/2e132e93ff1e1cb16270cf245a5c456541070490))
+* **deps:** update dependency prettier to v3.4.2 ([#159](https://github.com/kleister/kleister-js/issues/159)) ([a90b6f5](https://github.com/kleister/kleister-js/commit/a90b6f5f9bee49e19eaefc3f11e0f83e93bf43b2))
+
 ## [2.2.0](https://github.com/kleister/kleister-js/compare/v2.1.0...v2.2.0) (2024-12-02)
 
 
