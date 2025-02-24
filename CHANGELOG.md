@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.2](https://github.com/kleister/kleister-js/compare/v2.4.1...v2.4.2) (2025-02-24)
+
+
+### Bugfixes
+
+* **deps:** update dependency prettier to v3.5.2 ([#164](https://github.com/kleister/kleister-js/issues/164)) ([7399f40](https://github.com/kleister/kleister-js/commit/7399f40867ee1fae7d70d71c7db55d0ec6b52bd3))
+
 ## [2.4.1](https://github.com/kleister/kleister-js/compare/v2.4.0...v2.4.1) (2025-02-17)
 
 
