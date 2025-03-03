@@ -1,6 +1,6 @@
 ---
 npmName: kleisterjs
-npmVersion: 2.4.2
+npmVersion: 2.5.0
 supportsES6: true
 useSingleRequestParameter: true
 withNodeImports: true
