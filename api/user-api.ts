@@ -42,23 +42,33 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
+import type { CreateUserRequest } from "../model";
+// @ts-ignore
+import type { DeleteGroupFromModRequest } from "../model";
+// @ts-ignore
+import type { DeleteGroupFromPackRequest } from "../model";
+// @ts-ignore
+import type { DeletePackFromGroupRequest } from "../model";
+// @ts-ignore
+import type { ListUserGroups200Response } from "../model";
+// @ts-ignore
+import type { ListUserMods200Response } from "../model";
+// @ts-ignore
+import type { ListUserPacks200Response } from "../model";
+// @ts-ignore
+import type { ListUsers200Response } from "../model";
+// @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
+import type { PermitGroupModRequest } from "../model";
+// @ts-ignore
+import type { PermitGroupPackRequest } from "../model";
+// @ts-ignore
+import type { PermitPackGroupRequest } from "../model";
+// @ts-ignore
+import type { UpdateUserRequest } from "../model";
+// @ts-ignore
 import type { User } from "../model";
-// @ts-ignore
-import type { UserModParams } from "../model";
-// @ts-ignore
-import type { UserMods } from "../model";
-// @ts-ignore
-import type { UserPackParams } from "../model";
-// @ts-ignore
-import type { UserPacks } from "../model";
-// @ts-ignore
-import type { UserTeamParams } from "../model";
-// @ts-ignore
-import type { UserTeams } from "../model";
-// @ts-ignore
-import type { Users } from "../model";
 /**
  * UserApi - axios parameter creator
  * @export
@@ -69,21 +79,101 @@ export const UserApiAxiosParamCreator = function (
   return {
     /**
      *
+     * @summary Attach a group to user
+     * @param {string} userId A user identifier or slug
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The user group data to permit
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    attachUserToGroup: async (
+      userId: string,
+      permitPackGroupRequest: PermitPackGroupRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'userId' is not null or undefined
+      assertParamExists("attachUserToGroup", "userId", userId);
+      // verify required parameter 'permitPackGroupRequest' is not null or undefined
+      assertParamExists(
+        "attachUserToGroup",
+        "permitPackGroupRequest",
+        permitPackGroupRequest,
+      );
+      const localVarPath = `/users/{user_id}/groups`.replace(
+        `{${"user_id"}}`,
+        encodeURIComponent(String(userId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        permitPackGroupRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary Attach a mod to user
      * @param {string} userId A user identifier or slug
-     * @param {UserModParams} userModParams The user mod data to attach
+     * @param {PermitGroupModRequest} permitGroupModRequest The user mod data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachUserToMod: async (
       userId: string,
-      userModParams: UserModParams,
+      permitGroupModRequest: PermitGroupModRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("attachUserToMod", "userId", userId);
-      // verify required parameter 'userModParams' is not null or undefined
-      assertParamExists("attachUserToMod", "userModParams", userModParams);
+      // verify required parameter 'permitGroupModRequest' is not null or undefined
+      assertParamExists(
+        "attachUserToMod",
+        "permitGroupModRequest",
+        permitGroupModRequest,
+      );
       const localVarPath = `/users/{user_id}/mods`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -103,9 +193,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -132,7 +219,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        userModParams,
+        permitGroupModRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -146,19 +233,23 @@ export const UserApiAxiosParamCreator = function (
      *
      * @summary Attach a pack to user
      * @param {string} userId A user identifier or slug
-     * @param {UserPackParams} userPackParams The user pack data to attach
+     * @param {PermitGroupPackRequest} permitGroupPackRequest The user pack data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachUserToPack: async (
       userId: string,
-      userPackParams: UserPackParams,
+      permitGroupPackRequest: PermitGroupPackRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("attachUserToPack", "userId", userId);
-      // verify required parameter 'userPackParams' is not null or undefined
-      assertParamExists("attachUserToPack", "userPackParams", userPackParams);
+      // verify required parameter 'permitGroupPackRequest' is not null or undefined
+      assertParamExists(
+        "attachUserToPack",
+        "permitGroupPackRequest",
+        permitGroupPackRequest,
+      );
       const localVarPath = `/users/{user_id}/packs`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -178,9 +269,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -207,82 +295,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        userPackParams,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @summary Attach a team to user
-     * @param {string} userId A user identifier or slug
-     * @param {UserTeamParams} userTeamParams The user team data to attach
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    attachUserToTeam: async (
-      userId: string,
-      userTeamParams: UserTeamParams,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'userId' is not null or undefined
-      assertParamExists("attachUserToTeam", "userId", userId);
-      // verify required parameter 'userTeamParams' is not null or undefined
-      assertParamExists("attachUserToTeam", "userTeamParams", userTeamParams);
-      const localVarPath = `/users/{user_id}/teams`.replace(
-        `{${"user_id"}}`,
-        encodeURIComponent(String(userId)),
-      );
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "POST",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
-      // authentication Basic required
-      // http basic authentication required
-      setBasicAuthToObject(localVarRequestOptions, configuration);
-
-      // authentication Header required
-      await setApiKeyToObject(
-        localVarHeaderParameter,
-        "X-API-Key",
-        configuration,
-      );
-
-      // authentication Bearer required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        userTeamParams,
+        permitGroupPackRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -295,16 +308,16 @@ export const UserApiAxiosParamCreator = function (
     /**
      *
      * @summary Create a new user
-     * @param {User} user The user data to create
+     * @param {CreateUserRequest} createUserRequest The user data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createUser: async (
-      user: User,
+      createUserRequest: CreateUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
-      // verify required parameter 'user' is not null or undefined
-      assertParamExists("createUser", "user", user);
+      // verify required parameter 'createUserRequest' is not null or undefined
+      assertParamExists("createUser", "createUserRequest", createUserRequest);
       const localVarPath = `/users`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -321,9 +334,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -350,7 +360,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        user,
+        createUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -392,9 +402,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -426,21 +433,101 @@ export const UserApiAxiosParamCreator = function (
     },
     /**
      *
+     * @summary Unlink a group from user
+     * @param {string} userId A user identifier or slug
+     * @param {DeletePackFromGroupRequest} deletePackFromGroupRequest The user group data to unlink
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteUserFromGroup: async (
+      userId: string,
+      deletePackFromGroupRequest: DeletePackFromGroupRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'userId' is not null or undefined
+      assertParamExists("deleteUserFromGroup", "userId", userId);
+      // verify required parameter 'deletePackFromGroupRequest' is not null or undefined
+      assertParamExists(
+        "deleteUserFromGroup",
+        "deletePackFromGroupRequest",
+        deletePackFromGroupRequest,
+      );
+      const localVarPath = `/users/{user_id}/groups`.replace(
+        `{${"user_id"}}`,
+        encodeURIComponent(String(userId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "DELETE",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        deletePackFromGroupRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary Unlink a mod from user
      * @param {string} userId A user identifier or slug
-     * @param {UserModParams} userModParams The user mod data to unlink
+     * @param {DeleteGroupFromModRequest} deleteGroupFromModRequest The user mod data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteUserFromMod: async (
       userId: string,
-      userModParams: UserModParams,
+      deleteGroupFromModRequest: DeleteGroupFromModRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("deleteUserFromMod", "userId", userId);
-      // verify required parameter 'userModParams' is not null or undefined
-      assertParamExists("deleteUserFromMod", "userModParams", userModParams);
+      // verify required parameter 'deleteGroupFromModRequest' is not null or undefined
+      assertParamExists(
+        "deleteUserFromMod",
+        "deleteGroupFromModRequest",
+        deleteGroupFromModRequest,
+      );
       const localVarPath = `/users/{user_id}/mods`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -460,9 +547,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -489,7 +573,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        userModParams,
+        deleteGroupFromModRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -503,19 +587,23 @@ export const UserApiAxiosParamCreator = function (
      *
      * @summary Unlink a pack from user
      * @param {string} userId A user identifier or slug
-     * @param {UserPackParams} userPackParams The user pack data to unlink
+     * @param {DeleteGroupFromPackRequest} deleteGroupFromPackRequest The user pack data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteUserFromPack: async (
       userId: string,
-      userPackParams: UserPackParams,
+      deleteGroupFromPackRequest: DeleteGroupFromPackRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("deleteUserFromPack", "userId", userId);
-      // verify required parameter 'userPackParams' is not null or undefined
-      assertParamExists("deleteUserFromPack", "userPackParams", userPackParams);
+      // verify required parameter 'deleteGroupFromPackRequest' is not null or undefined
+      assertParamExists(
+        "deleteUserFromPack",
+        "deleteGroupFromPackRequest",
+        deleteGroupFromPackRequest,
+      );
       const localVarPath = `/users/{user_id}/packs`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -535,9 +623,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -564,7 +649,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        userPackParams,
+        deleteGroupFromPackRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -576,22 +661,28 @@ export const UserApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Unlink a team from user
+     * @summary Fetch all groups attached to user
      * @param {string} userId A user identifier or slug
-     * @param {UserTeamParams} userTeamParams The user team data to unlink
+     * @param {string} [search] Search query
+     * @param {string} [sort] Sorting column
+     * @param {ListUserGroupsOrderEnum} [order] Sorting order
+     * @param {number} [limit] Paging limit
+     * @param {number} [offset] Paging offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserFromTeam: async (
+    listUserGroups: async (
       userId: string,
-      userTeamParams: UserTeamParams,
+      search?: string,
+      sort?: string,
+      order?: ListUserGroupsOrderEnum,
+      limit?: number,
+      offset?: number,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
-      assertParamExists("deleteUserFromTeam", "userId", userId);
-      // verify required parameter 'userTeamParams' is not null or undefined
-      assertParamExists("deleteUserFromTeam", "userTeamParams", userTeamParams);
-      const localVarPath = `/users/{user_id}/teams`.replace(
+      assertParamExists("listUserGroups", "userId", userId);
+      const localVarPath = `/users/{user_id}/groups`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
       );
@@ -603,15 +694,12 @@ export const UserApiAxiosParamCreator = function (
       }
 
       const localVarRequestOptions = {
-        method: "DELETE",
+        method: "GET",
         ...baseOptions,
         ...options,
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -628,7 +716,25 @@ export const UserApiAxiosParamCreator = function (
       // http bearer authentication required
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
-      localVarHeaderParameter["Content-Type"] = "application/json";
+      if (search !== undefined) {
+        localVarQueryParameter["search"] = search;
+      }
+
+      if (sort !== undefined) {
+        localVarQueryParameter["sort"] = sort;
+      }
+
+      if (order !== undefined) {
+        localVarQueryParameter["order"] = order;
+      }
+
+      if (limit !== undefined) {
+        localVarQueryParameter["limit"] = limit;
+      }
+
+      if (offset !== undefined) {
+        localVarQueryParameter["offset"] = offset;
+      }
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
@@ -638,11 +744,6 @@ export const UserApiAxiosParamCreator = function (
         ...headersFromBaseOptions,
         ...options.headers,
       };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        userTeamParams,
-        localVarRequestOptions,
-        configuration,
-      );
 
       return {
         url: toPathString(localVarUrlObj),
@@ -654,7 +755,7 @@ export const UserApiAxiosParamCreator = function (
      * @summary Fetch all mods attached to user
      * @param {string} userId A user identifier or slug
      * @param {string} [search] Search query
-     * @param {ListUserModsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListUserModsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -664,7 +765,7 @@ export const UserApiAxiosParamCreator = function (
     listUserMods: async (
       userId: string,
       search?: string,
-      sort?: ListUserModsSortEnum,
+      sort?: string,
       order?: ListUserModsOrderEnum,
       limit?: number,
       offset?: number,
@@ -690,9 +791,6 @@ export const UserApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -748,7 +846,7 @@ export const UserApiAxiosParamCreator = function (
      * @summary Fetch all packs attached to user
      * @param {string} userId A user identifier or slug
      * @param {string} [search] Search query
-     * @param {ListUserPacksSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListUserPacksOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -758,7 +856,7 @@ export const UserApiAxiosParamCreator = function (
     listUserPacks: async (
       userId: string,
       search?: string,
-      sort?: ListUserPacksSortEnum,
+      sort?: string,
       order?: ListUserPacksOrderEnum,
       limit?: number,
       offset?: number,
@@ -784,103 +882,6 @@ export const UserApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
-      // authentication Basic required
-      // http basic authentication required
-      setBasicAuthToObject(localVarRequestOptions, configuration);
-
-      // authentication Header required
-      await setApiKeyToObject(
-        localVarHeaderParameter,
-        "X-API-Key",
-        configuration,
-      );
-
-      // authentication Bearer required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      if (search !== undefined) {
-        localVarQueryParameter["search"] = search;
-      }
-
-      if (sort !== undefined) {
-        localVarQueryParameter["sort"] = sort;
-      }
-
-      if (order !== undefined) {
-        localVarQueryParameter["order"] = order;
-      }
-
-      if (limit !== undefined) {
-        localVarQueryParameter["limit"] = limit;
-      }
-
-      if (offset !== undefined) {
-        localVarQueryParameter["offset"] = offset;
-      }
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @summary Fetch all teams attached to user
-     * @param {string} userId A user identifier or slug
-     * @param {string} [search] Search query
-     * @param {ListUserTeamsSortEnum} [sort] Sorting column
-     * @param {ListUserTeamsOrderEnum} [order] Sorting order
-     * @param {number} [limit] Paging limit
-     * @param {number} [offset] Paging offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listUserTeams: async (
-      userId: string,
-      search?: string,
-      sort?: ListUserTeamsSortEnum,
-      order?: ListUserTeamsOrderEnum,
-      limit?: number,
-      offset?: number,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'userId' is not null or undefined
-      assertParamExists("listUserTeams", "userId", userId);
-      const localVarPath = `/users/{user_id}/teams`.replace(
-        `{${"user_id"}}`,
-        encodeURIComponent(String(userId)),
-      );
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "GET",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -935,7 +936,7 @@ export const UserApiAxiosParamCreator = function (
      *
      * @summary Fetch all available users
      * @param {string} [search] Search query
-     * @param {ListUsersSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListUsersOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -944,7 +945,7 @@ export const UserApiAxiosParamCreator = function (
      */
     listUsers: async (
       search?: string,
-      sort?: ListUsersSortEnum,
+      sort?: string,
       order?: ListUsersOrderEnum,
       limit?: number,
       offset?: number,
@@ -965,9 +966,6 @@ export const UserApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1020,21 +1018,101 @@ export const UserApiAxiosParamCreator = function (
     },
     /**
      *
+     * @summary Update group perms for user
+     * @param {string} userId A user identifier or slug
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The user group data to permit
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    permitUserGroup: async (
+      userId: string,
+      permitPackGroupRequest: PermitPackGroupRequest,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'userId' is not null or undefined
+      assertParamExists("permitUserGroup", "userId", userId);
+      // verify required parameter 'permitPackGroupRequest' is not null or undefined
+      assertParamExists(
+        "permitUserGroup",
+        "permitPackGroupRequest",
+        permitPackGroupRequest,
+      );
+      const localVarPath = `/users/{user_id}/groups`.replace(
+        `{${"user_id"}}`,
+        encodeURIComponent(String(userId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "PUT",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Content-Type"] = "application/json";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = serializeDataIfNeeded(
+        permitPackGroupRequest,
+        localVarRequestOptions,
+        configuration,
+      );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary Update mod perms for user
      * @param {string} userId A user identifier or slug
-     * @param {UserModParams} userModParams The user mod data to update
+     * @param {PermitGroupModRequest} permitGroupModRequest The user mod data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     permitUserMod: async (
       userId: string,
-      userModParams: UserModParams,
+      permitGroupModRequest: PermitGroupModRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("permitUserMod", "userId", userId);
-      // verify required parameter 'userModParams' is not null or undefined
-      assertParamExists("permitUserMod", "userModParams", userModParams);
+      // verify required parameter 'permitGroupModRequest' is not null or undefined
+      assertParamExists(
+        "permitUserMod",
+        "permitGroupModRequest",
+        permitGroupModRequest,
+      );
       const localVarPath = `/users/{user_id}/mods`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -1054,9 +1132,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1083,7 +1158,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        userModParams,
+        permitGroupModRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1097,19 +1172,23 @@ export const UserApiAxiosParamCreator = function (
      *
      * @summary Update pack perms for user
      * @param {string} userId A user identifier or slug
-     * @param {UserPackParams} userPackParams The user pack data to update
+     * @param {PermitGroupPackRequest} permitGroupPackRequest The user pack data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     permitUserPack: async (
       userId: string,
-      userPackParams: UserPackParams,
+      permitGroupPackRequest: PermitGroupPackRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("permitUserPack", "userId", userId);
-      // verify required parameter 'userPackParams' is not null or undefined
-      assertParamExists("permitUserPack", "userPackParams", userPackParams);
+      // verify required parameter 'permitGroupPackRequest' is not null or undefined
+      assertParamExists(
+        "permitUserPack",
+        "permitGroupPackRequest",
+        permitGroupPackRequest,
+      );
       const localVarPath = `/users/{user_id}/packs`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -1129,9 +1208,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1158,82 +1234,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        userPackParams,
-        localVarRequestOptions,
-        configuration,
-      );
-
-      return {
-        url: toPathString(localVarUrlObj),
-        options: localVarRequestOptions,
-      };
-    },
-    /**
-     *
-     * @summary Update team perms for user
-     * @param {string} userId A user identifier or slug
-     * @param {UserTeamParams} userTeamParams The user team data to update
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    permitUserTeam: async (
-      userId: string,
-      userTeamParams: UserTeamParams,
-      options: RawAxiosRequestConfig = {},
-    ): Promise<RequestArgs> => {
-      // verify required parameter 'userId' is not null or undefined
-      assertParamExists("permitUserTeam", "userId", userId);
-      // verify required parameter 'userTeamParams' is not null or undefined
-      assertParamExists("permitUserTeam", "userTeamParams", userTeamParams);
-      const localVarPath = `/users/{user_id}/teams`.replace(
-        `{${"user_id"}}`,
-        encodeURIComponent(String(userId)),
-      );
-      // use dummy base URL string because the URL constructor only accepts absolute URLs.
-      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-      let baseOptions;
-      if (configuration) {
-        baseOptions = configuration.baseOptions;
-      }
-
-      const localVarRequestOptions = {
-        method: "PUT",
-        ...baseOptions,
-        ...options,
-      };
-      const localVarHeaderParameter = {} as any;
-      const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
-      // authentication Basic required
-      // http basic authentication required
-      setBasicAuthToObject(localVarRequestOptions, configuration);
-
-      // authentication Header required
-      await setApiKeyToObject(
-        localVarHeaderParameter,
-        "X-API-Key",
-        configuration,
-      );
-
-      // authentication Bearer required
-      // http bearer authentication required
-      await setBearerAuthToObject(localVarHeaderParameter, configuration);
-
-      localVarHeaderParameter["Content-Type"] = "application/json";
-
-      setSearchParams(localVarUrlObj, localVarQueryParameter);
-      let headersFromBaseOptions =
-        baseOptions && baseOptions.headers ? baseOptions.headers : {};
-      localVarRequestOptions.headers = {
-        ...localVarHeaderParameter,
-        ...headersFromBaseOptions,
-        ...options.headers,
-      };
-      localVarRequestOptions.data = serializeDataIfNeeded(
-        userTeamParams,
+        permitGroupPackRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1275,9 +1276,6 @@ export const UserApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1311,19 +1309,19 @@ export const UserApiAxiosParamCreator = function (
      *
      * @summary Update a specific user
      * @param {string} userId A user identifier or slug
-     * @param {User} user The user data to update
+     * @param {UpdateUserRequest} updateUserRequest The user data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updateUser: async (
       userId: string,
-      user: User,
+      updateUserRequest: UpdateUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'userId' is not null or undefined
       assertParamExists("updateUser", "userId", userId);
-      // verify required parameter 'user' is not null or undefined
-      assertParamExists("updateUser", "user", user);
+      // verify required parameter 'updateUserRequest' is not null or undefined
+      assertParamExists("updateUser", "updateUserRequest", updateUserRequest);
       const localVarPath = `/users/{user_id}`.replace(
         `{${"user_id"}}`,
         encodeURIComponent(String(userId)),
@@ -1342,9 +1340,6 @@ export const UserApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1372,7 +1367,7 @@ export const UserApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        user,
+        updateUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1394,22 +1389,56 @@ export const UserApiFp = function (configuration?: Configuration) {
   return {
     /**
      *
+     * @summary Attach a group to user
+     * @param {string} userId A user identifier or slug
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The user group data to permit
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async attachUserToGroup(
+      userId: string,
+      permitPackGroupRequest: PermitPackGroupRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.attachUserToGroup(
+          userId,
+          permitPackGroupRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["UserApi.attachUserToGroup"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
      * @summary Attach a mod to user
      * @param {string} userId A user identifier or slug
-     * @param {UserModParams} userModParams The user mod data to attach
+     * @param {PermitGroupModRequest} permitGroupModRequest The user mod data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachUserToMod(
       userId: string,
-      userModParams: UserModParams,
+      permitGroupModRequest: PermitGroupModRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.attachUserToMod(
         userId,
-        userModParams,
+        permitGroupModRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1429,13 +1458,13 @@ export const UserApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a pack to user
      * @param {string} userId A user identifier or slug
-     * @param {UserPackParams} userPackParams The user pack data to attach
+     * @param {PermitGroupPackRequest} permitGroupPackRequest The user pack data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachUserToPack(
       userId: string,
-      userPackParams: UserPackParams,
+      permitGroupPackRequest: PermitGroupPackRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1443,7 +1472,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachUserToPack(
           userId,
-          userPackParams,
+          permitGroupPackRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1461,53 +1490,19 @@ export const UserApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Attach a team to user
-     * @param {string} userId A user identifier or slug
-     * @param {UserTeamParams} userTeamParams The user team data to attach
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async attachUserToTeam(
-      userId: string,
-      userTeamParams: UserTeamParams,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
-    > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.attachUserToTeam(
-          userId,
-          userTeamParams,
-          options,
-        );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["UserApi.attachUserToTeam"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     *
      * @summary Create a new user
-     * @param {User} user The user data to create
+     * @param {CreateUserRequest} createUserRequest The user data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createUser(
-      user: User,
+      createUserRequest: CreateUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createUser(
-        user,
+        createUserRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1553,15 +1548,49 @@ export const UserApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @summary Unlink a group from user
+     * @param {string} userId A user identifier or slug
+     * @param {DeletePackFromGroupRequest} deletePackFromGroupRequest The user group data to unlink
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteUserFromGroup(
+      userId: string,
+      deletePackFromGroupRequest: DeletePackFromGroupRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.deleteUserFromGroup(
+          userId,
+          deletePackFromGroupRequest,
+          options,
+        );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["UserApi.deleteUserFromGroup"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
      * @summary Unlink a mod from user
      * @param {string} userId A user identifier or slug
-     * @param {UserModParams} userModParams The user mod data to unlink
+     * @param {DeleteGroupFromModRequest} deleteGroupFromModRequest The user mod data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteUserFromMod(
       userId: string,
-      userModParams: UserModParams,
+      deleteGroupFromModRequest: DeleteGroupFromModRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1569,7 +1598,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteUserFromMod(
           userId,
-          userModParams,
+          deleteGroupFromModRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1589,13 +1618,13 @@ export const UserApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a pack from user
      * @param {string} userId A user identifier or slug
-     * @param {UserPackParams} userPackParams The user pack data to unlink
+     * @param {DeleteGroupFromPackRequest} deleteGroupFromPackRequest The user pack data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteUserFromPack(
       userId: string,
-      userPackParams: UserPackParams,
+      deleteGroupFromPackRequest: DeleteGroupFromPackRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1603,7 +1632,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteUserFromPack(
           userId,
-          userPackParams,
+          deleteGroupFromPackRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1621,28 +1650,42 @@ export const UserApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Unlink a team from user
+     * @summary Fetch all groups attached to user
      * @param {string} userId A user identifier or slug
-     * @param {UserTeamParams} userTeamParams The user team data to unlink
+     * @param {string} [search] Search query
+     * @param {string} [sort] Sorting column
+     * @param {ListUserGroupsOrderEnum} [order] Sorting order
+     * @param {number} [limit] Paging limit
+     * @param {number} [offset] Paging offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async deleteUserFromTeam(
+    async listUserGroups(
       userId: string,
-      userTeamParams: UserTeamParams,
+      search?: string,
+      sort?: string,
+      order?: ListUserGroupsOrderEnum,
+      limit?: number,
+      offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListUserGroups200Response>
     > {
-      const localVarAxiosArgs =
-        await localVarAxiosParamCreator.deleteUserFromTeam(
-          userId,
-          userTeamParams,
-          options,
-        );
+      const localVarAxiosArgs = await localVarAxiosParamCreator.listUserGroups(
+        userId,
+        search,
+        sort,
+        order,
+        limit,
+        offset,
+        options,
+      );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["UserApi.deleteUserFromTeam"]?.[
+        operationServerMap["UserApi.listUserGroups"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1658,7 +1701,7 @@ export const UserApiFp = function (configuration?: Configuration) {
      * @summary Fetch all mods attached to user
      * @param {string} userId A user identifier or slug
      * @param {string} [search] Search query
-     * @param {ListUserModsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListUserModsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1668,13 +1711,16 @@ export const UserApiFp = function (configuration?: Configuration) {
     async listUserMods(
       userId: string,
       search?: string,
-      sort?: ListUserModsSortEnum,
+      sort?: string,
       order?: ListUserModsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMods>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListUserMods200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUserMods(
         userId,
@@ -1703,7 +1749,7 @@ export const UserApiFp = function (configuration?: Configuration) {
      * @summary Fetch all packs attached to user
      * @param {string} userId A user identifier or slug
      * @param {string} [search] Search query
-     * @param {ListUserPacksSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListUserPacksOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1713,13 +1759,16 @@ export const UserApiFp = function (configuration?: Configuration) {
     async listUserPacks(
       userId: string,
       search?: string,
-      sort?: ListUserPacksSortEnum,
+      sort?: string,
       order?: ListUserPacksOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPacks>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListUserPacks200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUserPacks(
         userId,
@@ -1745,54 +1794,9 @@ export const UserApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Fetch all teams attached to user
-     * @param {string} userId A user identifier or slug
-     * @param {string} [search] Search query
-     * @param {ListUserTeamsSortEnum} [sort] Sorting column
-     * @param {ListUserTeamsOrderEnum} [order] Sorting order
-     * @param {number} [limit] Paging limit
-     * @param {number} [offset] Paging offset
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async listUserTeams(
-      userId: string,
-      search?: string,
-      sort?: ListUserTeamsSortEnum,
-      order?: ListUserTeamsOrderEnum,
-      limit?: number,
-      offset?: number,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserTeams>
-    > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.listUserTeams(
-        userId,
-        search,
-        sort,
-        order,
-        limit,
-        offset,
-        options,
-      );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["UserApi.listUserTeams"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     *
      * @summary Fetch all available users
      * @param {string} [search] Search query
-     * @param {ListUsersSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListUsersOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1801,13 +1805,16 @@ export const UserApiFp = function (configuration?: Configuration) {
      */
     async listUsers(
       search?: string,
-      sort?: ListUsersSortEnum,
+      sort?: string,
       order?: ListUsersOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Users>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListUsers200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(
         search,
@@ -1831,22 +1838,55 @@ export const UserApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @summary Update group perms for user
+     * @param {string} userId A user identifier or slug
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The user group data to permit
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async permitUserGroup(
+      userId: string,
+      permitPackGroupRequest: PermitPackGroupRequest,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.permitUserGroup(
+        userId,
+        permitPackGroupRequest,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["UserApi.permitUserGroup"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
      * @summary Update mod perms for user
      * @param {string} userId A user identifier or slug
-     * @param {UserModParams} userModParams The user mod data to update
+     * @param {PermitGroupModRequest} permitGroupModRequest The user mod data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async permitUserMod(
       userId: string,
-      userModParams: UserModParams,
+      permitGroupModRequest: PermitGroupModRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.permitUserMod(
         userId,
-        userModParams,
+        permitGroupModRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1866,58 +1906,25 @@ export const UserApiFp = function (configuration?: Configuration) {
      *
      * @summary Update pack perms for user
      * @param {string} userId A user identifier or slug
-     * @param {UserPackParams} userPackParams The user pack data to update
+     * @param {PermitGroupPackRequest} permitGroupPackRequest The user pack data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async permitUserPack(
       userId: string,
-      userPackParams: UserPackParams,
+      permitGroupPackRequest: PermitGroupPackRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.permitUserPack(
         userId,
-        userPackParams,
+        permitGroupPackRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap["UserApi.permitUserPack"]?.[
-          localVarOperationServerIndex
-        ]?.url;
-      return (axios, basePath) =>
-        createRequestFunction(
-          localVarAxiosArgs,
-          globalAxios,
-          BASE_PATH,
-          configuration,
-        )(axios, localVarOperationServerBasePath || basePath);
-    },
-    /**
-     *
-     * @summary Update team perms for user
-     * @param {string} userId A user identifier or slug
-     * @param {UserTeamParams} userTeamParams The user team data to update
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    async permitUserTeam(
-      userId: string,
-      userTeamParams: UserTeamParams,
-      options?: RawAxiosRequestConfig,
-    ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
-    > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.permitUserTeam(
-        userId,
-        userTeamParams,
-        options,
-      );
-      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-      const localVarOperationServerBasePath =
-        operationServerMap["UserApi.permitUserTeam"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1961,20 +1968,20 @@ export const UserApiFp = function (configuration?: Configuration) {
      *
      * @summary Update a specific user
      * @param {string} userId A user identifier or slug
-     * @param {User} user The user data to update
+     * @param {UpdateUserRequest} updateUserRequest The user data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateUser(
       userId: string,
-      user: User,
+      updateUserRequest: UpdateUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(
         userId,
-        user,
+        updateUserRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2005,6 +2012,25 @@ export const UserApiFactory = function (
   return {
     /**
      *
+     * @summary Attach a group to user
+     * @param {UserApiAttachUserToGroupRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    attachUserToGroup(
+      requestParameters: UserApiAttachUserToGroupRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<Notification> {
+      return localVarFp
+        .attachUserToGroup(
+          requestParameters.userId,
+          requestParameters.permitPackGroupRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @summary Attach a mod to user
      * @param {UserApiAttachUserToModRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -2017,7 +2043,7 @@ export const UserApiFactory = function (
       return localVarFp
         .attachUserToMod(
           requestParameters.userId,
-          requestParameters.userModParams,
+          requestParameters.permitGroupModRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2036,26 +2062,7 @@ export const UserApiFactory = function (
       return localVarFp
         .attachUserToPack(
           requestParameters.userId,
-          requestParameters.userPackParams,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
-     * @summary Attach a team to user
-     * @param {UserApiAttachUserToTeamRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    attachUserToTeam(
-      requestParameters: UserApiAttachUserToTeamRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Notification> {
-      return localVarFp
-        .attachUserToTeam(
-          requestParameters.userId,
-          requestParameters.userTeamParams,
+          requestParameters.permitGroupPackRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2072,7 +2079,7 @@ export const UserApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<User> {
       return localVarFp
-        .createUser(requestParameters.user, options)
+        .createUser(requestParameters.createUserRequest, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -2092,6 +2099,25 @@ export const UserApiFactory = function (
     },
     /**
      *
+     * @summary Unlink a group from user
+     * @param {UserApiDeleteUserFromGroupRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteUserFromGroup(
+      requestParameters: UserApiDeleteUserFromGroupRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<Notification> {
+      return localVarFp
+        .deleteUserFromGroup(
+          requestParameters.userId,
+          requestParameters.deletePackFromGroupRequest,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
      * @summary Unlink a mod from user
      * @param {UserApiDeleteUserFromModRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -2104,7 +2130,7 @@ export const UserApiFactory = function (
       return localVarFp
         .deleteUserFromMod(
           requestParameters.userId,
-          requestParameters.userModParams,
+          requestParameters.deleteGroupFromModRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2123,26 +2149,30 @@ export const UserApiFactory = function (
       return localVarFp
         .deleteUserFromPack(
           requestParameters.userId,
-          requestParameters.userPackParams,
+          requestParameters.deleteGroupFromPackRequest,
           options,
         )
         .then((request) => request(axios, basePath));
     },
     /**
      *
-     * @summary Unlink a team from user
-     * @param {UserApiDeleteUserFromTeamRequest} requestParameters Request parameters.
+     * @summary Fetch all groups attached to user
+     * @param {UserApiListUserGroupsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserFromTeam(
-      requestParameters: UserApiDeleteUserFromTeamRequest,
+    listUserGroups(
+      requestParameters: UserApiListUserGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Notification> {
+    ): AxiosPromise<ListUserGroups200Response> {
       return localVarFp
-        .deleteUserFromTeam(
+        .listUserGroups(
           requestParameters.userId,
-          requestParameters.userTeamParams,
+          requestParameters.search,
+          requestParameters.sort,
+          requestParameters.order,
+          requestParameters.limit,
+          requestParameters.offset,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2157,7 +2187,7 @@ export const UserApiFactory = function (
     listUserMods(
       requestParameters: UserApiListUserModsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UserMods> {
+    ): AxiosPromise<ListUserMods200Response> {
       return localVarFp
         .listUserMods(
           requestParameters.userId,
@@ -2180,32 +2210,9 @@ export const UserApiFactory = function (
     listUserPacks(
       requestParameters: UserApiListUserPacksRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UserPacks> {
+    ): AxiosPromise<ListUserPacks200Response> {
       return localVarFp
         .listUserPacks(
-          requestParameters.userId,
-          requestParameters.search,
-          requestParameters.sort,
-          requestParameters.order,
-          requestParameters.limit,
-          requestParameters.offset,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
-     * @summary Fetch all teams attached to user
-     * @param {UserApiListUserTeamsRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listUserTeams(
-      requestParameters: UserApiListUserTeamsRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<UserTeams> {
-      return localVarFp
-        .listUserTeams(
           requestParameters.userId,
           requestParameters.search,
           requestParameters.sort,
@@ -2226,7 +2233,7 @@ export const UserApiFactory = function (
     listUsers(
       requestParameters: UserApiListUsersRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Users> {
+    ): AxiosPromise<ListUsers200Response> {
       return localVarFp
         .listUsers(
           requestParameters.search,
@@ -2234,6 +2241,25 @@ export const UserApiFactory = function (
           requestParameters.order,
           requestParameters.limit,
           requestParameters.offset,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Update group perms for user
+     * @param {UserApiPermitUserGroupRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    permitUserGroup(
+      requestParameters: UserApiPermitUserGroupRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<Notification> {
+      return localVarFp
+        .permitUserGroup(
+          requestParameters.userId,
+          requestParameters.permitPackGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2252,7 +2278,7 @@ export const UserApiFactory = function (
       return localVarFp
         .permitUserMod(
           requestParameters.userId,
-          requestParameters.userModParams,
+          requestParameters.permitGroupModRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2271,26 +2297,7 @@ export const UserApiFactory = function (
       return localVarFp
         .permitUserPack(
           requestParameters.userId,
-          requestParameters.userPackParams,
-          options,
-        )
-        .then((request) => request(axios, basePath));
-    },
-    /**
-     *
-     * @summary Update team perms for user
-     * @param {UserApiPermitUserTeamRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    permitUserTeam(
-      requestParameters: UserApiPermitUserTeamRequest,
-      options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Notification> {
-      return localVarFp
-        .permitUserTeam(
-          requestParameters.userId,
-          requestParameters.userTeamParams,
+          requestParameters.permitGroupPackRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2322,11 +2329,36 @@ export const UserApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<User> {
       return localVarFp
-        .updateUser(requestParameters.userId, requestParameters.user, options)
+        .updateUser(
+          requestParameters.userId,
+          requestParameters.updateUserRequest,
+          options,
+        )
         .then((request) => request(axios, basePath));
     },
   };
 };
+
+/**
+ * Request parameters for attachUserToGroup operation in UserApi.
+ * @export
+ * @interface UserApiAttachUserToGroupRequest
+ */
+export interface UserApiAttachUserToGroupRequest {
+  /**
+   * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiAttachUserToGroup
+   */
+  readonly userId: string;
+
+  /**
+   * The user group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof UserApiAttachUserToGroup
+   */
+  readonly permitPackGroupRequest: PermitPackGroupRequest;
+}
 
 /**
  * Request parameters for attachUserToMod operation in UserApi.
@@ -2342,11 +2374,11 @@ export interface UserApiAttachUserToModRequest {
   readonly userId: string;
 
   /**
-   * The user mod data to attach
-   * @type {UserModParams}
+   * The user mod data to permit
+   * @type {PermitGroupModRequest}
    * @memberof UserApiAttachUserToMod
    */
-  readonly userModParams: UserModParams;
+  readonly permitGroupModRequest: PermitGroupModRequest;
 }
 
 /**
@@ -2363,32 +2395,11 @@ export interface UserApiAttachUserToPackRequest {
   readonly userId: string;
 
   /**
-   * The user pack data to attach
-   * @type {UserPackParams}
+   * The user pack data to permit
+   * @type {PermitGroupPackRequest}
    * @memberof UserApiAttachUserToPack
    */
-  readonly userPackParams: UserPackParams;
-}
-
-/**
- * Request parameters for attachUserToTeam operation in UserApi.
- * @export
- * @interface UserApiAttachUserToTeamRequest
- */
-export interface UserApiAttachUserToTeamRequest {
-  /**
-   * A user identifier or slug
-   * @type {string}
-   * @memberof UserApiAttachUserToTeam
-   */
-  readonly userId: string;
-
-  /**
-   * The user team data to attach
-   * @type {UserTeamParams}
-   * @memberof UserApiAttachUserToTeam
-   */
-  readonly userTeamParams: UserTeamParams;
+  readonly permitGroupPackRequest: PermitGroupPackRequest;
 }
 
 /**
@@ -2399,10 +2410,10 @@ export interface UserApiAttachUserToTeamRequest {
 export interface UserApiCreateUserRequest {
   /**
    * The user data to create
-   * @type {User}
+   * @type {CreateUserRequest}
    * @memberof UserApiCreateUser
    */
-  readonly user: User;
+  readonly createUserRequest: CreateUserRequest;
 }
 
 /**
@@ -2420,6 +2431,27 @@ export interface UserApiDeleteUserRequest {
 }
 
 /**
+ * Request parameters for deleteUserFromGroup operation in UserApi.
+ * @export
+ * @interface UserApiDeleteUserFromGroupRequest
+ */
+export interface UserApiDeleteUserFromGroupRequest {
+  /**
+   * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiDeleteUserFromGroup
+   */
+  readonly userId: string;
+
+  /**
+   * The user group data to unlink
+   * @type {DeletePackFromGroupRequest}
+   * @memberof UserApiDeleteUserFromGroup
+   */
+  readonly deletePackFromGroupRequest: DeletePackFromGroupRequest;
+}
+
+/**
  * Request parameters for deleteUserFromMod operation in UserApi.
  * @export
  * @interface UserApiDeleteUserFromModRequest
@@ -2434,10 +2466,10 @@ export interface UserApiDeleteUserFromModRequest {
 
   /**
    * The user mod data to unlink
-   * @type {UserModParams}
+   * @type {DeleteGroupFromModRequest}
    * @memberof UserApiDeleteUserFromMod
    */
-  readonly userModParams: UserModParams;
+  readonly deleteGroupFromModRequest: DeleteGroupFromModRequest;
 }
 
 /**
@@ -2455,31 +2487,59 @@ export interface UserApiDeleteUserFromPackRequest {
 
   /**
    * The user pack data to unlink
-   * @type {UserPackParams}
+   * @type {DeleteGroupFromPackRequest}
    * @memberof UserApiDeleteUserFromPack
    */
-  readonly userPackParams: UserPackParams;
+  readonly deleteGroupFromPackRequest: DeleteGroupFromPackRequest;
 }
 
 /**
- * Request parameters for deleteUserFromTeam operation in UserApi.
+ * Request parameters for listUserGroups operation in UserApi.
  * @export
- * @interface UserApiDeleteUserFromTeamRequest
+ * @interface UserApiListUserGroupsRequest
  */
-export interface UserApiDeleteUserFromTeamRequest {
+export interface UserApiListUserGroupsRequest {
   /**
    * A user identifier or slug
    * @type {string}
-   * @memberof UserApiDeleteUserFromTeam
+   * @memberof UserApiListUserGroups
    */
   readonly userId: string;
 
   /**
-   * The user team data to unlink
-   * @type {UserTeamParams}
-   * @memberof UserApiDeleteUserFromTeam
+   * Search query
+   * @type {string}
+   * @memberof UserApiListUserGroups
    */
-  readonly userTeamParams: UserTeamParams;
+  readonly search?: string;
+
+  /**
+   * Sorting column
+   * @type {string}
+   * @memberof UserApiListUserGroups
+   */
+  readonly sort?: string;
+
+  /**
+   * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof UserApiListUserGroups
+   */
+  readonly order?: ListUserGroupsOrderEnum;
+
+  /**
+   * Paging limit
+   * @type {number}
+   * @memberof UserApiListUserGroups
+   */
+  readonly limit?: number;
+
+  /**
+   * Paging offset
+   * @type {number}
+   * @memberof UserApiListUserGroups
+   */
+  readonly offset?: number;
 }
 
 /**
@@ -2504,10 +2564,10 @@ export interface UserApiListUserModsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name' | 'public'}
+   * @type {string}
    * @memberof UserApiListUserMods
    */
-  readonly sort?: ListUserModsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -2553,10 +2613,10 @@ export interface UserApiListUserPacksRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name' | 'public'}
+   * @type {string}
    * @memberof UserApiListUserPacks
    */
-  readonly sort?: ListUserPacksSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -2581,55 +2641,6 @@ export interface UserApiListUserPacksRequest {
 }
 
 /**
- * Request parameters for listUserTeams operation in UserApi.
- * @export
- * @interface UserApiListUserTeamsRequest
- */
-export interface UserApiListUserTeamsRequest {
-  /**
-   * A user identifier or slug
-   * @type {string}
-   * @memberof UserApiListUserTeams
-   */
-  readonly userId: string;
-
-  /**
-   * Search query
-   * @type {string}
-   * @memberof UserApiListUserTeams
-   */
-  readonly search?: string;
-
-  /**
-   * Sorting column
-   * @type {'slug' | 'name'}
-   * @memberof UserApiListUserTeams
-   */
-  readonly sort?: ListUserTeamsSortEnum;
-
-  /**
-   * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof UserApiListUserTeams
-   */
-  readonly order?: ListUserTeamsOrderEnum;
-
-  /**
-   * Paging limit
-   * @type {number}
-   * @memberof UserApiListUserTeams
-   */
-  readonly limit?: number;
-
-  /**
-   * Paging offset
-   * @type {number}
-   * @memberof UserApiListUserTeams
-   */
-  readonly offset?: number;
-}
-
-/**
  * Request parameters for listUsers operation in UserApi.
  * @export
  * @interface UserApiListUsersRequest
@@ -2644,10 +2655,10 @@ export interface UserApiListUsersRequest {
 
   /**
    * Sorting column
-   * @type {'username' | 'email' | 'fullname' | 'admin' | 'active'}
+   * @type {string}
    * @memberof UserApiListUsers
    */
-  readonly sort?: ListUsersSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -2672,6 +2683,27 @@ export interface UserApiListUsersRequest {
 }
 
 /**
+ * Request parameters for permitUserGroup operation in UserApi.
+ * @export
+ * @interface UserApiPermitUserGroupRequest
+ */
+export interface UserApiPermitUserGroupRequest {
+  /**
+   * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiPermitUserGroup
+   */
+  readonly userId: string;
+
+  /**
+   * The user group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof UserApiPermitUserGroup
+   */
+  readonly permitPackGroupRequest: PermitPackGroupRequest;
+}
+
+/**
  * Request parameters for permitUserMod operation in UserApi.
  * @export
  * @interface UserApiPermitUserModRequest
@@ -2685,11 +2717,11 @@ export interface UserApiPermitUserModRequest {
   readonly userId: string;
 
   /**
-   * The user mod data to update
-   * @type {UserModParams}
+   * The user mod data to permit
+   * @type {PermitGroupModRequest}
    * @memberof UserApiPermitUserMod
    */
-  readonly userModParams: UserModParams;
+  readonly permitGroupModRequest: PermitGroupModRequest;
 }
 
 /**
@@ -2706,32 +2738,11 @@ export interface UserApiPermitUserPackRequest {
   readonly userId: string;
 
   /**
-   * The user pack data to update
-   * @type {UserPackParams}
+   * The user pack data to permit
+   * @type {PermitGroupPackRequest}
    * @memberof UserApiPermitUserPack
    */
-  readonly userPackParams: UserPackParams;
-}
-
-/**
- * Request parameters for permitUserTeam operation in UserApi.
- * @export
- * @interface UserApiPermitUserTeamRequest
- */
-export interface UserApiPermitUserTeamRequest {
-  /**
-   * A user identifier or slug
-   * @type {string}
-   * @memberof UserApiPermitUserTeam
-   */
-  readonly userId: string;
-
-  /**
-   * The user team data to update
-   * @type {UserTeamParams}
-   * @memberof UserApiPermitUserTeam
-   */
-  readonly userTeamParams: UserTeamParams;
+  readonly permitGroupPackRequest: PermitGroupPackRequest;
 }
 
 /**
@@ -2763,10 +2774,10 @@ export interface UserApiUpdateUserRequest {
 
   /**
    * The user data to update
-   * @type {User}
+   * @type {UpdateUserRequest}
    * @memberof UserApiUpdateUser
    */
-  readonly user: User;
+  readonly updateUserRequest: UpdateUserRequest;
 }
 
 /**
@@ -2776,6 +2787,27 @@ export interface UserApiUpdateUserRequest {
  * @extends {BaseAPI}
  */
 export class UserApi extends BaseAPI {
+  /**
+   *
+   * @summary Attach a group to user
+   * @param {UserApiAttachUserToGroupRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof UserApi
+   */
+  public attachUserToGroup(
+    requestParameters: UserApiAttachUserToGroupRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return UserApiFp(this.configuration)
+      .attachUserToGroup(
+        requestParameters.userId,
+        requestParameters.permitPackGroupRequest,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
   /**
    *
    * @summary Attach a mod to user
@@ -2791,7 +2823,7 @@ export class UserApi extends BaseAPI {
     return UserApiFp(this.configuration)
       .attachUserToMod(
         requestParameters.userId,
-        requestParameters.userModParams,
+        requestParameters.permitGroupModRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -2812,28 +2844,7 @@ export class UserApi extends BaseAPI {
     return UserApiFp(this.configuration)
       .attachUserToPack(
         requestParameters.userId,
-        requestParameters.userPackParams,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
-   * @summary Attach a team to user
-   * @param {UserApiAttachUserToTeamRequest} requestParameters Request parameters.
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UserApi
-   */
-  public attachUserToTeam(
-    requestParameters: UserApiAttachUserToTeamRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return UserApiFp(this.configuration)
-      .attachUserToTeam(
-        requestParameters.userId,
-        requestParameters.userTeamParams,
+        requestParameters.permitGroupPackRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -2852,7 +2863,7 @@ export class UserApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return UserApiFp(this.configuration)
-      .createUser(requestParameters.user, options)
+      .createUser(requestParameters.createUserRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -2875,6 +2886,27 @@ export class UserApi extends BaseAPI {
 
   /**
    *
+   * @summary Unlink a group from user
+   * @param {UserApiDeleteUserFromGroupRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof UserApi
+   */
+  public deleteUserFromGroup(
+    requestParameters: UserApiDeleteUserFromGroupRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return UserApiFp(this.configuration)
+      .deleteUserFromGroup(
+        requestParameters.userId,
+        requestParameters.deletePackFromGroupRequest,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @summary Unlink a mod from user
    * @param {UserApiDeleteUserFromModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
@@ -2888,7 +2920,7 @@ export class UserApi extends BaseAPI {
     return UserApiFp(this.configuration)
       .deleteUserFromMod(
         requestParameters.userId,
-        requestParameters.userModParams,
+        requestParameters.deleteGroupFromModRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -2909,7 +2941,7 @@ export class UserApi extends BaseAPI {
     return UserApiFp(this.configuration)
       .deleteUserFromPack(
         requestParameters.userId,
-        requestParameters.userPackParams,
+        requestParameters.deleteGroupFromPackRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -2917,20 +2949,24 @@ export class UserApi extends BaseAPI {
 
   /**
    *
-   * @summary Unlink a team from user
-   * @param {UserApiDeleteUserFromTeamRequest} requestParameters Request parameters.
+   * @summary Fetch all groups attached to user
+   * @param {UserApiListUserGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof UserApi
    */
-  public deleteUserFromTeam(
-    requestParameters: UserApiDeleteUserFromTeamRequest,
+  public listUserGroups(
+    requestParameters: UserApiListUserGroupsRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return UserApiFp(this.configuration)
-      .deleteUserFromTeam(
+      .listUserGroups(
         requestParameters.userId,
-        requestParameters.userTeamParams,
+        requestParameters.search,
+        requestParameters.sort,
+        requestParameters.order,
+        requestParameters.limit,
+        requestParameters.offset,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -2988,31 +3024,6 @@ export class UserApi extends BaseAPI {
 
   /**
    *
-   * @summary Fetch all teams attached to user
-   * @param {UserApiListUserTeamsRequest} requestParameters Request parameters.
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UserApi
-   */
-  public listUserTeams(
-    requestParameters: UserApiListUserTeamsRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return UserApiFp(this.configuration)
-      .listUserTeams(
-        requestParameters.userId,
-        requestParameters.search,
-        requestParameters.sort,
-        requestParameters.order,
-        requestParameters.limit,
-        requestParameters.offset,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
    * @summary Fetch all available users
    * @param {UserApiListUsersRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
@@ -3037,6 +3048,27 @@ export class UserApi extends BaseAPI {
 
   /**
    *
+   * @summary Update group perms for user
+   * @param {UserApiPermitUserGroupRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof UserApi
+   */
+  public permitUserGroup(
+    requestParameters: UserApiPermitUserGroupRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return UserApiFp(this.configuration)
+      .permitUserGroup(
+        requestParameters.userId,
+        requestParameters.permitPackGroupRequest,
+        options,
+      )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
    * @summary Update mod perms for user
    * @param {UserApiPermitUserModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
@@ -3050,7 +3082,7 @@ export class UserApi extends BaseAPI {
     return UserApiFp(this.configuration)
       .permitUserMod(
         requestParameters.userId,
-        requestParameters.userModParams,
+        requestParameters.permitGroupModRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3071,28 +3103,7 @@ export class UserApi extends BaseAPI {
     return UserApiFp(this.configuration)
       .permitUserPack(
         requestParameters.userId,
-        requestParameters.userPackParams,
-        options,
-      )
-      .then((request) => request(this.axios, this.basePath));
-  }
-
-  /**
-   *
-   * @summary Update team perms for user
-   * @param {UserApiPermitUserTeamRequest} requestParameters Request parameters.
-   * @param {*} [options] Override http request option.
-   * @throws {RequiredError}
-   * @memberof UserApi
-   */
-  public permitUserTeam(
-    requestParameters: UserApiPermitUserTeamRequest,
-    options?: RawAxiosRequestConfig,
-  ) {
-    return UserApiFp(this.configuration)
-      .permitUserTeam(
-        requestParameters.userId,
-        requestParameters.userTeamParams,
+        requestParameters.permitGroupPackRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3128,7 +3139,11 @@ export class UserApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return UserApiFp(this.configuration)
-      .updateUser(requestParameters.userId, requestParameters.user, options)
+      .updateUser(
+        requestParameters.userId,
+        requestParameters.updateUserRequest,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 }
@@ -3136,13 +3151,12 @@ export class UserApi extends BaseAPI {
 /**
  * @export
  */
-export const ListUserModsSortEnum = {
-  Slug: "slug",
-  Name: "name",
-  Public: "public",
+export const ListUserGroupsOrderEnum = {
+  Asc: "asc",
+  Desc: "desc",
 } as const;
-export type ListUserModsSortEnum =
-  (typeof ListUserModsSortEnum)[keyof typeof ListUserModsSortEnum];
+export type ListUserGroupsOrderEnum =
+  (typeof ListUserGroupsOrderEnum)[keyof typeof ListUserGroupsOrderEnum];
 /**
  * @export
  */
@@ -3155,52 +3169,12 @@ export type ListUserModsOrderEnum =
 /**
  * @export
  */
-export const ListUserPacksSortEnum = {
-  Slug: "slug",
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListUserPacksSortEnum =
-  (typeof ListUserPacksSortEnum)[keyof typeof ListUserPacksSortEnum];
-/**
- * @export
- */
 export const ListUserPacksOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListUserPacksOrderEnum =
   (typeof ListUserPacksOrderEnum)[keyof typeof ListUserPacksOrderEnum];
-/**
- * @export
- */
-export const ListUserTeamsSortEnum = {
-  Slug: "slug",
-  Name: "name",
-} as const;
-export type ListUserTeamsSortEnum =
-  (typeof ListUserTeamsSortEnum)[keyof typeof ListUserTeamsSortEnum];
-/**
- * @export
- */
-export const ListUserTeamsOrderEnum = {
-  Asc: "asc",
-  Desc: "desc",
-} as const;
-export type ListUserTeamsOrderEnum =
-  (typeof ListUserTeamsOrderEnum)[keyof typeof ListUserTeamsOrderEnum];
-/**
- * @export
- */
-export const ListUsersSortEnum = {
-  Username: "username",
-  Email: "email",
-  Fullname: "fullname",
-  Admin: "admin",
-  Active: "active",
-} as const;
-export type ListUsersSortEnum =
-  (typeof ListUsersSortEnum)[keyof typeof ListUsersSortEnum];
 /**
  * @export
  */

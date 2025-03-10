@@ -42,11 +42,11 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
-import type { MinecraftBuildParams } from "../model";
+import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { MinecraftBuilds } from "../model";
+import type { ListMinecraftBuilds200Response } from "../model";
 // @ts-ignore
-import type { Minecrafts } from "../model";
+import type { ListMinecrafts200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -61,22 +61,22 @@ export const MinecraftApiAxiosParamCreator = function (
      *
      * @summary Attach a build to a Minecraft version
      * @param {string} minecraftId A minecraft identifier or slug
-     * @param {MinecraftBuildParams} minecraftBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The minecraft build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachMinecraftToBuild: async (
       minecraftId: string,
-      minecraftBuildParams: MinecraftBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'minecraftId' is not null or undefined
       assertParamExists("attachMinecraftToBuild", "minecraftId", minecraftId);
-      // verify required parameter 'minecraftBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "attachMinecraftToBuild",
-        "minecraftBuildParams",
-        minecraftBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/minecraft/{minecraft_id}/builds`.replace(
         `{${"minecraft_id"}}`,
@@ -97,9 +97,6 @@ export const MinecraftApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -126,7 +123,7 @@ export const MinecraftApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        minecraftBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -140,22 +137,22 @@ export const MinecraftApiAxiosParamCreator = function (
      *
      * @summary Unlink a build from a Minecraft version
      * @param {string} minecraftId A minecraft identifier or slug
-     * @param {MinecraftBuildParams} minecraftBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The minecraft build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteMinecraftFromBuild: async (
       minecraftId: string,
-      minecraftBuildParams: MinecraftBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'minecraftId' is not null or undefined
       assertParamExists("deleteMinecraftFromBuild", "minecraftId", minecraftId);
-      // verify required parameter 'minecraftBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "deleteMinecraftFromBuild",
-        "minecraftBuildParams",
-        minecraftBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/minecraft/{minecraft_id}/builds`.replace(
         `{${"minecraft_id"}}`,
@@ -176,9 +173,6 @@ export const MinecraftApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -205,7 +199,7 @@ export const MinecraftApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        minecraftBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -220,7 +214,7 @@ export const MinecraftApiAxiosParamCreator = function (
      * @summary Fetch the builds attached to a Minecraft version
      * @param {string} minecraftId A minecraft identifier or slug
      * @param {string} [search] Search query
-     * @param {ListMinecraftBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListMinecraftBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -230,7 +224,7 @@ export const MinecraftApiAxiosParamCreator = function (
     listMinecraftBuilds: async (
       minecraftId: string,
       search?: string,
-      sort?: ListMinecraftBuildsSortEnum,
+      sort?: string,
       order?: ListMinecraftBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -256,9 +250,6 @@ export const MinecraftApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -336,9 +327,6 @@ export const MinecraftApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -397,9 +385,6 @@ export const MinecraftApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -444,13 +429,13 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a build to a Minecraft version
      * @param {string} minecraftId A minecraft identifier or slug
-     * @param {MinecraftBuildParams} minecraftBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The minecraft build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachMinecraftToBuild(
       minecraftId: string,
-      minecraftBuildParams: MinecraftBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -458,7 +443,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachMinecraftToBuild(
           minecraftId,
-          minecraftBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -478,13 +463,13 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a build from a Minecraft version
      * @param {string} minecraftId A minecraft identifier or slug
-     * @param {MinecraftBuildParams} minecraftBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The minecraft build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteMinecraftFromBuild(
       minecraftId: string,
-      minecraftBuildParams: MinecraftBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -492,7 +477,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteMinecraftFromBuild(
           minecraftId,
-          minecraftBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -513,7 +498,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
      * @summary Fetch the builds attached to a Minecraft version
      * @param {string} minecraftId A minecraft identifier or slug
      * @param {string} [search] Search query
-     * @param {ListMinecraftBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListMinecraftBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -523,7 +508,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
     async listMinecraftBuilds(
       minecraftId: string,
       search?: string,
-      sort?: ListMinecraftBuildsSortEnum,
+      sort?: string,
       order?: ListMinecraftBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -532,7 +517,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<MinecraftBuilds>
+      ) => AxiosPromise<ListMinecraftBuilds200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listMinecraftBuilds(
@@ -568,7 +553,10 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Minecrafts>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListMinecrafts200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listMinecrafts(
         search,
@@ -641,7 +629,7 @@ export const MinecraftApiFactory = function (
       return localVarFp
         .attachMinecraftToBuild(
           requestParameters.minecraftId,
-          requestParameters.minecraftBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -660,7 +648,7 @@ export const MinecraftApiFactory = function (
       return localVarFp
         .deleteMinecraftFromBuild(
           requestParameters.minecraftId,
-          requestParameters.minecraftBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -675,7 +663,7 @@ export const MinecraftApiFactory = function (
     listMinecraftBuilds(
       requestParameters: MinecraftApiListMinecraftBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<MinecraftBuilds> {
+    ): AxiosPromise<ListMinecraftBuilds200Response> {
       return localVarFp
         .listMinecraftBuilds(
           requestParameters.minecraftId,
@@ -698,7 +686,7 @@ export const MinecraftApiFactory = function (
     listMinecrafts(
       requestParameters: MinecraftApiListMinecraftsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Minecrafts> {
+    ): AxiosPromise<ListMinecrafts200Response> {
       return localVarFp
         .listMinecrafts(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -733,11 +721,11 @@ export interface MinecraftApiAttachMinecraftToBuildRequest {
   readonly minecraftId: string;
 
   /**
-   * The build data to attach
-   * @type {MinecraftBuildParams}
+   * The minecraft build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof MinecraftApiAttachMinecraftToBuild
    */
-  readonly minecraftBuildParams: MinecraftBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -754,11 +742,11 @@ export interface MinecraftApiDeleteMinecraftFromBuildRequest {
   readonly minecraftId: string;
 
   /**
-   * The build data to unlink
-   * @type {MinecraftBuildParams}
+   * The minecraft build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof MinecraftApiDeleteMinecraftFromBuild
    */
-  readonly minecraftBuildParams: MinecraftBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -783,10 +771,10 @@ export interface MinecraftApiListMinecraftBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
+   * @type {string}
    * @memberof MinecraftApiListMinecraftBuilds
    */
-  readonly sort?: ListMinecraftBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -846,7 +834,7 @@ export class MinecraftApi extends BaseAPI {
     return MinecraftApiFp(this.configuration)
       .attachMinecraftToBuild(
         requestParameters.minecraftId,
-        requestParameters.minecraftBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -867,7 +855,7 @@ export class MinecraftApi extends BaseAPI {
     return MinecraftApiFp(this.configuration)
       .deleteMinecraftFromBuild(
         requestParameters.minecraftId,
-        requestParameters.minecraftBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -929,17 +917,6 @@ export class MinecraftApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
-export const ListMinecraftBuildsSortEnum = {
-  BuildName: "build_name",
-  BuildPublic: "build_public",
-  PackSlug: "pack_slug",
-  PackName: "pack_name",
-} as const;
-export type ListMinecraftBuildsSortEnum =
-  (typeof ListMinecraftBuildsSortEnum)[keyof typeof ListMinecraftBuildsSortEnum];
 /**
  * @export
  */

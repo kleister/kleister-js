@@ -23,12 +23,6 @@ export interface VersionFile {
    * @type {string}
    * @memberof VersionFile
    */
-  id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof VersionFile
-   */
   slug?: string | null;
   /**
    *
@@ -54,12 +48,6 @@ export interface VersionFile {
    * @memberof VersionFile
    */
   url?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof VersionFile
-   */
-  upload?: string | null;
   /**
    *
    * @type {string}

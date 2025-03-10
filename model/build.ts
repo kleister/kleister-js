@@ -114,12 +114,6 @@ export interface Build {
    * @type {string}
    * @memberof Build
    */
-  slug?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   name?: string | null;
   /**
    *

@@ -12,6 +12,10 @@
  * Do not edit the class manually.
  */
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { ModAvatar } from "./mod-avatar";
+
 /**
  * Model to represent mod
  * @export
@@ -24,6 +28,12 @@ export interface Mod {
    * @memberof Mod
    */
   id?: string;
+  /**
+   *
+   * @type {ModAvatar}
+   * @memberof Mod
+   */
+  avatar?: ModAvatar;
   /**
    *
    * @type {string}

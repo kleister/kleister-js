@@ -42,11 +42,11 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
-import type { ForgeBuildParams } from "../model";
+import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ForgeBuilds } from "../model";
+import type { ListForgeBuilds200Response } from "../model";
 // @ts-ignore
-import type { Forges } from "../model";
+import type { ListForges200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -61,22 +61,22 @@ export const ForgeApiAxiosParamCreator = function (
      *
      * @summary Attach a build to a Forge version
      * @param {string} forgeId A forge identifier or slug
-     * @param {ForgeBuildParams} forgeBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The forge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachForgeToBuild: async (
       forgeId: string,
-      forgeBuildParams: ForgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'forgeId' is not null or undefined
       assertParamExists("attachForgeToBuild", "forgeId", forgeId);
-      // verify required parameter 'forgeBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "attachForgeToBuild",
-        "forgeBuildParams",
-        forgeBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/forge/{forge_id}/builds`.replace(
         `{${"forge_id"}}`,
@@ -97,9 +97,6 @@ export const ForgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -126,7 +123,7 @@ export const ForgeApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        forgeBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -140,22 +137,22 @@ export const ForgeApiAxiosParamCreator = function (
      *
      * @summary Unlink a build from a Forge version
      * @param {string} forgeId A forge identifier or slug
-     * @param {ForgeBuildParams} forgeBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The forge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteForgeFromBuild: async (
       forgeId: string,
-      forgeBuildParams: ForgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'forgeId' is not null or undefined
       assertParamExists("deleteForgeFromBuild", "forgeId", forgeId);
-      // verify required parameter 'forgeBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "deleteForgeFromBuild",
-        "forgeBuildParams",
-        forgeBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/forge/{forge_id}/builds`.replace(
         `{${"forge_id"}}`,
@@ -176,9 +173,6 @@ export const ForgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -205,7 +199,7 @@ export const ForgeApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        forgeBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -220,7 +214,7 @@ export const ForgeApiAxiosParamCreator = function (
      * @summary Fetch the builds attached to a Forge version
      * @param {string} forgeId A forge identifier or slug
      * @param {string} [search] Search query
-     * @param {ListForgeBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListForgeBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -230,7 +224,7 @@ export const ForgeApiAxiosParamCreator = function (
     listForgeBuilds: async (
       forgeId: string,
       search?: string,
-      sort?: ListForgeBuildsSortEnum,
+      sort?: string,
       order?: ListForgeBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -256,9 +250,6 @@ export const ForgeApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -336,9 +327,6 @@ export const ForgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -397,9 +385,6 @@ export const ForgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -443,13 +428,13 @@ export const ForgeApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a build to a Forge version
      * @param {string} forgeId A forge identifier or slug
-     * @param {ForgeBuildParams} forgeBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The forge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachForgeToBuild(
       forgeId: string,
-      forgeBuildParams: ForgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -457,7 +442,7 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachForgeToBuild(
           forgeId,
-          forgeBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -477,13 +462,13 @@ export const ForgeApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a build from a Forge version
      * @param {string} forgeId A forge identifier or slug
-     * @param {ForgeBuildParams} forgeBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The forge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteForgeFromBuild(
       forgeId: string,
-      forgeBuildParams: ForgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -491,7 +476,7 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteForgeFromBuild(
           forgeId,
-          forgeBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -512,7 +497,7 @@ export const ForgeApiFp = function (configuration?: Configuration) {
      * @summary Fetch the builds attached to a Forge version
      * @param {string} forgeId A forge identifier or slug
      * @param {string} [search] Search query
-     * @param {ListForgeBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListForgeBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -522,13 +507,16 @@ export const ForgeApiFp = function (configuration?: Configuration) {
     async listForgeBuilds(
       forgeId: string,
       search?: string,
-      sort?: ListForgeBuildsSortEnum,
+      sort?: string,
       order?: ListForgeBuildsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForgeBuilds>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListForgeBuilds200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listForgeBuilds(
         forgeId,
@@ -563,7 +551,10 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forges>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListForges200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listForges(
         search,
@@ -636,7 +627,7 @@ export const ForgeApiFactory = function (
       return localVarFp
         .attachForgeToBuild(
           requestParameters.forgeId,
-          requestParameters.forgeBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -655,7 +646,7 @@ export const ForgeApiFactory = function (
       return localVarFp
         .deleteForgeFromBuild(
           requestParameters.forgeId,
-          requestParameters.forgeBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -670,7 +661,7 @@ export const ForgeApiFactory = function (
     listForgeBuilds(
       requestParameters: ForgeApiListForgeBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ForgeBuilds> {
+    ): AxiosPromise<ListForgeBuilds200Response> {
       return localVarFp
         .listForgeBuilds(
           requestParameters.forgeId,
@@ -693,7 +684,7 @@ export const ForgeApiFactory = function (
     listForges(
       requestParameters: ForgeApiListForgesRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Forges> {
+    ): AxiosPromise<ListForges200Response> {
       return localVarFp
         .listForges(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -726,11 +717,11 @@ export interface ForgeApiAttachForgeToBuildRequest {
   readonly forgeId: string;
 
   /**
-   * The build data to attach
-   * @type {ForgeBuildParams}
+   * The forge build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof ForgeApiAttachForgeToBuild
    */
-  readonly forgeBuildParams: ForgeBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -747,11 +738,11 @@ export interface ForgeApiDeleteForgeFromBuildRequest {
   readonly forgeId: string;
 
   /**
-   * The build data to unlink
-   * @type {ForgeBuildParams}
+   * The forge build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof ForgeApiDeleteForgeFromBuild
    */
-  readonly forgeBuildParams: ForgeBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -776,10 +767,10 @@ export interface ForgeApiListForgeBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
+   * @type {string}
    * @memberof ForgeApiListForgeBuilds
    */
-  readonly sort?: ListForgeBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -839,7 +830,7 @@ export class ForgeApi extends BaseAPI {
     return ForgeApiFp(this.configuration)
       .attachForgeToBuild(
         requestParameters.forgeId,
-        requestParameters.forgeBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -860,7 +851,7 @@ export class ForgeApi extends BaseAPI {
     return ForgeApiFp(this.configuration)
       .deleteForgeFromBuild(
         requestParameters.forgeId,
-        requestParameters.forgeBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -922,17 +913,6 @@ export class ForgeApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
-export const ListForgeBuildsSortEnum = {
-  BuildName: "build_name",
-  BuildPublic: "build_public",
-  PackSlug: "pack_slug",
-  PackName: "pack_name",
-} as const;
-export type ListForgeBuildsSortEnum =
-  (typeof ListForgeBuildsSortEnum)[keyof typeof ListForgeBuildsSortEnum];
 /**
  * @export
  */

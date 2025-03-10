@@ -42,11 +42,11 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
-import type { NeoforgeBuildParams } from "../model";
+import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { NeoforgeBuilds } from "../model";
+import type { ListNeoforgeBuilds200Response } from "../model";
 // @ts-ignore
-import type { Neoforges } from "../model";
+import type { ListNeoforges200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -61,22 +61,22 @@ export const NeoforgeApiAxiosParamCreator = function (
      *
      * @summary Attach a build to a Neoforge version
      * @param {string} neoforgeId A neoforge identifier or slug
-     * @param {NeoforgeBuildParams} neoforgeBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The neoforge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachNeoforgeToBuild: async (
       neoforgeId: string,
-      neoforgeBuildParams: NeoforgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'neoforgeId' is not null or undefined
       assertParamExists("attachNeoforgeToBuild", "neoforgeId", neoforgeId);
-      // verify required parameter 'neoforgeBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "attachNeoforgeToBuild",
-        "neoforgeBuildParams",
-        neoforgeBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/neoforge/{neoforge_id}/builds`.replace(
         `{${"neoforge_id"}}`,
@@ -97,9 +97,6 @@ export const NeoforgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -126,7 +123,7 @@ export const NeoforgeApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        neoforgeBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -140,22 +137,22 @@ export const NeoforgeApiAxiosParamCreator = function (
      *
      * @summary Unlink a build from a Neoforge version
      * @param {string} neoforgeId A neoforge identifier or slug
-     * @param {NeoforgeBuildParams} neoforgeBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The neoforge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteNeoforgeFromBuild: async (
       neoforgeId: string,
-      neoforgeBuildParams: NeoforgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'neoforgeId' is not null or undefined
       assertParamExists("deleteNeoforgeFromBuild", "neoforgeId", neoforgeId);
-      // verify required parameter 'neoforgeBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "deleteNeoforgeFromBuild",
-        "neoforgeBuildParams",
-        neoforgeBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/neoforge/{neoforge_id}/builds`.replace(
         `{${"neoforge_id"}}`,
@@ -176,9 +173,6 @@ export const NeoforgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -205,7 +199,7 @@ export const NeoforgeApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        neoforgeBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -220,7 +214,7 @@ export const NeoforgeApiAxiosParamCreator = function (
      * @summary Fetch the builds attached to a Neoforge version
      * @param {string} neoforgeId A neoforge identifier or slug
      * @param {string} [search] Search query
-     * @param {ListNeoforgeBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListNeoforgeBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -230,7 +224,7 @@ export const NeoforgeApiAxiosParamCreator = function (
     listNeoforgeBuilds: async (
       neoforgeId: string,
       search?: string,
-      sort?: ListNeoforgeBuildsSortEnum,
+      sort?: string,
       order?: ListNeoforgeBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -256,9 +250,6 @@ export const NeoforgeApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -336,9 +327,6 @@ export const NeoforgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -397,9 +385,6 @@ export const NeoforgeApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -443,13 +428,13 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a build to a Neoforge version
      * @param {string} neoforgeId A neoforge identifier or slug
-     * @param {NeoforgeBuildParams} neoforgeBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The neoforge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachNeoforgeToBuild(
       neoforgeId: string,
-      neoforgeBuildParams: NeoforgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -457,7 +442,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachNeoforgeToBuild(
           neoforgeId,
-          neoforgeBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -477,13 +462,13 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a build from a Neoforge version
      * @param {string} neoforgeId A neoforge identifier or slug
-     * @param {NeoforgeBuildParams} neoforgeBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The neoforge build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteNeoforgeFromBuild(
       neoforgeId: string,
-      neoforgeBuildParams: NeoforgeBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -491,7 +476,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteNeoforgeFromBuild(
           neoforgeId,
-          neoforgeBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -512,7 +497,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
      * @summary Fetch the builds attached to a Neoforge version
      * @param {string} neoforgeId A neoforge identifier or slug
      * @param {string} [search] Search query
-     * @param {ListNeoforgeBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListNeoforgeBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -522,13 +507,16 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
     async listNeoforgeBuilds(
       neoforgeId: string,
       search?: string,
-      sort?: ListNeoforgeBuildsSortEnum,
+      sort?: string,
       order?: ListNeoforgeBuildsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<NeoforgeBuilds>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListNeoforgeBuilds200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listNeoforgeBuilds(
@@ -564,7 +552,10 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Neoforges>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListNeoforges200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listNeoforges(
         search,
@@ -637,7 +628,7 @@ export const NeoforgeApiFactory = function (
       return localVarFp
         .attachNeoforgeToBuild(
           requestParameters.neoforgeId,
-          requestParameters.neoforgeBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -656,7 +647,7 @@ export const NeoforgeApiFactory = function (
       return localVarFp
         .deleteNeoforgeFromBuild(
           requestParameters.neoforgeId,
-          requestParameters.neoforgeBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -671,7 +662,7 @@ export const NeoforgeApiFactory = function (
     listNeoforgeBuilds(
       requestParameters: NeoforgeApiListNeoforgeBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<NeoforgeBuilds> {
+    ): AxiosPromise<ListNeoforgeBuilds200Response> {
       return localVarFp
         .listNeoforgeBuilds(
           requestParameters.neoforgeId,
@@ -694,7 +685,7 @@ export const NeoforgeApiFactory = function (
     listNeoforges(
       requestParameters: NeoforgeApiListNeoforgesRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Neoforges> {
+    ): AxiosPromise<ListNeoforges200Response> {
       return localVarFp
         .listNeoforges(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -729,11 +720,11 @@ export interface NeoforgeApiAttachNeoforgeToBuildRequest {
   readonly neoforgeId: string;
 
   /**
-   * The build data to attach
-   * @type {NeoforgeBuildParams}
+   * The neoforge build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof NeoforgeApiAttachNeoforgeToBuild
    */
-  readonly neoforgeBuildParams: NeoforgeBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -750,11 +741,11 @@ export interface NeoforgeApiDeleteNeoforgeFromBuildRequest {
   readonly neoforgeId: string;
 
   /**
-   * The build data to unlink
-   * @type {NeoforgeBuildParams}
+   * The neoforge build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof NeoforgeApiDeleteNeoforgeFromBuild
    */
-  readonly neoforgeBuildParams: NeoforgeBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -779,10 +770,10 @@ export interface NeoforgeApiListNeoforgeBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
+   * @type {string}
    * @memberof NeoforgeApiListNeoforgeBuilds
    */
-  readonly sort?: ListNeoforgeBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -842,7 +833,7 @@ export class NeoforgeApi extends BaseAPI {
     return NeoforgeApiFp(this.configuration)
       .attachNeoforgeToBuild(
         requestParameters.neoforgeId,
-        requestParameters.neoforgeBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -863,7 +854,7 @@ export class NeoforgeApi extends BaseAPI {
     return NeoforgeApiFp(this.configuration)
       .deleteNeoforgeFromBuild(
         requestParameters.neoforgeId,
-        requestParameters.neoforgeBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -925,17 +916,6 @@ export class NeoforgeApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
-export const ListNeoforgeBuildsSortEnum = {
-  BuildName: "build_name",
-  BuildPublic: "build_public",
-  PackSlug: "pack_slug",
-  PackName: "pack_name",
-} as const;
-export type ListNeoforgeBuildsSortEnum =
-  (typeof ListNeoforgeBuildsSortEnum)[keyof typeof ListNeoforgeBuildsSortEnum];
 /**
  * @export
  */
