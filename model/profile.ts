@@ -17,13 +17,13 @@
 import type { UserAuth } from "./user-auth";
 // May contain unused imports in some cases
 // @ts-ignore
+import type { UserGroup } from "./user-group";
+// May contain unused imports in some cases
+// @ts-ignore
 import type { UserMod } from "./user-mod";
 // May contain unused imports in some cases
 // @ts-ignore
 import type { UserPack } from "./user-pack";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserTeam } from "./user-team";
 
 /**
  * Model to represent profile
@@ -99,20 +99,20 @@ export interface Profile {
   auths?: Array<UserAuth> | null;
   /**
    *
-   * @type {Array<UserTeam>}
+   * @type {Array<UserGroup>}
    * @memberof Profile
    */
-  teams?: Array<UserTeam> | null;
-  /**
-   *
-   * @type {Array<UserPack>}
-   * @memberof Profile
-   */
-  packs?: Array<UserPack> | null;
+  groups?: Array<UserGroup> | null;
   /**
    *
    * @type {Array<UserMod>}
    * @memberof Profile
    */
   mods?: Array<UserMod> | null;
+  /**
+   *
+   * @type {Array<UserPack>}
+   * @memberof Profile
+   */
+  packs?: Array<UserPack> | null;
 }

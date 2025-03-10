@@ -42,11 +42,11 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
-import type { FabricBuildParams } from "../model";
+import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { FabricBuilds } from "../model";
+import type { ListFabricBuilds200Response } from "../model";
 // @ts-ignore
-import type { Fabrics } from "../model";
+import type { ListFabrics200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -61,22 +61,22 @@ export const FabricApiAxiosParamCreator = function (
      *
      * @summary Attach a build to a Fabric version
      * @param {string} fabricId A fabric identifier or slug
-     * @param {FabricBuildParams} fabricBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The fabric build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachFabricToBuild: async (
       fabricId: string,
-      fabricBuildParams: FabricBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'fabricId' is not null or undefined
       assertParamExists("attachFabricToBuild", "fabricId", fabricId);
-      // verify required parameter 'fabricBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "attachFabricToBuild",
-        "fabricBuildParams",
-        fabricBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/fabric/{fabric_id}/builds`.replace(
         `{${"fabric_id"}}`,
@@ -97,9 +97,6 @@ export const FabricApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -126,7 +123,7 @@ export const FabricApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        fabricBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -140,22 +137,22 @@ export const FabricApiAxiosParamCreator = function (
      *
      * @summary Unlink a build from a Fabric version
      * @param {string} fabricId A fabric identifier or slug
-     * @param {FabricBuildParams} fabricBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The fabric build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteFabricFromBuild: async (
       fabricId: string,
-      fabricBuildParams: FabricBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'fabricId' is not null or undefined
       assertParamExists("deleteFabricFromBuild", "fabricId", fabricId);
-      // verify required parameter 'fabricBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "deleteFabricFromBuild",
-        "fabricBuildParams",
-        fabricBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/fabric/{fabric_id}/builds`.replace(
         `{${"fabric_id"}}`,
@@ -176,9 +173,6 @@ export const FabricApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -205,7 +199,7 @@ export const FabricApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        fabricBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -220,7 +214,7 @@ export const FabricApiAxiosParamCreator = function (
      * @summary Fetch the builds attached to a Fabric version
      * @param {string} fabricId A fabric identifier or slug
      * @param {string} [search] Search query
-     * @param {ListFabricBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListFabricBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -230,7 +224,7 @@ export const FabricApiAxiosParamCreator = function (
     listFabricBuilds: async (
       fabricId: string,
       search?: string,
-      sort?: ListFabricBuildsSortEnum,
+      sort?: string,
       order?: ListFabricBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -256,9 +250,6 @@ export const FabricApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -336,9 +327,6 @@ export const FabricApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -397,9 +385,6 @@ export const FabricApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -443,13 +428,13 @@ export const FabricApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a build to a Fabric version
      * @param {string} fabricId A fabric identifier or slug
-     * @param {FabricBuildParams} fabricBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The fabric build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachFabricToBuild(
       fabricId: string,
-      fabricBuildParams: FabricBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -457,7 +442,7 @@ export const FabricApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachFabricToBuild(
           fabricId,
-          fabricBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -477,13 +462,13 @@ export const FabricApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a build from a Fabric version
      * @param {string} fabricId A fabric identifier or slug
-     * @param {FabricBuildParams} fabricBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The fabric build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteFabricFromBuild(
       fabricId: string,
-      fabricBuildParams: FabricBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -491,7 +476,7 @@ export const FabricApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteFabricFromBuild(
           fabricId,
-          fabricBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -512,7 +497,7 @@ export const FabricApiFp = function (configuration?: Configuration) {
      * @summary Fetch the builds attached to a Fabric version
      * @param {string} fabricId A fabric identifier or slug
      * @param {string} [search] Search query
-     * @param {ListFabricBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListFabricBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -522,13 +507,16 @@ export const FabricApiFp = function (configuration?: Configuration) {
     async listFabricBuilds(
       fabricId: string,
       search?: string,
-      sort?: ListFabricBuildsSortEnum,
+      sort?: string,
       order?: ListFabricBuildsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FabricBuilds>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListFabricBuilds200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listFabricBuilds(
@@ -564,7 +552,10 @@ export const FabricApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Fabrics>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListFabrics200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listFabrics(
         search,
@@ -637,7 +628,7 @@ export const FabricApiFactory = function (
       return localVarFp
         .attachFabricToBuild(
           requestParameters.fabricId,
-          requestParameters.fabricBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -656,7 +647,7 @@ export const FabricApiFactory = function (
       return localVarFp
         .deleteFabricFromBuild(
           requestParameters.fabricId,
-          requestParameters.fabricBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -671,7 +662,7 @@ export const FabricApiFactory = function (
     listFabricBuilds(
       requestParameters: FabricApiListFabricBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<FabricBuilds> {
+    ): AxiosPromise<ListFabricBuilds200Response> {
       return localVarFp
         .listFabricBuilds(
           requestParameters.fabricId,
@@ -694,7 +685,7 @@ export const FabricApiFactory = function (
     listFabrics(
       requestParameters: FabricApiListFabricsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Fabrics> {
+    ): AxiosPromise<ListFabrics200Response> {
       return localVarFp
         .listFabrics(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -727,11 +718,11 @@ export interface FabricApiAttachFabricToBuildRequest {
   readonly fabricId: string;
 
   /**
-   * The build data to attach
-   * @type {FabricBuildParams}
+   * The fabric build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof FabricApiAttachFabricToBuild
    */
-  readonly fabricBuildParams: FabricBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -748,11 +739,11 @@ export interface FabricApiDeleteFabricFromBuildRequest {
   readonly fabricId: string;
 
   /**
-   * The build data to unlink
-   * @type {FabricBuildParams}
+   * The fabric build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof FabricApiDeleteFabricFromBuild
    */
-  readonly fabricBuildParams: FabricBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -777,10 +768,10 @@ export interface FabricApiListFabricBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
+   * @type {string}
    * @memberof FabricApiListFabricBuilds
    */
-  readonly sort?: ListFabricBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -840,7 +831,7 @@ export class FabricApi extends BaseAPI {
     return FabricApiFp(this.configuration)
       .attachFabricToBuild(
         requestParameters.fabricId,
-        requestParameters.fabricBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -861,7 +852,7 @@ export class FabricApi extends BaseAPI {
     return FabricApiFp(this.configuration)
       .deleteFabricFromBuild(
         requestParameters.fabricId,
-        requestParameters.fabricBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -923,17 +914,6 @@ export class FabricApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
-export const ListFabricBuildsSortEnum = {
-  BuildName: "build_name",
-  BuildPublic: "build_public",
-  PackSlug: "pack_slug",
-  PackName: "pack_name",
-} as const;
-export type ListFabricBuildsSortEnum =
-  (typeof ListFabricBuildsSortEnum)[keyof typeof ListFabricBuildsSortEnum];
 /**
  * @export
  */

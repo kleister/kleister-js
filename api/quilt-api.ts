@@ -42,13 +42,13 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
+import type { AttachMinecraftToBuildRequest } from "../model";
+// @ts-ignore
+import type { ListQuiltBuilds200Response } from "../model";
+// @ts-ignore
+import type { ListQuilts200Response } from "../model";
+// @ts-ignore
 import type { Notification } from "../model";
-// @ts-ignore
-import type { QuiltBuildParams } from "../model";
-// @ts-ignore
-import type { QuiltBuilds } from "../model";
-// @ts-ignore
-import type { Quilts } from "../model";
 /**
  * QuiltApi - axios parameter creator
  * @export
@@ -61,22 +61,22 @@ export const QuiltApiAxiosParamCreator = function (
      *
      * @summary Attach a build to a Quilt version
      * @param {string} quiltId A quilt identifier or slug
-     * @param {QuiltBuildParams} quiltBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The quilt build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachQuiltToBuild: async (
       quiltId: string,
-      quiltBuildParams: QuiltBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'quiltId' is not null or undefined
       assertParamExists("attachQuiltToBuild", "quiltId", quiltId);
-      // verify required parameter 'quiltBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "attachQuiltToBuild",
-        "quiltBuildParams",
-        quiltBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/quilt/{quilt_id}/builds`.replace(
         `{${"quilt_id"}}`,
@@ -97,9 +97,6 @@ export const QuiltApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -126,7 +123,7 @@ export const QuiltApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        quiltBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -140,22 +137,22 @@ export const QuiltApiAxiosParamCreator = function (
      *
      * @summary Unlink a build from a Quilt version
      * @param {string} quiltId A quilt identifier or slug
-     * @param {QuiltBuildParams} quiltBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The quilt build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteQuiltFromBuild: async (
       quiltId: string,
-      quiltBuildParams: QuiltBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'quiltId' is not null or undefined
       assertParamExists("deleteQuiltFromBuild", "quiltId", quiltId);
-      // verify required parameter 'quiltBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "deleteQuiltFromBuild",
-        "quiltBuildParams",
-        quiltBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/quilt/{quilt_id}/builds`.replace(
         `{${"quilt_id"}}`,
@@ -176,9 +173,6 @@ export const QuiltApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -205,7 +199,7 @@ export const QuiltApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        quiltBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -220,7 +214,7 @@ export const QuiltApiAxiosParamCreator = function (
      * @summary Fetch the builds attached to a Quilt version
      * @param {string} quiltId A quilt identifier or slug
      * @param {string} [search] Search query
-     * @param {ListQuiltBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListQuiltBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -230,7 +224,7 @@ export const QuiltApiAxiosParamCreator = function (
     listQuiltBuilds: async (
       quiltId: string,
       search?: string,
-      sort?: ListQuiltBuildsSortEnum,
+      sort?: string,
       order?: ListQuiltBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -256,9 +250,6 @@ export const QuiltApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -336,9 +327,6 @@ export const QuiltApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -397,9 +385,6 @@ export const QuiltApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -443,13 +428,13 @@ export const QuiltApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a build to a Quilt version
      * @param {string} quiltId A quilt identifier or slug
-     * @param {QuiltBuildParams} quiltBuildParams The build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The quilt build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachQuiltToBuild(
       quiltId: string,
-      quiltBuildParams: QuiltBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -457,7 +442,7 @@ export const QuiltApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachQuiltToBuild(
           quiltId,
-          quiltBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -477,13 +462,13 @@ export const QuiltApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a build from a Quilt version
      * @param {string} quiltId A quilt identifier or slug
-     * @param {QuiltBuildParams} quiltBuildParams The build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The quilt build data to create or update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteQuiltFromBuild(
       quiltId: string,
-      quiltBuildParams: QuiltBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -491,7 +476,7 @@ export const QuiltApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteQuiltFromBuild(
           quiltId,
-          quiltBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -512,7 +497,7 @@ export const QuiltApiFp = function (configuration?: Configuration) {
      * @summary Fetch the builds attached to a Quilt version
      * @param {string} quiltId A quilt identifier or slug
      * @param {string} [search] Search query
-     * @param {ListQuiltBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListQuiltBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -522,13 +507,16 @@ export const QuiltApiFp = function (configuration?: Configuration) {
     async listQuiltBuilds(
       quiltId: string,
       search?: string,
-      sort?: ListQuiltBuildsSortEnum,
+      sort?: string,
       order?: ListQuiltBuildsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<QuiltBuilds>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListQuiltBuilds200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listQuiltBuilds(
         quiltId,
@@ -563,7 +551,10 @@ export const QuiltApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Quilts>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListQuilts200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listQuilts(
         search,
@@ -636,7 +627,7 @@ export const QuiltApiFactory = function (
       return localVarFp
         .attachQuiltToBuild(
           requestParameters.quiltId,
-          requestParameters.quiltBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -655,7 +646,7 @@ export const QuiltApiFactory = function (
       return localVarFp
         .deleteQuiltFromBuild(
           requestParameters.quiltId,
-          requestParameters.quiltBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -670,7 +661,7 @@ export const QuiltApiFactory = function (
     listQuiltBuilds(
       requestParameters: QuiltApiListQuiltBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<QuiltBuilds> {
+    ): AxiosPromise<ListQuiltBuilds200Response> {
       return localVarFp
         .listQuiltBuilds(
           requestParameters.quiltId,
@@ -693,7 +684,7 @@ export const QuiltApiFactory = function (
     listQuilts(
       requestParameters: QuiltApiListQuiltsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Quilts> {
+    ): AxiosPromise<ListQuilts200Response> {
       return localVarFp
         .listQuilts(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -726,11 +717,11 @@ export interface QuiltApiAttachQuiltToBuildRequest {
   readonly quiltId: string;
 
   /**
-   * The build data to attach
-   * @type {QuiltBuildParams}
+   * The quilt build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof QuiltApiAttachQuiltToBuild
    */
-  readonly quiltBuildParams: QuiltBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -747,11 +738,11 @@ export interface QuiltApiDeleteQuiltFromBuildRequest {
   readonly quiltId: string;
 
   /**
-   * The build data to unlink
-   * @type {QuiltBuildParams}
+   * The quilt build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof QuiltApiDeleteQuiltFromBuild
    */
-  readonly quiltBuildParams: QuiltBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -776,10 +767,10 @@ export interface QuiltApiListQuiltBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'build_name' | 'build_public' | 'pack_slug' | 'pack_name'}
+   * @type {string}
    * @memberof QuiltApiListQuiltBuilds
    */
-  readonly sort?: ListQuiltBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -839,7 +830,7 @@ export class QuiltApi extends BaseAPI {
     return QuiltApiFp(this.configuration)
       .attachQuiltToBuild(
         requestParameters.quiltId,
-        requestParameters.quiltBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -860,7 +851,7 @@ export class QuiltApi extends BaseAPI {
     return QuiltApiFp(this.configuration)
       .deleteQuiltFromBuild(
         requestParameters.quiltId,
-        requestParameters.quiltBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -922,17 +913,6 @@ export class QuiltApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
-export const ListQuiltBuildsSortEnum = {
-  BuildName: "build_name",
-  BuildPublic: "build_public",
-  PackSlug: "pack_slug",
-  PackName: "pack_name",
-} as const;
-export type ListQuiltBuildsSortEnum =
-  (typeof ListQuiltBuildsSortEnum)[keyof typeof ListQuiltBuildsSortEnum];
 /**
  * @export
  */

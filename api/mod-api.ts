@@ -42,27 +42,39 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
+import type { AttachMinecraftToBuildRequest } from "../model";
+// @ts-ignore
+import type { CreateModRequest } from "../model";
+// @ts-ignore
+import type { CreateVersionRequest } from "../model";
+// @ts-ignore
+import type { DeletePackFromGroupRequest } from "../model";
+// @ts-ignore
+import type { DeletePackFromUserRequest } from "../model";
+// @ts-ignore
+import type { ListModGroups200Response } from "../model";
+// @ts-ignore
+import type { ListModUsers200Response } from "../model";
+// @ts-ignore
+import type { ListMods200Response } from "../model";
+// @ts-ignore
+import type { ListVersionBuilds200Response } from "../model";
+// @ts-ignore
+import type { ListVersions200Response } from "../model";
+// @ts-ignore
 import type { Mod } from "../model";
 // @ts-ignore
-import type { ModTeamParams } from "../model";
-// @ts-ignore
-import type { ModTeams } from "../model";
-// @ts-ignore
-import type { ModUserParams } from "../model";
-// @ts-ignore
-import type { ModUsers } from "../model";
-// @ts-ignore
-import type { Mods } from "../model";
+import type { ModAvatar } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
+import type { PackAvatar } from "../model";
+// @ts-ignore
+import type { PermitPackGroupRequest } from "../model";
+// @ts-ignore
+import type { PermitPackUserRequest } from "../model";
+// @ts-ignore
 import type { Version } from "../model";
-// @ts-ignore
-import type { VersionBuildParams } from "../model";
-// @ts-ignore
-import type { VersionBuilds } from "../model";
-// @ts-ignore
-import type { Versions } from "../model";
 /**
  * ModApi - axios parameter creator
  * @export
@@ -73,22 +85,26 @@ export const ModApiAxiosParamCreator = function (
   return {
     /**
      *
-     * @summary Attach a team to mod
+     * @summary Attach a group to mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModTeamParams} modTeamParams The team data to attach
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The mod group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachModToTeam: async (
+    attachModToGroup: async (
       modId: string,
-      modTeamParams: ModTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
-      assertParamExists("attachModToTeam", "modId", modId);
-      // verify required parameter 'modTeamParams' is not null or undefined
-      assertParamExists("attachModToTeam", "modTeamParams", modTeamParams);
-      const localVarPath = `/mods/{mod_id}/teams`.replace(
+      assertParamExists("attachModToGroup", "modId", modId);
+      // verify required parameter 'permitPackGroupRequest' is not null or undefined
+      assertParamExists(
+        "attachModToGroup",
+        "permitPackGroupRequest",
+        permitPackGroupRequest,
+      );
+      const localVarPath = `/mods/{mod_id}/groups`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
       );
@@ -106,9 +122,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -136,7 +149,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        modTeamParams,
+        permitPackGroupRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -150,19 +163,23 @@ export const ModApiAxiosParamCreator = function (
      *
      * @summary Attach a user to mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModUserParams} modUserParams The user data to attach
+     * @param {PermitPackUserRequest} permitPackUserRequest The mod user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachModToUser: async (
       modId: string,
-      modUserParams: ModUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("attachModToUser", "modId", modId);
-      // verify required parameter 'modUserParams' is not null or undefined
-      assertParamExists("attachModToUser", "modUserParams", modUserParams);
+      // verify required parameter 'permitPackUserRequest' is not null or undefined
+      assertParamExists(
+        "attachModToUser",
+        "permitPackUserRequest",
+        permitPackUserRequest,
+      );
       const localVarPath = `/mods/{mod_id}/users`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
@@ -182,9 +199,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -211,7 +225,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        modUserParams,
+        permitPackUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -226,25 +240,25 @@ export const ModApiAxiosParamCreator = function (
      * @summary Attach a build to a version
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
-     * @param {VersionBuildParams} versionBuildParams The version build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The version build data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachVersionToBuild: async (
       modId: string,
       versionId: string,
-      versionBuildParams: VersionBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("attachVersionToBuild", "modId", modId);
       // verify required parameter 'versionId' is not null or undefined
       assertParamExists("attachVersionToBuild", "versionId", versionId);
-      // verify required parameter 'versionBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "attachVersionToBuild",
-        "versionBuildParams",
-        versionBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/mods/{mod_id}/versions/{version_id}/builds`
         .replace(`{${"mod_id"}}`, encodeURIComponent(String(modId)))
@@ -264,9 +278,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -293,7 +304,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        versionBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -306,16 +317,16 @@ export const ModApiAxiosParamCreator = function (
     /**
      *
      * @summary Create a new mod
-     * @param {Mod} mod The mod data to create
+     * @param {CreateModRequest} createModRequest The mod data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createMod: async (
-      mod: Mod,
+      createModRequest: CreateModRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
-      // verify required parameter 'mod' is not null or undefined
-      assertParamExists("createMod", "mod", mod);
+      // verify required parameter 'createModRequest' is not null or undefined
+      assertParamExists("createMod", "createModRequest", createModRequest);
       const localVarPath = `/mods`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -332,9 +343,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -361,7 +369,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        mod,
+        createModRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -373,21 +381,171 @@ export const ModApiAxiosParamCreator = function (
     },
     /**
      *
+     * @summary Upload an avatar for the defined mod
+     * @param {string} modId A mod identifier or slug
+     * @param {File} [file]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createModAvatar: async (
+      modId: string,
+      file?: File,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'modId' is not null or undefined
+      assertParamExists("createModAvatar", "modId", modId);
+      const localVarPath = `/mods/{mod_id}/avatar`.replace(
+        `{${"mod_id"}}`,
+        encodeURIComponent(String(modId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+      const localVarFormParams = new ((configuration &&
+        configuration.formDataCtor) ||
+        FormData)();
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (file !== undefined) {
+        localVarFormParams.append("file", file as any);
+      }
+
+      localVarHeaderParameter["Content-Type"] = "multipart/form-data";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = localVarFormParams;
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Upload an avatar for the defined pack
+     * @param {string} packId A pack identifier or slug
+     * @param {File} [file]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPackAvatar: async (
+      packId: string,
+      file?: File,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'packId' is not null or undefined
+      assertParamExists("createPackAvatar", "packId", packId);
+      const localVarPath = `/packs/{pack_id}/avatar`.replace(
+        `{${"pack_id"}}`,
+        encodeURIComponent(String(packId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "POST",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+      const localVarFormParams = new ((configuration &&
+        configuration.formDataCtor) ||
+        FormData)();
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      if (file !== undefined) {
+        localVarFormParams.append("file", file as any);
+      }
+
+      localVarHeaderParameter["Content-Type"] = "multipart/form-data";
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+      localVarRequestOptions.data = localVarFormParams;
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
      * @summary Create a new version for a mod
      * @param {string} modId A mod identifier or slug
-     * @param {Version} version The version data to create
+     * @param {CreateVersionRequest} createVersionRequest The version data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createVersion: async (
       modId: string,
-      version: Version,
+      createVersionRequest: CreateVersionRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("createVersion", "modId", modId);
-      // verify required parameter 'version' is not null or undefined
-      assertParamExists("createVersion", "version", version);
+      // verify required parameter 'createVersionRequest' is not null or undefined
+      assertParamExists(
+        "createVersion",
+        "createVersionRequest",
+        createVersionRequest,
+      );
       const localVarPath = `/mods/{mod_id}/versions`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
@@ -407,9 +565,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -436,7 +591,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        version,
+        createVersionRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -478,8 +633,66 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Delete the avatar for the defined mod
+     * @param {string} modId A mod identifier or slug
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteModAvatar: async (
+      modId: string,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'modId' is not null or undefined
+      assertParamExists("deleteModAvatar", "modId", modId);
+      const localVarPath = `/mods/{mod_id}/avatar`.replace(
+        `{${"mod_id"}}`,
+        encodeURIComponent(String(modId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "DELETE",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
 
       // authentication Basic required
       // http basic authentication required
@@ -512,22 +725,26 @@ export const ModApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Unlink a team from mod
+     * @summary Unlink a group from mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModTeamParams} modTeamParams The mod team data to unlink
+     * @param {DeletePackFromGroupRequest} deletePackFromGroupRequest The mod group data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteModFromTeam: async (
+    deleteModFromGroup: async (
       modId: string,
-      modTeamParams: ModTeamParams,
+      deletePackFromGroupRequest: DeletePackFromGroupRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
-      assertParamExists("deleteModFromTeam", "modId", modId);
-      // verify required parameter 'modTeamParams' is not null or undefined
-      assertParamExists("deleteModFromTeam", "modTeamParams", modTeamParams);
-      const localVarPath = `/mods/{mod_id}/teams`.replace(
+      assertParamExists("deleteModFromGroup", "modId", modId);
+      // verify required parameter 'deletePackFromGroupRequest' is not null or undefined
+      assertParamExists(
+        "deleteModFromGroup",
+        "deletePackFromGroupRequest",
+        deletePackFromGroupRequest,
+      );
+      const localVarPath = `/mods/{mod_id}/groups`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
       );
@@ -545,9 +762,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -575,7 +789,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        modTeamParams,
+        deletePackFromGroupRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -589,19 +803,23 @@ export const ModApiAxiosParamCreator = function (
      *
      * @summary Unlink a user from mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModUserParams} modUserParams The mod user data to unlink
+     * @param {DeletePackFromUserRequest} deletePackFromUserRequest The mod user data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteModFromUser: async (
       modId: string,
-      modUserParams: ModUserParams,
+      deletePackFromUserRequest: DeletePackFromUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("deleteModFromUser", "modId", modId);
-      // verify required parameter 'modUserParams' is not null or undefined
-      assertParamExists("deleteModFromUser", "modUserParams", modUserParams);
+      // verify required parameter 'deletePackFromUserRequest' is not null or undefined
+      assertParamExists(
+        "deleteModFromUser",
+        "deletePackFromUserRequest",
+        deletePackFromUserRequest,
+      );
       const localVarPath = `/mods/{mod_id}/users`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
@@ -621,9 +839,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -650,10 +865,71 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        modUserParams,
+        deletePackFromUserRequest,
         localVarRequestOptions,
         configuration,
       );
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      };
+    },
+    /**
+     *
+     * @summary Delete the avatar for the defined pack
+     * @param {string} packId A pack identifier or slug
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePackAvatar: async (
+      packId: string,
+      options: RawAxiosRequestConfig = {},
+    ): Promise<RequestArgs> => {
+      // verify required parameter 'packId' is not null or undefined
+      assertParamExists("deletePackAvatar", "packId", packId);
+      const localVarPath = `/packs/{pack_id}/avatar`.replace(
+        `{${"pack_id"}}`,
+        encodeURIComponent(String(packId)),
+      );
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+      let baseOptions;
+      if (configuration) {
+        baseOptions = configuration.baseOptions;
+      }
+
+      const localVarRequestOptions = {
+        method: "DELETE",
+        ...baseOptions,
+        ...options,
+      };
+      const localVarHeaderParameter = {} as any;
+      const localVarQueryParameter = {} as any;
+
+      // authentication Basic required
+      // http basic authentication required
+      setBasicAuthToObject(localVarRequestOptions, configuration);
+
+      // authentication Header required
+      await setApiKeyToObject(
+        localVarHeaderParameter,
+        "X-API-Key",
+        configuration,
+      );
+
+      // authentication Bearer required
+      // http bearer authentication required
+      await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter);
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {};
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      };
 
       return {
         url: toPathString(localVarUrlObj),
@@ -695,9 +971,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -732,25 +1005,25 @@ export const ModApiAxiosParamCreator = function (
      * @summary Unlink a build from a version
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
-     * @param {VersionBuildParams} versionBuildParams The version build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The version build data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteVersionFromBuild: async (
       modId: string,
       versionId: string,
-      versionBuildParams: VersionBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("deleteVersionFromBuild", "modId", modId);
       // verify required parameter 'versionId' is not null or undefined
       assertParamExists("deleteVersionFromBuild", "versionId", versionId);
-      // verify required parameter 'versionBuildParams' is not null or undefined
+      // verify required parameter 'attachMinecraftToBuildRequest' is not null or undefined
       assertParamExists(
         "deleteVersionFromBuild",
-        "versionBuildParams",
-        versionBuildParams,
+        "attachMinecraftToBuildRequest",
+        attachMinecraftToBuildRequest,
       );
       const localVarPath = `/mods/{mod_id}/versions/{version_id}/builds`
         .replace(`{${"mod_id"}}`, encodeURIComponent(String(modId)))
@@ -769,9 +1042,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -799,7 +1069,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        versionBuildParams,
+        attachMinecraftToBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -811,28 +1081,28 @@ export const ModApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Fetch all teams attached to mod
+     * @summary Fetch all groups attached to mod
      * @param {string} modId A mod identifier or slug
      * @param {string} [search] Search query
-     * @param {ListModTeamsSortEnum} [sort] Sorting column
-     * @param {ListModTeamsOrderEnum} [order] Sorting order
+     * @param {string} [sort] Sorting column
+     * @param {ListModGroupsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModTeams: async (
+    listModGroups: async (
       modId: string,
       search?: string,
-      sort?: ListModTeamsSortEnum,
-      order?: ListModTeamsOrderEnum,
+      sort?: string,
+      order?: ListModGroupsOrderEnum,
       limit?: number,
       offset?: number,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
-      assertParamExists("listModTeams", "modId", modId);
-      const localVarPath = `/mods/{mod_id}/teams`.replace(
+      assertParamExists("listModGroups", "modId", modId);
+      const localVarPath = `/mods/{mod_id}/groups`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
       );
@@ -850,9 +1120,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -908,7 +1175,7 @@ export const ModApiAxiosParamCreator = function (
      * @summary Fetch all users attached to mod
      * @param {string} modId A mod identifier or slug
      * @param {string} [search] Search query
-     * @param {ListModUsersSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListModUsersOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -918,7 +1185,7 @@ export const ModApiAxiosParamCreator = function (
     listModUsers: async (
       modId: string,
       search?: string,
-      sort?: ListModUsersSortEnum,
+      sort?: string,
       order?: ListModUsersOrderEnum,
       limit?: number,
       offset?: number,
@@ -944,9 +1211,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1001,7 +1265,7 @@ export const ModApiAxiosParamCreator = function (
      *
      * @summary Fetch all available mods
      * @param {string} [search] Search query
-     * @param {ListModsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListModsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1010,7 +1274,7 @@ export const ModApiAxiosParamCreator = function (
      */
     listMods: async (
       search?: string,
-      sort?: ListModsSortEnum,
+      sort?: string,
       order?: ListModsOrderEnum,
       limit?: number,
       offset?: number,
@@ -1031,9 +1295,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1090,7 +1351,7 @@ export const ModApiAxiosParamCreator = function (
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
      * @param {string} [search] Search query
-     * @param {ListVersionBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListVersionBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1101,7 +1362,7 @@ export const ModApiAxiosParamCreator = function (
       modId: string,
       versionId: string,
       search?: string,
-      sort?: ListVersionBuildsSortEnum,
+      sort?: string,
       order?: ListVersionBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -1128,9 +1389,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1186,7 +1444,7 @@ export const ModApiAxiosParamCreator = function (
      * @summary Fetch all available versions for a mod
      * @param {string} modId A mod identifier or slug
      * @param {string} [search] Search query
-     * @param {ListVersionsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListVersionsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1196,7 +1454,7 @@ export const ModApiAxiosParamCreator = function (
     listVersions: async (
       modId: string,
       search?: string,
-      sort?: ListVersionsSortEnum,
+      sort?: string,
       order?: ListVersionsOrderEnum,
       limit?: number,
       offset?: number,
@@ -1222,9 +1480,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1277,22 +1532,26 @@ export const ModApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Update team perms for mod
+     * @summary Update group perms for mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModTeamParams} modTeamParams The team data to update
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The mod group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    permitModTeam: async (
+    permitModGroup: async (
       modId: string,
-      modTeamParams: ModTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
-      assertParamExists("permitModTeam", "modId", modId);
-      // verify required parameter 'modTeamParams' is not null or undefined
-      assertParamExists("permitModTeam", "modTeamParams", modTeamParams);
-      const localVarPath = `/mods/{mod_id}/teams`.replace(
+      assertParamExists("permitModGroup", "modId", modId);
+      // verify required parameter 'permitPackGroupRequest' is not null or undefined
+      assertParamExists(
+        "permitModGroup",
+        "permitPackGroupRequest",
+        permitPackGroupRequest,
+      );
+      const localVarPath = `/mods/{mod_id}/groups`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
       );
@@ -1310,9 +1569,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1340,7 +1596,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        modTeamParams,
+        permitPackGroupRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1354,19 +1610,23 @@ export const ModApiAxiosParamCreator = function (
      *
      * @summary Update user perms for mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModUserParams} modUserParams The user data to update
+     * @param {PermitPackUserRequest} permitPackUserRequest The mod user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     permitModUser: async (
       modId: string,
-      modUserParams: ModUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("permitModUser", "modId", modId);
-      // verify required parameter 'modUserParams' is not null or undefined
-      assertParamExists("permitModUser", "modUserParams", modUserParams);
+      // verify required parameter 'permitPackUserRequest' is not null or undefined
+      assertParamExists(
+        "permitModUser",
+        "permitPackUserRequest",
+        permitPackUserRequest,
+      );
       const localVarPath = `/mods/{mod_id}/users`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
@@ -1386,9 +1646,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1415,7 +1672,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        modUserParams,
+        permitPackUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1456,9 +1713,6 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1524,9 +1778,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1560,19 +1811,19 @@ export const ModApiAxiosParamCreator = function (
      *
      * @summary Update a specific mod
      * @param {string} modId A mod identifier or slug
-     * @param {Mod} mod The mod data to update
+     * @param {CreateModRequest} createModRequest The mod data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updateMod: async (
       modId: string,
-      mod: Mod,
+      createModRequest: CreateModRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("updateMod", "modId", modId);
-      // verify required parameter 'mod' is not null or undefined
-      assertParamExists("updateMod", "mod", mod);
+      // verify required parameter 'createModRequest' is not null or undefined
+      assertParamExists("updateMod", "createModRequest", createModRequest);
       const localVarPath = `/mods/{mod_id}`.replace(
         `{${"mod_id"}}`,
         encodeURIComponent(String(modId)),
@@ -1592,9 +1843,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1621,7 +1869,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        mod,
+        createModRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1636,22 +1884,26 @@ export const ModApiAxiosParamCreator = function (
      * @summary Update a specific version for a mod
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
-     * @param {Version} version The version data to update
+     * @param {CreateVersionRequest} createVersionRequest The version data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updateVersion: async (
       modId: string,
       versionId: string,
-      version: Version,
+      createVersionRequest: CreateVersionRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'modId' is not null or undefined
       assertParamExists("updateVersion", "modId", modId);
       // verify required parameter 'versionId' is not null or undefined
       assertParamExists("updateVersion", "versionId", versionId);
-      // verify required parameter 'version' is not null or undefined
-      assertParamExists("updateVersion", "version", version);
+      // verify required parameter 'createVersionRequest' is not null or undefined
+      assertParamExists(
+        "updateVersion",
+        "createVersionRequest",
+        createVersionRequest,
+      );
       const localVarPath = `/mods/{mod_id}/versions/{version_id}`
         .replace(`{${"mod_id"}}`, encodeURIComponent(String(modId)))
         .replace(`{${"version_id"}}`, encodeURIComponent(String(versionId)));
@@ -1670,9 +1922,6 @@ export const ModApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1699,7 +1948,7 @@ export const ModApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        version,
+        createVersionRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1721,27 +1970,28 @@ export const ModApiFp = function (configuration?: Configuration) {
   return {
     /**
      *
-     * @summary Attach a team to mod
+     * @summary Attach a group to mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModTeamParams} modTeamParams The team data to attach
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The mod group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async attachModToTeam(
+    async attachModToGroup(
       modId: string,
-      modTeamParams: ModTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.attachModToTeam(
-        modId,
-        modTeamParams,
-        options,
-      );
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.attachModToGroup(
+          modId,
+          permitPackGroupRequest,
+          options,
+        );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["ModApi.attachModToTeam"]?.[
+        operationServerMap["ModApi.attachModToGroup"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1756,20 +2006,20 @@ export const ModApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a user to mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModUserParams} modUserParams The user data to attach
+     * @param {PermitPackUserRequest} permitPackUserRequest The mod user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachModToUser(
       modId: string,
-      modUserParams: ModUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.attachModToUser(
         modId,
-        modUserParams,
+        permitPackUserRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1790,14 +2040,14 @@ export const ModApiFp = function (configuration?: Configuration) {
      * @summary Attach a build to a version
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
-     * @param {VersionBuildParams} versionBuildParams The version build data to attach
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The version build data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachVersionToBuild(
       modId: string,
       versionId: string,
-      versionBuildParams: VersionBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1806,7 +2056,7 @@ export const ModApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.attachVersionToBuild(
           modId,
           versionId,
-          versionBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1825,18 +2075,18 @@ export const ModApiFp = function (configuration?: Configuration) {
     /**
      *
      * @summary Create a new mod
-     * @param {Mod} mod The mod data to create
+     * @param {CreateModRequest} createModRequest The mod data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createMod(
-      mod: Mod,
+      createModRequest: CreateModRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mod>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createMod(
-        mod,
+        createModRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1853,22 +2103,85 @@ export const ModApiFp = function (configuration?: Configuration) {
     },
     /**
      *
+     * @summary Upload an avatar for the defined mod
+     * @param {string} modId A mod identifier or slug
+     * @param {File} [file]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createModAvatar(
+      modId: string,
+      file?: File,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModAvatar>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.createModAvatar(
+        modId,
+        file,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["ModApi.createModAvatar"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
+     * @summary Upload an avatar for the defined pack
+     * @param {string} packId A pack identifier or slug
+     * @param {File} [file]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async createPackAvatar(
+      packId: string,
+      file?: File,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PackAvatar>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.createPackAvatar(packId, file, options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["ModApi.createPackAvatar"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
      * @summary Create a new version for a mod
      * @param {string} modId A mod identifier or slug
-     * @param {Version} version The version data to create
+     * @param {CreateVersionRequest} createVersionRequest The version data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createVersion(
       modId: string,
-      version: Version,
+      createVersionRequest: CreateVersionRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Version>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createVersion(
         modId,
-        version,
+        createVersionRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1915,28 +2228,58 @@ export const ModApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Unlink a team from mod
+     * @summary Delete the avatar for the defined mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModTeamParams} modTeamParams The mod team data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async deleteModFromTeam(
+    async deleteModAvatar(
       modId: string,
-      modTeamParams: ModTeamParams,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModAvatar>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.deleteModAvatar(
+        modId,
+        options,
+      );
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["ModApi.deleteModAvatar"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
+     * @summary Unlink a group from mod
+     * @param {string} modId A mod identifier or slug
+     * @param {DeletePackFromGroupRequest} deletePackFromGroupRequest The mod group data to unlink
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deleteModFromGroup(
+      modId: string,
+      deletePackFromGroupRequest: DeletePackFromGroupRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.deleteModFromTeam(
+        await localVarAxiosParamCreator.deleteModFromGroup(
           modId,
-          modTeamParams,
+          deletePackFromGroupRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["ModApi.deleteModFromTeam"]?.[
+        operationServerMap["ModApi.deleteModFromGroup"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1951,13 +2294,13 @@ export const ModApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a user from mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModUserParams} modUserParams The mod user data to unlink
+     * @param {DeletePackFromUserRequest} deletePackFromUserRequest The mod user data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteModFromUser(
       modId: string,
-      modUserParams: ModUserParams,
+      deletePackFromUserRequest: DeletePackFromUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1965,12 +2308,40 @@ export const ModApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deleteModFromUser(
           modId,
-          modUserParams,
+          deletePackFromUserRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
         operationServerMap["ModApi.deleteModFromUser"]?.[
+          localVarOperationServerIndex
+        ]?.url;
+      return (axios, basePath) =>
+        createRequestFunction(
+          localVarAxiosArgs,
+          globalAxios,
+          BASE_PATH,
+          configuration,
+        )(axios, localVarOperationServerBasePath || basePath);
+    },
+    /**
+     *
+     * @summary Delete the avatar for the defined pack
+     * @param {string} packId A pack identifier or slug
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    async deletePackAvatar(
+      packId: string,
+      options?: RawAxiosRequestConfig,
+    ): Promise<
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PackAvatar>
+    > {
+      const localVarAxiosArgs =
+        await localVarAxiosParamCreator.deletePackAvatar(packId, options);
+      const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+      const localVarOperationServerBasePath =
+        operationServerMap["ModApi.deletePackAvatar"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2019,14 +2390,14 @@ export const ModApiFp = function (configuration?: Configuration) {
      * @summary Unlink a build from a version
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
-     * @param {VersionBuildParams} versionBuildParams The version build data to unlink
+     * @param {AttachMinecraftToBuildRequest} attachMinecraftToBuildRequest The version build data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteVersionFromBuild(
       modId: string,
       versionId: string,
-      versionBuildParams: VersionBuildParams,
+      attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -2035,7 +2406,7 @@ export const ModApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.deleteVersionFromBuild(
           modId,
           versionId,
-          versionBuildParams,
+          attachMinecraftToBuildRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2053,28 +2424,31 @@ export const ModApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Fetch all teams attached to mod
+     * @summary Fetch all groups attached to mod
      * @param {string} modId A mod identifier or slug
      * @param {string} [search] Search query
-     * @param {ListModTeamsSortEnum} [sort] Sorting column
-     * @param {ListModTeamsOrderEnum} [order] Sorting order
+     * @param {string} [sort] Sorting column
+     * @param {ListModGroupsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async listModTeams(
+    async listModGroups(
       modId: string,
       search?: string,
-      sort?: ListModTeamsSortEnum,
-      order?: ListModTeamsOrderEnum,
+      sort?: string,
+      order?: ListModGroupsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModTeams>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListModGroups200Response>
     > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.listModTeams(
+      const localVarAxiosArgs = await localVarAxiosParamCreator.listModGroups(
         modId,
         search,
         sort,
@@ -2085,7 +2459,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["ModApi.listModTeams"]?.[
+        operationServerMap["ModApi.listModGroups"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2101,7 +2475,7 @@ export const ModApiFp = function (configuration?: Configuration) {
      * @summary Fetch all users attached to mod
      * @param {string} modId A mod identifier or slug
      * @param {string} [search] Search query
-     * @param {ListModUsersSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListModUsersOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2111,13 +2485,16 @@ export const ModApiFp = function (configuration?: Configuration) {
     async listModUsers(
       modId: string,
       search?: string,
-      sort?: ListModUsersSortEnum,
+      sort?: string,
       order?: ListModUsersOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModUsers>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListModUsers200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listModUsers(
         modId,
@@ -2145,7 +2522,7 @@ export const ModApiFp = function (configuration?: Configuration) {
      *
      * @summary Fetch all available mods
      * @param {string} [search] Search query
-     * @param {ListModsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListModsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2154,13 +2531,16 @@ export const ModApiFp = function (configuration?: Configuration) {
      */
     async listMods(
       search?: string,
-      sort?: ListModsSortEnum,
+      sort?: string,
       order?: ListModsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mods>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListMods200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listMods(
         search,
@@ -2188,7 +2568,7 @@ export const ModApiFp = function (configuration?: Configuration) {
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
      * @param {string} [search] Search query
-     * @param {ListVersionBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListVersionBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2199,13 +2579,16 @@ export const ModApiFp = function (configuration?: Configuration) {
       modId: string,
       versionId: string,
       search?: string,
-      sort?: ListVersionBuildsSortEnum,
+      sort?: string,
       order?: ListVersionBuildsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VersionBuilds>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListVersionBuilds200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listVersionBuilds(
@@ -2236,7 +2619,7 @@ export const ModApiFp = function (configuration?: Configuration) {
      * @summary Fetch all available versions for a mod
      * @param {string} modId A mod identifier or slug
      * @param {string} [search] Search query
-     * @param {ListVersionsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListVersionsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2246,13 +2629,16 @@ export const ModApiFp = function (configuration?: Configuration) {
     async listVersions(
       modId: string,
       search?: string,
-      sort?: ListVersionsSortEnum,
+      sort?: string,
       order?: ListVersionsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Versions>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListVersions200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listVersions(
         modId,
@@ -2278,27 +2664,27 @@ export const ModApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Update team perms for mod
+     * @summary Update group perms for mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModTeamParams} modTeamParams The team data to update
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The mod group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async permitModTeam(
+    async permitModGroup(
       modId: string,
-      modTeamParams: ModTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.permitModTeam(
+      const localVarAxiosArgs = await localVarAxiosParamCreator.permitModGroup(
         modId,
-        modTeamParams,
+        permitPackGroupRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["ModApi.permitModTeam"]?.[
+        operationServerMap["ModApi.permitModGroup"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2313,20 +2699,20 @@ export const ModApiFp = function (configuration?: Configuration) {
      *
      * @summary Update user perms for mod
      * @param {string} modId A mod identifier or slug
-     * @param {ModUserParams} modUserParams The user data to update
+     * @param {PermitPackUserRequest} permitPackUserRequest The mod user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async permitModUser(
       modId: string,
-      modUserParams: ModUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.permitModUser(
         modId,
-        modUserParams,
+        permitPackUserRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2407,20 +2793,20 @@ export const ModApiFp = function (configuration?: Configuration) {
      *
      * @summary Update a specific mod
      * @param {string} modId A mod identifier or slug
-     * @param {Mod} mod The mod data to update
+     * @param {CreateModRequest} createModRequest The mod data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateMod(
       modId: string,
-      mod: Mod,
+      createModRequest: CreateModRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Mod>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateMod(
         modId,
-        mod,
+        createModRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2440,14 +2826,14 @@ export const ModApiFp = function (configuration?: Configuration) {
      * @summary Update a specific version for a mod
      * @param {string} modId A mod identifier or slug
      * @param {string} versionId A version identifier or slug
-     * @param {Version} version The version data to update
+     * @param {CreateVersionRequest} createVersionRequest The version data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateVersion(
       modId: string,
       versionId: string,
-      version: Version,
+      createVersionRequest: CreateVersionRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Version>
@@ -2455,7 +2841,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateVersion(
         modId,
         versionId,
-        version,
+        createVersionRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2487,19 +2873,19 @@ export const ModApiFactory = function (
   return {
     /**
      *
-     * @summary Attach a team to mod
-     * @param {ModApiAttachModToTeamRequest} requestParameters Request parameters.
+     * @summary Attach a group to mod
+     * @param {ModApiAttachModToGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachModToTeam(
-      requestParameters: ModApiAttachModToTeamRequest,
+    attachModToGroup(
+      requestParameters: ModApiAttachModToGroupRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Notification> {
       return localVarFp
-        .attachModToTeam(
+        .attachModToGroup(
           requestParameters.modId,
-          requestParameters.modTeamParams,
+          requestParameters.permitPackGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2518,7 +2904,7 @@ export const ModApiFactory = function (
       return localVarFp
         .attachModToUser(
           requestParameters.modId,
-          requestParameters.modUserParams,
+          requestParameters.permitPackUserRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2538,7 +2924,7 @@ export const ModApiFactory = function (
         .attachVersionToBuild(
           requestParameters.modId,
           requestParameters.versionId,
-          requestParameters.versionBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2555,7 +2941,45 @@ export const ModApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Mod> {
       return localVarFp
-        .createMod(requestParameters.mod, options)
+        .createMod(requestParameters.createModRequest, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Upload an avatar for the defined mod
+     * @param {ModApiCreateModAvatarRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createModAvatar(
+      requestParameters: ModApiCreateModAvatarRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<ModAvatar> {
+      return localVarFp
+        .createModAvatar(
+          requestParameters.modId,
+          requestParameters.file,
+          options,
+        )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Upload an avatar for the defined pack
+     * @param {ModApiCreatePackAvatarRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPackAvatar(
+      requestParameters: ModApiCreatePackAvatarRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<PackAvatar> {
+      return localVarFp
+        .createPackAvatar(
+          requestParameters.packId,
+          requestParameters.file,
+          options,
+        )
         .then((request) => request(axios, basePath));
     },
     /**
@@ -2572,7 +2996,7 @@ export const ModApiFactory = function (
       return localVarFp
         .createVersion(
           requestParameters.modId,
-          requestParameters.version,
+          requestParameters.createVersionRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2594,19 +3018,34 @@ export const ModApiFactory = function (
     },
     /**
      *
-     * @summary Unlink a team from mod
-     * @param {ModApiDeleteModFromTeamRequest} requestParameters Request parameters.
+     * @summary Delete the avatar for the defined mod
+     * @param {ModApiDeleteModAvatarRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteModFromTeam(
-      requestParameters: ModApiDeleteModFromTeamRequest,
+    deleteModAvatar(
+      requestParameters: ModApiDeleteModAvatarRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<ModAvatar> {
+      return localVarFp
+        .deleteModAvatar(requestParameters.modId, options)
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Unlink a group from mod
+     * @param {ModApiDeleteModFromGroupRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteModFromGroup(
+      requestParameters: ModApiDeleteModFromGroupRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Notification> {
       return localVarFp
-        .deleteModFromTeam(
+        .deleteModFromGroup(
           requestParameters.modId,
-          requestParameters.modTeamParams,
+          requestParameters.deletePackFromGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2625,9 +3064,24 @@ export const ModApiFactory = function (
       return localVarFp
         .deleteModFromUser(
           requestParameters.modId,
-          requestParameters.modUserParams,
+          requestParameters.deletePackFromUserRequest,
           options,
         )
+        .then((request) => request(axios, basePath));
+    },
+    /**
+     *
+     * @summary Delete the avatar for the defined pack
+     * @param {ModApiDeletePackAvatarRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePackAvatar(
+      requestParameters: ModApiDeletePackAvatarRequest,
+      options?: RawAxiosRequestConfig,
+    ): AxiosPromise<PackAvatar> {
+      return localVarFp
+        .deletePackAvatar(requestParameters.packId, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -2664,24 +3118,24 @@ export const ModApiFactory = function (
         .deleteVersionFromBuild(
           requestParameters.modId,
           requestParameters.versionId,
-          requestParameters.versionBuildParams,
+          requestParameters.attachMinecraftToBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
     },
     /**
      *
-     * @summary Fetch all teams attached to mod
-     * @param {ModApiListModTeamsRequest} requestParameters Request parameters.
+     * @summary Fetch all groups attached to mod
+     * @param {ModApiListModGroupsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModTeams(
-      requestParameters: ModApiListModTeamsRequest,
+    listModGroups(
+      requestParameters: ModApiListModGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ModTeams> {
+    ): AxiosPromise<ListModGroups200Response> {
       return localVarFp
-        .listModTeams(
+        .listModGroups(
           requestParameters.modId,
           requestParameters.search,
           requestParameters.sort,
@@ -2702,7 +3156,7 @@ export const ModApiFactory = function (
     listModUsers(
       requestParameters: ModApiListModUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ModUsers> {
+    ): AxiosPromise<ListModUsers200Response> {
       return localVarFp
         .listModUsers(
           requestParameters.modId,
@@ -2725,7 +3179,7 @@ export const ModApiFactory = function (
     listMods(
       requestParameters: ModApiListModsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Mods> {
+    ): AxiosPromise<ListMods200Response> {
       return localVarFp
         .listMods(
           requestParameters.search,
@@ -2747,7 +3201,7 @@ export const ModApiFactory = function (
     listVersionBuilds(
       requestParameters: ModApiListVersionBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<VersionBuilds> {
+    ): AxiosPromise<ListVersionBuilds200Response> {
       return localVarFp
         .listVersionBuilds(
           requestParameters.modId,
@@ -2771,7 +3225,7 @@ export const ModApiFactory = function (
     listVersions(
       requestParameters: ModApiListVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Versions> {
+    ): AxiosPromise<ListVersions200Response> {
       return localVarFp
         .listVersions(
           requestParameters.modId,
@@ -2786,19 +3240,19 @@ export const ModApiFactory = function (
     },
     /**
      *
-     * @summary Update team perms for mod
-     * @param {ModApiPermitModTeamRequest} requestParameters Request parameters.
+     * @summary Update group perms for mod
+     * @param {ModApiPermitModGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    permitModTeam(
-      requestParameters: ModApiPermitModTeamRequest,
+    permitModGroup(
+      requestParameters: ModApiPermitModGroupRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Notification> {
       return localVarFp
-        .permitModTeam(
+        .permitModGroup(
           requestParameters.modId,
-          requestParameters.modTeamParams,
+          requestParameters.permitPackGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2817,7 +3271,7 @@ export const ModApiFactory = function (
       return localVarFp
         .permitModUser(
           requestParameters.modId,
-          requestParameters.modUserParams,
+          requestParameters.permitPackUserRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2868,7 +3322,11 @@ export const ModApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Mod> {
       return localVarFp
-        .updateMod(requestParameters.modId, requestParameters.mod, options)
+        .updateMod(
+          requestParameters.modId,
+          requestParameters.createModRequest,
+          options,
+        )
         .then((request) => request(axios, basePath));
     },
     /**
@@ -2886,7 +3344,7 @@ export const ModApiFactory = function (
         .updateVersion(
           requestParameters.modId,
           requestParameters.versionId,
-          requestParameters.version,
+          requestParameters.createVersionRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2895,24 +3353,24 @@ export const ModApiFactory = function (
 };
 
 /**
- * Request parameters for attachModToTeam operation in ModApi.
+ * Request parameters for attachModToGroup operation in ModApi.
  * @export
- * @interface ModApiAttachModToTeamRequest
+ * @interface ModApiAttachModToGroupRequest
  */
-export interface ModApiAttachModToTeamRequest {
+export interface ModApiAttachModToGroupRequest {
   /**
    * A mod identifier or slug
    * @type {string}
-   * @memberof ModApiAttachModToTeam
+   * @memberof ModApiAttachModToGroup
    */
   readonly modId: string;
 
   /**
-   * The team data to attach
-   * @type {ModTeamParams}
-   * @memberof ModApiAttachModToTeam
+   * The mod group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof ModApiAttachModToGroup
    */
-  readonly modTeamParams: ModTeamParams;
+  readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
@@ -2929,11 +3387,11 @@ export interface ModApiAttachModToUserRequest {
   readonly modId: string;
 
   /**
-   * The user data to attach
-   * @type {ModUserParams}
+   * The mod user data to permit
+   * @type {PermitPackUserRequest}
    * @memberof ModApiAttachModToUser
    */
-  readonly modUserParams: ModUserParams;
+  readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
@@ -2957,11 +3415,11 @@ export interface ModApiAttachVersionToBuildRequest {
   readonly versionId: string;
 
   /**
-   * The version build data to attach
-   * @type {VersionBuildParams}
+   * The version build data to create or delete
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof ModApiAttachVersionToBuild
    */
-  readonly versionBuildParams: VersionBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
@@ -2972,10 +3430,52 @@ export interface ModApiAttachVersionToBuildRequest {
 export interface ModApiCreateModRequest {
   /**
    * The mod data to create
-   * @type {Mod}
+   * @type {CreateModRequest}
    * @memberof ModApiCreateMod
    */
-  readonly mod: Mod;
+  readonly createModRequest: CreateModRequest;
+}
+
+/**
+ * Request parameters for createModAvatar operation in ModApi.
+ * @export
+ * @interface ModApiCreateModAvatarRequest
+ */
+export interface ModApiCreateModAvatarRequest {
+  /**
+   * A mod identifier or slug
+   * @type {string}
+   * @memberof ModApiCreateModAvatar
+   */
+  readonly modId: string;
+
+  /**
+   *
+   * @type {File}
+   * @memberof ModApiCreateModAvatar
+   */
+  readonly file?: File;
+}
+
+/**
+ * Request parameters for createPackAvatar operation in ModApi.
+ * @export
+ * @interface ModApiCreatePackAvatarRequest
+ */
+export interface ModApiCreatePackAvatarRequest {
+  /**
+   * A pack identifier or slug
+   * @type {string}
+   * @memberof ModApiCreatePackAvatar
+   */
+  readonly packId: string;
+
+  /**
+   *
+   * @type {File}
+   * @memberof ModApiCreatePackAvatar
+   */
+  readonly file?: File;
 }
 
 /**
@@ -2993,10 +3493,10 @@ export interface ModApiCreateVersionRequest {
 
   /**
    * The version data to create
-   * @type {Version}
+   * @type {CreateVersionRequest}
    * @memberof ModApiCreateVersion
    */
-  readonly version: Version;
+  readonly createVersionRequest: CreateVersionRequest;
 }
 
 /**
@@ -3014,24 +3514,38 @@ export interface ModApiDeleteModRequest {
 }
 
 /**
- * Request parameters for deleteModFromTeam operation in ModApi.
+ * Request parameters for deleteModAvatar operation in ModApi.
  * @export
- * @interface ModApiDeleteModFromTeamRequest
+ * @interface ModApiDeleteModAvatarRequest
  */
-export interface ModApiDeleteModFromTeamRequest {
+export interface ModApiDeleteModAvatarRequest {
   /**
    * A mod identifier or slug
    * @type {string}
-   * @memberof ModApiDeleteModFromTeam
+   * @memberof ModApiDeleteModAvatar
+   */
+  readonly modId: string;
+}
+
+/**
+ * Request parameters for deleteModFromGroup operation in ModApi.
+ * @export
+ * @interface ModApiDeleteModFromGroupRequest
+ */
+export interface ModApiDeleteModFromGroupRequest {
+  /**
+   * A mod identifier or slug
+   * @type {string}
+   * @memberof ModApiDeleteModFromGroup
    */
   readonly modId: string;
 
   /**
-   * The mod team data to unlink
-   * @type {ModTeamParams}
-   * @memberof ModApiDeleteModFromTeam
+   * The mod group data to unlink
+   * @type {DeletePackFromGroupRequest}
+   * @memberof ModApiDeleteModFromGroup
    */
-  readonly modTeamParams: ModTeamParams;
+  readonly deletePackFromGroupRequest: DeletePackFromGroupRequest;
 }
 
 /**
@@ -3049,10 +3563,24 @@ export interface ModApiDeleteModFromUserRequest {
 
   /**
    * The mod user data to unlink
-   * @type {ModUserParams}
+   * @type {DeletePackFromUserRequest}
    * @memberof ModApiDeleteModFromUser
    */
-  readonly modUserParams: ModUserParams;
+  readonly deletePackFromUserRequest: DeletePackFromUserRequest;
+}
+
+/**
+ * Request parameters for deletePackAvatar operation in ModApi.
+ * @export
+ * @interface ModApiDeletePackAvatarRequest
+ */
+export interface ModApiDeletePackAvatarRequest {
+  /**
+   * A pack identifier or slug
+   * @type {string}
+   * @memberof ModApiDeletePackAvatar
+   */
+  readonly packId: string;
 }
 
 /**
@@ -3097,58 +3625,58 @@ export interface ModApiDeleteVersionFromBuildRequest {
   readonly versionId: string;
 
   /**
-   * The version build data to unlink
-   * @type {VersionBuildParams}
+   * The version build data to create or delete
+   * @type {AttachMinecraftToBuildRequest}
    * @memberof ModApiDeleteVersionFromBuild
    */
-  readonly versionBuildParams: VersionBuildParams;
+  readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
- * Request parameters for listModTeams operation in ModApi.
+ * Request parameters for listModGroups operation in ModApi.
  * @export
- * @interface ModApiListModTeamsRequest
+ * @interface ModApiListModGroupsRequest
  */
-export interface ModApiListModTeamsRequest {
+export interface ModApiListModGroupsRequest {
   /**
    * A mod identifier or slug
    * @type {string}
-   * @memberof ModApiListModTeams
+   * @memberof ModApiListModGroups
    */
   readonly modId: string;
 
   /**
    * Search query
    * @type {string}
-   * @memberof ModApiListModTeams
+   * @memberof ModApiListModGroups
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
-   * @memberof ModApiListModTeams
+   * @type {string}
+   * @memberof ModApiListModGroups
    */
-  readonly sort?: ListModTeamsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
    * @type {'asc' | 'desc'}
-   * @memberof ModApiListModTeams
+   * @memberof ModApiListModGroups
    */
-  readonly order?: ListModTeamsOrderEnum;
+  readonly order?: ListModGroupsOrderEnum;
 
   /**
    * Paging limit
    * @type {number}
-   * @memberof ModApiListModTeams
+   * @memberof ModApiListModGroups
    */
   readonly limit?: number;
 
   /**
    * Paging offset
    * @type {number}
-   * @memberof ModApiListModTeams
+   * @memberof ModApiListModGroups
    */
   readonly offset?: number;
 }
@@ -3175,10 +3703,10 @@ export interface ModApiListModUsersRequest {
 
   /**
    * Sorting column
-   * @type {'username' | 'email' | 'fullname' | 'admin' | 'active'}
+   * @type {string}
    * @memberof ModApiListModUsers
    */
-  readonly sort?: ListModUsersSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3217,10 +3745,10 @@ export interface ModApiListModsRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name' | 'public'}
+   * @type {string}
    * @memberof ModApiListMods
    */
-  readonly sort?: ListModsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3273,10 +3801,10 @@ export interface ModApiListVersionBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {string}
    * @memberof ModApiListVersionBuilds
    */
-  readonly sort?: ListVersionBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3322,10 +3850,10 @@ export interface ModApiListVersionsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {string}
    * @memberof ModApiListVersions
    */
-  readonly sort?: ListVersionsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3350,24 +3878,24 @@ export interface ModApiListVersionsRequest {
 }
 
 /**
- * Request parameters for permitModTeam operation in ModApi.
+ * Request parameters for permitModGroup operation in ModApi.
  * @export
- * @interface ModApiPermitModTeamRequest
+ * @interface ModApiPermitModGroupRequest
  */
-export interface ModApiPermitModTeamRequest {
+export interface ModApiPermitModGroupRequest {
   /**
    * A mod identifier or slug
    * @type {string}
-   * @memberof ModApiPermitModTeam
+   * @memberof ModApiPermitModGroup
    */
   readonly modId: string;
 
   /**
-   * The team data to update
-   * @type {ModTeamParams}
-   * @memberof ModApiPermitModTeam
+   * The mod group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof ModApiPermitModGroup
    */
-  readonly modTeamParams: ModTeamParams;
+  readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
@@ -3384,11 +3912,11 @@ export interface ModApiPermitModUserRequest {
   readonly modId: string;
 
   /**
-   * The user data to update
-   * @type {ModUserParams}
+   * The mod user data to permit
+   * @type {PermitPackUserRequest}
    * @memberof ModApiPermitModUser
    */
-  readonly modUserParams: ModUserParams;
+  readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
@@ -3441,10 +3969,10 @@ export interface ModApiUpdateModRequest {
 
   /**
    * The mod data to update
-   * @type {Mod}
+   * @type {CreateModRequest}
    * @memberof ModApiUpdateMod
    */
-  readonly mod: Mod;
+  readonly createModRequest: CreateModRequest;
 }
 
 /**
@@ -3469,10 +3997,10 @@ export interface ModApiUpdateVersionRequest {
 
   /**
    * The version data to update
-   * @type {Version}
+   * @type {CreateVersionRequest}
    * @memberof ModApiUpdateVersion
    */
-  readonly version: Version;
+  readonly createVersionRequest: CreateVersionRequest;
 }
 
 /**
@@ -3484,20 +4012,20 @@ export interface ModApiUpdateVersionRequest {
 export class ModApi extends BaseAPI {
   /**
    *
-   * @summary Attach a team to mod
-   * @param {ModApiAttachModToTeamRequest} requestParameters Request parameters.
+   * @summary Attach a group to mod
+   * @param {ModApiAttachModToGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof ModApi
    */
-  public attachModToTeam(
-    requestParameters: ModApiAttachModToTeamRequest,
+  public attachModToGroup(
+    requestParameters: ModApiAttachModToGroupRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return ModApiFp(this.configuration)
-      .attachModToTeam(
+      .attachModToGroup(
         requestParameters.modId,
-        requestParameters.modTeamParams,
+        requestParameters.permitPackGroupRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3518,7 +4046,7 @@ export class ModApi extends BaseAPI {
     return ModApiFp(this.configuration)
       .attachModToUser(
         requestParameters.modId,
-        requestParameters.modUserParams,
+        requestParameters.permitPackUserRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3540,7 +4068,7 @@ export class ModApi extends BaseAPI {
       .attachVersionToBuild(
         requestParameters.modId,
         requestParameters.versionId,
-        requestParameters.versionBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3559,7 +4087,45 @@ export class ModApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return ModApiFp(this.configuration)
-      .createMod(requestParameters.mod, options)
+      .createMod(requestParameters.createModRequest, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Upload an avatar for the defined mod
+   * @param {ModApiCreateModAvatarRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof ModApi
+   */
+  public createModAvatar(
+    requestParameters: ModApiCreateModAvatarRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return ModApiFp(this.configuration)
+      .createModAvatar(requestParameters.modId, requestParameters.file, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Upload an avatar for the defined pack
+   * @param {ModApiCreatePackAvatarRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof ModApi
+   */
+  public createPackAvatar(
+    requestParameters: ModApiCreatePackAvatarRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return ModApiFp(this.configuration)
+      .createPackAvatar(
+        requestParameters.packId,
+        requestParameters.file,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -3578,7 +4144,7 @@ export class ModApi extends BaseAPI {
     return ModApiFp(this.configuration)
       .createVersion(
         requestParameters.modId,
-        requestParameters.version,
+        requestParameters.createVersionRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3603,20 +4169,37 @@ export class ModApi extends BaseAPI {
 
   /**
    *
-   * @summary Unlink a team from mod
-   * @param {ModApiDeleteModFromTeamRequest} requestParameters Request parameters.
+   * @summary Delete the avatar for the defined mod
+   * @param {ModApiDeleteModAvatarRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof ModApi
    */
-  public deleteModFromTeam(
-    requestParameters: ModApiDeleteModFromTeamRequest,
+  public deleteModAvatar(
+    requestParameters: ModApiDeleteModAvatarRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return ModApiFp(this.configuration)
-      .deleteModFromTeam(
+      .deleteModAvatar(requestParameters.modId, options)
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Unlink a group from mod
+   * @param {ModApiDeleteModFromGroupRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof ModApi
+   */
+  public deleteModFromGroup(
+    requestParameters: ModApiDeleteModFromGroupRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return ModApiFp(this.configuration)
+      .deleteModFromGroup(
         requestParameters.modId,
-        requestParameters.modTeamParams,
+        requestParameters.deletePackFromGroupRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3637,9 +4220,26 @@ export class ModApi extends BaseAPI {
     return ModApiFp(this.configuration)
       .deleteModFromUser(
         requestParameters.modId,
-        requestParameters.modUserParams,
+        requestParameters.deletePackFromUserRequest,
         options,
       )
+      .then((request) => request(this.axios, this.basePath));
+  }
+
+  /**
+   *
+   * @summary Delete the avatar for the defined pack
+   * @param {ModApiDeletePackAvatarRequest} requestParameters Request parameters.
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof ModApi
+   */
+  public deletePackAvatar(
+    requestParameters: ModApiDeletePackAvatarRequest,
+    options?: RawAxiosRequestConfig,
+  ) {
+    return ModApiFp(this.configuration)
+      .deletePackAvatar(requestParameters.packId, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -3680,7 +4280,7 @@ export class ModApi extends BaseAPI {
       .deleteVersionFromBuild(
         requestParameters.modId,
         requestParameters.versionId,
-        requestParameters.versionBuildParams,
+        requestParameters.attachMinecraftToBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3688,18 +4288,18 @@ export class ModApi extends BaseAPI {
 
   /**
    *
-   * @summary Fetch all teams attached to mod
-   * @param {ModApiListModTeamsRequest} requestParameters Request parameters.
+   * @summary Fetch all groups attached to mod
+   * @param {ModApiListModGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof ModApi
    */
-  public listModTeams(
-    requestParameters: ModApiListModTeamsRequest,
+  public listModGroups(
+    requestParameters: ModApiListModGroupsRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return ModApiFp(this.configuration)
-      .listModTeams(
+      .listModGroups(
         requestParameters.modId,
         requestParameters.search,
         requestParameters.sort,
@@ -3813,20 +4413,20 @@ export class ModApi extends BaseAPI {
 
   /**
    *
-   * @summary Update team perms for mod
-   * @param {ModApiPermitModTeamRequest} requestParameters Request parameters.
+   * @summary Update group perms for mod
+   * @param {ModApiPermitModGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof ModApi
    */
-  public permitModTeam(
-    requestParameters: ModApiPermitModTeamRequest,
+  public permitModGroup(
+    requestParameters: ModApiPermitModGroupRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return ModApiFp(this.configuration)
-      .permitModTeam(
+      .permitModGroup(
         requestParameters.modId,
-        requestParameters.modTeamParams,
+        requestParameters.permitPackGroupRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3847,7 +4447,7 @@ export class ModApi extends BaseAPI {
     return ModApiFp(this.configuration)
       .permitModUser(
         requestParameters.modId,
-        requestParameters.modUserParams,
+        requestParameters.permitPackUserRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3904,7 +4504,11 @@ export class ModApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return ModApiFp(this.configuration)
-      .updateMod(requestParameters.modId, requestParameters.mod, options)
+      .updateMod(
+        requestParameters.modId,
+        requestParameters.createModRequest,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -3924,7 +4528,7 @@ export class ModApi extends BaseAPI {
       .updateVersion(
         requestParameters.modId,
         requestParameters.versionId,
-        requestParameters.version,
+        requestParameters.createVersionRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3934,33 +4538,12 @@ export class ModApi extends BaseAPI {
 /**
  * @export
  */
-export const ListModTeamsSortEnum = {
-  Slug: "slug",
-  Name: "name",
-} as const;
-export type ListModTeamsSortEnum =
-  (typeof ListModTeamsSortEnum)[keyof typeof ListModTeamsSortEnum];
-/**
- * @export
- */
-export const ListModTeamsOrderEnum = {
+export const ListModGroupsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
-export type ListModTeamsOrderEnum =
-  (typeof ListModTeamsOrderEnum)[keyof typeof ListModTeamsOrderEnum];
-/**
- * @export
- */
-export const ListModUsersSortEnum = {
-  Username: "username",
-  Email: "email",
-  Fullname: "fullname",
-  Admin: "admin",
-  Active: "active",
-} as const;
-export type ListModUsersSortEnum =
-  (typeof ListModUsersSortEnum)[keyof typeof ListModUsersSortEnum];
+export type ListModGroupsOrderEnum =
+  (typeof ListModGroupsOrderEnum)[keyof typeof ListModGroupsOrderEnum];
 /**
  * @export
  */
@@ -3973,16 +4556,6 @@ export type ListModUsersOrderEnum =
 /**
  * @export
  */
-export const ListModsSortEnum = {
-  Slug: "slug",
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListModsSortEnum =
-  (typeof ListModsSortEnum)[keyof typeof ListModsSortEnum];
-/**
- * @export
- */
 export const ListModsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
@@ -3992,30 +4565,12 @@ export type ListModsOrderEnum =
 /**
  * @export
  */
-export const ListVersionBuildsSortEnum = {
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListVersionBuildsSortEnum =
-  (typeof ListVersionBuildsSortEnum)[keyof typeof ListVersionBuildsSortEnum];
-/**
- * @export
- */
 export const ListVersionBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListVersionBuildsOrderEnum =
   (typeof ListVersionBuildsOrderEnum)[keyof typeof ListVersionBuildsOrderEnum];
-/**
- * @export
- */
-export const ListVersionsSortEnum = {
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListVersionsSortEnum =
-  (typeof ListVersionsSortEnum)[keyof typeof ListVersionsSortEnum];
 /**
  * @export
  */

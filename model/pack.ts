@@ -14,13 +14,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { PackBack } from "./pack-back";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { PackIcon } from "./pack-icon";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { PackLogo } from "./pack-logo";
+import type { PackAvatar } from "./pack-avatar";
 
 /**
  * Model to represent pack
@@ -36,22 +30,10 @@ export interface Pack {
   id?: string;
   /**
    *
-   * @type {PackIcon}
+   * @type {PackAvatar}
    * @memberof Pack
    */
-  icon?: PackIcon;
-  /**
-   *
-   * @type {PackLogo}
-   * @memberof Pack
-   */
-  logo?: PackLogo;
-  /**
-   *
-   * @type {PackBack}
-   * @memberof Pack
-   */
-  back?: PackBack;
+  avatar?: PackAvatar;
   /**
    *
    * @type {string}

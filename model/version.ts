@@ -48,12 +48,6 @@ export interface Version {
    * @type {string}
    * @memberof Version
    */
-  slug?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
   name?: string | null;
   /**
    *

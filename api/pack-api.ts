@@ -42,27 +42,35 @@ import {
   operationServerMap,
 } from "../base";
 // @ts-ignore
+import type { AttachBuildToVersionRequest } from "../model";
+// @ts-ignore
 import type { Build } from "../model";
 // @ts-ignore
-import type { BuildVersionParams } from "../model";
+import type { CreateBuildRequest } from "../model";
 // @ts-ignore
-import type { BuildVersions } from "../model";
+import type { CreatePackRequest } from "../model";
 // @ts-ignore
-import type { Builds } from "../model";
+import type { DeletePackFromGroupRequest } from "../model";
+// @ts-ignore
+import type { DeletePackFromUserRequest } from "../model";
+// @ts-ignore
+import type { ListBuildVersions200Response } from "../model";
+// @ts-ignore
+import type { ListBuilds200Response } from "../model";
+// @ts-ignore
+import type { ListPackGroups200Response } from "../model";
+// @ts-ignore
+import type { ListPackUsers200Response } from "../model";
+// @ts-ignore
+import type { ListPacks200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
 import type { Pack } from "../model";
 // @ts-ignore
-import type { PackTeamParams } from "../model";
+import type { PermitPackGroupRequest } from "../model";
 // @ts-ignore
-import type { PackTeams } from "../model";
-// @ts-ignore
-import type { PackUserParams } from "../model";
-// @ts-ignore
-import type { PackUsers } from "../model";
-// @ts-ignore
-import type { Packs } from "../model";
+import type { PermitPackUserRequest } from "../model";
 /**
  * PackApi - axios parameter creator
  * @export
@@ -76,25 +84,25 @@ export const PackApiAxiosParamCreator = function (
      * @summary Attach a version to a build
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
-     * @param {BuildVersionParams} buildVersionParams The build version data to attach
+     * @param {AttachBuildToVersionRequest} attachBuildToVersionRequest The build version data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachBuildToVersion: async (
       packId: string,
       buildId: string,
-      buildVersionParams: BuildVersionParams,
+      attachBuildToVersionRequest: AttachBuildToVersionRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("attachBuildToVersion", "packId", packId);
       // verify required parameter 'buildId' is not null or undefined
       assertParamExists("attachBuildToVersion", "buildId", buildId);
-      // verify required parameter 'buildVersionParams' is not null or undefined
+      // verify required parameter 'attachBuildToVersionRequest' is not null or undefined
       assertParamExists(
         "attachBuildToVersion",
-        "buildVersionParams",
-        buildVersionParams,
+        "attachBuildToVersionRequest",
+        attachBuildToVersionRequest,
       );
       const localVarPath = `/packs/{pack_id}/builds/{build_id}/versions`
         .replace(`{${"pack_id"}}`, encodeURIComponent(String(packId)))
@@ -114,9 +122,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -143,7 +148,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        buildVersionParams,
+        attachBuildToVersionRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -155,22 +160,26 @@ export const PackApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Attach a team to pack
+     * @summary Attach a group to pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackTeamParams} packTeamParams The team data to attach
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The pack group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachPackToTeam: async (
+    attachPackToGroup: async (
       packId: string,
-      packTeamParams: PackTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
-      assertParamExists("attachPackToTeam", "packId", packId);
-      // verify required parameter 'packTeamParams' is not null or undefined
-      assertParamExists("attachPackToTeam", "packTeamParams", packTeamParams);
-      const localVarPath = `/packs/{pack_id}/teams`.replace(
+      assertParamExists("attachPackToGroup", "packId", packId);
+      // verify required parameter 'permitPackGroupRequest' is not null or undefined
+      assertParamExists(
+        "attachPackToGroup",
+        "permitPackGroupRequest",
+        permitPackGroupRequest,
+      );
+      const localVarPath = `/packs/{pack_id}/groups`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
       );
@@ -189,9 +198,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -218,7 +224,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        packTeamParams,
+        permitPackGroupRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -232,19 +238,23 @@ export const PackApiAxiosParamCreator = function (
      *
      * @summary Attach a user to pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackUserParams} packUserParams The user data to attach
+     * @param {PermitPackUserRequest} permitPackUserRequest The pack user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     attachPackToUser: async (
       packId: string,
-      packUserParams: PackUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("attachPackToUser", "packId", packId);
-      // verify required parameter 'packUserParams' is not null or undefined
-      assertParamExists("attachPackToUser", "packUserParams", packUserParams);
+      // verify required parameter 'permitPackUserRequest' is not null or undefined
+      assertParamExists(
+        "attachPackToUser",
+        "permitPackUserRequest",
+        permitPackUserRequest,
+      );
       const localVarPath = `/packs/{pack_id}/users`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
@@ -264,9 +274,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -293,7 +300,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        packUserParams,
+        permitPackUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -307,19 +314,23 @@ export const PackApiAxiosParamCreator = function (
      *
      * @summary Create a new build for a pack
      * @param {string} packId A pack identifier or slug
-     * @param {Build} build The build data to create
+     * @param {CreateBuildRequest} createBuildRequest The build data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createBuild: async (
       packId: string,
-      build: Build,
+      createBuildRequest: CreateBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("createBuild", "packId", packId);
-      // verify required parameter 'build' is not null or undefined
-      assertParamExists("createBuild", "build", build);
+      // verify required parameter 'createBuildRequest' is not null or undefined
+      assertParamExists(
+        "createBuild",
+        "createBuildRequest",
+        createBuildRequest,
+      );
       const localVarPath = `/packs/{pack_id}/builds`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
@@ -339,9 +350,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -368,7 +376,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        build,
+        createBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -381,16 +389,16 @@ export const PackApiAxiosParamCreator = function (
     /**
      *
      * @summary Create a new pack
-     * @param {Pack} pack The pack data to create
+     * @param {CreatePackRequest} createPackRequest The pack data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createPack: async (
-      pack: Pack,
+      createPackRequest: CreatePackRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
-      // verify required parameter 'pack' is not null or undefined
-      assertParamExists("createPack", "pack", pack);
+      // verify required parameter 'createPackRequest' is not null or undefined
+      assertParamExists("createPack", "createPackRequest", createPackRequest);
       const localVarPath = `/packs`;
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
       const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -407,9 +415,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -436,7 +441,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        pack,
+        createPackRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -481,9 +486,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -518,25 +520,25 @@ export const PackApiAxiosParamCreator = function (
      * @summary Unlink a version from a build
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
-     * @param {BuildVersionParams} buildVersionParams The build version data to unlink
+     * @param {AttachBuildToVersionRequest} attachBuildToVersionRequest The build version data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteBuildFromVersion: async (
       packId: string,
       buildId: string,
-      buildVersionParams: BuildVersionParams,
+      attachBuildToVersionRequest: AttachBuildToVersionRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("deleteBuildFromVersion", "packId", packId);
       // verify required parameter 'buildId' is not null or undefined
       assertParamExists("deleteBuildFromVersion", "buildId", buildId);
-      // verify required parameter 'buildVersionParams' is not null or undefined
+      // verify required parameter 'attachBuildToVersionRequest' is not null or undefined
       assertParamExists(
         "deleteBuildFromVersion",
-        "buildVersionParams",
-        buildVersionParams,
+        "attachBuildToVersionRequest",
+        attachBuildToVersionRequest,
       );
       const localVarPath = `/packs/{pack_id}/builds/{build_id}/versions`
         .replace(`{${"pack_id"}}`, encodeURIComponent(String(packId)))
@@ -555,9 +557,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -585,7 +584,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        buildVersionParams,
+        attachBuildToVersionRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -627,9 +626,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -661,22 +657,26 @@ export const PackApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Unlink a team from pack
+     * @summary Unlink a group from pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackTeamParams} packTeamParams The pack team data to unlink
+     * @param {DeletePackFromGroupRequest} deletePackFromGroupRequest The pack group data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePackFromTeam: async (
+    deletePackFromGroup: async (
       packId: string,
-      packTeamParams: PackTeamParams,
+      deletePackFromGroupRequest: DeletePackFromGroupRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
-      assertParamExists("deletePackFromTeam", "packId", packId);
-      // verify required parameter 'packTeamParams' is not null or undefined
-      assertParamExists("deletePackFromTeam", "packTeamParams", packTeamParams);
-      const localVarPath = `/packs/{pack_id}/teams`.replace(
+      assertParamExists("deletePackFromGroup", "packId", packId);
+      // verify required parameter 'deletePackFromGroupRequest' is not null or undefined
+      assertParamExists(
+        "deletePackFromGroup",
+        "deletePackFromGroupRequest",
+        deletePackFromGroupRequest,
+      );
+      const localVarPath = `/packs/{pack_id}/groups`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
       );
@@ -694,9 +694,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -724,7 +721,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        packTeamParams,
+        deletePackFromGroupRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -738,19 +735,23 @@ export const PackApiAxiosParamCreator = function (
      *
      * @summary Unlink a user from pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackUserParams} packUserParams The pack user data to unlink
+     * @param {DeletePackFromUserRequest} deletePackFromUserRequest The pack user data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deletePackFromUser: async (
       packId: string,
-      packUserParams: PackUserParams,
+      deletePackFromUserRequest: DeletePackFromUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("deletePackFromUser", "packId", packId);
-      // verify required parameter 'packUserParams' is not null or undefined
-      assertParamExists("deletePackFromUser", "packUserParams", packUserParams);
+      // verify required parameter 'deletePackFromUserRequest' is not null or undefined
+      assertParamExists(
+        "deletePackFromUser",
+        "deletePackFromUserRequest",
+        deletePackFromUserRequest,
+      );
       const localVarPath = `/packs/{pack_id}/users`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
@@ -770,9 +771,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -799,7 +797,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        packUserParams,
+        deletePackFromUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -815,7 +813,7 @@ export const PackApiAxiosParamCreator = function (
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
      * @param {string} [search] Search query
-     * @param {ListBuildVersionsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListBuildVersionsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -826,7 +824,7 @@ export const PackApiAxiosParamCreator = function (
       packId: string,
       buildId: string,
       search?: string,
-      sort?: ListBuildVersionsSortEnum,
+      sort?: string,
       order?: ListBuildVersionsOrderEnum,
       limit?: number,
       offset?: number,
@@ -853,9 +851,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -911,7 +906,7 @@ export const PackApiAxiosParamCreator = function (
      * @summary Fetch all available builds for a pack
      * @param {string} packId A pack identifier or slug
      * @param {string} [search] Search query
-     * @param {ListBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -921,7 +916,7 @@ export const PackApiAxiosParamCreator = function (
     listBuilds: async (
       packId: string,
       search?: string,
-      sort?: ListBuildsSortEnum,
+      sort?: string,
       order?: ListBuildsOrderEnum,
       limit?: number,
       offset?: number,
@@ -947,9 +942,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1002,28 +994,28 @@ export const PackApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Fetch all teams attached to pack
+     * @summary Fetch all groups attached to pack
      * @param {string} packId A pack identifier or slug
      * @param {string} [search] Search query
-     * @param {ListPackTeamsSortEnum} [sort] Sorting column
-     * @param {ListPackTeamsOrderEnum} [order] Sorting order
+     * @param {string} [sort] Sorting column
+     * @param {ListPackGroupsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPackTeams: async (
+    listPackGroups: async (
       packId: string,
       search?: string,
-      sort?: ListPackTeamsSortEnum,
-      order?: ListPackTeamsOrderEnum,
+      sort?: string,
+      order?: ListPackGroupsOrderEnum,
       limit?: number,
       offset?: number,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
-      assertParamExists("listPackTeams", "packId", packId);
-      const localVarPath = `/packs/{pack_id}/teams`.replace(
+      assertParamExists("listPackGroups", "packId", packId);
+      const localVarPath = `/packs/{pack_id}/groups`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
       );
@@ -1041,9 +1033,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1099,7 +1088,7 @@ export const PackApiAxiosParamCreator = function (
      * @summary Fetch all users attached to pack
      * @param {string} packId A pack identifier or slug
      * @param {string} [search] Search query
-     * @param {ListPackUsersSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListPackUsersOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1109,7 +1098,7 @@ export const PackApiAxiosParamCreator = function (
     listPackUsers: async (
       packId: string,
       search?: string,
-      sort?: ListPackUsersSortEnum,
+      sort?: string,
       order?: ListPackUsersOrderEnum,
       limit?: number,
       offset?: number,
@@ -1135,9 +1124,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1192,7 +1178,7 @@ export const PackApiAxiosParamCreator = function (
      *
      * @summary Fetch all available packs
      * @param {string} [search] Search query
-     * @param {ListPacksSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListPacksOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -1201,7 +1187,7 @@ export const PackApiAxiosParamCreator = function (
      */
     listPacks: async (
       search?: string,
-      sort?: ListPacksSortEnum,
+      sort?: string,
       order?: ListPacksOrderEnum,
       limit?: number,
       offset?: number,
@@ -1222,9 +1208,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1277,22 +1260,26 @@ export const PackApiAxiosParamCreator = function (
     },
     /**
      *
-     * @summary Update team perms for pack
+     * @summary Update group perms for pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackTeamParams} packTeamParams The team data to update
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The pack group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    permitPackTeam: async (
+    permitPackGroup: async (
       packId: string,
-      packTeamParams: PackTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
-      assertParamExists("permitPackTeam", "packId", packId);
-      // verify required parameter 'packTeamParams' is not null or undefined
-      assertParamExists("permitPackTeam", "packTeamParams", packTeamParams);
-      const localVarPath = `/packs/{pack_id}/teams`.replace(
+      assertParamExists("permitPackGroup", "packId", packId);
+      // verify required parameter 'permitPackGroupRequest' is not null or undefined
+      assertParamExists(
+        "permitPackGroup",
+        "permitPackGroupRequest",
+        permitPackGroupRequest,
+      );
+      const localVarPath = `/packs/{pack_id}/groups`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
       );
@@ -1310,9 +1297,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1340,7 +1324,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        packTeamParams,
+        permitPackGroupRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1354,19 +1338,23 @@ export const PackApiAxiosParamCreator = function (
      *
      * @summary Update user perms for pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackUserParams} packUserParams The user data to update
+     * @param {PermitPackUserRequest} permitPackUserRequest The pack user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     permitPackUser: async (
       packId: string,
-      packUserParams: PackUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("permitPackUser", "packId", packId);
-      // verify required parameter 'packUserParams' is not null or undefined
-      assertParamExists("permitPackUser", "packUserParams", packUserParams);
+      // verify required parameter 'permitPackUserRequest' is not null or undefined
+      assertParamExists(
+        "permitPackUser",
+        "permitPackUserRequest",
+        permitPackUserRequest,
+      );
       const localVarPath = `/packs/{pack_id}/users`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
@@ -1386,9 +1374,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1415,7 +1400,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        packUserParams,
+        permitPackUserRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1459,9 +1444,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1524,9 +1506,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1561,22 +1540,26 @@ export const PackApiAxiosParamCreator = function (
      * @summary Update a specific build for a pack
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
-     * @param {Build} build The build data to update
+     * @param {CreateBuildRequest} createBuildRequest The build data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updateBuild: async (
       packId: string,
       buildId: string,
-      build: Build,
+      createBuildRequest: CreateBuildRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("updateBuild", "packId", packId);
       // verify required parameter 'buildId' is not null or undefined
       assertParamExists("updateBuild", "buildId", buildId);
-      // verify required parameter 'build' is not null or undefined
-      assertParamExists("updateBuild", "build", build);
+      // verify required parameter 'createBuildRequest' is not null or undefined
+      assertParamExists(
+        "updateBuild",
+        "createBuildRequest",
+        createBuildRequest,
+      );
       const localVarPath = `/packs/{pack_id}/builds/{build_id}`
         .replace(`{${"pack_id"}}`, encodeURIComponent(String(packId)))
         .replace(`{${"build_id"}}`, encodeURIComponent(String(buildId)));
@@ -1594,9 +1577,6 @@ export const PackApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
 
       // authentication Basic required
       // http basic authentication required
@@ -1624,7 +1604,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        build,
+        createBuildRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1638,19 +1618,19 @@ export const PackApiAxiosParamCreator = function (
      *
      * @summary Update a specific pack
      * @param {string} packId A pack identifier or slug
-     * @param {Pack} pack The pack data to update
+     * @param {CreatePackRequest} createPackRequest The pack data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     updatePack: async (
       packId: string,
-      pack: Pack,
+      createPackRequest: CreatePackRequest,
       options: RawAxiosRequestConfig = {},
     ): Promise<RequestArgs> => {
       // verify required parameter 'packId' is not null or undefined
       assertParamExists("updatePack", "packId", packId);
-      // verify required parameter 'pack' is not null or undefined
-      assertParamExists("updatePack", "pack", pack);
+      // verify required parameter 'createPackRequest' is not null or undefined
+      assertParamExists("updatePack", "createPackRequest", createPackRequest);
       const localVarPath = `/packs/{pack_id}`.replace(
         `{${"pack_id"}}`,
         encodeURIComponent(String(packId)),
@@ -1670,9 +1650,6 @@ export const PackApiAxiosParamCreator = function (
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
 
-      // authentication Cookie required
-      await setApiKeyToObject(localVarHeaderParameter, "Cookie", configuration);
-
       // authentication Basic required
       // http basic authentication required
       setBasicAuthToObject(localVarRequestOptions, configuration);
@@ -1699,7 +1676,7 @@ export const PackApiAxiosParamCreator = function (
         ...options.headers,
       };
       localVarRequestOptions.data = serializeDataIfNeeded(
-        pack,
+        createPackRequest,
         localVarRequestOptions,
         configuration,
       );
@@ -1724,14 +1701,14 @@ export const PackApiFp = function (configuration?: Configuration) {
      * @summary Attach a version to a build
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
-     * @param {BuildVersionParams} buildVersionParams The build version data to attach
+     * @param {AttachBuildToVersionRequest} attachBuildToVersionRequest The build version data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachBuildToVersion(
       packId: string,
       buildId: string,
-      buildVersionParams: BuildVersionParams,
+      attachBuildToVersionRequest: AttachBuildToVersionRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1740,7 +1717,7 @@ export const PackApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.attachBuildToVersion(
           packId,
           buildId,
-          buildVersionParams,
+          attachBuildToVersionRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1758,28 +1735,28 @@ export const PackApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Attach a team to pack
+     * @summary Attach a group to pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackTeamParams} packTeamParams The team data to attach
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The pack group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async attachPackToTeam(
+    async attachPackToGroup(
       packId: string,
-      packTeamParams: PackTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.attachPackToTeam(
+        await localVarAxiosParamCreator.attachPackToGroup(
           packId,
-          packTeamParams,
+          permitPackGroupRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["PackApi.attachPackToTeam"]?.[
+        operationServerMap["PackApi.attachPackToGroup"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -1794,13 +1771,13 @@ export const PackApiFp = function (configuration?: Configuration) {
      *
      * @summary Attach a user to pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackUserParams} packUserParams The user data to attach
+     * @param {PermitPackUserRequest} permitPackUserRequest The pack user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async attachPackToUser(
       packId: string,
-      packUserParams: PackUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1808,7 +1785,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.attachPackToUser(
           packId,
-          packUserParams,
+          permitPackUserRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1828,20 +1805,20 @@ export const PackApiFp = function (configuration?: Configuration) {
      *
      * @summary Create a new build for a pack
      * @param {string} packId A pack identifier or slug
-     * @param {Build} build The build data to create
+     * @param {CreateBuildRequest} createBuildRequest The build data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createBuild(
       packId: string,
-      build: Build,
+      createBuildRequest: CreateBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Build>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createBuild(
         packId,
-        build,
+        createBuildRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1860,18 +1837,18 @@ export const PackApiFp = function (configuration?: Configuration) {
     /**
      *
      * @summary Create a new pack
-     * @param {Pack} pack The pack data to create
+     * @param {CreatePackRequest} createPackRequest The pack data to create
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async createPack(
-      pack: Pack,
+      createPackRequest: CreatePackRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Pack>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.createPack(
-        pack,
+        createPackRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1924,14 +1901,14 @@ export const PackApiFp = function (configuration?: Configuration) {
      * @summary Unlink a version from a build
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
-     * @param {BuildVersionParams} buildVersionParams The build version data to unlink
+     * @param {AttachBuildToVersionRequest} attachBuildToVersionRequest The build version data to create or delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deleteBuildFromVersion(
       packId: string,
       buildId: string,
-      buildVersionParams: BuildVersionParams,
+      attachBuildToVersionRequest: AttachBuildToVersionRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -1940,7 +1917,7 @@ export const PackApiFp = function (configuration?: Configuration) {
         await localVarAxiosParamCreator.deleteBuildFromVersion(
           packId,
           buildId,
-          buildVersionParams,
+          attachBuildToVersionRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -1987,28 +1964,28 @@ export const PackApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Unlink a team from pack
+     * @summary Unlink a group from pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackTeamParams} packTeamParams The pack team data to unlink
+     * @param {DeletePackFromGroupRequest} deletePackFromGroupRequest The pack group data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async deletePackFromTeam(
+    async deletePackFromGroup(
       packId: string,
-      packTeamParams: PackTeamParams,
+      deletePackFromGroupRequest: DeletePackFromGroupRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs =
-        await localVarAxiosParamCreator.deletePackFromTeam(
+        await localVarAxiosParamCreator.deletePackFromGroup(
           packId,
-          packTeamParams,
+          deletePackFromGroupRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["PackApi.deletePackFromTeam"]?.[
+        operationServerMap["PackApi.deletePackFromGroup"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2023,13 +2000,13 @@ export const PackApiFp = function (configuration?: Configuration) {
      *
      * @summary Unlink a user from pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackUserParams} packUserParams The pack user data to unlink
+     * @param {DeletePackFromUserRequest} deletePackFromUserRequest The pack user data to unlink
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async deletePackFromUser(
       packId: string,
-      packUserParams: PackUserParams,
+      deletePackFromUserRequest: DeletePackFromUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
@@ -2037,7 +2014,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.deletePackFromUser(
           packId,
-          packUserParams,
+          deletePackFromUserRequest,
           options,
         );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2059,7 +2036,7 @@ export const PackApiFp = function (configuration?: Configuration) {
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
      * @param {string} [search] Search query
-     * @param {ListBuildVersionsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListBuildVersionsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2070,13 +2047,16 @@ export const PackApiFp = function (configuration?: Configuration) {
       packId: string,
       buildId: string,
       search?: string,
-      sort?: ListBuildVersionsSortEnum,
+      sort?: string,
       order?: ListBuildVersionsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<BuildVersions>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListBuildVersions200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listBuildVersions(
@@ -2107,7 +2087,7 @@ export const PackApiFp = function (configuration?: Configuration) {
      * @summary Fetch all available builds for a pack
      * @param {string} packId A pack identifier or slug
      * @param {string} [search] Search query
-     * @param {ListBuildsSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListBuildsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2117,13 +2097,16 @@ export const PackApiFp = function (configuration?: Configuration) {
     async listBuilds(
       packId: string,
       search?: string,
-      sort?: ListBuildsSortEnum,
+      sort?: string,
       order?: ListBuildsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Builds>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListBuilds200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listBuilds(
         packId,
@@ -2148,28 +2131,31 @@ export const PackApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Fetch all teams attached to pack
+     * @summary Fetch all groups attached to pack
      * @param {string} packId A pack identifier or slug
      * @param {string} [search] Search query
-     * @param {ListPackTeamsSortEnum} [sort] Sorting column
-     * @param {ListPackTeamsOrderEnum} [order] Sorting order
+     * @param {string} [sort] Sorting column
+     * @param {ListPackGroupsOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async listPackTeams(
+    async listPackGroups(
       packId: string,
       search?: string,
-      sort?: ListPackTeamsSortEnum,
-      order?: ListPackTeamsOrderEnum,
+      sort?: string,
+      order?: ListPackGroupsOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PackTeams>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListPackGroups200Response>
     > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.listPackTeams(
+      const localVarAxiosArgs = await localVarAxiosParamCreator.listPackGroups(
         packId,
         search,
         sort,
@@ -2180,7 +2166,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["PackApi.listPackTeams"]?.[
+        operationServerMap["PackApi.listPackGroups"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2196,7 +2182,7 @@ export const PackApiFp = function (configuration?: Configuration) {
      * @summary Fetch all users attached to pack
      * @param {string} packId A pack identifier or slug
      * @param {string} [search] Search query
-     * @param {ListPackUsersSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListPackUsersOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2206,13 +2192,16 @@ export const PackApiFp = function (configuration?: Configuration) {
     async listPackUsers(
       packId: string,
       search?: string,
-      sort?: ListPackUsersSortEnum,
+      sort?: string,
       order?: ListPackUsersOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PackUsers>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListPackUsers200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPackUsers(
         packId,
@@ -2240,7 +2229,7 @@ export const PackApiFp = function (configuration?: Configuration) {
      *
      * @summary Fetch all available packs
      * @param {string} [search] Search query
-     * @param {ListPacksSortEnum} [sort] Sorting column
+     * @param {string} [sort] Sorting column
      * @param {ListPacksOrderEnum} [order] Sorting order
      * @param {number} [limit] Paging limit
      * @param {number} [offset] Paging offset
@@ -2249,13 +2238,16 @@ export const PackApiFp = function (configuration?: Configuration) {
      */
     async listPacks(
       search?: string,
-      sort?: ListPacksSortEnum,
+      sort?: string,
       order?: ListPacksOrderEnum,
       limit?: number,
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Packs>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListPacks200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPacks(
         search,
@@ -2279,27 +2271,27 @@ export const PackApiFp = function (configuration?: Configuration) {
     },
     /**
      *
-     * @summary Update team perms for pack
+     * @summary Update group perms for pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackTeamParams} packTeamParams The team data to update
+     * @param {PermitPackGroupRequest} permitPackGroupRequest The pack group data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    async permitPackTeam(
+    async permitPackGroup(
       packId: string,
-      packTeamParams: PackTeamParams,
+      permitPackGroupRequest: PermitPackGroupRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
-      const localVarAxiosArgs = await localVarAxiosParamCreator.permitPackTeam(
+      const localVarAxiosArgs = await localVarAxiosParamCreator.permitPackGroup(
         packId,
-        packTeamParams,
+        permitPackGroupRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
       const localVarOperationServerBasePath =
-        operationServerMap["PackApi.permitPackTeam"]?.[
+        operationServerMap["PackApi.permitPackGroup"]?.[
           localVarOperationServerIndex
         ]?.url;
       return (axios, basePath) =>
@@ -2314,20 +2306,20 @@ export const PackApiFp = function (configuration?: Configuration) {
      *
      * @summary Update user perms for pack
      * @param {string} packId A pack identifier or slug
-     * @param {PackUserParams} packUserParams The user data to update
+     * @param {PermitPackUserRequest} permitPackUserRequest The pack user data to permit
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async permitPackUser(
       packId: string,
-      packUserParams: PackUserParams,
+      permitPackUserRequest: PermitPackUserRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Notification>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.permitPackUser(
         packId,
-        packUserParams,
+        permitPackUserRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2409,14 +2401,14 @@ export const PackApiFp = function (configuration?: Configuration) {
      * @summary Update a specific build for a pack
      * @param {string} packId A pack identifier or slug
      * @param {string} buildId A build identifier or slug
-     * @param {Build} build The build data to update
+     * @param {CreateBuildRequest} createBuildRequest The build data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updateBuild(
       packId: string,
       buildId: string,
-      build: Build,
+      createBuildRequest: CreateBuildRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Build>
@@ -2424,7 +2416,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updateBuild(
         packId,
         buildId,
-        build,
+        createBuildRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2444,20 +2436,20 @@ export const PackApiFp = function (configuration?: Configuration) {
      *
      * @summary Update a specific pack
      * @param {string} packId A pack identifier or slug
-     * @param {Pack} pack The pack data to update
+     * @param {CreatePackRequest} createPackRequest The pack data to update
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     async updatePack(
       packId: string,
-      pack: Pack,
+      createPackRequest: CreatePackRequest,
       options?: RawAxiosRequestConfig,
     ): Promise<
       (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Pack>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.updatePack(
         packId,
-        pack,
+        createPackRequest,
         options,
       );
       const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
@@ -2501,26 +2493,26 @@ export const PackApiFactory = function (
         .attachBuildToVersion(
           requestParameters.packId,
           requestParameters.buildId,
-          requestParameters.buildVersionParams,
+          requestParameters.attachBuildToVersionRequest,
           options,
         )
         .then((request) => request(axios, basePath));
     },
     /**
      *
-     * @summary Attach a team to pack
-     * @param {PackApiAttachPackToTeamRequest} requestParameters Request parameters.
+     * @summary Attach a group to pack
+     * @param {PackApiAttachPackToGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachPackToTeam(
-      requestParameters: PackApiAttachPackToTeamRequest,
+    attachPackToGroup(
+      requestParameters: PackApiAttachPackToGroupRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Notification> {
       return localVarFp
-        .attachPackToTeam(
+        .attachPackToGroup(
           requestParameters.packId,
-          requestParameters.packTeamParams,
+          requestParameters.permitPackGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2539,7 +2531,7 @@ export const PackApiFactory = function (
       return localVarFp
         .attachPackToUser(
           requestParameters.packId,
-          requestParameters.packUserParams,
+          requestParameters.permitPackUserRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2556,7 +2548,11 @@ export const PackApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Build> {
       return localVarFp
-        .createBuild(requestParameters.packId, requestParameters.build, options)
+        .createBuild(
+          requestParameters.packId,
+          requestParameters.createBuildRequest,
+          options,
+        )
         .then((request) => request(axios, basePath));
     },
     /**
@@ -2571,7 +2567,7 @@ export const PackApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Pack> {
       return localVarFp
-        .createPack(requestParameters.pack, options)
+        .createPack(requestParameters.createPackRequest, options)
         .then((request) => request(axios, basePath));
     },
     /**
@@ -2608,7 +2604,7 @@ export const PackApiFactory = function (
         .deleteBuildFromVersion(
           requestParameters.packId,
           requestParameters.buildId,
-          requestParameters.buildVersionParams,
+          requestParameters.attachBuildToVersionRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2630,19 +2626,19 @@ export const PackApiFactory = function (
     },
     /**
      *
-     * @summary Unlink a team from pack
-     * @param {PackApiDeletePackFromTeamRequest} requestParameters Request parameters.
+     * @summary Unlink a group from pack
+     * @param {PackApiDeletePackFromGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePackFromTeam(
-      requestParameters: PackApiDeletePackFromTeamRequest,
+    deletePackFromGroup(
+      requestParameters: PackApiDeletePackFromGroupRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Notification> {
       return localVarFp
-        .deletePackFromTeam(
+        .deletePackFromGroup(
           requestParameters.packId,
-          requestParameters.packTeamParams,
+          requestParameters.deletePackFromGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2661,7 +2657,7 @@ export const PackApiFactory = function (
       return localVarFp
         .deletePackFromUser(
           requestParameters.packId,
-          requestParameters.packUserParams,
+          requestParameters.deletePackFromUserRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2676,7 +2672,7 @@ export const PackApiFactory = function (
     listBuildVersions(
       requestParameters: PackApiListBuildVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<BuildVersions> {
+    ): AxiosPromise<ListBuildVersions200Response> {
       return localVarFp
         .listBuildVersions(
           requestParameters.packId,
@@ -2700,7 +2696,7 @@ export const PackApiFactory = function (
     listBuilds(
       requestParameters: PackApiListBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Builds> {
+    ): AxiosPromise<ListBuilds200Response> {
       return localVarFp
         .listBuilds(
           requestParameters.packId,
@@ -2715,17 +2711,17 @@ export const PackApiFactory = function (
     },
     /**
      *
-     * @summary Fetch all teams attached to pack
-     * @param {PackApiListPackTeamsRequest} requestParameters Request parameters.
+     * @summary Fetch all groups attached to pack
+     * @param {PackApiListPackGroupsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPackTeams(
-      requestParameters: PackApiListPackTeamsRequest,
+    listPackGroups(
+      requestParameters: PackApiListPackGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PackTeams> {
+    ): AxiosPromise<ListPackGroups200Response> {
       return localVarFp
-        .listPackTeams(
+        .listPackGroups(
           requestParameters.packId,
           requestParameters.search,
           requestParameters.sort,
@@ -2746,7 +2742,7 @@ export const PackApiFactory = function (
     listPackUsers(
       requestParameters: PackApiListPackUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<PackUsers> {
+    ): AxiosPromise<ListPackUsers200Response> {
       return localVarFp
         .listPackUsers(
           requestParameters.packId,
@@ -2769,7 +2765,7 @@ export const PackApiFactory = function (
     listPacks(
       requestParameters: PackApiListPacksRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<Packs> {
+    ): AxiosPromise<ListPacks200Response> {
       return localVarFp
         .listPacks(
           requestParameters.search,
@@ -2783,19 +2779,19 @@ export const PackApiFactory = function (
     },
     /**
      *
-     * @summary Update team perms for pack
-     * @param {PackApiPermitPackTeamRequest} requestParameters Request parameters.
+     * @summary Update group perms for pack
+     * @param {PackApiPermitPackGroupRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    permitPackTeam(
-      requestParameters: PackApiPermitPackTeamRequest,
+    permitPackGroup(
+      requestParameters: PackApiPermitPackGroupRequest,
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Notification> {
       return localVarFp
-        .permitPackTeam(
+        .permitPackGroup(
           requestParameters.packId,
-          requestParameters.packTeamParams,
+          requestParameters.permitPackGroupRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2814,7 +2810,7 @@ export const PackApiFactory = function (
       return localVarFp
         .permitPackUser(
           requestParameters.packId,
-          requestParameters.packUserParams,
+          requestParameters.permitPackUserRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2864,7 +2860,7 @@ export const PackApiFactory = function (
         .updateBuild(
           requestParameters.packId,
           requestParameters.buildId,
-          requestParameters.build,
+          requestParameters.createBuildRequest,
           options,
         )
         .then((request) => request(axios, basePath));
@@ -2881,7 +2877,11 @@ export const PackApiFactory = function (
       options?: RawAxiosRequestConfig,
     ): AxiosPromise<Pack> {
       return localVarFp
-        .updatePack(requestParameters.packId, requestParameters.pack, options)
+        .updatePack(
+          requestParameters.packId,
+          requestParameters.createPackRequest,
+          options,
+        )
         .then((request) => request(axios, basePath));
     },
   };
@@ -2908,32 +2908,32 @@ export interface PackApiAttachBuildToVersionRequest {
   readonly buildId: string;
 
   /**
-   * The build version data to attach
-   * @type {BuildVersionParams}
+   * The build version data to create or delete
+   * @type {AttachBuildToVersionRequest}
    * @memberof PackApiAttachBuildToVersion
    */
-  readonly buildVersionParams: BuildVersionParams;
+  readonly attachBuildToVersionRequest: AttachBuildToVersionRequest;
 }
 
 /**
- * Request parameters for attachPackToTeam operation in PackApi.
+ * Request parameters for attachPackToGroup operation in PackApi.
  * @export
- * @interface PackApiAttachPackToTeamRequest
+ * @interface PackApiAttachPackToGroupRequest
  */
-export interface PackApiAttachPackToTeamRequest {
+export interface PackApiAttachPackToGroupRequest {
   /**
    * A pack identifier or slug
    * @type {string}
-   * @memberof PackApiAttachPackToTeam
+   * @memberof PackApiAttachPackToGroup
    */
   readonly packId: string;
 
   /**
-   * The team data to attach
-   * @type {PackTeamParams}
-   * @memberof PackApiAttachPackToTeam
+   * The pack group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof PackApiAttachPackToGroup
    */
-  readonly packTeamParams: PackTeamParams;
+  readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
@@ -2950,11 +2950,11 @@ export interface PackApiAttachPackToUserRequest {
   readonly packId: string;
 
   /**
-   * The user data to attach
-   * @type {PackUserParams}
+   * The pack user data to permit
+   * @type {PermitPackUserRequest}
    * @memberof PackApiAttachPackToUser
    */
-  readonly packUserParams: PackUserParams;
+  readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
@@ -2972,10 +2972,10 @@ export interface PackApiCreateBuildRequest {
 
   /**
    * The build data to create
-   * @type {Build}
+   * @type {CreateBuildRequest}
    * @memberof PackApiCreateBuild
    */
-  readonly build: Build;
+  readonly createBuildRequest: CreateBuildRequest;
 }
 
 /**
@@ -2986,10 +2986,10 @@ export interface PackApiCreateBuildRequest {
 export interface PackApiCreatePackRequest {
   /**
    * The pack data to create
-   * @type {Pack}
+   * @type {CreatePackRequest}
    * @memberof PackApiCreatePack
    */
-  readonly pack: Pack;
+  readonly createPackRequest: CreatePackRequest;
 }
 
 /**
@@ -3034,11 +3034,11 @@ export interface PackApiDeleteBuildFromVersionRequest {
   readonly buildId: string;
 
   /**
-   * The build version data to unlink
-   * @type {BuildVersionParams}
+   * The build version data to create or delete
+   * @type {AttachBuildToVersionRequest}
    * @memberof PackApiDeleteBuildFromVersion
    */
-  readonly buildVersionParams: BuildVersionParams;
+  readonly attachBuildToVersionRequest: AttachBuildToVersionRequest;
 }
 
 /**
@@ -3056,24 +3056,24 @@ export interface PackApiDeletePackRequest {
 }
 
 /**
- * Request parameters for deletePackFromTeam operation in PackApi.
+ * Request parameters for deletePackFromGroup operation in PackApi.
  * @export
- * @interface PackApiDeletePackFromTeamRequest
+ * @interface PackApiDeletePackFromGroupRequest
  */
-export interface PackApiDeletePackFromTeamRequest {
+export interface PackApiDeletePackFromGroupRequest {
   /**
    * A pack identifier or slug
    * @type {string}
-   * @memberof PackApiDeletePackFromTeam
+   * @memberof PackApiDeletePackFromGroup
    */
   readonly packId: string;
 
   /**
-   * The pack team data to unlink
-   * @type {PackTeamParams}
-   * @memberof PackApiDeletePackFromTeam
+   * The pack group data to unlink
+   * @type {DeletePackFromGroupRequest}
+   * @memberof PackApiDeletePackFromGroup
    */
-  readonly packTeamParams: PackTeamParams;
+  readonly deletePackFromGroupRequest: DeletePackFromGroupRequest;
 }
 
 /**
@@ -3091,10 +3091,10 @@ export interface PackApiDeletePackFromUserRequest {
 
   /**
    * The pack user data to unlink
-   * @type {PackUserParams}
+   * @type {DeletePackFromUserRequest}
    * @memberof PackApiDeletePackFromUser
    */
-  readonly packUserParams: PackUserParams;
+  readonly deletePackFromUserRequest: DeletePackFromUserRequest;
 }
 
 /**
@@ -3126,10 +3126,10 @@ export interface PackApiListBuildVersionsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {string}
    * @memberof PackApiListBuildVersions
    */
-  readonly sort?: ListBuildVersionsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3175,10 +3175,10 @@ export interface PackApiListBuildsRequest {
 
   /**
    * Sorting column
-   * @type {'name' | 'public'}
+   * @type {string}
    * @memberof PackApiListBuilds
    */
-  readonly sort?: ListBuildsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3203,50 +3203,50 @@ export interface PackApiListBuildsRequest {
 }
 
 /**
- * Request parameters for listPackTeams operation in PackApi.
+ * Request parameters for listPackGroups operation in PackApi.
  * @export
- * @interface PackApiListPackTeamsRequest
+ * @interface PackApiListPackGroupsRequest
  */
-export interface PackApiListPackTeamsRequest {
+export interface PackApiListPackGroupsRequest {
   /**
    * A pack identifier or slug
    * @type {string}
-   * @memberof PackApiListPackTeams
+   * @memberof PackApiListPackGroups
    */
   readonly packId: string;
 
   /**
    * Search query
    * @type {string}
-   * @memberof PackApiListPackTeams
+   * @memberof PackApiListPackGroups
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {'slug' | 'name'}
-   * @memberof PackApiListPackTeams
+   * @type {string}
+   * @memberof PackApiListPackGroups
    */
-  readonly sort?: ListPackTeamsSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
    * @type {'asc' | 'desc'}
-   * @memberof PackApiListPackTeams
+   * @memberof PackApiListPackGroups
    */
-  readonly order?: ListPackTeamsOrderEnum;
+  readonly order?: ListPackGroupsOrderEnum;
 
   /**
    * Paging limit
    * @type {number}
-   * @memberof PackApiListPackTeams
+   * @memberof PackApiListPackGroups
    */
   readonly limit?: number;
 
   /**
    * Paging offset
    * @type {number}
-   * @memberof PackApiListPackTeams
+   * @memberof PackApiListPackGroups
    */
   readonly offset?: number;
 }
@@ -3273,10 +3273,10 @@ export interface PackApiListPackUsersRequest {
 
   /**
    * Sorting column
-   * @type {'username' | 'email' | 'fullname' | 'admin' | 'active'}
+   * @type {string}
    * @memberof PackApiListPackUsers
    */
-  readonly sort?: ListPackUsersSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3315,10 +3315,10 @@ export interface PackApiListPacksRequest {
 
   /**
    * Sorting column
-   * @type {'slug' | 'name' | 'public'}
+   * @type {string}
    * @memberof PackApiListPacks
    */
-  readonly sort?: ListPacksSortEnum;
+  readonly sort?: string;
 
   /**
    * Sorting order
@@ -3343,24 +3343,24 @@ export interface PackApiListPacksRequest {
 }
 
 /**
- * Request parameters for permitPackTeam operation in PackApi.
+ * Request parameters for permitPackGroup operation in PackApi.
  * @export
- * @interface PackApiPermitPackTeamRequest
+ * @interface PackApiPermitPackGroupRequest
  */
-export interface PackApiPermitPackTeamRequest {
+export interface PackApiPermitPackGroupRequest {
   /**
    * A pack identifier or slug
    * @type {string}
-   * @memberof PackApiPermitPackTeam
+   * @memberof PackApiPermitPackGroup
    */
   readonly packId: string;
 
   /**
-   * The team data to update
-   * @type {PackTeamParams}
-   * @memberof PackApiPermitPackTeam
+   * The pack group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof PackApiPermitPackGroup
    */
-  readonly packTeamParams: PackTeamParams;
+  readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
@@ -3377,11 +3377,11 @@ export interface PackApiPermitPackUserRequest {
   readonly packId: string;
 
   /**
-   * The user data to update
-   * @type {PackUserParams}
+   * The pack user data to permit
+   * @type {PermitPackUserRequest}
    * @memberof PackApiPermitPackUser
    */
-  readonly packUserParams: PackUserParams;
+  readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
@@ -3441,10 +3441,10 @@ export interface PackApiUpdateBuildRequest {
 
   /**
    * The build data to update
-   * @type {Build}
+   * @type {CreateBuildRequest}
    * @memberof PackApiUpdateBuild
    */
-  readonly build: Build;
+  readonly createBuildRequest: CreateBuildRequest;
 }
 
 /**
@@ -3462,10 +3462,10 @@ export interface PackApiUpdatePackRequest {
 
   /**
    * The pack data to update
-   * @type {Pack}
+   * @type {CreatePackRequest}
    * @memberof PackApiUpdatePack
    */
-  readonly pack: Pack;
+  readonly createPackRequest: CreatePackRequest;
 }
 
 /**
@@ -3491,7 +3491,7 @@ export class PackApi extends BaseAPI {
       .attachBuildToVersion(
         requestParameters.packId,
         requestParameters.buildId,
-        requestParameters.buildVersionParams,
+        requestParameters.attachBuildToVersionRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3499,20 +3499,20 @@ export class PackApi extends BaseAPI {
 
   /**
    *
-   * @summary Attach a team to pack
-   * @param {PackApiAttachPackToTeamRequest} requestParameters Request parameters.
+   * @summary Attach a group to pack
+   * @param {PackApiAttachPackToGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PackApi
    */
-  public attachPackToTeam(
-    requestParameters: PackApiAttachPackToTeamRequest,
+  public attachPackToGroup(
+    requestParameters: PackApiAttachPackToGroupRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .attachPackToTeam(
+      .attachPackToGroup(
         requestParameters.packId,
-        requestParameters.packTeamParams,
+        requestParameters.permitPackGroupRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3533,7 +3533,7 @@ export class PackApi extends BaseAPI {
     return PackApiFp(this.configuration)
       .attachPackToUser(
         requestParameters.packId,
-        requestParameters.packUserParams,
+        requestParameters.permitPackUserRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3552,7 +3552,11 @@ export class PackApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .createBuild(requestParameters.packId, requestParameters.build, options)
+      .createBuild(
+        requestParameters.packId,
+        requestParameters.createBuildRequest,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -3569,7 +3573,7 @@ export class PackApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .createPack(requestParameters.pack, options)
+      .createPack(requestParameters.createPackRequest, options)
       .then((request) => request(this.axios, this.basePath));
   }
 
@@ -3606,7 +3610,7 @@ export class PackApi extends BaseAPI {
       .deleteBuildFromVersion(
         requestParameters.packId,
         requestParameters.buildId,
-        requestParameters.buildVersionParams,
+        requestParameters.attachBuildToVersionRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3631,20 +3635,20 @@ export class PackApi extends BaseAPI {
 
   /**
    *
-   * @summary Unlink a team from pack
-   * @param {PackApiDeletePackFromTeamRequest} requestParameters Request parameters.
+   * @summary Unlink a group from pack
+   * @param {PackApiDeletePackFromGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PackApi
    */
-  public deletePackFromTeam(
-    requestParameters: PackApiDeletePackFromTeamRequest,
+  public deletePackFromGroup(
+    requestParameters: PackApiDeletePackFromGroupRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .deletePackFromTeam(
+      .deletePackFromGroup(
         requestParameters.packId,
-        requestParameters.packTeamParams,
+        requestParameters.deletePackFromGroupRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3665,7 +3669,7 @@ export class PackApi extends BaseAPI {
     return PackApiFp(this.configuration)
       .deletePackFromUser(
         requestParameters.packId,
-        requestParameters.packUserParams,
+        requestParameters.deletePackFromUserRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3724,18 +3728,18 @@ export class PackApi extends BaseAPI {
 
   /**
    *
-   * @summary Fetch all teams attached to pack
-   * @param {PackApiListPackTeamsRequest} requestParameters Request parameters.
+   * @summary Fetch all groups attached to pack
+   * @param {PackApiListPackGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PackApi
    */
-  public listPackTeams(
-    requestParameters: PackApiListPackTeamsRequest,
+  public listPackGroups(
+    requestParameters: PackApiListPackGroupsRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .listPackTeams(
+      .listPackGroups(
         requestParameters.packId,
         requestParameters.search,
         requestParameters.sort,
@@ -3798,20 +3802,20 @@ export class PackApi extends BaseAPI {
 
   /**
    *
-   * @summary Update team perms for pack
-   * @param {PackApiPermitPackTeamRequest} requestParameters Request parameters.
+   * @summary Update group perms for pack
+   * @param {PackApiPermitPackGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
    * @memberof PackApi
    */
-  public permitPackTeam(
-    requestParameters: PackApiPermitPackTeamRequest,
+  public permitPackGroup(
+    requestParameters: PackApiPermitPackGroupRequest,
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .permitPackTeam(
+      .permitPackGroup(
         requestParameters.packId,
-        requestParameters.packTeamParams,
+        requestParameters.permitPackGroupRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3832,7 +3836,7 @@ export class PackApi extends BaseAPI {
     return PackApiFp(this.configuration)
       .permitPackUser(
         requestParameters.packId,
-        requestParameters.packUserParams,
+        requestParameters.permitPackUserRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3888,7 +3892,7 @@ export class PackApi extends BaseAPI {
       .updateBuild(
         requestParameters.packId,
         requestParameters.buildId,
-        requestParameters.build,
+        requestParameters.createBuildRequest,
         options,
       )
       .then((request) => request(this.axios, this.basePath));
@@ -3907,20 +3911,15 @@ export class PackApi extends BaseAPI {
     options?: RawAxiosRequestConfig,
   ) {
     return PackApiFp(this.configuration)
-      .updatePack(requestParameters.packId, requestParameters.pack, options)
+      .updatePack(
+        requestParameters.packId,
+        requestParameters.createPackRequest,
+        options,
+      )
       .then((request) => request(this.axios, this.basePath));
   }
 }
 
-/**
- * @export
- */
-export const ListBuildVersionsSortEnum = {
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListBuildVersionsSortEnum =
-  (typeof ListBuildVersionsSortEnum)[keyof typeof ListBuildVersionsSortEnum];
 /**
  * @export
  */
@@ -3933,15 +3932,6 @@ export type ListBuildVersionsOrderEnum =
 /**
  * @export
  */
-export const ListBuildsSortEnum = {
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListBuildsSortEnum =
-  (typeof ListBuildsSortEnum)[keyof typeof ListBuildsSortEnum];
-/**
- * @export
- */
 export const ListBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
@@ -3951,33 +3941,12 @@ export type ListBuildsOrderEnum =
 /**
  * @export
  */
-export const ListPackTeamsSortEnum = {
-  Slug: "slug",
-  Name: "name",
-} as const;
-export type ListPackTeamsSortEnum =
-  (typeof ListPackTeamsSortEnum)[keyof typeof ListPackTeamsSortEnum];
-/**
- * @export
- */
-export const ListPackTeamsOrderEnum = {
+export const ListPackGroupsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
-export type ListPackTeamsOrderEnum =
-  (typeof ListPackTeamsOrderEnum)[keyof typeof ListPackTeamsOrderEnum];
-/**
- * @export
- */
-export const ListPackUsersSortEnum = {
-  Username: "username",
-  Email: "email",
-  Fullname: "fullname",
-  Admin: "admin",
-  Active: "active",
-} as const;
-export type ListPackUsersSortEnum =
-  (typeof ListPackUsersSortEnum)[keyof typeof ListPackUsersSortEnum];
+export type ListPackGroupsOrderEnum =
+  (typeof ListPackGroupsOrderEnum)[keyof typeof ListPackGroupsOrderEnum];
 /**
  * @export
  */
@@ -3987,16 +3956,6 @@ export const ListPackUsersOrderEnum = {
 } as const;
 export type ListPackUsersOrderEnum =
   (typeof ListPackUsersOrderEnum)[keyof typeof ListPackUsersOrderEnum];
-/**
- * @export
- */
-export const ListPacksSortEnum = {
-  Slug: "slug",
-  Name: "name",
-  Public: "public",
-} as const;
-export type ListPacksSortEnum =
-  (typeof ListPacksSortEnum)[keyof typeof ListPacksSortEnum];
 /**
  * @export
  */
