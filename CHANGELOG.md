@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.6.0](https://github.com/kleister/kleister-js/compare/v2.5.1...v2.6.0) (2025-03-17)
+
+
+### Features
+
+* automated openapi client update ([e80a030](https://github.com/kleister/kleister-js/commit/e80a03083217bc44a7ddb072e111037de27e71af))
+
+
+### Bugfixes
+
+* **deps:** update dependency axios to v1.8.3 ([#172](https://github.com/kleister/kleister-js/issues/172)) ([9e12466](https://github.com/kleister/kleister-js/commit/9e1246671a5fb950d83eca70e98a800536480c6a))
+
 ## [2.5.1](https://github.com/kleister/kleister-js/compare/v2.5.0...v2.5.1) (2025-03-10)
 
 
