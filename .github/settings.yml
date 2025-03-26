@@ -1,7 +1,7 @@
 ---
 repository:
   name: kleister-js
-  description: "Kleister: SDK for Javascript"
+  description: Javascript SDK for Kleister
   homepage: https://kleister.eu
   topics: kleister, minecraft, sdk, openapi, javascript
 
