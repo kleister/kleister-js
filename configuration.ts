@@ -104,7 +104,13 @@ export class Configuration {
     this.accessToken = param.accessToken;
     this.basePath = param.basePath;
     this.serverIndex = param.serverIndex;
-    this.baseOptions = param.baseOptions;
+    this.baseOptions = {
+      ...param.baseOptions,
+      headers: {
+        "User-Agent": "kleister-js/1.0.0-alpha1",
+        ...param.baseOptions?.headers,
+      },
+    };
     this.formDataCtor = param.formDataCtor;
   }
 
