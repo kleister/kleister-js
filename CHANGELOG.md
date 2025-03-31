@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.2](https://github.com/kleister/kleister-js/compare/v2.6.1...v2.6.2) (2025-03-31)
+
+
+### Bugfixes
+
+* use correct spec and update definition ([48adc83](https://github.com/kleister/kleister-js/commit/48adc8341bf05059568b5b4ed84fc18909cb4597))
+
 ## [2.6.1](https://github.com/kleister/kleister-js/compare/v2.6.0...v2.6.1) (2025-03-24)
 
 
