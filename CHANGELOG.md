@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://github.com/kleister/kleister-js/compare/v2.6.2...v2.7.0) (2025-04-07)
+
+
+### Features
+
+* **deps:** update dependency @types/node to 12.11.5 - 22.14 ([#174](https://github.com/kleister/kleister-js/issues/174)) ([0be9dbc](https://github.com/kleister/kleister-js/commit/0be9dbc99894c80357944525366e6e1f89540481))
+
 ## [2.6.2](https://github.com/kleister/kleister-js/compare/v2.6.1...v2.6.2) (2025-03-31)
 
 
