@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.11.0](https://github.com/kleister/kleister-js/compare/v2.10.0...v2.11.0) (2025-06-23)
+
+
+### Features
+
+* **deps:** update dependency prettier to v3.6.0 ([#179](https://github.com/kleister/kleister-js/issues/179)) ([0a5cdb4](https://github.com/kleister/kleister-js/commit/0a5cdb42fab56652cc3b54d19f8391912080cdf0))
+
 ## [2.10.0](https://github.com/kleister/kleister-js/compare/v2.9.0...v2.10.0) (2025-06-16)
 
 
