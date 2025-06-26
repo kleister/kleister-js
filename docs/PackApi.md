@@ -615,7 +615,7 @@ const { status, data } = await apiInstance.deletePackFromUser(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listBuildVersions**
-> ListBuildVersions200Response listBuildVersions()
+> InlineObject20 listBuildVersions()
 
 
 ### Example
@@ -663,7 +663,7 @@ const { status, data } = await apiInstance.listBuildVersions(
 
 ### Return type
 
-**ListBuildVersions200Response**
+**InlineObject20**
 
 ### Authorization
 
@@ -686,7 +686,7 @@ const { status, data } = await apiInstance.listBuildVersions(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listBuilds**
-> ListBuilds200Response listBuilds()
+> InlineObject19 listBuilds()
 
 
 ### Example
@@ -731,7 +731,7 @@ const { status, data } = await apiInstance.listBuilds(
 
 ### Return type
 
-**ListBuilds200Response**
+**InlineObject19**
 
 ### Authorization
 
@@ -754,7 +754,7 @@ const { status, data } = await apiInstance.listBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listPackGroups**
-> ListPackGroups200Response listPackGroups()
+> InlineObject18 listPackGroups()
 
 
 ### Example
@@ -799,7 +799,7 @@ const { status, data } = await apiInstance.listPackGroups(
 
 ### Return type
 
-**ListPackGroups200Response**
+**InlineObject18**
 
 ### Authorization
 
@@ -822,7 +822,7 @@ const { status, data } = await apiInstance.listPackGroups(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listPackUsers**
-> ListPackUsers200Response listPackUsers()
+> InlineObject17 listPackUsers()
 
 
 ### Example
@@ -867,7 +867,7 @@ const { status, data } = await apiInstance.listPackUsers(
 
 ### Return type
 
-**ListPackUsers200Response**
+**InlineObject17**
 
 ### Authorization
 
@@ -890,7 +890,7 @@ const { status, data } = await apiInstance.listPackUsers(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listPacks**
-> ListPacks200Response listPacks()
+> InlineObject16 listPacks()
 
 
 ### Example
@@ -932,7 +932,7 @@ const { status, data } = await apiInstance.listPacks(
 
 ### Return type
 
-**ListPacks200Response**
+**InlineObject16**
 
 ### Authorization
 

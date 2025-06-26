@@ -489,7 +489,7 @@ const { status, data } = await apiInstance.deleteUserFromPack(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listUserGroups**
-> ListUserGroups200Response listUserGroups()
+> InlineObject26 listUserGroups()
 
 
 ### Example
@@ -534,7 +534,7 @@ const { status, data } = await apiInstance.listUserGroups(
 
 ### Return type
 
-**ListUserGroups200Response**
+**InlineObject26**
 
 ### Authorization
 
@@ -557,7 +557,7 @@ const { status, data } = await apiInstance.listUserGroups(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listUserMods**
-> ListUserMods200Response listUserMods()
+> InlineObject27 listUserMods()
 
 
 ### Example
@@ -602,7 +602,7 @@ const { status, data } = await apiInstance.listUserMods(
 
 ### Return type
 
-**ListUserMods200Response**
+**InlineObject27**
 
 ### Authorization
 
@@ -625,7 +625,7 @@ const { status, data } = await apiInstance.listUserMods(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listUserPacks**
-> ListUserPacks200Response listUserPacks()
+> InlineObject28 listUserPacks()
 
 
 ### Example
@@ -670,7 +670,7 @@ const { status, data } = await apiInstance.listUserPacks(
 
 ### Return type
 
-**ListUserPacks200Response**
+**InlineObject28**
 
 ### Authorization
 
@@ -693,7 +693,7 @@ const { status, data } = await apiInstance.listUserPacks(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listUsers**
-> ListUsers200Response listUsers()
+> InlineObject25 listUsers()
 
 
 ### Example
@@ -735,7 +735,7 @@ const { status, data } = await apiInstance.listUsers(
 
 ### Return type
 
-**ListUsers200Response**
+**InlineObject25**
 
 ### Authorization
 

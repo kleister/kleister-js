@@ -44,9 +44,9 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListFabricBuilds200Response } from "../model";
+import type { InlineObject10 } from "../model";
 // @ts-ignore
-import type { ListFabrics200Response } from "../model";
+import type { InlineObject9 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -513,10 +513,7 @@ export const FabricApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListFabricBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject10>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listFabricBuilds(
@@ -552,10 +549,7 @@ export const FabricApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListFabrics200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject9>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listFabrics(
         search,
@@ -662,7 +656,7 @@ export const FabricApiFactory = function (
     listFabricBuilds(
       requestParameters: FabricApiListFabricBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListFabricBuilds200Response> {
+    ): AxiosPromise<InlineObject10> {
       return localVarFp
         .listFabricBuilds(
           requestParameters.fabricId,
@@ -685,7 +679,7 @@ export const FabricApiFactory = function (
     listFabrics(
       requestParameters: FabricApiListFabricsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListFabrics200Response> {
+    ): AxiosPromise<InlineObject9> {
       return localVarFp
         .listFabrics(requestParameters.search, options)
         .then((request) => request(axios, basePath));

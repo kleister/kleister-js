@@ -44,9 +44,9 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListNeoforgeBuilds200Response } from "../model";
+import type { InlineObject5 } from "../model";
 // @ts-ignore
-import type { ListNeoforges200Response } from "../model";
+import type { InlineObject6 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -513,10 +513,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListNeoforgeBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject6>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listNeoforgeBuilds(
@@ -552,10 +549,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListNeoforges200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject5>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listNeoforges(
         search,
@@ -662,7 +656,7 @@ export const NeoforgeApiFactory = function (
     listNeoforgeBuilds(
       requestParameters: NeoforgeApiListNeoforgeBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListNeoforgeBuilds200Response> {
+    ): AxiosPromise<InlineObject6> {
       return localVarFp
         .listNeoforgeBuilds(
           requestParameters.neoforgeId,
@@ -685,7 +679,7 @@ export const NeoforgeApiFactory = function (
     listNeoforges(
       requestParameters: NeoforgeApiListNeoforgesRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListNeoforges200Response> {
+    ): AxiosPromise<InlineObject5> {
       return localVarFp
         .listNeoforges(requestParameters.search, options)
         .then((request) => request(axios, basePath));
