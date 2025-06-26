@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.deleteForgeFromBuild(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listForgeBuilds**
-> ListForgeBuilds200Response listForgeBuilds()
+> InlineObject4 listForgeBuilds()
 
 
 ### Example
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.listForgeBuilds(
 
 ### Return type
 
-**ListForgeBuilds200Response**
+**InlineObject4**
 
 ### Authorization
 
@@ -198,7 +198,7 @@ const { status, data } = await apiInstance.listForgeBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listForges**
-> ListForges200Response listForges()
+> InlineObject3 listForges()
 
 
 ### Example
@@ -228,7 +228,7 @@ const { status, data } = await apiInstance.listForges(
 
 ### Return type
 
-**ListForges200Response**
+**InlineObject3**
 
 ### Authorization
 

@@ -54,15 +54,15 @@ import type { DeletePackFromGroupRequest } from "../model";
 // @ts-ignore
 import type { DeletePackFromUserRequest } from "../model";
 // @ts-ignore
-import type { ListBuildVersions200Response } from "../model";
+import type { InlineObject16 } from "../model";
 // @ts-ignore
-import type { ListBuilds200Response } from "../model";
+import type { InlineObject17 } from "../model";
 // @ts-ignore
-import type { ListPackGroups200Response } from "../model";
+import type { InlineObject18 } from "../model";
 // @ts-ignore
-import type { ListPackUsers200Response } from "../model";
+import type { InlineObject19 } from "../model";
 // @ts-ignore
-import type { ListPacks200Response } from "../model";
+import type { InlineObject20 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
@@ -2053,10 +2053,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListBuildVersions200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject20>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listBuildVersions(
@@ -2103,10 +2100,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject19>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listBuilds(
         packId,
@@ -2150,10 +2144,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListPackGroups200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject18>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPackGroups(
         packId,
@@ -2198,10 +2189,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListPackUsers200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject17>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPackUsers(
         packId,
@@ -2244,10 +2232,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListPacks200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject16>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPacks(
         search,
@@ -2672,7 +2657,7 @@ export const PackApiFactory = function (
     listBuildVersions(
       requestParameters: PackApiListBuildVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListBuildVersions200Response> {
+    ): AxiosPromise<InlineObject20> {
       return localVarFp
         .listBuildVersions(
           requestParameters.packId,
@@ -2696,7 +2681,7 @@ export const PackApiFactory = function (
     listBuilds(
       requestParameters: PackApiListBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListBuilds200Response> {
+    ): AxiosPromise<InlineObject19> {
       return localVarFp
         .listBuilds(
           requestParameters.packId,
@@ -2719,7 +2704,7 @@ export const PackApiFactory = function (
     listPackGroups(
       requestParameters: PackApiListPackGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListPackGroups200Response> {
+    ): AxiosPromise<InlineObject18> {
       return localVarFp
         .listPackGroups(
           requestParameters.packId,
@@ -2742,7 +2727,7 @@ export const PackApiFactory = function (
     listPackUsers(
       requestParameters: PackApiListPackUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListPackUsers200Response> {
+    ): AxiosPromise<InlineObject17> {
       return localVarFp
         .listPackUsers(
           requestParameters.packId,
@@ -2765,7 +2750,7 @@ export const PackApiFactory = function (
     listPacks(
       requestParameters: PackApiListPacksRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListPacks200Response> {
+    ): AxiosPromise<InlineObject16> {
       return localVarFp
         .listPacks(
           requestParameters.search,

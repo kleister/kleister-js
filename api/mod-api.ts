@@ -52,15 +52,15 @@ import type { DeletePackFromGroupRequest } from "../model";
 // @ts-ignore
 import type { DeletePackFromUserRequest } from "../model";
 // @ts-ignore
-import type { ListModGroups200Response } from "../model";
+import type { InlineObject11 } from "../model";
 // @ts-ignore
-import type { ListModUsers200Response } from "../model";
+import type { InlineObject12 } from "../model";
 // @ts-ignore
-import type { ListMods200Response } from "../model";
+import type { InlineObject13 } from "../model";
 // @ts-ignore
-import type { ListVersionBuilds200Response } from "../model";
+import type { InlineObject14 } from "../model";
 // @ts-ignore
-import type { ListVersions200Response } from "../model";
+import type { InlineObject15 } from "../model";
 // @ts-ignore
 import type { Mod } from "../model";
 // @ts-ignore
@@ -2443,10 +2443,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListModGroups200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject13>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listModGroups(
         modId,
@@ -2491,10 +2488,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListModUsers200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject12>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listModUsers(
         modId,
@@ -2537,10 +2531,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListMods200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject11>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listMods(
         search,
@@ -2585,10 +2576,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListVersionBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject15>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listVersionBuilds(
@@ -2635,10 +2623,7 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListVersions200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject14>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listVersions(
         modId,
@@ -3133,7 +3118,7 @@ export const ModApiFactory = function (
     listModGroups(
       requestParameters: ModApiListModGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListModGroups200Response> {
+    ): AxiosPromise<InlineObject13> {
       return localVarFp
         .listModGroups(
           requestParameters.modId,
@@ -3156,7 +3141,7 @@ export const ModApiFactory = function (
     listModUsers(
       requestParameters: ModApiListModUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListModUsers200Response> {
+    ): AxiosPromise<InlineObject12> {
       return localVarFp
         .listModUsers(
           requestParameters.modId,
@@ -3179,7 +3164,7 @@ export const ModApiFactory = function (
     listMods(
       requestParameters: ModApiListModsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListMods200Response> {
+    ): AxiosPromise<InlineObject11> {
       return localVarFp
         .listMods(
           requestParameters.search,
@@ -3201,7 +3186,7 @@ export const ModApiFactory = function (
     listVersionBuilds(
       requestParameters: ModApiListVersionBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListVersionBuilds200Response> {
+    ): AxiosPromise<InlineObject15> {
       return localVarFp
         .listVersionBuilds(
           requestParameters.modId,
@@ -3225,7 +3210,7 @@ export const ModApiFactory = function (
     listVersions(
       requestParameters: ModApiListVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListVersions200Response> {
+    ): AxiosPromise<InlineObject14> {
       return localVarFp
         .listVersions(
           requestParameters.modId,

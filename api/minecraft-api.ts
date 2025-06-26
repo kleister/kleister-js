@@ -44,9 +44,9 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListMinecraftBuilds200Response } from "../model";
+import type { InlineObject1 } from "../model";
 // @ts-ignore
-import type { ListMinecrafts200Response } from "../model";
+import type { InlineObject2 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -514,10 +514,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListMinecraftBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject2>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listMinecraftBuilds(
@@ -553,10 +550,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListMinecrafts200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject1>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listMinecrafts(
         search,
@@ -663,7 +657,7 @@ export const MinecraftApiFactory = function (
     listMinecraftBuilds(
       requestParameters: MinecraftApiListMinecraftBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListMinecraftBuilds200Response> {
+    ): AxiosPromise<InlineObject2> {
       return localVarFp
         .listMinecraftBuilds(
           requestParameters.minecraftId,
@@ -686,7 +680,7 @@ export const MinecraftApiFactory = function (
     listMinecrafts(
       requestParameters: MinecraftApiListMinecraftsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListMinecrafts200Response> {
+    ): AxiosPromise<InlineObject1> {
       return localVarFp
         .listMinecrafts(requestParameters.search, options)
         .then((request) => request(axios, basePath));

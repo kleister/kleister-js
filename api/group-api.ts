@@ -52,13 +52,13 @@ import type { DeletePackFromUserRequest } from "../model";
 // @ts-ignore
 import type { Group } from "../model";
 // @ts-ignore
-import type { ListGroupMods200Response } from "../model";
+import type { InlineObject21 } from "../model";
 // @ts-ignore
-import type { ListGroupPacks200Response } from "../model";
+import type { InlineObject22 } from "../model";
 // @ts-ignore
-import type { ListGroupUsers200Response } from "../model";
+import type { InlineObject23 } from "../model";
 // @ts-ignore
-import type { ListGroups200Response } from "../model";
+import type { InlineObject24 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
@@ -1678,10 +1678,7 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListGroupMods200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject23>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroupMods(
         groupId,
@@ -1726,10 +1723,7 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListGroupPacks200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject24>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroupPacks(
         groupId,
@@ -1774,10 +1768,7 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListGroupUsers200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject22>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroupUsers(
         groupId,
@@ -1820,10 +1811,7 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListGroups200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject21>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroups(
         search,
@@ -2175,7 +2163,7 @@ export const GroupApiFactory = function (
     listGroupMods(
       requestParameters: GroupApiListGroupModsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListGroupMods200Response> {
+    ): AxiosPromise<InlineObject23> {
       return localVarFp
         .listGroupMods(
           requestParameters.groupId,
@@ -2198,7 +2186,7 @@ export const GroupApiFactory = function (
     listGroupPacks(
       requestParameters: GroupApiListGroupPacksRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListGroupPacks200Response> {
+    ): AxiosPromise<InlineObject24> {
       return localVarFp
         .listGroupPacks(
           requestParameters.groupId,
@@ -2221,7 +2209,7 @@ export const GroupApiFactory = function (
     listGroupUsers(
       requestParameters: GroupApiListGroupUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListGroupUsers200Response> {
+    ): AxiosPromise<InlineObject22> {
       return localVarFp
         .listGroupUsers(
           requestParameters.groupId,
@@ -2244,7 +2232,7 @@ export const GroupApiFactory = function (
     listGroups(
       requestParameters: GroupApiListGroupsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListGroups200Response> {
+    ): AxiosPromise<InlineObject21> {
       return localVarFp
         .listGroups(
           requestParameters.search,

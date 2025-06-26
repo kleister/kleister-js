@@ -44,9 +44,9 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListForgeBuilds200Response } from "../model";
+import type { InlineObject3 } from "../model";
 // @ts-ignore
-import type { ListForges200Response } from "../model";
+import type { InlineObject4 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
@@ -513,10 +513,7 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListForgeBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject4>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listForgeBuilds(
         forgeId,
@@ -551,10 +548,7 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListForges200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject3>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listForges(
         search,
@@ -661,7 +655,7 @@ export const ForgeApiFactory = function (
     listForgeBuilds(
       requestParameters: ForgeApiListForgeBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListForgeBuilds200Response> {
+    ): AxiosPromise<InlineObject4> {
       return localVarFp
         .listForgeBuilds(
           requestParameters.forgeId,
@@ -684,7 +678,7 @@ export const ForgeApiFactory = function (
     listForges(
       requestParameters: ForgeApiListForgesRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListForges200Response> {
+    ): AxiosPromise<InlineObject3> {
       return localVarFp
         .listForges(requestParameters.search, options)
         .then((request) => request(axios, basePath));
