@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.deleteFabricFromBuild(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listFabricBuilds**
-> InlineObject10 listFabricBuilds()
+> ListFabricBuilds200Response listFabricBuilds()
 
 
 ### Example
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.listFabricBuilds(
 
 ### Return type
 
-**InlineObject10**
+**ListFabricBuilds200Response**
 
 ### Authorization
 
@@ -198,7 +198,7 @@ const { status, data } = await apiInstance.listFabricBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listFabrics**
-> InlineObject9 listFabrics()
+> ListFabrics200Response listFabrics()
 
 
 ### Example
@@ -228,7 +228,7 @@ const { status, data } = await apiInstance.listFabrics(
 
 ### Return type
 
-**InlineObject9**
+**ListFabrics200Response**
 
 ### Authorization
 

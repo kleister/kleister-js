@@ -12,16 +12,6 @@
  * Do not edit the class manually.
  */
 
-/**
- *
- * @export
- * @interface DeletePackFromUserRequest
- */
 export interface DeletePackFromUserRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof DeletePackFromUserRequest
-   */
   user: string;
 }

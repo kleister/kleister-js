@@ -22,46 +22,11 @@ import type { Mod } from "./mod";
 // @ts-ignore
 import type { Version } from "./version";
 
-/**
- *
- * @export
- * @interface InlineObject15
- */
-export interface InlineObject15 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject15
-   */
+export interface ListVersionBuilds200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject15
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject15
-   */
   offset: number;
-  /**
-   *
-   * @type {Mod}
-   * @memberof InlineObject15
-   */
   mod?: Mod;
-  /**
-   *
-   * @type {Version}
-   * @memberof InlineObject15
-   */
   version?: Version;
-  /**
-   *
-   * @type {Array<BuildVersion>}
-   * @memberof InlineObject15
-   */
   builds: Array<BuildVersion>;
 }

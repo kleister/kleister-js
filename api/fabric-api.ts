@@ -44,14 +44,13 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { InlineObject10 } from "../model";
+import type { ListFabricBuilds200Response } from "../model";
 // @ts-ignore
-import type { InlineObject9 } from "../model";
+import type { ListFabrics200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
  * FabricApi - axios parameter creator
- * @export
  */
 export const FabricApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -419,7 +418,6 @@ export const FabricApiAxiosParamCreator = function (
 
 /**
  * FabricApi - functional programming interface
- * @export
  */
 export const FabricApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = FabricApiAxiosParamCreator(configuration);
@@ -513,7 +511,10 @@ export const FabricApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject10>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListFabricBuilds200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listFabricBuilds(
@@ -549,7 +550,10 @@ export const FabricApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject9>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListFabrics200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listFabrics(
         search,
@@ -599,7 +603,6 @@ export const FabricApiFp = function (configuration?: Configuration) {
 
 /**
  * FabricApi - factory interface
- * @export
  */
 export const FabricApiFactory = function (
   configuration?: Configuration,
@@ -656,7 +659,7 @@ export const FabricApiFactory = function (
     listFabricBuilds(
       requestParameters: FabricApiListFabricBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject10> {
+    ): AxiosPromise<ListFabricBuilds200Response> {
       return localVarFp
         .listFabricBuilds(
           requestParameters.fabricId,
@@ -679,7 +682,7 @@ export const FabricApiFactory = function (
     listFabrics(
       requestParameters: FabricApiListFabricsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject9> {
+    ): AxiosPromise<ListFabrics200Response> {
       return localVarFp
         .listFabrics(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -700,114 +703,81 @@ export const FabricApiFactory = function (
 
 /**
  * Request parameters for attachFabricToBuild operation in FabricApi.
- * @export
- * @interface FabricApiAttachFabricToBuildRequest
  */
 export interface FabricApiAttachFabricToBuildRequest {
   /**
    * A fabric identifier or slug
-   * @type {string}
-   * @memberof FabricApiAttachFabricToBuild
    */
   readonly fabricId: string;
 
   /**
    * The fabric build data to create or update
-   * @type {AttachMinecraftToBuildRequest}
-   * @memberof FabricApiAttachFabricToBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for deleteFabricFromBuild operation in FabricApi.
- * @export
- * @interface FabricApiDeleteFabricFromBuildRequest
  */
 export interface FabricApiDeleteFabricFromBuildRequest {
   /**
    * A fabric identifier or slug
-   * @type {string}
-   * @memberof FabricApiDeleteFabricFromBuild
    */
   readonly fabricId: string;
 
   /**
    * The fabric build data to create or update
-   * @type {AttachMinecraftToBuildRequest}
-   * @memberof FabricApiDeleteFabricFromBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for listFabricBuilds operation in FabricApi.
- * @export
- * @interface FabricApiListFabricBuildsRequest
  */
 export interface FabricApiListFabricBuildsRequest {
   /**
    * A fabric identifier or slug
-   * @type {string}
-   * @memberof FabricApiListFabricBuilds
    */
   readonly fabricId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof FabricApiListFabricBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof FabricApiListFabricBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof FabricApiListFabricBuilds
    */
   readonly order?: ListFabricBuildsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof FabricApiListFabricBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof FabricApiListFabricBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listFabrics operation in FabricApi.
- * @export
- * @interface FabricApiListFabricsRequest
  */
 export interface FabricApiListFabricsRequest {
   /**
    * Search query
-   * @type {string}
-   * @memberof FabricApiListFabrics
    */
   readonly search?: string;
 }
 
 /**
  * FabricApi - object-oriented interface
- * @export
- * @class FabricApi
- * @extends {BaseAPI}
  */
 export class FabricApi extends BaseAPI {
   /**
@@ -816,7 +786,6 @@ export class FabricApi extends BaseAPI {
    * @param {FabricApiAttachFabricToBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FabricApi
    */
   public attachFabricToBuild(
     requestParameters: FabricApiAttachFabricToBuildRequest,
@@ -837,7 +806,6 @@ export class FabricApi extends BaseAPI {
    * @param {FabricApiDeleteFabricFromBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FabricApi
    */
   public deleteFabricFromBuild(
     requestParameters: FabricApiDeleteFabricFromBuildRequest,
@@ -858,7 +826,6 @@ export class FabricApi extends BaseAPI {
    * @param {FabricApiListFabricBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FabricApi
    */
   public listFabricBuilds(
     requestParameters: FabricApiListFabricBuildsRequest,
@@ -883,7 +850,6 @@ export class FabricApi extends BaseAPI {
    * @param {FabricApiListFabricsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FabricApi
    */
   public listFabrics(
     requestParameters: FabricApiListFabricsRequest = {},
@@ -899,7 +865,6 @@ export class FabricApi extends BaseAPI {
    * @summary Update the available Fabric versions
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof FabricApi
    */
   public updateFabric(options?: RawAxiosRequestConfig) {
     return FabricApiFp(this.configuration)
@@ -908,9 +873,6 @@ export class FabricApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
 export const ListFabricBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

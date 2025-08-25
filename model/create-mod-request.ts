@@ -12,58 +12,13 @@
  * Do not edit the class manually.
  */
 
-/**
- *
- * @export
- * @interface CreateModRequest
- */
 export interface CreateModRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   slug?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   name?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   side?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   description?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   author?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   website?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof CreateModRequest
-   */
   donate?: string | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof CreateModRequest
-   */
   public?: boolean | null;
 }

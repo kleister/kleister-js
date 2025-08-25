@@ -14,32 +14,10 @@
 
 /**
  * Model to represent quilt
- * @export
- * @interface Quilt
  */
 export interface Quilt {
-  /**
-   *
-   * @type {string}
-   * @memberof Quilt
-   */
   id?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Quilt
-   */
   name?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Quilt
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Quilt
-   */
   updated_at?: string;
 }

@@ -18,80 +18,18 @@ import type { ModAvatar } from "./mod-avatar";
 
 /**
  * Model to represent mod
- * @export
- * @interface Mod
  */
 export interface Mod {
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   id?: string;
-  /**
-   *
-   * @type {ModAvatar}
-   * @memberof Mod
-   */
   avatar?: ModAvatar;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   slug?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   name?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   side?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   description?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   author?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   website?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   donate?: string | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Mod
-   */
   public?: boolean | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Mod
-   */
   updated_at?: string;
 }
