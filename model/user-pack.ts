@@ -21,51 +21,14 @@ import type { User } from "./user";
 
 /**
  * Model to represent user pack
- * @export
- * @interface UserPack
  */
 export interface UserPack {
-  /**
-   *
-   * @type {string}
-   * @memberof UserPack
-   */
   user_id: string;
-  /**
-   *
-   * @type {User}
-   * @memberof UserPack
-   */
   user?: User;
-  /**
-   *
-   * @type {string}
-   * @memberof UserPack
-   */
   pack_id: string;
-  /**
-   *
-   * @type {Pack}
-   * @memberof UserPack
-   */
   pack?: Pack;
-  /**
-   *
-   * @type {string}
-   * @memberof UserPack
-   */
   perm?: UserPackPermEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof UserPack
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof UserPack
-   */
   updated_at?: string;
 }
 
