@@ -14,10 +14,32 @@
 
 /**
  * Model to represent pack avatar
+ * @export
+ * @interface PackAvatar
  */
 export interface PackAvatar {
+  /**
+   *
+   * @type {string}
+   * @memberof PackAvatar
+   */
   slug?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof PackAvatar
+   */
   url?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof PackAvatar
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof PackAvatar
+   */
   updated_at?: string;
 }

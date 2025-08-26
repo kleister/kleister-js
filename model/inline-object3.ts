@@ -14,15 +14,36 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Mod } from "./mod";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Version } from "./version";
+import type { Forge } from "./forge";
 
-export interface ListVersions200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject3
+ */
+export interface InlineObject3 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject3
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject3
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject3
+   */
   offset: number;
-  mod?: Mod;
-  versions: Array<Version>;
+  /**
+   *
+   * @type {Array<Forge>}
+   * @memberof InlineObject3
+   */
+  versions: Array<Forge>;
 }

@@ -12,6 +12,16 @@
  * Do not edit the class manually.
  */
 
+/**
+ *
+ * @export
+ * @interface DeleteGroupFromModRequest
+ */
 export interface DeleteGroupFromModRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof DeleteGroupFromModRequest
+   */
   mod: string;
 }

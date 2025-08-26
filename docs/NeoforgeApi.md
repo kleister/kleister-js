@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.deleteNeoforgeFromBuild(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNeoforgeBuilds**
-> ListNeoforgeBuilds200Response listNeoforgeBuilds()
+> InlineObject6 listNeoforgeBuilds()
 
 
 ### Example
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.listNeoforgeBuilds(
 
 ### Return type
 
-**ListNeoforgeBuilds200Response**
+**InlineObject6**
 
 ### Authorization
 
@@ -198,7 +198,7 @@ const { status, data } = await apiInstance.listNeoforgeBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNeoforges**
-> ListNeoforges200Response listNeoforges()
+> InlineObject5 listNeoforges()
 
 
 ### Example
@@ -228,7 +228,7 @@ const { status, data } = await apiInstance.listNeoforges(
 
 ### Return type
 
-**ListNeoforges200Response**
+**InlineObject5**
 
 ### Authorization
 

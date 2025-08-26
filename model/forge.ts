@@ -14,11 +14,38 @@
 
 /**
  * Model to represent forge
+ * @export
+ * @interface Forge
  */
 export interface Forge {
+  /**
+   *
+   * @type {string}
+   * @memberof Forge
+   */
   id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Forge
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Forge
+   */
   minecraft?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Forge
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Forge
+   */
   updated_at?: string;
 }

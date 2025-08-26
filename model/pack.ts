@@ -18,14 +18,56 @@ import type { PackAvatar } from "./pack-avatar";
 
 /**
  * Model to represent pack
+ * @export
+ * @interface Pack
  */
 export interface Pack {
+  /**
+   *
+   * @type {string}
+   * @memberof Pack
+   */
   id?: string;
+  /**
+   *
+   * @type {PackAvatar}
+   * @memberof Pack
+   */
   avatar?: PackAvatar;
+  /**
+   *
+   * @type {string}
+   * @memberof Pack
+   */
   slug?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Pack
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Pack
+   */
   website?: string | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof Pack
+   */
   public?: boolean | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Pack
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Pack
+   */
   updated_at?: string;
 }

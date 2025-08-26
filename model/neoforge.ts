@@ -14,10 +14,32 @@
 
 /**
  * Model to represent neoforge
+ * @export
+ * @interface Neoforge
  */
 export interface Neoforge {
+  /**
+   *
+   * @type {string}
+   * @memberof Neoforge
+   */
   id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Neoforge
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Neoforge
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Neoforge
+   */
   updated_at?: string;
 }

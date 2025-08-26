@@ -21,14 +21,51 @@ import type { User } from "./user";
 
 /**
  * Model to represent user mod
+ * @export
+ * @interface UserMod
  */
 export interface UserMod {
+  /**
+   *
+   * @type {string}
+   * @memberof UserMod
+   */
   user_id: string;
+  /**
+   *
+   * @type {User}
+   * @memberof UserMod
+   */
   user?: User;
+  /**
+   *
+   * @type {string}
+   * @memberof UserMod
+   */
   mod_id: string;
+  /**
+   *
+   * @type {Mod}
+   * @memberof UserMod
+   */
   mod?: Mod;
+  /**
+   *
+   * @type {string}
+   * @memberof UserMod
+   */
   perm?: UserModPermEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof UserMod
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof UserMod
+   */
   updated_at?: string;
 }
 

@@ -14,11 +14,38 @@
 
 /**
  * Model to represent minecraft
+ * @export
+ * @interface Minecraft
  */
 export interface Minecraft {
+  /**
+   *
+   * @type {string}
+   * @memberof Minecraft
+   */
   id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Minecraft
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Minecraft
+   */
   type?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Minecraft
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Minecraft
+   */
   updated_at?: string;
 }
