@@ -44,13 +44,14 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListNeoforgeBuilds200Response } from "../model";
+import type { InlineObject5 } from "../model";
 // @ts-ignore
-import type { ListNeoforges200Response } from "../model";
+import type { InlineObject6 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
  * NeoforgeApi - axios parameter creator
+ * @export
  */
 export const NeoforgeApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -418,6 +419,7 @@ export const NeoforgeApiAxiosParamCreator = function (
 
 /**
  * NeoforgeApi - functional programming interface
+ * @export
  */
 export const NeoforgeApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = NeoforgeApiAxiosParamCreator(configuration);
@@ -511,10 +513,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListNeoforgeBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject6>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listNeoforgeBuilds(
@@ -550,10 +549,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListNeoforges200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject5>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listNeoforges(
         search,
@@ -603,6 +599,7 @@ export const NeoforgeApiFp = function (configuration?: Configuration) {
 
 /**
  * NeoforgeApi - factory interface
+ * @export
  */
 export const NeoforgeApiFactory = function (
   configuration?: Configuration,
@@ -659,7 +656,7 @@ export const NeoforgeApiFactory = function (
     listNeoforgeBuilds(
       requestParameters: NeoforgeApiListNeoforgeBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListNeoforgeBuilds200Response> {
+    ): AxiosPromise<InlineObject6> {
       return localVarFp
         .listNeoforgeBuilds(
           requestParameters.neoforgeId,
@@ -682,7 +679,7 @@ export const NeoforgeApiFactory = function (
     listNeoforges(
       requestParameters: NeoforgeApiListNeoforgesRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListNeoforges200Response> {
+    ): AxiosPromise<InlineObject5> {
       return localVarFp
         .listNeoforges(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -705,81 +702,114 @@ export const NeoforgeApiFactory = function (
 
 /**
  * Request parameters for attachNeoforgeToBuild operation in NeoforgeApi.
+ * @export
+ * @interface NeoforgeApiAttachNeoforgeToBuildRequest
  */
 export interface NeoforgeApiAttachNeoforgeToBuildRequest {
   /**
    * A neoforge identifier or slug
+   * @type {string}
+   * @memberof NeoforgeApiAttachNeoforgeToBuild
    */
   readonly neoforgeId: string;
 
   /**
    * The neoforge build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
+   * @memberof NeoforgeApiAttachNeoforgeToBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for deleteNeoforgeFromBuild operation in NeoforgeApi.
+ * @export
+ * @interface NeoforgeApiDeleteNeoforgeFromBuildRequest
  */
 export interface NeoforgeApiDeleteNeoforgeFromBuildRequest {
   /**
    * A neoforge identifier or slug
+   * @type {string}
+   * @memberof NeoforgeApiDeleteNeoforgeFromBuild
    */
   readonly neoforgeId: string;
 
   /**
    * The neoforge build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
+   * @memberof NeoforgeApiDeleteNeoforgeFromBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for listNeoforgeBuilds operation in NeoforgeApi.
+ * @export
+ * @interface NeoforgeApiListNeoforgeBuildsRequest
  */
 export interface NeoforgeApiListNeoforgeBuildsRequest {
   /**
    * A neoforge identifier or slug
+   * @type {string}
+   * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly neoforgeId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly order?: ListNeoforgeBuildsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof NeoforgeApiListNeoforgeBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listNeoforges operation in NeoforgeApi.
+ * @export
+ * @interface NeoforgeApiListNeoforgesRequest
  */
 export interface NeoforgeApiListNeoforgesRequest {
   /**
    * Search query
+   * @type {string}
+   * @memberof NeoforgeApiListNeoforges
    */
   readonly search?: string;
 }
 
 /**
  * NeoforgeApi - object-oriented interface
+ * @export
+ * @class NeoforgeApi
+ * @extends {BaseAPI}
  */
 export class NeoforgeApi extends BaseAPI {
   /**
@@ -788,6 +818,7 @@ export class NeoforgeApi extends BaseAPI {
    * @param {NeoforgeApiAttachNeoforgeToBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof NeoforgeApi
    */
   public attachNeoforgeToBuild(
     requestParameters: NeoforgeApiAttachNeoforgeToBuildRequest,
@@ -808,6 +839,7 @@ export class NeoforgeApi extends BaseAPI {
    * @param {NeoforgeApiDeleteNeoforgeFromBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof NeoforgeApi
    */
   public deleteNeoforgeFromBuild(
     requestParameters: NeoforgeApiDeleteNeoforgeFromBuildRequest,
@@ -828,6 +860,7 @@ export class NeoforgeApi extends BaseAPI {
    * @param {NeoforgeApiListNeoforgeBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof NeoforgeApi
    */
   public listNeoforgeBuilds(
     requestParameters: NeoforgeApiListNeoforgeBuildsRequest,
@@ -852,6 +885,7 @@ export class NeoforgeApi extends BaseAPI {
    * @param {NeoforgeApiListNeoforgesRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof NeoforgeApi
    */
   public listNeoforges(
     requestParameters: NeoforgeApiListNeoforgesRequest = {},
@@ -867,6 +901,7 @@ export class NeoforgeApi extends BaseAPI {
    * @summary Update the available Neoforge versions
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof NeoforgeApi
    */
   public updateNeoforge(options?: RawAxiosRequestConfig) {
     return NeoforgeApiFp(this.configuration)
@@ -875,6 +910,9 @@ export class NeoforgeApi extends BaseAPI {
   }
 }
 
+/**
+ * @export
+ */
 export const ListNeoforgeBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

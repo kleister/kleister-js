@@ -17,54 +17,42 @@
 import type { Mod } from "./mod";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { VersionFile } from "./version-file";
+import type { UserMod } from "./user-mod";
 
 /**
- * Model to represent version
+ *
  * @export
- * @interface Version
+ * @interface InlineObject12
  */
-export interface Version {
+export interface InlineObject12 {
   /**
    *
-   * @type {string}
-   * @memberof Version
+   * @type {number}
+   * @memberof InlineObject12
    */
-  id?: string;
+  total: number;
   /**
    *
-   * @type {VersionFile}
-   * @memberof Version
+   * @type {number}
+   * @memberof InlineObject12
    */
-  file?: VersionFile;
+  limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject12
+   */
+  offset: number;
   /**
    *
    * @type {Mod}
-   * @memberof Version
+   * @memberof InlineObject12
    */
   mod?: Mod;
   /**
    *
-   * @type {string}
-   * @memberof Version
+   * @type {Array<UserMod>}
+   * @memberof InlineObject12
    */
-  name?: string | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Version
-   */
-  public?: boolean | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
-  created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
-  updated_at?: string;
+  users: Array<UserMod>;
 }

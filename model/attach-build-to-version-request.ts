@@ -12,7 +12,22 @@
  * Do not edit the class manually.
  */
 
+/**
+ *
+ * @export
+ * @interface AttachBuildToVersionRequest
+ */
 export interface AttachBuildToVersionRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof AttachBuildToVersionRequest
+   */
   mod: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof AttachBuildToVersionRequest
+   */
   version: string | null;
 }

@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GroupMod } from "./group-mod";
+import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Mod } from "./mod";
+import type { Neoforge } from "./neoforge";
 
-export interface ListModGroups200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject6
+ */
+export interface InlineObject6 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject6
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject6
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject6
+   */
   offset: number;
-  mod?: Mod;
-  groups: Array<GroupMod>;
+  /**
+   *
+   * @type {Neoforge}
+   * @memberof InlineObject6
+   */
+  neoforge?: Neoforge;
+  /**
+   *
+   * @type {Array<Build>}
+   * @memberof InlineObject6
+   */
+  builds: Array<Build>;
 }

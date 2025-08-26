@@ -44,13 +44,14 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListQuiltBuilds200Response } from "../model";
+import type { InlineObject7 } from "../model";
 // @ts-ignore
-import type { ListQuilts200Response } from "../model";
+import type { InlineObject8 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
  * QuiltApi - axios parameter creator
+ * @export
  */
 export const QuiltApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -418,6 +419,7 @@ export const QuiltApiAxiosParamCreator = function (
 
 /**
  * QuiltApi - functional programming interface
+ * @export
  */
 export const QuiltApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = QuiltApiAxiosParamCreator(configuration);
@@ -511,10 +513,7 @@ export const QuiltApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListQuiltBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject8>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listQuiltBuilds(
         quiltId,
@@ -549,10 +548,7 @@ export const QuiltApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListQuilts200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject7>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listQuilts(
         search,
@@ -602,6 +598,7 @@ export const QuiltApiFp = function (configuration?: Configuration) {
 
 /**
  * QuiltApi - factory interface
+ * @export
  */
 export const QuiltApiFactory = function (
   configuration?: Configuration,
@@ -658,7 +655,7 @@ export const QuiltApiFactory = function (
     listQuiltBuilds(
       requestParameters: QuiltApiListQuiltBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListQuiltBuilds200Response> {
+    ): AxiosPromise<InlineObject8> {
       return localVarFp
         .listQuiltBuilds(
           requestParameters.quiltId,
@@ -681,7 +678,7 @@ export const QuiltApiFactory = function (
     listQuilts(
       requestParameters: QuiltApiListQuiltsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListQuilts200Response> {
+    ): AxiosPromise<InlineObject7> {
       return localVarFp
         .listQuilts(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -702,81 +699,114 @@ export const QuiltApiFactory = function (
 
 /**
  * Request parameters for attachQuiltToBuild operation in QuiltApi.
+ * @export
+ * @interface QuiltApiAttachQuiltToBuildRequest
  */
 export interface QuiltApiAttachQuiltToBuildRequest {
   /**
    * A quilt identifier or slug
+   * @type {string}
+   * @memberof QuiltApiAttachQuiltToBuild
    */
   readonly quiltId: string;
 
   /**
    * The quilt build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
+   * @memberof QuiltApiAttachQuiltToBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for deleteQuiltFromBuild operation in QuiltApi.
+ * @export
+ * @interface QuiltApiDeleteQuiltFromBuildRequest
  */
 export interface QuiltApiDeleteQuiltFromBuildRequest {
   /**
    * A quilt identifier or slug
+   * @type {string}
+   * @memberof QuiltApiDeleteQuiltFromBuild
    */
   readonly quiltId: string;
 
   /**
    * The quilt build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
+   * @memberof QuiltApiDeleteQuiltFromBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for listQuiltBuilds operation in QuiltApi.
+ * @export
+ * @interface QuiltApiListQuiltBuildsRequest
  */
 export interface QuiltApiListQuiltBuildsRequest {
   /**
    * A quilt identifier or slug
+   * @type {string}
+   * @memberof QuiltApiListQuiltBuilds
    */
   readonly quiltId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof QuiltApiListQuiltBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof QuiltApiListQuiltBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof QuiltApiListQuiltBuilds
    */
   readonly order?: ListQuiltBuildsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof QuiltApiListQuiltBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof QuiltApiListQuiltBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listQuilts operation in QuiltApi.
+ * @export
+ * @interface QuiltApiListQuiltsRequest
  */
 export interface QuiltApiListQuiltsRequest {
   /**
    * Search query
+   * @type {string}
+   * @memberof QuiltApiListQuilts
    */
   readonly search?: string;
 }
 
 /**
  * QuiltApi - object-oriented interface
+ * @export
+ * @class QuiltApi
+ * @extends {BaseAPI}
  */
 export class QuiltApi extends BaseAPI {
   /**
@@ -785,6 +815,7 @@ export class QuiltApi extends BaseAPI {
    * @param {QuiltApiAttachQuiltToBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof QuiltApi
    */
   public attachQuiltToBuild(
     requestParameters: QuiltApiAttachQuiltToBuildRequest,
@@ -805,6 +836,7 @@ export class QuiltApi extends BaseAPI {
    * @param {QuiltApiDeleteQuiltFromBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof QuiltApi
    */
   public deleteQuiltFromBuild(
     requestParameters: QuiltApiDeleteQuiltFromBuildRequest,
@@ -825,6 +857,7 @@ export class QuiltApi extends BaseAPI {
    * @param {QuiltApiListQuiltBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof QuiltApi
    */
   public listQuiltBuilds(
     requestParameters: QuiltApiListQuiltBuildsRequest,
@@ -849,6 +882,7 @@ export class QuiltApi extends BaseAPI {
    * @param {QuiltApiListQuiltsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof QuiltApi
    */
   public listQuilts(
     requestParameters: QuiltApiListQuiltsRequest = {},
@@ -864,6 +898,7 @@ export class QuiltApi extends BaseAPI {
    * @summary Update the available Quilt versions
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof QuiltApi
    */
   public updateQuilt(options?: RawAxiosRequestConfig) {
     return QuiltApiFp(this.configuration)
@@ -872,6 +907,9 @@ export class QuiltApi extends BaseAPI {
   }
 }
 
+/**
+ * @export
+ */
 export const ListQuiltBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

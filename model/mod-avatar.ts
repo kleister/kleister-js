@@ -14,10 +14,32 @@
 
 /**
  * Model to represent mod avatar
+ * @export
+ * @interface ModAvatar
  */
 export interface ModAvatar {
+  /**
+   *
+   * @type {string}
+   * @memberof ModAvatar
+   */
   slug?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof ModAvatar
+   */
   url?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof ModAvatar
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof ModAvatar
+   */
   updated_at?: string;
 }

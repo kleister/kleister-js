@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Group } from "./group";
+import type { User } from "./user";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GroupMod } from "./group-mod";
+import type { UserMod } from "./user-mod";
 
-export interface ListGroupMods200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject27
+ */
+export interface InlineObject27 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject27
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject27
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject27
+   */
   offset: number;
-  group?: Group;
-  mods: Array<GroupMod>;
+  /**
+   *
+   * @type {User}
+   * @memberof InlineObject27
+   */
+  user?: User;
+  /**
+   *
+   * @type {Array<UserMod>}
+   * @memberof InlineObject27
+   */
+  mods: Array<UserMod>;
 }

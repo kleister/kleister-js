@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Group } from "./group";
+import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GroupPack } from "./group-pack";
+import type { Pack } from "./pack";
 
-export interface ListGroupPacks200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject19
+ */
+export interface InlineObject19 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject19
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject19
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject19
+   */
   offset: number;
-  group?: Group;
-  packs: Array<GroupPack>;
+  /**
+   *
+   * @type {Pack}
+   * @memberof InlineObject19
+   */
+  pack?: Pack;
+  /**
+   *
+   * @type {Array<Build>}
+   * @memberof InlineObject19
+   */
+  builds: Array<Build>;
 }

@@ -14,10 +14,32 @@
 
 /**
  * Model to represent fabric
+ * @export
+ * @interface Fabric
  */
 export interface Fabric {
+  /**
+   *
+   * @type {string}
+   * @memberof Fabric
+   */
   id?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Fabric
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof Fabric
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof Fabric
+   */
   updated_at?: string;
 }

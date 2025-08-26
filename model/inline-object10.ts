@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GroupPack } from "./group-pack";
+import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Pack } from "./pack";
+import type { Fabric } from "./fabric";
 
-export interface ListPackGroups200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject10
+ */
+export interface InlineObject10 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject10
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject10
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject10
+   */
   offset: number;
-  pack?: Pack;
-  groups: Array<GroupPack>;
+  /**
+   *
+   * @type {Fabric}
+   * @memberof InlineObject10
+   */
+  fabric?: Fabric;
+  /**
+   *
+   * @type {Array<Build>}
+   * @memberof InlineObject10
+   */
+  builds: Array<Build>;
 }

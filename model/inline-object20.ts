@@ -17,48 +17,51 @@
 import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Version } from "./version";
+import type { BuildVersion } from "./build-version";
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Pack } from "./pack";
 
 /**
- * Model to represent build version
+ *
  * @export
- * @interface BuildVersion
+ * @interface InlineObject20
  */
-export interface BuildVersion {
+export interface InlineObject20 {
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject20
    */
-  build_id: string;
+  total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject20
+   */
+  limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject20
+   */
+  offset: number;
+  /**
+   *
+   * @type {Pack}
+   * @memberof InlineObject20
+   */
+  pack?: Pack;
   /**
    *
    * @type {Build}
-   * @memberof BuildVersion
+   * @memberof InlineObject20
    */
   build?: Build;
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {Array<BuildVersion>}
+   * @memberof InlineObject20
    */
-  version_id: string;
-  /**
-   *
-   * @type {Version}
-   * @memberof BuildVersion
-   */
-  version?: Version;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
-  created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
-  updated_at?: string;
+  versions: Array<BuildVersion>;
 }
