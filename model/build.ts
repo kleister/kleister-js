@@ -33,128 +33,26 @@ import type { Quilt } from "./quilt";
 
 /**
  * Model to represent build
- * @export
- * @interface Build
  */
 export interface Build {
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   id?: string;
-  /**
-   *
-   * @type {Pack}
-   * @memberof Build
-   */
   pack?: Pack;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   minecraft_id?: string | null;
-  /**
-   *
-   * @type {Minecraft}
-   * @memberof Build
-   */
   minecraft?: Minecraft;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   forge_id?: string | null;
-  /**
-   *
-   * @type {Forge}
-   * @memberof Build
-   */
   forge?: Forge;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   neoforge_id?: string | null;
-  /**
-   *
-   * @type {Neoforge}
-   * @memberof Build
-   */
   neoforge?: Neoforge;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   quilt_id?: string | null;
-  /**
-   *
-   * @type {Quilt}
-   * @memberof Build
-   */
   quilt?: Quilt;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   fabric_id?: string | null;
-  /**
-   *
-   * @type {Fabric}
-   * @memberof Build
-   */
   fabric?: Fabric;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   name?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   java?: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   memory?: string | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Build
-   */
   latest?: boolean | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Build
-   */
   recommended?: boolean | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Build
-   */
   public?: boolean | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Build
-   */
   updated_at?: string;
 }

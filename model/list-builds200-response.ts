@@ -17,42 +17,12 @@
 import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Minecraft } from "./minecraft";
+import type { Pack } from "./pack";
 
-/**
- *
- * @export
- * @interface InlineObject2
- */
-export interface InlineObject2 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject2
-   */
+export interface ListBuilds200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject2
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject2
-   */
   offset: number;
-  /**
-   *
-   * @type {Minecraft}
-   * @memberof InlineObject2
-   */
-  minecraft?: Minecraft;
-  /**
-   *
-   * @type {Array<Build>}
-   * @memberof InlineObject2
-   */
+  pack?: Pack;
   builds: Array<Build>;
 }

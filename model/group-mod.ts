@@ -21,51 +21,14 @@ import type { Mod } from "./mod";
 
 /**
  * Model to represent group mod
- * @export
- * @interface GroupMod
  */
 export interface GroupMod {
-  /**
-   *
-   * @type {string}
-   * @memberof GroupMod
-   */
   group_id: string;
-  /**
-   *
-   * @type {Group}
-   * @memberof GroupMod
-   */
   group?: Group;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupMod
-   */
   mod_id: string;
-  /**
-   *
-   * @type {Mod}
-   * @memberof GroupMod
-   */
   mod?: Mod;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupMod
-   */
   perm?: GroupModPermEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupMod
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupMod
-   */
   updated_at?: string;
 }
 
