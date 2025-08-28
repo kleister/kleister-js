@@ -14,36 +14,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { User } from "./user";
+import type { Provider } from "./provider";
 
-/**
- *
- * @export
- * @interface InlineObject25
- */
-export interface InlineObject25 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject25
-   */
+export interface ListProviders200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject25
-   */
-  limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject25
-   */
-  offset: number;
-  /**
-   *
-   * @type {Array<User>}
-   * @memberof InlineObject25
-   */
-  users: Array<User>;
+  providers: Array<Provider>;
 }

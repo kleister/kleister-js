@@ -12,22 +12,7 @@
  * Do not edit the class manually.
  */
 
-/**
- *
- * @export
- * @interface PermitGroupPackRequest
- */
 export interface PermitGroupPackRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof PermitGroupPackRequest
-   */
   pack: string;
-  /**
-   *
-   * @type {string}
-   * @memberof PermitGroupPackRequest
-   */
   perm: string;
 }

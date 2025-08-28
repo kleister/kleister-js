@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.deleteMinecraftFromBuild(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listMinecraftBuilds**
-> InlineObject2 listMinecraftBuilds()
+> ListMinecraftBuilds200Response listMinecraftBuilds()
 
 
 ### Example
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.listMinecraftBuilds(
 
 ### Return type
 
-**InlineObject2**
+**ListMinecraftBuilds200Response**
 
 ### Authorization
 
@@ -198,7 +198,7 @@ const { status, data } = await apiInstance.listMinecraftBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listMinecrafts**
-> InlineObject1 listMinecrafts()
+> ListMinecrafts200Response listMinecrafts()
 
 
 ### Example
@@ -228,7 +228,7 @@ const { status, data } = await apiInstance.listMinecrafts(
 
 ### Return type
 
-**InlineObject1**
+**ListMinecrafts200Response**
 
 ### Authorization
 

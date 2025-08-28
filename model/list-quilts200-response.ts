@@ -14,36 +14,11 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Mod } from "./mod";
+import type { Quilt } from "./quilt";
 
-/**
- *
- * @export
- * @interface InlineObject11
- */
-export interface InlineObject11 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject11
-   */
+export interface ListQuilts200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject11
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject11
-   */
   offset: number;
-  /**
-   *
-   * @type {Array<Mod>}
-   * @memberof InlineObject11
-   */
-  mods: Array<Mod>;
+  versions: Array<Quilt>;
 }
