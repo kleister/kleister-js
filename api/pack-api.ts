@@ -54,15 +54,15 @@ import type { DeletePackFromGroupRequest } from "../model";
 // @ts-ignore
 import type { DeletePackFromUserRequest } from "../model";
 // @ts-ignore
-import type { ListBuildVersions200Response } from "../model";
+import type { InlineObject16 } from "../model";
 // @ts-ignore
-import type { ListBuilds200Response } from "../model";
+import type { InlineObject17 } from "../model";
 // @ts-ignore
-import type { ListPackGroups200Response } from "../model";
+import type { InlineObject18 } from "../model";
 // @ts-ignore
-import type { ListPackUsers200Response } from "../model";
+import type { InlineObject19 } from "../model";
 // @ts-ignore
-import type { ListPacks200Response } from "../model";
+import type { InlineObject20 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
@@ -73,6 +73,7 @@ import type { PermitPackGroupRequest } from "../model";
 import type { PermitPackUserRequest } from "../model";
 /**
  * PackApi - axios parameter creator
+ * @export
  */
 export const PackApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -1690,6 +1691,7 @@ export const PackApiAxiosParamCreator = function (
 
 /**
  * PackApi - functional programming interface
+ * @export
  */
 export const PackApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = PackApiAxiosParamCreator(configuration);
@@ -2051,10 +2053,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListBuildVersions200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject20>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listBuildVersions(
@@ -2101,10 +2100,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject19>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listBuilds(
         packId,
@@ -2148,10 +2144,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListPackGroups200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject18>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPackGroups(
         packId,
@@ -2196,10 +2189,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListPackUsers200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject17>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPackUsers(
         packId,
@@ -2242,10 +2232,7 @@ export const PackApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListPacks200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject16>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listPacks(
         search,
@@ -2467,6 +2454,7 @@ export const PackApiFp = function (configuration?: Configuration) {
 
 /**
  * PackApi - factory interface
+ * @export
  */
 export const PackApiFactory = function (
   configuration?: Configuration,
@@ -2669,7 +2657,7 @@ export const PackApiFactory = function (
     listBuildVersions(
       requestParameters: PackApiListBuildVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListBuildVersions200Response> {
+    ): AxiosPromise<InlineObject20> {
       return localVarFp
         .listBuildVersions(
           requestParameters.packId,
@@ -2693,7 +2681,7 @@ export const PackApiFactory = function (
     listBuilds(
       requestParameters: PackApiListBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListBuilds200Response> {
+    ): AxiosPromise<InlineObject19> {
       return localVarFp
         .listBuilds(
           requestParameters.packId,
@@ -2716,7 +2704,7 @@ export const PackApiFactory = function (
     listPackGroups(
       requestParameters: PackApiListPackGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListPackGroups200Response> {
+    ): AxiosPromise<InlineObject18> {
       return localVarFp
         .listPackGroups(
           requestParameters.packId,
@@ -2739,7 +2727,7 @@ export const PackApiFactory = function (
     listPackUsers(
       requestParameters: PackApiListPackUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListPackUsers200Response> {
+    ): AxiosPromise<InlineObject17> {
       return localVarFp
         .listPackUsers(
           requestParameters.packId,
@@ -2762,7 +2750,7 @@ export const PackApiFactory = function (
     listPacks(
       requestParameters: PackApiListPacksRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListPacks200Response> {
+    ): AxiosPromise<InlineObject16> {
       return localVarFp
         .listPacks(
           requestParameters.search,
@@ -2886,421 +2874,590 @@ export const PackApiFactory = function (
 
 /**
  * Request parameters for attachBuildToVersion operation in PackApi.
+ * @export
+ * @interface PackApiAttachBuildToVersionRequest
  */
 export interface PackApiAttachBuildToVersionRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiAttachBuildToVersion
    */
   readonly packId: string;
 
   /**
    * A build identifier or slug
+   * @type {string}
+   * @memberof PackApiAttachBuildToVersion
    */
   readonly buildId: string;
 
   /**
    * The build version data to create or delete
+   * @type {AttachBuildToVersionRequest}
+   * @memberof PackApiAttachBuildToVersion
    */
   readonly attachBuildToVersionRequest: AttachBuildToVersionRequest;
 }
 
 /**
  * Request parameters for attachPackToGroup operation in PackApi.
+ * @export
+ * @interface PackApiAttachPackToGroupRequest
  */
 export interface PackApiAttachPackToGroupRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiAttachPackToGroup
    */
   readonly packId: string;
 
   /**
    * The pack group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof PackApiAttachPackToGroup
    */
   readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
  * Request parameters for attachPackToUser operation in PackApi.
+ * @export
+ * @interface PackApiAttachPackToUserRequest
  */
 export interface PackApiAttachPackToUserRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiAttachPackToUser
    */
   readonly packId: string;
 
   /**
    * The pack user data to permit
+   * @type {PermitPackUserRequest}
+   * @memberof PackApiAttachPackToUser
    */
   readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
  * Request parameters for createBuild operation in PackApi.
+ * @export
+ * @interface PackApiCreateBuildRequest
  */
 export interface PackApiCreateBuildRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiCreateBuild
    */
   readonly packId: string;
 
   /**
    * The build data to create
+   * @type {CreateBuildRequest}
+   * @memberof PackApiCreateBuild
    */
   readonly createBuildRequest: CreateBuildRequest;
 }
 
 /**
  * Request parameters for createPack operation in PackApi.
+ * @export
+ * @interface PackApiCreatePackRequest
  */
 export interface PackApiCreatePackRequest {
   /**
    * The pack data to create
+   * @type {CreatePackRequest}
+   * @memberof PackApiCreatePack
    */
   readonly createPackRequest: CreatePackRequest;
 }
 
 /**
  * Request parameters for deleteBuild operation in PackApi.
+ * @export
+ * @interface PackApiDeleteBuildRequest
  */
 export interface PackApiDeleteBuildRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiDeleteBuild
    */
   readonly packId: string;
 
   /**
    * A build identifier or slug
+   * @type {string}
+   * @memberof PackApiDeleteBuild
    */
   readonly buildId: string;
 }
 
 /**
  * Request parameters for deleteBuildFromVersion operation in PackApi.
+ * @export
+ * @interface PackApiDeleteBuildFromVersionRequest
  */
 export interface PackApiDeleteBuildFromVersionRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiDeleteBuildFromVersion
    */
   readonly packId: string;
 
   /**
    * A build identifier or slug
+   * @type {string}
+   * @memberof PackApiDeleteBuildFromVersion
    */
   readonly buildId: string;
 
   /**
    * The build version data to create or delete
+   * @type {AttachBuildToVersionRequest}
+   * @memberof PackApiDeleteBuildFromVersion
    */
   readonly attachBuildToVersionRequest: AttachBuildToVersionRequest;
 }
 
 /**
  * Request parameters for deletePack operation in PackApi.
+ * @export
+ * @interface PackApiDeletePackRequest
  */
 export interface PackApiDeletePackRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiDeletePack
    */
   readonly packId: string;
 }
 
 /**
  * Request parameters for deletePackFromGroup operation in PackApi.
+ * @export
+ * @interface PackApiDeletePackFromGroupRequest
  */
 export interface PackApiDeletePackFromGroupRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiDeletePackFromGroup
    */
   readonly packId: string;
 
   /**
    * The pack group data to unlink
+   * @type {DeletePackFromGroupRequest}
+   * @memberof PackApiDeletePackFromGroup
    */
   readonly deletePackFromGroupRequest: DeletePackFromGroupRequest;
 }
 
 /**
  * Request parameters for deletePackFromUser operation in PackApi.
+ * @export
+ * @interface PackApiDeletePackFromUserRequest
  */
 export interface PackApiDeletePackFromUserRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiDeletePackFromUser
    */
   readonly packId: string;
 
   /**
    * The pack user data to unlink
+   * @type {DeletePackFromUserRequest}
+   * @memberof PackApiDeletePackFromUser
    */
   readonly deletePackFromUserRequest: DeletePackFromUserRequest;
 }
 
 /**
  * Request parameters for listBuildVersions operation in PackApi.
+ * @export
+ * @interface PackApiListBuildVersionsRequest
  */
 export interface PackApiListBuildVersionsRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiListBuildVersions
    */
   readonly packId: string;
 
   /**
    * A build identifier or slug
+   * @type {string}
+   * @memberof PackApiListBuildVersions
    */
   readonly buildId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof PackApiListBuildVersions
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof PackApiListBuildVersions
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof PackApiListBuildVersions
    */
   readonly order?: ListBuildVersionsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof PackApiListBuildVersions
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof PackApiListBuildVersions
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listBuilds operation in PackApi.
+ * @export
+ * @interface PackApiListBuildsRequest
  */
 export interface PackApiListBuildsRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiListBuilds
    */
   readonly packId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof PackApiListBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof PackApiListBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof PackApiListBuilds
    */
   readonly order?: ListBuildsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof PackApiListBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof PackApiListBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listPackGroups operation in PackApi.
+ * @export
+ * @interface PackApiListPackGroupsRequest
  */
 export interface PackApiListPackGroupsRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiListPackGroups
    */
   readonly packId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof PackApiListPackGroups
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof PackApiListPackGroups
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof PackApiListPackGroups
    */
   readonly order?: ListPackGroupsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof PackApiListPackGroups
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof PackApiListPackGroups
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listPackUsers operation in PackApi.
+ * @export
+ * @interface PackApiListPackUsersRequest
  */
 export interface PackApiListPackUsersRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiListPackUsers
    */
   readonly packId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof PackApiListPackUsers
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof PackApiListPackUsers
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof PackApiListPackUsers
    */
   readonly order?: ListPackUsersOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof PackApiListPackUsers
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof PackApiListPackUsers
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listPacks operation in PackApi.
+ * @export
+ * @interface PackApiListPacksRequest
  */
 export interface PackApiListPacksRequest {
   /**
    * Search query
+   * @type {string}
+   * @memberof PackApiListPacks
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof PackApiListPacks
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof PackApiListPacks
    */
   readonly order?: ListPacksOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof PackApiListPacks
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof PackApiListPacks
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for permitPackGroup operation in PackApi.
+ * @export
+ * @interface PackApiPermitPackGroupRequest
  */
 export interface PackApiPermitPackGroupRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiPermitPackGroup
    */
   readonly packId: string;
 
   /**
    * The pack group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof PackApiPermitPackGroup
    */
   readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
  * Request parameters for permitPackUser operation in PackApi.
+ * @export
+ * @interface PackApiPermitPackUserRequest
  */
 export interface PackApiPermitPackUserRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiPermitPackUser
    */
   readonly packId: string;
 
   /**
    * The pack user data to permit
+   * @type {PermitPackUserRequest}
+   * @memberof PackApiPermitPackUser
    */
   readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
  * Request parameters for showBuild operation in PackApi.
+ * @export
+ * @interface PackApiShowBuildRequest
  */
 export interface PackApiShowBuildRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiShowBuild
    */
   readonly packId: string;
 
   /**
    * A build identifier or slug
+   * @type {string}
+   * @memberof PackApiShowBuild
    */
   readonly buildId: string;
 }
 
 /**
  * Request parameters for showPack operation in PackApi.
+ * @export
+ * @interface PackApiShowPackRequest
  */
 export interface PackApiShowPackRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiShowPack
    */
   readonly packId: string;
 }
 
 /**
  * Request parameters for updateBuild operation in PackApi.
+ * @export
+ * @interface PackApiUpdateBuildRequest
  */
 export interface PackApiUpdateBuildRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiUpdateBuild
    */
   readonly packId: string;
 
   /**
    * A build identifier or slug
+   * @type {string}
+   * @memberof PackApiUpdateBuild
    */
   readonly buildId: string;
 
   /**
    * The build data to update
+   * @type {CreateBuildRequest}
+   * @memberof PackApiUpdateBuild
    */
   readonly createBuildRequest: CreateBuildRequest;
 }
 
 /**
  * Request parameters for updatePack operation in PackApi.
+ * @export
+ * @interface PackApiUpdatePackRequest
  */
 export interface PackApiUpdatePackRequest {
   /**
    * A pack identifier or slug
+   * @type {string}
+   * @memberof PackApiUpdatePack
    */
   readonly packId: string;
 
   /**
    * The pack data to update
+   * @type {CreatePackRequest}
+   * @memberof PackApiUpdatePack
    */
   readonly createPackRequest: CreatePackRequest;
 }
 
 /**
  * PackApi - object-oriented interface
+ * @export
+ * @class PackApi
+ * @extends {BaseAPI}
  */
 export class PackApi extends BaseAPI {
   /**
@@ -3309,6 +3466,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiAttachBuildToVersionRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public attachBuildToVersion(
     requestParameters: PackApiAttachBuildToVersionRequest,
@@ -3330,6 +3488,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiAttachPackToGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public attachPackToGroup(
     requestParameters: PackApiAttachPackToGroupRequest,
@@ -3350,6 +3509,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiAttachPackToUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public attachPackToUser(
     requestParameters: PackApiAttachPackToUserRequest,
@@ -3370,6 +3530,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiCreateBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public createBuild(
     requestParameters: PackApiCreateBuildRequest,
@@ -3390,6 +3551,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiCreatePackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public createPack(
     requestParameters: PackApiCreatePackRequest,
@@ -3406,6 +3568,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiDeleteBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public deleteBuild(
     requestParameters: PackApiDeleteBuildRequest,
@@ -3422,6 +3585,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiDeleteBuildFromVersionRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public deleteBuildFromVersion(
     requestParameters: PackApiDeleteBuildFromVersionRequest,
@@ -3443,6 +3607,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiDeletePackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public deletePack(
     requestParameters: PackApiDeletePackRequest,
@@ -3459,6 +3624,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiDeletePackFromGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public deletePackFromGroup(
     requestParameters: PackApiDeletePackFromGroupRequest,
@@ -3479,6 +3645,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiDeletePackFromUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public deletePackFromUser(
     requestParameters: PackApiDeletePackFromUserRequest,
@@ -3499,6 +3666,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiListBuildVersionsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public listBuildVersions(
     requestParameters: PackApiListBuildVersionsRequest,
@@ -3524,6 +3692,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiListBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public listBuilds(
     requestParameters: PackApiListBuildsRequest,
@@ -3548,6 +3717,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiListPackGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public listPackGroups(
     requestParameters: PackApiListPackGroupsRequest,
@@ -3572,6 +3742,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiListPackUsersRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public listPackUsers(
     requestParameters: PackApiListPackUsersRequest,
@@ -3596,6 +3767,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiListPacksRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public listPacks(
     requestParameters: PackApiListPacksRequest = {},
@@ -3619,6 +3791,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiPermitPackGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public permitPackGroup(
     requestParameters: PackApiPermitPackGroupRequest,
@@ -3639,6 +3812,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiPermitPackUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public permitPackUser(
     requestParameters: PackApiPermitPackUserRequest,
@@ -3659,6 +3833,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiShowBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public showBuild(
     requestParameters: PackApiShowBuildRequest,
@@ -3675,6 +3850,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiShowPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public showPack(
     requestParameters: PackApiShowPackRequest,
@@ -3691,6 +3867,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiUpdateBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public updateBuild(
     requestParameters: PackApiUpdateBuildRequest,
@@ -3712,6 +3889,7 @@ export class PackApi extends BaseAPI {
    * @param {PackApiUpdatePackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof PackApi
    */
   public updatePack(
     requestParameters: PackApiUpdatePackRequest,
@@ -3727,30 +3905,45 @@ export class PackApi extends BaseAPI {
   }
 }
 
+/**
+ * @export
+ */
 export const ListBuildVersionsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListBuildVersionsOrderEnum =
   (typeof ListBuildVersionsOrderEnum)[keyof typeof ListBuildVersionsOrderEnum];
+/**
+ * @export
+ */
 export const ListBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListBuildsOrderEnum =
   (typeof ListBuildsOrderEnum)[keyof typeof ListBuildsOrderEnum];
+/**
+ * @export
+ */
 export const ListPackGroupsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListPackGroupsOrderEnum =
   (typeof ListPackGroupsOrderEnum)[keyof typeof ListPackGroupsOrderEnum];
+/**
+ * @export
+ */
 export const ListPackUsersOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListPackUsersOrderEnum =
   (typeof ListPackUsersOrderEnum)[keyof typeof ListPackUsersOrderEnum];
+/**
+ * @export
+ */
 export const ListPacksOrderEnum = {
   Asc: "asc",
   Desc: "desc",

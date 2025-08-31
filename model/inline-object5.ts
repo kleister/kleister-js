@@ -14,15 +14,36 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { User } from "./user";
-// May contain unused imports in some cases
-// @ts-ignore
-import type { UserPack } from "./user-pack";
+import type { Neoforge } from "./neoforge";
 
-export interface ListUserPacks200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject5
+ */
+export interface InlineObject5 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject5
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject5
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject5
+   */
   offset: number;
-  user?: User;
-  packs: Array<UserPack>;
+  /**
+   *
+   * @type {Array<Neoforge>}
+   * @memberof InlineObject5
+   */
+  versions: Array<Neoforge>;
 }

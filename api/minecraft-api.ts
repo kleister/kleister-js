@@ -44,13 +44,14 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { ListMinecraftBuilds200Response } from "../model";
+import type { InlineObject1 } from "../model";
 // @ts-ignore
-import type { ListMinecrafts200Response } from "../model";
+import type { InlineObject2 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
  * MinecraftApi - axios parameter creator
+ * @export
  */
 export const MinecraftApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -418,6 +419,7 @@ export const MinecraftApiAxiosParamCreator = function (
 
 /**
  * MinecraftApi - functional programming interface
+ * @export
  */
 export const MinecraftApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator =
@@ -512,10 +514,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListMinecraftBuilds200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject2>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listMinecraftBuilds(
@@ -551,10 +550,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListMinecrafts200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject1>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listMinecrafts(
         search,
@@ -604,6 +600,7 @@ export const MinecraftApiFp = function (configuration?: Configuration) {
 
 /**
  * MinecraftApi - factory interface
+ * @export
  */
 export const MinecraftApiFactory = function (
   configuration?: Configuration,
@@ -660,7 +657,7 @@ export const MinecraftApiFactory = function (
     listMinecraftBuilds(
       requestParameters: MinecraftApiListMinecraftBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListMinecraftBuilds200Response> {
+    ): AxiosPromise<InlineObject2> {
       return localVarFp
         .listMinecraftBuilds(
           requestParameters.minecraftId,
@@ -683,7 +680,7 @@ export const MinecraftApiFactory = function (
     listMinecrafts(
       requestParameters: MinecraftApiListMinecraftsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListMinecrafts200Response> {
+    ): AxiosPromise<InlineObject1> {
       return localVarFp
         .listMinecrafts(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -706,81 +703,114 @@ export const MinecraftApiFactory = function (
 
 /**
  * Request parameters for attachMinecraftToBuild operation in MinecraftApi.
+ * @export
+ * @interface MinecraftApiAttachMinecraftToBuildRequest
  */
 export interface MinecraftApiAttachMinecraftToBuildRequest {
   /**
    * A minecraft identifier or slug
+   * @type {string}
+   * @memberof MinecraftApiAttachMinecraftToBuild
    */
   readonly minecraftId: string;
 
   /**
    * The minecraft build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
+   * @memberof MinecraftApiAttachMinecraftToBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for deleteMinecraftFromBuild operation in MinecraftApi.
+ * @export
+ * @interface MinecraftApiDeleteMinecraftFromBuildRequest
  */
 export interface MinecraftApiDeleteMinecraftFromBuildRequest {
   /**
    * A minecraft identifier or slug
+   * @type {string}
+   * @memberof MinecraftApiDeleteMinecraftFromBuild
    */
   readonly minecraftId: string;
 
   /**
    * The minecraft build data to create or update
+   * @type {AttachMinecraftToBuildRequest}
+   * @memberof MinecraftApiDeleteMinecraftFromBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for listMinecraftBuilds operation in MinecraftApi.
+ * @export
+ * @interface MinecraftApiListMinecraftBuildsRequest
  */
 export interface MinecraftApiListMinecraftBuildsRequest {
   /**
    * A minecraft identifier or slug
+   * @type {string}
+   * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly minecraftId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly order?: ListMinecraftBuildsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof MinecraftApiListMinecraftBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listMinecrafts operation in MinecraftApi.
+ * @export
+ * @interface MinecraftApiListMinecraftsRequest
  */
 export interface MinecraftApiListMinecraftsRequest {
   /**
    * Search query
+   * @type {string}
+   * @memberof MinecraftApiListMinecrafts
    */
   readonly search?: string;
 }
 
 /**
  * MinecraftApi - object-oriented interface
+ * @export
+ * @class MinecraftApi
+ * @extends {BaseAPI}
  */
 export class MinecraftApi extends BaseAPI {
   /**
@@ -789,6 +819,7 @@ export class MinecraftApi extends BaseAPI {
    * @param {MinecraftApiAttachMinecraftToBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof MinecraftApi
    */
   public attachMinecraftToBuild(
     requestParameters: MinecraftApiAttachMinecraftToBuildRequest,
@@ -809,6 +840,7 @@ export class MinecraftApi extends BaseAPI {
    * @param {MinecraftApiDeleteMinecraftFromBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof MinecraftApi
    */
   public deleteMinecraftFromBuild(
     requestParameters: MinecraftApiDeleteMinecraftFromBuildRequest,
@@ -829,6 +861,7 @@ export class MinecraftApi extends BaseAPI {
    * @param {MinecraftApiListMinecraftBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof MinecraftApi
    */
   public listMinecraftBuilds(
     requestParameters: MinecraftApiListMinecraftBuildsRequest,
@@ -853,6 +886,7 @@ export class MinecraftApi extends BaseAPI {
    * @param {MinecraftApiListMinecraftsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof MinecraftApi
    */
   public listMinecrafts(
     requestParameters: MinecraftApiListMinecraftsRequest = {},
@@ -868,6 +902,7 @@ export class MinecraftApi extends BaseAPI {
    * @summary Update the available Minecraft versions
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof MinecraftApi
    */
   public updateMinecraft(options?: RawAxiosRequestConfig) {
     return MinecraftApiFp(this.configuration)
@@ -876,6 +911,9 @@ export class MinecraftApi extends BaseAPI {
   }
 }
 
+/**
+ * @export
+ */
 export const ListMinecraftBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

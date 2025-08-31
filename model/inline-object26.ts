@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Build } from "./build";
+import type { User } from "./user";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Quilt } from "./quilt";
+import type { UserGroup } from "./user-group";
 
-export interface ListQuiltBuilds200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject26
+ */
+export interface InlineObject26 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject26
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject26
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject26
+   */
   offset: number;
-  quilt?: Quilt;
-  builds: Array<Build>;
+  /**
+   *
+   * @type {User}
+   * @memberof InlineObject26
+   */
+  user?: User;
+  /**
+   *
+   * @type {Array<UserGroup>}
+   * @memberof InlineObject26
+   */
+  groups: Array<UserGroup>;
 }

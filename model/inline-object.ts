@@ -14,11 +14,24 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Pack } from "./pack";
+import type { Provider } from "./provider";
 
-export interface ListPacks200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject
+ */
+export interface InlineObject {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject
+   */
   total: number;
-  limit: number;
-  offset: number;
-  packs: Array<Pack>;
+  /**
+   *
+   * @type {Array<Provider>}
+   * @memberof InlineObject
+   */
+  providers: Array<Provider>;
 }

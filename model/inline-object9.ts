@@ -14,15 +14,36 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Build } from "./build";
-// May contain unused imports in some cases
-// @ts-ignore
 import type { Fabric } from "./fabric";
 
-export interface ListFabricBuilds200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject9
+ */
+export interface InlineObject9 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject9
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject9
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject9
+   */
   offset: number;
-  fabric?: Fabric;
-  builds: Array<Build>;
+  /**
+   *
+   * @type {Array<Fabric>}
+   * @memberof InlineObject9
+   */
+  versions: Array<Fabric>;
 }

@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.deleteQuiltFromBuild(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listQuiltBuilds**
-> ListQuiltBuilds200Response listQuiltBuilds()
+> InlineObject8 listQuiltBuilds()
 
 
 ### Example
@@ -175,7 +175,7 @@ const { status, data } = await apiInstance.listQuiltBuilds(
 
 ### Return type
 
-**ListQuiltBuilds200Response**
+**InlineObject8**
 
 ### Authorization
 
@@ -198,7 +198,7 @@ const { status, data } = await apiInstance.listQuiltBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listQuilts**
-> ListQuilts200Response listQuilts()
+> InlineObject7 listQuilts()
 
 
 ### Example
@@ -228,7 +228,7 @@ const { status, data } = await apiInstance.listQuilts(
 
 ### Return type
 
-**ListQuilts200Response**
+**InlineObject7**
 
 ### Authorization
 

@@ -12,9 +12,34 @@
  * Do not edit the class manually.
  */
 
+/**
+ *
+ * @export
+ * @interface CreatePackRequest
+ */
 export interface CreatePackRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof CreatePackRequest
+   */
   slug?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreatePackRequest
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreatePackRequest
+   */
   website?: string | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof CreatePackRequest
+   */
   public?: boolean | null;
 }

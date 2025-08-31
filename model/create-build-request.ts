@@ -12,16 +12,76 @@
  * Do not edit the class manually.
  */
 
+/**
+ *
+ * @export
+ * @interface CreateBuildRequest
+ */
 export interface CreateBuildRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   minecraft_id?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   forge_id?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   neoforge_id?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   quilt_id?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   fabric_id?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   name?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   java?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateBuildRequest
+   */
   memory?: string | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof CreateBuildRequest
+   */
   latest?: boolean | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof CreateBuildRequest
+   */
   recommended?: boolean | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof CreateBuildRequest
+   */
   public?: boolean | null;
 }
