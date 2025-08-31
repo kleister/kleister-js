@@ -50,13 +50,13 @@ import type { DeleteGroupFromPackRequest } from "../model";
 // @ts-ignore
 import type { DeletePackFromGroupRequest } from "../model";
 // @ts-ignore
-import type { ListUserGroups200Response } from "../model";
+import type { InlineObject25 } from "../model";
 // @ts-ignore
-import type { ListUserMods200Response } from "../model";
+import type { InlineObject26 } from "../model";
 // @ts-ignore
-import type { ListUserPacks200Response } from "../model";
+import type { InlineObject27 } from "../model";
 // @ts-ignore
-import type { ListUsers200Response } from "../model";
+import type { InlineObject28 } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
@@ -71,6 +71,7 @@ import type { UpdateUserRequest } from "../model";
 import type { User } from "../model";
 /**
  * UserApi - axios parameter creator
+ * @export
  */
 export const UserApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -1381,6 +1382,7 @@ export const UserApiAxiosParamCreator = function (
 
 /**
  * UserApi - functional programming interface
+ * @export
  */
 export const UserApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = UserApiAxiosParamCreator(configuration);
@@ -1667,10 +1669,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListUserGroups200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject26>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUserGroups(
         userId,
@@ -1715,10 +1714,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListUserMods200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject27>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUserMods(
         userId,
@@ -1763,10 +1759,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListUserPacks200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject28>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUserPacks(
         userId,
@@ -1809,10 +1802,7 @@ export const UserApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (
-        axios?: AxiosInstance,
-        basePath?: string,
-      ) => AxiosPromise<ListUsers200Response>
+      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject25>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(
         search,
@@ -1999,6 +1989,7 @@ export const UserApiFp = function (configuration?: Configuration) {
 
 /**
  * UserApi - factory interface
+ * @export
  */
 export const UserApiFactory = function (
   configuration?: Configuration,
@@ -2161,7 +2152,7 @@ export const UserApiFactory = function (
     listUserGroups(
       requestParameters: UserApiListUserGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListUserGroups200Response> {
+    ): AxiosPromise<InlineObject26> {
       return localVarFp
         .listUserGroups(
           requestParameters.userId,
@@ -2184,7 +2175,7 @@ export const UserApiFactory = function (
     listUserMods(
       requestParameters: UserApiListUserModsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListUserMods200Response> {
+    ): AxiosPromise<InlineObject27> {
       return localVarFp
         .listUserMods(
           requestParameters.userId,
@@ -2207,7 +2198,7 @@ export const UserApiFactory = function (
     listUserPacks(
       requestParameters: UserApiListUserPacksRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListUserPacks200Response> {
+    ): AxiosPromise<InlineObject28> {
       return localVarFp
         .listUserPacks(
           requestParameters.userId,
@@ -2230,7 +2221,7 @@ export const UserApiFactory = function (
     listUsers(
       requestParameters: UserApiListUsersRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<ListUsers200Response> {
+    ): AxiosPromise<InlineObject25> {
       return localVarFp
         .listUsers(
           requestParameters.search,
@@ -2338,321 +2329,450 @@ export const UserApiFactory = function (
 
 /**
  * Request parameters for attachUserToGroup operation in UserApi.
+ * @export
+ * @interface UserApiAttachUserToGroupRequest
  */
 export interface UserApiAttachUserToGroupRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiAttachUserToGroup
    */
   readonly userId: string;
 
   /**
    * The user group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof UserApiAttachUserToGroup
    */
   readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
  * Request parameters for attachUserToMod operation in UserApi.
+ * @export
+ * @interface UserApiAttachUserToModRequest
  */
 export interface UserApiAttachUserToModRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiAttachUserToMod
    */
   readonly userId: string;
 
   /**
    * The user mod data to permit
+   * @type {PermitGroupModRequest}
+   * @memberof UserApiAttachUserToMod
    */
   readonly permitGroupModRequest: PermitGroupModRequest;
 }
 
 /**
  * Request parameters for attachUserToPack operation in UserApi.
+ * @export
+ * @interface UserApiAttachUserToPackRequest
  */
 export interface UserApiAttachUserToPackRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiAttachUserToPack
    */
   readonly userId: string;
 
   /**
    * The user pack data to permit
+   * @type {PermitGroupPackRequest}
+   * @memberof UserApiAttachUserToPack
    */
   readonly permitGroupPackRequest: PermitGroupPackRequest;
 }
 
 /**
  * Request parameters for createUser operation in UserApi.
+ * @export
+ * @interface UserApiCreateUserRequest
  */
 export interface UserApiCreateUserRequest {
   /**
    * The user data to create
+   * @type {CreateUserRequest}
+   * @memberof UserApiCreateUser
    */
   readonly createUserRequest: CreateUserRequest;
 }
 
 /**
  * Request parameters for deleteUser operation in UserApi.
+ * @export
+ * @interface UserApiDeleteUserRequest
  */
 export interface UserApiDeleteUserRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiDeleteUser
    */
   readonly userId: string;
 }
 
 /**
  * Request parameters for deleteUserFromGroup operation in UserApi.
+ * @export
+ * @interface UserApiDeleteUserFromGroupRequest
  */
 export interface UserApiDeleteUserFromGroupRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiDeleteUserFromGroup
    */
   readonly userId: string;
 
   /**
    * The user group data to unlink
+   * @type {DeletePackFromGroupRequest}
+   * @memberof UserApiDeleteUserFromGroup
    */
   readonly deletePackFromGroupRequest: DeletePackFromGroupRequest;
 }
 
 /**
  * Request parameters for deleteUserFromMod operation in UserApi.
+ * @export
+ * @interface UserApiDeleteUserFromModRequest
  */
 export interface UserApiDeleteUserFromModRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiDeleteUserFromMod
    */
   readonly userId: string;
 
   /**
    * The user mod data to unlink
+   * @type {DeleteGroupFromModRequest}
+   * @memberof UserApiDeleteUserFromMod
    */
   readonly deleteGroupFromModRequest: DeleteGroupFromModRequest;
 }
 
 /**
  * Request parameters for deleteUserFromPack operation in UserApi.
+ * @export
+ * @interface UserApiDeleteUserFromPackRequest
  */
 export interface UserApiDeleteUserFromPackRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiDeleteUserFromPack
    */
   readonly userId: string;
 
   /**
    * The user pack data to unlink
+   * @type {DeleteGroupFromPackRequest}
+   * @memberof UserApiDeleteUserFromPack
    */
   readonly deleteGroupFromPackRequest: DeleteGroupFromPackRequest;
 }
 
 /**
  * Request parameters for listUserGroups operation in UserApi.
+ * @export
+ * @interface UserApiListUserGroupsRequest
  */
 export interface UserApiListUserGroupsRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiListUserGroups
    */
   readonly userId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof UserApiListUserGroups
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof UserApiListUserGroups
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof UserApiListUserGroups
    */
   readonly order?: ListUserGroupsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof UserApiListUserGroups
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof UserApiListUserGroups
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listUserMods operation in UserApi.
+ * @export
+ * @interface UserApiListUserModsRequest
  */
 export interface UserApiListUserModsRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiListUserMods
    */
   readonly userId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof UserApiListUserMods
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof UserApiListUserMods
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof UserApiListUserMods
    */
   readonly order?: ListUserModsOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof UserApiListUserMods
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof UserApiListUserMods
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listUserPacks operation in UserApi.
+ * @export
+ * @interface UserApiListUserPacksRequest
  */
 export interface UserApiListUserPacksRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiListUserPacks
    */
   readonly userId: string;
 
   /**
    * Search query
+   * @type {string}
+   * @memberof UserApiListUserPacks
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof UserApiListUserPacks
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof UserApiListUserPacks
    */
   readonly order?: ListUserPacksOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof UserApiListUserPacks
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof UserApiListUserPacks
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listUsers operation in UserApi.
+ * @export
+ * @interface UserApiListUsersRequest
  */
 export interface UserApiListUsersRequest {
   /**
    * Search query
+   * @type {string}
+   * @memberof UserApiListUsers
    */
   readonly search?: string;
 
   /**
    * Sorting column
+   * @type {string}
+   * @memberof UserApiListUsers
    */
   readonly sort?: string;
 
   /**
    * Sorting order
+   * @type {'asc' | 'desc'}
+   * @memberof UserApiListUsers
    */
   readonly order?: ListUsersOrderEnum;
 
   /**
    * Paging limit
+   * @type {number}
+   * @memberof UserApiListUsers
    */
   readonly limit?: number;
 
   /**
    * Paging offset
+   * @type {number}
+   * @memberof UserApiListUsers
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for permitUserGroup operation in UserApi.
+ * @export
+ * @interface UserApiPermitUserGroupRequest
  */
 export interface UserApiPermitUserGroupRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiPermitUserGroup
    */
   readonly userId: string;
 
   /**
    * The user group data to permit
+   * @type {PermitPackGroupRequest}
+   * @memberof UserApiPermitUserGroup
    */
   readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
  * Request parameters for permitUserMod operation in UserApi.
+ * @export
+ * @interface UserApiPermitUserModRequest
  */
 export interface UserApiPermitUserModRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiPermitUserMod
    */
   readonly userId: string;
 
   /**
    * The user mod data to permit
+   * @type {PermitGroupModRequest}
+   * @memberof UserApiPermitUserMod
    */
   readonly permitGroupModRequest: PermitGroupModRequest;
 }
 
 /**
  * Request parameters for permitUserPack operation in UserApi.
+ * @export
+ * @interface UserApiPermitUserPackRequest
  */
 export interface UserApiPermitUserPackRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiPermitUserPack
    */
   readonly userId: string;
 
   /**
    * The user pack data to permit
+   * @type {PermitGroupPackRequest}
+   * @memberof UserApiPermitUserPack
    */
   readonly permitGroupPackRequest: PermitGroupPackRequest;
 }
 
 /**
  * Request parameters for showUser operation in UserApi.
+ * @export
+ * @interface UserApiShowUserRequest
  */
 export interface UserApiShowUserRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiShowUser
    */
   readonly userId: string;
 }
 
 /**
  * Request parameters for updateUser operation in UserApi.
+ * @export
+ * @interface UserApiUpdateUserRequest
  */
 export interface UserApiUpdateUserRequest {
   /**
    * A user identifier or slug
+   * @type {string}
+   * @memberof UserApiUpdateUser
    */
   readonly userId: string;
 
   /**
    * The user data to update
+   * @type {UpdateUserRequest}
+   * @memberof UserApiUpdateUser
    */
   readonly updateUserRequest: UpdateUserRequest;
 }
 
 /**
  * UserApi - object-oriented interface
+ * @export
+ * @class UserApi
+ * @extends {BaseAPI}
  */
 export class UserApi extends BaseAPI {
   /**
@@ -2661,6 +2781,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiAttachUserToGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public attachUserToGroup(
     requestParameters: UserApiAttachUserToGroupRequest,
@@ -2681,6 +2802,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiAttachUserToModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public attachUserToMod(
     requestParameters: UserApiAttachUserToModRequest,
@@ -2701,6 +2823,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiAttachUserToPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public attachUserToPack(
     requestParameters: UserApiAttachUserToPackRequest,
@@ -2721,6 +2844,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiCreateUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public createUser(
     requestParameters: UserApiCreateUserRequest,
@@ -2737,6 +2861,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiDeleteUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public deleteUser(
     requestParameters: UserApiDeleteUserRequest,
@@ -2753,6 +2878,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiDeleteUserFromGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public deleteUserFromGroup(
     requestParameters: UserApiDeleteUserFromGroupRequest,
@@ -2773,6 +2899,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiDeleteUserFromModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public deleteUserFromMod(
     requestParameters: UserApiDeleteUserFromModRequest,
@@ -2793,6 +2920,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiDeleteUserFromPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public deleteUserFromPack(
     requestParameters: UserApiDeleteUserFromPackRequest,
@@ -2813,6 +2941,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiListUserGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public listUserGroups(
     requestParameters: UserApiListUserGroupsRequest,
@@ -2837,6 +2966,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiListUserModsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public listUserMods(
     requestParameters: UserApiListUserModsRequest,
@@ -2861,6 +2991,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiListUserPacksRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public listUserPacks(
     requestParameters: UserApiListUserPacksRequest,
@@ -2885,6 +3016,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiListUsersRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public listUsers(
     requestParameters: UserApiListUsersRequest = {},
@@ -2908,6 +3040,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiPermitUserGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public permitUserGroup(
     requestParameters: UserApiPermitUserGroupRequest,
@@ -2928,6 +3061,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiPermitUserModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public permitUserMod(
     requestParameters: UserApiPermitUserModRequest,
@@ -2948,6 +3082,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiPermitUserPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public permitUserPack(
     requestParameters: UserApiPermitUserPackRequest,
@@ -2968,6 +3103,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiShowUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public showUser(
     requestParameters: UserApiShowUserRequest,
@@ -2984,6 +3120,7 @@ export class UserApi extends BaseAPI {
    * @param {UserApiUpdateUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
+   * @memberof UserApi
    */
   public updateUser(
     requestParameters: UserApiUpdateUserRequest,
@@ -2999,24 +3136,36 @@ export class UserApi extends BaseAPI {
   }
 }
 
+/**
+ * @export
+ */
 export const ListUserGroupsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListUserGroupsOrderEnum =
   (typeof ListUserGroupsOrderEnum)[keyof typeof ListUserGroupsOrderEnum];
+/**
+ * @export
+ */
 export const ListUserModsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListUserModsOrderEnum =
   (typeof ListUserModsOrderEnum)[keyof typeof ListUserModsOrderEnum];
+/**
+ * @export
+ */
 export const ListUserPacksOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListUserPacksOrderEnum =
   (typeof ListUserPacksOrderEnum)[keyof typeof ListUserPacksOrderEnum];
+/**
+ * @export
+ */
 export const ListUsersOrderEnum = {
   Asc: "asc",
   Desc: "desc",

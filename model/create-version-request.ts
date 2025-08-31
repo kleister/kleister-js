@@ -12,8 +12,28 @@
  * Do not edit the class manually.
  */
 
+/**
+ *
+ * @export
+ * @interface CreateVersionRequest
+ */
 export interface CreateVersionRequest {
+  /**
+   *
+   * @type {string}
+   * @memberof CreateVersionRequest
+   */
   name?: string | null;
+  /**
+   *
+   * @type {boolean}
+   * @memberof CreateVersionRequest
+   */
   public?: boolean | null;
+  /**
+   *
+   * @type {string}
+   * @memberof CreateVersionRequest
+   */
   upload?: string | null;
 }

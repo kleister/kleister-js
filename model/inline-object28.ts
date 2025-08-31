@@ -17,12 +17,42 @@
 import type { User } from "./user";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UserMod } from "./user-mod";
+import type { UserPack } from "./user-pack";
 
-export interface ListUserMods200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject28
+ */
+export interface InlineObject28 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject28
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject28
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject28
+   */
   offset: number;
+  /**
+   *
+   * @type {User}
+   * @memberof InlineObject28
+   */
   user?: User;
-  mods: Array<UserMod>;
+  /**
+   *
+   * @type {Array<UserPack>}
+   * @memberof InlineObject28
+   */
+  packs: Array<UserPack>;
 }

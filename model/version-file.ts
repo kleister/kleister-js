@@ -14,13 +14,50 @@
 
 /**
  * Model to represent version file
+ * @export
+ * @interface VersionFile
  */
 export interface VersionFile {
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   slug?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   content_type?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   md5?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   path?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   url?: string | null;
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   created_at?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof VersionFile
+   */
   updated_at?: string;
 }

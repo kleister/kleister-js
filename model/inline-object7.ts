@@ -14,11 +14,36 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Group } from "./group";
+import type { Quilt } from "./quilt";
 
-export interface ListGroups200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject7
+ */
+export interface InlineObject7 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject7
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject7
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject7
+   */
   offset: number;
-  groups: Array<Group>;
+  /**
+   *
+   * @type {Array<Quilt>}
+   * @memberof InlineObject7
+   */
+  versions: Array<Quilt>;
 }

@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { User } from "./user";
+import type { Pack } from "./pack";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { UserGroup } from "./user-group";
+import type { UserPack } from "./user-pack";
 
-export interface ListUserGroups200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject17
+ */
+export interface InlineObject17 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject17
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject17
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject17
+   */
   offset: number;
-  user?: User;
-  groups: Array<UserGroup>;
+  /**
+   *
+   * @type {Pack}
+   * @memberof InlineObject17
+   */
+  pack?: Pack;
+  /**
+   *
+   * @type {Array<UserPack>}
+   * @memberof InlineObject17
+   */
+  users: Array<UserPack>;
 }

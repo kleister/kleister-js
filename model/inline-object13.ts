@@ -14,51 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Build } from "./build";
+import type { GroupMod } from "./group-mod";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Version } from "./version";
+import type { Mod } from "./mod";
 
 /**
- * Model to represent build version
+ *
  * @export
- * @interface BuildVersion
+ * @interface InlineObject13
  */
-export interface BuildVersion {
+export interface InlineObject13 {
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject13
    */
-  build_id: string;
+  total: number;
   /**
    *
-   * @type {Build}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject13
    */
-  build?: Build;
+  limit: number;
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject13
    */
-  version_id: string;
+  offset: number;
   /**
    *
-   * @type {Version}
-   * @memberof BuildVersion
+   * @type {Mod}
+   * @memberof InlineObject13
    */
-  version?: Version;
+  mod?: Mod;
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {Array<GroupMod>}
+   * @memberof InlineObject13
    */
-  created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
-  updated_at?: string;
+  groups: Array<GroupMod>;
 }

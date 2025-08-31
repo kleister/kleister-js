@@ -14,51 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Build } from "./build";
+import type { GroupPack } from "./group-pack";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Version } from "./version";
+import type { Pack } from "./pack";
 
 /**
- * Model to represent build version
+ *
  * @export
- * @interface BuildVersion
+ * @interface InlineObject18
  */
-export interface BuildVersion {
+export interface InlineObject18 {
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject18
    */
-  build_id: string;
+  total: number;
   /**
    *
-   * @type {Build}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject18
    */
-  build?: Build;
+  limit: number;
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {number}
+   * @memberof InlineObject18
    */
-  version_id: string;
+  offset: number;
   /**
    *
-   * @type {Version}
-   * @memberof BuildVersion
+   * @type {Pack}
+   * @memberof InlineObject18
    */
-  version?: Version;
+  pack?: Pack;
   /**
    *
-   * @type {string}
-   * @memberof BuildVersion
+   * @type {Array<GroupPack>}
+   * @memberof InlineObject18
    */
-  created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
-  updated_at?: string;
+  groups: Array<GroupPack>;
 }

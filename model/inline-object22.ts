@@ -14,15 +14,45 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Build } from "./build";
+import type { Group } from "./group";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Neoforge } from "./neoforge";
+import type { UserGroup } from "./user-group";
 
-export interface ListNeoforgeBuilds200Response {
+/**
+ *
+ * @export
+ * @interface InlineObject22
+ */
+export interface InlineObject22 {
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject22
+   */
   total: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject22
+   */
   limit: number;
+  /**
+   *
+   * @type {number}
+   * @memberof InlineObject22
+   */
   offset: number;
-  neoforge?: Neoforge;
-  builds: Array<Build>;
+  /**
+   *
+   * @type {Group}
+   * @memberof InlineObject22
+   */
+  group?: Group;
+  /**
+   *
+   * @type {Array<UserGroup>}
+   * @memberof InlineObject22
+   */
+  users: Array<UserGroup>;
 }
