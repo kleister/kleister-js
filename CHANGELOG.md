@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.16.0](https://github.com/kleister/kleister-js/compare/v2.15.0...v2.16.0) (2025-09-01)
+
+
+### Features
+
+* automated openapi client update ([6072ffe](https://github.com/kleister/kleister-js/commit/6072ffe030a0e139a6311c74fe33c7a41e1affb0))
+* automated openapi client update ([90c4998](https://github.com/kleister/kleister-js/commit/90c499812e23e8c08b734e68cbd606412eb2c880))
+* automated openapi client update ([1574c05](https://github.com/kleister/kleister-js/commit/1574c0523f51bddfeb5bba6889257592765374c4))
+* automated openapi client update ([6eb9a32](https://github.com/kleister/kleister-js/commit/6eb9a32662ba7c750c2c7f2dd33e303c770c4257))
+* **deps:** update dependency @types/node to 12.11.5 - 22.18 ([#189](https://github.com/kleister/kleister-js/issues/189)) ([fbec04e](https://github.com/kleister/kleister-js/commit/fbec04ebee2c7c6790022a6c92806c9223472481))
+
 ## [2.15.0](https://github.com/kleister/kleister-js/compare/v2.14.0...v2.15.0) (2025-08-11)
 
 
