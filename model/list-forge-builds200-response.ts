@@ -14,36 +14,15 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Minecraft } from "./minecraft";
+import type { Build } from "./build";
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Forge } from "./forge";
 
-/**
- *
- * @export
- * @interface InlineObject1
- */
-export interface InlineObject1 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject1
-   */
+export interface ListForgeBuilds200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject1
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject1
-   */
   offset: number;
-  /**
-   *
-   * @type {Array<Minecraft>}
-   * @memberof InlineObject1
-   */
-  versions: Array<Minecraft>;
+  forge?: Forge;
+  builds: Array<Build>;
 }

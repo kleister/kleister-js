@@ -14,36 +14,11 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Pack } from "./pack";
+import type { Mod } from "./mod";
 
-/**
- *
- * @export
- * @interface InlineObject16
- */
-export interface InlineObject16 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject16
-   */
+export interface ListMods200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject16
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject16
-   */
   offset: number;
-  /**
-   *
-   * @type {Array<Pack>}
-   * @memberof InlineObject16
-   */
-  packs: Array<Pack>;
+  mods: Array<Mod>;
 }

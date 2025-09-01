@@ -14,36 +14,11 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Group } from "./group";
+import type { Fabric } from "./fabric";
 
-/**
- *
- * @export
- * @interface InlineObject21
- */
-export interface InlineObject21 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject21
-   */
+export interface ListFabrics200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject21
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject21
-   */
   offset: number;
-  /**
-   *
-   * @type {Array<Group>}
-   * @memberof InlineObject21
-   */
-  groups: Array<Group>;
+  versions: Array<Fabric>;
 }

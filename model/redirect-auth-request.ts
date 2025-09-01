@@ -12,16 +12,6 @@
  * Do not edit the class manually.
  */
 
-/**
- *
- * @export
- * @interface RedirectAuthRequest
- */
 export interface RedirectAuthRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof RedirectAuthRequest
-   */
   token: string;
 }

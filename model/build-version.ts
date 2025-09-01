@@ -21,44 +21,12 @@ import type { Version } from "./version";
 
 /**
  * Model to represent build version
- * @export
- * @interface BuildVersion
  */
 export interface BuildVersion {
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
   build_id: string;
-  /**
-   *
-   * @type {Build}
-   * @memberof BuildVersion
-   */
   build?: Build;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
   version_id: string;
-  /**
-   *
-   * @type {Version}
-   * @memberof BuildVersion
-   */
   version?: Version;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof BuildVersion
-   */
   updated_at?: string;
 }
