@@ -1,6 +1,6 @@
 {
   "name": "kleisterjs",
-  "version": "2.16.0",
+  "version": "2.17.0",
   "description": "OpenAPI client for Kleister",
   "homepage": "https://github.com/kleister/kleister-js#readme",
   "license": "Apache-2.0",
