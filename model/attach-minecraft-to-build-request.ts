@@ -12,22 +12,7 @@
  * Do not edit the class manually.
  */
 
-/**
- *
- * @export
- * @interface AttachMinecraftToBuildRequest
- */
 export interface AttachMinecraftToBuildRequest {
-  /**
-   *
-   * @type {string}
-   * @memberof AttachMinecraftToBuildRequest
-   */
   pack: string | null;
-  /**
-   *
-   * @type {string}
-   * @memberof AttachMinecraftToBuildRequest
-   */
   build: string | null;
 }

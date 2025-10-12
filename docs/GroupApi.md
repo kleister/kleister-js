@@ -489,7 +489,7 @@ const { status, data } = await apiInstance.deleteGroupFromUser(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listGroupMods**
-> InlineObject23 listGroupMods()
+> ListGroupMods200Response listGroupMods()
 
 
 ### Example
@@ -534,7 +534,7 @@ const { status, data } = await apiInstance.listGroupMods(
 
 ### Return type
 
-**InlineObject23**
+**ListGroupMods200Response**
 
 ### Authorization
 
@@ -557,7 +557,7 @@ const { status, data } = await apiInstance.listGroupMods(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listGroupPacks**
-> InlineObject24 listGroupPacks()
+> ListGroupPacks200Response listGroupPacks()
 
 
 ### Example
@@ -602,7 +602,7 @@ const { status, data } = await apiInstance.listGroupPacks(
 
 ### Return type
 
-**InlineObject24**
+**ListGroupPacks200Response**
 
 ### Authorization
 
@@ -625,7 +625,7 @@ const { status, data } = await apiInstance.listGroupPacks(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listGroupUsers**
-> InlineObject22 listGroupUsers()
+> ListGroupUsers200Response listGroupUsers()
 
 
 ### Example
@@ -670,7 +670,7 @@ const { status, data } = await apiInstance.listGroupUsers(
 
 ### Return type
 
-**InlineObject22**
+**ListGroupUsers200Response**
 
 ### Authorization
 
@@ -693,7 +693,7 @@ const { status, data } = await apiInstance.listGroupUsers(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listGroups**
-> InlineObject21 listGroups()
+> ListGroups200Response listGroups()
 
 
 ### Example
@@ -735,7 +735,7 @@ const { status, data } = await apiInstance.listGroups(
 
 ### Return type
 
-**InlineObject21**
+**ListGroups200Response**
 
 ### Authorization
 

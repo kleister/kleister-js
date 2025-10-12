@@ -52,13 +52,13 @@ import type { DeletePackFromUserRequest } from "../model";
 // @ts-ignore
 import type { Group } from "../model";
 // @ts-ignore
-import type { InlineObject21 } from "../model";
+import type { ListGroupMods200Response } from "../model";
 // @ts-ignore
-import type { InlineObject22 } from "../model";
+import type { ListGroupPacks200Response } from "../model";
 // @ts-ignore
-import type { InlineObject23 } from "../model";
+import type { ListGroupUsers200Response } from "../model";
 // @ts-ignore
-import type { InlineObject24 } from "../model";
+import type { ListGroups200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 // @ts-ignore
@@ -69,7 +69,6 @@ import type { PermitGroupPackRequest } from "../model";
 import type { PermitPackUserRequest } from "../model";
 /**
  * GroupApi - axios parameter creator
- * @export
  */
 export const GroupApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -1388,7 +1387,6 @@ export const GroupApiAxiosParamCreator = function (
 
 /**
  * GroupApi - functional programming interface
- * @export
  */
 export const GroupApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = GroupApiAxiosParamCreator(configuration);
@@ -1678,7 +1676,10 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject23>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListGroupMods200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroupMods(
         groupId,
@@ -1723,7 +1724,10 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject24>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListGroupPacks200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroupPacks(
         groupId,
@@ -1768,7 +1772,10 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject22>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListGroupUsers200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroupUsers(
         groupId,
@@ -1811,7 +1818,10 @@ export const GroupApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject21>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListGroups200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listGroups(
         search,
@@ -2000,7 +2010,6 @@ export const GroupApiFp = function (configuration?: Configuration) {
 
 /**
  * GroupApi - factory interface
- * @export
  */
 export const GroupApiFactory = function (
   configuration?: Configuration,
@@ -2163,7 +2172,7 @@ export const GroupApiFactory = function (
     listGroupMods(
       requestParameters: GroupApiListGroupModsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject23> {
+    ): AxiosPromise<ListGroupMods200Response> {
       return localVarFp
         .listGroupMods(
           requestParameters.groupId,
@@ -2186,7 +2195,7 @@ export const GroupApiFactory = function (
     listGroupPacks(
       requestParameters: GroupApiListGroupPacksRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject24> {
+    ): AxiosPromise<ListGroupPacks200Response> {
       return localVarFp
         .listGroupPacks(
           requestParameters.groupId,
@@ -2209,7 +2218,7 @@ export const GroupApiFactory = function (
     listGroupUsers(
       requestParameters: GroupApiListGroupUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject22> {
+    ): AxiosPromise<ListGroupUsers200Response> {
       return localVarFp
         .listGroupUsers(
           requestParameters.groupId,
@@ -2232,7 +2241,7 @@ export const GroupApiFactory = function (
     listGroups(
       requestParameters: GroupApiListGroupsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject21> {
+    ): AxiosPromise<ListGroups200Response> {
       return localVarFp
         .listGroups(
           requestParameters.search,
@@ -2340,450 +2349,321 @@ export const GroupApiFactory = function (
 
 /**
  * Request parameters for attachGroupToMod operation in GroupApi.
- * @export
- * @interface GroupApiAttachGroupToModRequest
  */
 export interface GroupApiAttachGroupToModRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiAttachGroupToMod
    */
   readonly groupId: string;
 
   /**
    * The group mod data to permit
-   * @type {PermitGroupModRequest}
-   * @memberof GroupApiAttachGroupToMod
    */
   readonly permitGroupModRequest: PermitGroupModRequest;
 }
 
 /**
  * Request parameters for attachGroupToPack operation in GroupApi.
- * @export
- * @interface GroupApiAttachGroupToPackRequest
  */
 export interface GroupApiAttachGroupToPackRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiAttachGroupToPack
    */
   readonly groupId: string;
 
   /**
    * The group pack data to permit
-   * @type {PermitGroupPackRequest}
-   * @memberof GroupApiAttachGroupToPack
    */
   readonly permitGroupPackRequest: PermitGroupPackRequest;
 }
 
 /**
  * Request parameters for attachGroupToUser operation in GroupApi.
- * @export
- * @interface GroupApiAttachGroupToUserRequest
  */
 export interface GroupApiAttachGroupToUserRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiAttachGroupToUser
    */
   readonly groupId: string;
 
   /**
    * The group user data to permit
-   * @type {PermitPackUserRequest}
-   * @memberof GroupApiAttachGroupToUser
    */
   readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
  * Request parameters for createGroup operation in GroupApi.
- * @export
- * @interface GroupApiCreateGroupRequest
  */
 export interface GroupApiCreateGroupRequest {
   /**
    * The group data to create
-   * @type {CreateGroupRequest}
-   * @memberof GroupApiCreateGroup
    */
   readonly createGroupRequest: CreateGroupRequest;
 }
 
 /**
  * Request parameters for deleteGroup operation in GroupApi.
- * @export
- * @interface GroupApiDeleteGroupRequest
  */
 export interface GroupApiDeleteGroupRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiDeleteGroup
    */
   readonly groupId: string;
 }
 
 /**
  * Request parameters for deleteGroupFromMod operation in GroupApi.
- * @export
- * @interface GroupApiDeleteGroupFromModRequest
  */
 export interface GroupApiDeleteGroupFromModRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiDeleteGroupFromMod
    */
   readonly groupId: string;
 
   /**
    * The group mod data to unlink
-   * @type {DeleteGroupFromModRequest}
-   * @memberof GroupApiDeleteGroupFromMod
    */
   readonly deleteGroupFromModRequest: DeleteGroupFromModRequest;
 }
 
 /**
  * Request parameters for deleteGroupFromPack operation in GroupApi.
- * @export
- * @interface GroupApiDeleteGroupFromPackRequest
  */
 export interface GroupApiDeleteGroupFromPackRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiDeleteGroupFromPack
    */
   readonly groupId: string;
 
   /**
    * The group pack data to unlink
-   * @type {DeleteGroupFromPackRequest}
-   * @memberof GroupApiDeleteGroupFromPack
    */
   readonly deleteGroupFromPackRequest: DeleteGroupFromPackRequest;
 }
 
 /**
  * Request parameters for deleteGroupFromUser operation in GroupApi.
- * @export
- * @interface GroupApiDeleteGroupFromUserRequest
  */
 export interface GroupApiDeleteGroupFromUserRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiDeleteGroupFromUser
    */
   readonly groupId: string;
 
   /**
    * The group user data to unlink
-   * @type {DeletePackFromUserRequest}
-   * @memberof GroupApiDeleteGroupFromUser
    */
   readonly deletePackFromUserRequest: DeletePackFromUserRequest;
 }
 
 /**
  * Request parameters for listGroupMods operation in GroupApi.
- * @export
- * @interface GroupApiListGroupModsRequest
  */
 export interface GroupApiListGroupModsRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiListGroupMods
    */
   readonly groupId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof GroupApiListGroupMods
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof GroupApiListGroupMods
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof GroupApiListGroupMods
    */
   readonly order?: ListGroupModsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof GroupApiListGroupMods
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof GroupApiListGroupMods
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listGroupPacks operation in GroupApi.
- * @export
- * @interface GroupApiListGroupPacksRequest
  */
 export interface GroupApiListGroupPacksRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiListGroupPacks
    */
   readonly groupId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof GroupApiListGroupPacks
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof GroupApiListGroupPacks
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof GroupApiListGroupPacks
    */
   readonly order?: ListGroupPacksOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof GroupApiListGroupPacks
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof GroupApiListGroupPacks
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listGroupUsers operation in GroupApi.
- * @export
- * @interface GroupApiListGroupUsersRequest
  */
 export interface GroupApiListGroupUsersRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiListGroupUsers
    */
   readonly groupId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof GroupApiListGroupUsers
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof GroupApiListGroupUsers
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof GroupApiListGroupUsers
    */
   readonly order?: ListGroupUsersOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof GroupApiListGroupUsers
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof GroupApiListGroupUsers
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listGroups operation in GroupApi.
- * @export
- * @interface GroupApiListGroupsRequest
  */
 export interface GroupApiListGroupsRequest {
   /**
    * Search query
-   * @type {string}
-   * @memberof GroupApiListGroups
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof GroupApiListGroups
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof GroupApiListGroups
    */
   readonly order?: ListGroupsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof GroupApiListGroups
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof GroupApiListGroups
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for permitGroupMod operation in GroupApi.
- * @export
- * @interface GroupApiPermitGroupModRequest
  */
 export interface GroupApiPermitGroupModRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiPermitGroupMod
    */
   readonly groupId: string;
 
   /**
    * The group mod data to permit
-   * @type {PermitGroupModRequest}
-   * @memberof GroupApiPermitGroupMod
    */
   readonly permitGroupModRequest: PermitGroupModRequest;
 }
 
 /**
  * Request parameters for permitGroupPack operation in GroupApi.
- * @export
- * @interface GroupApiPermitGroupPackRequest
  */
 export interface GroupApiPermitGroupPackRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiPermitGroupPack
    */
   readonly groupId: string;
 
   /**
    * The group pack data to permit
-   * @type {PermitGroupPackRequest}
-   * @memberof GroupApiPermitGroupPack
    */
   readonly permitGroupPackRequest: PermitGroupPackRequest;
 }
 
 /**
  * Request parameters for permitGroupUser operation in GroupApi.
- * @export
- * @interface GroupApiPermitGroupUserRequest
  */
 export interface GroupApiPermitGroupUserRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiPermitGroupUser
    */
   readonly groupId: string;
 
   /**
    * The group user data to permit
-   * @type {PermitPackUserRequest}
-   * @memberof GroupApiPermitGroupUser
    */
   readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
  * Request parameters for showGroup operation in GroupApi.
- * @export
- * @interface GroupApiShowGroupRequest
  */
 export interface GroupApiShowGroupRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiShowGroup
    */
   readonly groupId: string;
 }
 
 /**
  * Request parameters for updateGroup operation in GroupApi.
- * @export
- * @interface GroupApiUpdateGroupRequest
  */
 export interface GroupApiUpdateGroupRequest {
   /**
    * A group identifier or slug
-   * @type {string}
-   * @memberof GroupApiUpdateGroup
    */
   readonly groupId: string;
 
   /**
    * The group data to update
-   * @type {CreateGroupRequest}
-   * @memberof GroupApiUpdateGroup
    */
   readonly createGroupRequest: CreateGroupRequest;
 }
 
 /**
  * GroupApi - object-oriented interface
- * @export
- * @class GroupApi
- * @extends {BaseAPI}
  */
 export class GroupApi extends BaseAPI {
   /**
@@ -2792,7 +2672,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiAttachGroupToModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public attachGroupToMod(
     requestParameters: GroupApiAttachGroupToModRequest,
@@ -2813,7 +2692,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiAttachGroupToPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public attachGroupToPack(
     requestParameters: GroupApiAttachGroupToPackRequest,
@@ -2834,7 +2712,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiAttachGroupToUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public attachGroupToUser(
     requestParameters: GroupApiAttachGroupToUserRequest,
@@ -2855,7 +2732,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiCreateGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public createGroup(
     requestParameters: GroupApiCreateGroupRequest,
@@ -2872,7 +2748,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiDeleteGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public deleteGroup(
     requestParameters: GroupApiDeleteGroupRequest,
@@ -2889,7 +2764,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiDeleteGroupFromModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public deleteGroupFromMod(
     requestParameters: GroupApiDeleteGroupFromModRequest,
@@ -2910,7 +2784,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiDeleteGroupFromPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public deleteGroupFromPack(
     requestParameters: GroupApiDeleteGroupFromPackRequest,
@@ -2931,7 +2804,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiDeleteGroupFromUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public deleteGroupFromUser(
     requestParameters: GroupApiDeleteGroupFromUserRequest,
@@ -2952,7 +2824,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiListGroupModsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public listGroupMods(
     requestParameters: GroupApiListGroupModsRequest,
@@ -2977,7 +2848,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiListGroupPacksRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public listGroupPacks(
     requestParameters: GroupApiListGroupPacksRequest,
@@ -3002,7 +2872,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiListGroupUsersRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public listGroupUsers(
     requestParameters: GroupApiListGroupUsersRequest,
@@ -3027,7 +2896,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiListGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public listGroups(
     requestParameters: GroupApiListGroupsRequest = {},
@@ -3051,7 +2919,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiPermitGroupModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public permitGroupMod(
     requestParameters: GroupApiPermitGroupModRequest,
@@ -3072,7 +2939,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiPermitGroupPackRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public permitGroupPack(
     requestParameters: GroupApiPermitGroupPackRequest,
@@ -3093,7 +2959,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiPermitGroupUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public permitGroupUser(
     requestParameters: GroupApiPermitGroupUserRequest,
@@ -3114,7 +2979,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiShowGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public showGroup(
     requestParameters: GroupApiShowGroupRequest,
@@ -3131,7 +2995,6 @@ export class GroupApi extends BaseAPI {
    * @param {GroupApiUpdateGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof GroupApi
    */
   public updateGroup(
     requestParameters: GroupApiUpdateGroupRequest,
@@ -3147,36 +3010,24 @@ export class GroupApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
 export const ListGroupModsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListGroupModsOrderEnum =
   (typeof ListGroupModsOrderEnum)[keyof typeof ListGroupModsOrderEnum];
-/**
- * @export
- */
 export const ListGroupPacksOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListGroupPacksOrderEnum =
   (typeof ListGroupPacksOrderEnum)[keyof typeof ListGroupPacksOrderEnum];
-/**
- * @export
- */
 export const ListGroupUsersOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListGroupUsersOrderEnum =
   (typeof ListGroupUsersOrderEnum)[keyof typeof ListGroupUsersOrderEnum];
-/**
- * @export
- */
 export const ListGroupsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

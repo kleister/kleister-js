@@ -21,50 +21,13 @@ import type { VersionFile } from "./version-file";
 
 /**
  * Model to represent version
- * @export
- * @interface Version
  */
 export interface Version {
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
   id?: string;
-  /**
-   *
-   * @type {VersionFile}
-   * @memberof Version
-   */
   file?: VersionFile;
-  /**
-   *
-   * @type {Mod}
-   * @memberof Version
-   */
   mod?: Mod;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
   name?: string | null;
-  /**
-   *
-   * @type {boolean}
-   * @memberof Version
-   */
   public?: boolean | null;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof Version
-   */
   updated_at?: string;
 }

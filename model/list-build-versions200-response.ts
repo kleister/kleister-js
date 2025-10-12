@@ -17,42 +17,16 @@
 import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Forge } from "./forge";
+import type { BuildVersion } from "./build-version";
+// May contain unused imports in some cases
+// @ts-ignore
+import type { Pack } from "./pack";
 
-/**
- *
- * @export
- * @interface InlineObject4
- */
-export interface InlineObject4 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject4
-   */
+export interface ListBuildVersions200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject4
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject4
-   */
   offset: number;
-  /**
-   *
-   * @type {Forge}
-   * @memberof InlineObject4
-   */
-  forge?: Forge;
-  /**
-   *
-   * @type {Array<Build>}
-   * @memberof InlineObject4
-   */
-  builds: Array<Build>;
+  pack?: Pack;
+  build?: Build;
+  versions: Array<BuildVersion>;
 }
