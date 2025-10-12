@@ -14,45 +14,15 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Mod } from "./mod";
+import type { Pack } from "./pack";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Version } from "./version";
+import type { UserPack } from "./user-pack";
 
-/**
- *
- * @export
- * @interface InlineObject14
- */
-export interface InlineObject14 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject14
-   */
+export interface ListPackUsers200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject14
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject14
-   */
   offset: number;
-  /**
-   *
-   * @type {Mod}
-   * @memberof InlineObject14
-   */
-  mod?: Mod;
-  /**
-   *
-   * @type {Array<Version>}
-   * @memberof InlineObject14
-   */
-  versions: Array<Version>;
+  pack?: Pack;
+  users: Array<UserPack>;
 }

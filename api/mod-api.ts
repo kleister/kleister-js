@@ -52,15 +52,15 @@ import type { DeletePackFromGroupRequest } from "../model";
 // @ts-ignore
 import type { DeletePackFromUserRequest } from "../model";
 // @ts-ignore
-import type { InlineObject11 } from "../model";
+import type { ListModGroups200Response } from "../model";
 // @ts-ignore
-import type { InlineObject12 } from "../model";
+import type { ListModUsers200Response } from "../model";
 // @ts-ignore
-import type { InlineObject13 } from "../model";
+import type { ListMods200Response } from "../model";
 // @ts-ignore
-import type { InlineObject14 } from "../model";
+import type { ListVersionBuilds200Response } from "../model";
 // @ts-ignore
-import type { InlineObject15 } from "../model";
+import type { ListVersions200Response } from "../model";
 // @ts-ignore
 import type { Mod } from "../model";
 // @ts-ignore
@@ -77,7 +77,6 @@ import type { PermitPackUserRequest } from "../model";
 import type { Version } from "../model";
 /**
  * ModApi - axios parameter creator
- * @export
  */
 export const ModApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -1963,7 +1962,6 @@ export const ModApiAxiosParamCreator = function (
 
 /**
  * ModApi - functional programming interface
- * @export
  */
 export const ModApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = ModApiAxiosParamCreator(configuration);
@@ -2443,7 +2441,10 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject13>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListModGroups200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listModGroups(
         modId,
@@ -2488,7 +2489,10 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject12>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListModUsers200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listModUsers(
         modId,
@@ -2531,7 +2535,10 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject11>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListMods200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listMods(
         search,
@@ -2576,7 +2583,10 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject15>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListVersionBuilds200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.listVersionBuilds(
@@ -2623,7 +2633,10 @@ export const ModApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject14>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListVersions200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listVersions(
         modId,
@@ -2847,7 +2860,6 @@ export const ModApiFp = function (configuration?: Configuration) {
 
 /**
  * ModApi - factory interface
- * @export
  */
 export const ModApiFactory = function (
   configuration?: Configuration,
@@ -3118,7 +3130,7 @@ export const ModApiFactory = function (
     listModGroups(
       requestParameters: ModApiListModGroupsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject13> {
+    ): AxiosPromise<ListModGroups200Response> {
       return localVarFp
         .listModGroups(
           requestParameters.modId,
@@ -3141,7 +3153,7 @@ export const ModApiFactory = function (
     listModUsers(
       requestParameters: ModApiListModUsersRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject12> {
+    ): AxiosPromise<ListModUsers200Response> {
       return localVarFp
         .listModUsers(
           requestParameters.modId,
@@ -3164,7 +3176,7 @@ export const ModApiFactory = function (
     listMods(
       requestParameters: ModApiListModsRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject11> {
+    ): AxiosPromise<ListMods200Response> {
       return localVarFp
         .listMods(
           requestParameters.search,
@@ -3186,7 +3198,7 @@ export const ModApiFactory = function (
     listVersionBuilds(
       requestParameters: ModApiListVersionBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject15> {
+    ): AxiosPromise<ListVersionBuilds200Response> {
       return localVarFp
         .listVersionBuilds(
           requestParameters.modId,
@@ -3210,7 +3222,7 @@ export const ModApiFactory = function (
     listVersions(
       requestParameters: ModApiListVersionsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject14> {
+    ): AxiosPromise<ListVersions200Response> {
       return localVarFp
         .listVersions(
           requestParameters.modId,
@@ -3339,660 +3351,465 @@ export const ModApiFactory = function (
 
 /**
  * Request parameters for attachModToGroup operation in ModApi.
- * @export
- * @interface ModApiAttachModToGroupRequest
  */
 export interface ModApiAttachModToGroupRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiAttachModToGroup
    */
   readonly modId: string;
 
   /**
    * The mod group data to permit
-   * @type {PermitPackGroupRequest}
-   * @memberof ModApiAttachModToGroup
    */
   readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
  * Request parameters for attachModToUser operation in ModApi.
- * @export
- * @interface ModApiAttachModToUserRequest
  */
 export interface ModApiAttachModToUserRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiAttachModToUser
    */
   readonly modId: string;
 
   /**
    * The mod user data to permit
-   * @type {PermitPackUserRequest}
-   * @memberof ModApiAttachModToUser
    */
   readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
  * Request parameters for attachVersionToBuild operation in ModApi.
- * @export
- * @interface ModApiAttachVersionToBuildRequest
  */
 export interface ModApiAttachVersionToBuildRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiAttachVersionToBuild
    */
   readonly modId: string;
 
   /**
    * A version identifier or slug
-   * @type {string}
-   * @memberof ModApiAttachVersionToBuild
    */
   readonly versionId: string;
 
   /**
    * The version build data to create or delete
-   * @type {AttachMinecraftToBuildRequest}
-   * @memberof ModApiAttachVersionToBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for createMod operation in ModApi.
- * @export
- * @interface ModApiCreateModRequest
  */
 export interface ModApiCreateModRequest {
   /**
    * The mod data to create
-   * @type {CreateModRequest}
-   * @memberof ModApiCreateMod
    */
   readonly createModRequest: CreateModRequest;
 }
 
 /**
  * Request parameters for createModAvatar operation in ModApi.
- * @export
- * @interface ModApiCreateModAvatarRequest
  */
 export interface ModApiCreateModAvatarRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiCreateModAvatar
    */
   readonly modId: string;
 
-  /**
-   *
-   * @type {File}
-   * @memberof ModApiCreateModAvatar
-   */
   readonly file?: File;
 }
 
 /**
  * Request parameters for createPackAvatar operation in ModApi.
- * @export
- * @interface ModApiCreatePackAvatarRequest
  */
 export interface ModApiCreatePackAvatarRequest {
   /**
    * A pack identifier or slug
-   * @type {string}
-   * @memberof ModApiCreatePackAvatar
    */
   readonly packId: string;
 
-  /**
-   *
-   * @type {File}
-   * @memberof ModApiCreatePackAvatar
-   */
   readonly file?: File;
 }
 
 /**
  * Request parameters for createVersion operation in ModApi.
- * @export
- * @interface ModApiCreateVersionRequest
  */
 export interface ModApiCreateVersionRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiCreateVersion
    */
   readonly modId: string;
 
   /**
    * The version data to create
-   * @type {CreateVersionRequest}
-   * @memberof ModApiCreateVersion
    */
   readonly createVersionRequest: CreateVersionRequest;
 }
 
 /**
  * Request parameters for deleteMod operation in ModApi.
- * @export
- * @interface ModApiDeleteModRequest
  */
 export interface ModApiDeleteModRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteMod
    */
   readonly modId: string;
 }
 
 /**
  * Request parameters for deleteModAvatar operation in ModApi.
- * @export
- * @interface ModApiDeleteModAvatarRequest
  */
 export interface ModApiDeleteModAvatarRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteModAvatar
    */
   readonly modId: string;
 }
 
 /**
  * Request parameters for deleteModFromGroup operation in ModApi.
- * @export
- * @interface ModApiDeleteModFromGroupRequest
  */
 export interface ModApiDeleteModFromGroupRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteModFromGroup
    */
   readonly modId: string;
 
   /**
    * The mod group data to unlink
-   * @type {DeletePackFromGroupRequest}
-   * @memberof ModApiDeleteModFromGroup
    */
   readonly deletePackFromGroupRequest: DeletePackFromGroupRequest;
 }
 
 /**
  * Request parameters for deleteModFromUser operation in ModApi.
- * @export
- * @interface ModApiDeleteModFromUserRequest
  */
 export interface ModApiDeleteModFromUserRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteModFromUser
    */
   readonly modId: string;
 
   /**
    * The mod user data to unlink
-   * @type {DeletePackFromUserRequest}
-   * @memberof ModApiDeleteModFromUser
    */
   readonly deletePackFromUserRequest: DeletePackFromUserRequest;
 }
 
 /**
  * Request parameters for deletePackAvatar operation in ModApi.
- * @export
- * @interface ModApiDeletePackAvatarRequest
  */
 export interface ModApiDeletePackAvatarRequest {
   /**
    * A pack identifier or slug
-   * @type {string}
-   * @memberof ModApiDeletePackAvatar
    */
   readonly packId: string;
 }
 
 /**
  * Request parameters for deleteVersion operation in ModApi.
- * @export
- * @interface ModApiDeleteVersionRequest
  */
 export interface ModApiDeleteVersionRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteVersion
    */
   readonly modId: string;
 
   /**
    * A version identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteVersion
    */
   readonly versionId: string;
 }
 
 /**
  * Request parameters for deleteVersionFromBuild operation in ModApi.
- * @export
- * @interface ModApiDeleteVersionFromBuildRequest
  */
 export interface ModApiDeleteVersionFromBuildRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteVersionFromBuild
    */
   readonly modId: string;
 
   /**
    * A version identifier or slug
-   * @type {string}
-   * @memberof ModApiDeleteVersionFromBuild
    */
   readonly versionId: string;
 
   /**
    * The version build data to create or delete
-   * @type {AttachMinecraftToBuildRequest}
-   * @memberof ModApiDeleteVersionFromBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for listModGroups operation in ModApi.
- * @export
- * @interface ModApiListModGroupsRequest
  */
 export interface ModApiListModGroupsRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiListModGroups
    */
   readonly modId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof ModApiListModGroups
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof ModApiListModGroups
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof ModApiListModGroups
    */
   readonly order?: ListModGroupsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof ModApiListModGroups
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof ModApiListModGroups
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listModUsers operation in ModApi.
- * @export
- * @interface ModApiListModUsersRequest
  */
 export interface ModApiListModUsersRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiListModUsers
    */
   readonly modId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof ModApiListModUsers
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof ModApiListModUsers
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof ModApiListModUsers
    */
   readonly order?: ListModUsersOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof ModApiListModUsers
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof ModApiListModUsers
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listMods operation in ModApi.
- * @export
- * @interface ModApiListModsRequest
  */
 export interface ModApiListModsRequest {
   /**
    * Search query
-   * @type {string}
-   * @memberof ModApiListMods
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof ModApiListMods
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof ModApiListMods
    */
   readonly order?: ListModsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof ModApiListMods
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof ModApiListMods
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listVersionBuilds operation in ModApi.
- * @export
- * @interface ModApiListVersionBuildsRequest
  */
 export interface ModApiListVersionBuildsRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiListVersionBuilds
    */
   readonly modId: string;
 
   /**
    * A version identifier or slug
-   * @type {string}
-   * @memberof ModApiListVersionBuilds
    */
   readonly versionId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof ModApiListVersionBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof ModApiListVersionBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof ModApiListVersionBuilds
    */
   readonly order?: ListVersionBuildsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof ModApiListVersionBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof ModApiListVersionBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listVersions operation in ModApi.
- * @export
- * @interface ModApiListVersionsRequest
  */
 export interface ModApiListVersionsRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiListVersions
    */
   readonly modId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof ModApiListVersions
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof ModApiListVersions
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof ModApiListVersions
    */
   readonly order?: ListVersionsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof ModApiListVersions
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof ModApiListVersions
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for permitModGroup operation in ModApi.
- * @export
- * @interface ModApiPermitModGroupRequest
  */
 export interface ModApiPermitModGroupRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiPermitModGroup
    */
   readonly modId: string;
 
   /**
    * The mod group data to permit
-   * @type {PermitPackGroupRequest}
-   * @memberof ModApiPermitModGroup
    */
   readonly permitPackGroupRequest: PermitPackGroupRequest;
 }
 
 /**
  * Request parameters for permitModUser operation in ModApi.
- * @export
- * @interface ModApiPermitModUserRequest
  */
 export interface ModApiPermitModUserRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiPermitModUser
    */
   readonly modId: string;
 
   /**
    * The mod user data to permit
-   * @type {PermitPackUserRequest}
-   * @memberof ModApiPermitModUser
    */
   readonly permitPackUserRequest: PermitPackUserRequest;
 }
 
 /**
  * Request parameters for showMod operation in ModApi.
- * @export
- * @interface ModApiShowModRequest
  */
 export interface ModApiShowModRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiShowMod
    */
   readonly modId: string;
 }
 
 /**
  * Request parameters for showVersion operation in ModApi.
- * @export
- * @interface ModApiShowVersionRequest
  */
 export interface ModApiShowVersionRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiShowVersion
    */
   readonly modId: string;
 
   /**
    * A version identifier or slug
-   * @type {string}
-   * @memberof ModApiShowVersion
    */
   readonly versionId: string;
 }
 
 /**
  * Request parameters for updateMod operation in ModApi.
- * @export
- * @interface ModApiUpdateModRequest
  */
 export interface ModApiUpdateModRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiUpdateMod
    */
   readonly modId: string;
 
   /**
    * The mod data to update
-   * @type {CreateModRequest}
-   * @memberof ModApiUpdateMod
    */
   readonly createModRequest: CreateModRequest;
 }
 
 /**
  * Request parameters for updateVersion operation in ModApi.
- * @export
- * @interface ModApiUpdateVersionRequest
  */
 export interface ModApiUpdateVersionRequest {
   /**
    * A mod identifier or slug
-   * @type {string}
-   * @memberof ModApiUpdateVersion
    */
   readonly modId: string;
 
   /**
    * A version identifier or slug
-   * @type {string}
-   * @memberof ModApiUpdateVersion
    */
   readonly versionId: string;
 
   /**
    * The version data to update
-   * @type {CreateVersionRequest}
-   * @memberof ModApiUpdateVersion
    */
   readonly createVersionRequest: CreateVersionRequest;
 }
 
 /**
  * ModApi - object-oriented interface
- * @export
- * @class ModApi
- * @extends {BaseAPI}
  */
 export class ModApi extends BaseAPI {
   /**
@@ -4001,7 +3818,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiAttachModToGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public attachModToGroup(
     requestParameters: ModApiAttachModToGroupRequest,
@@ -4022,7 +3838,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiAttachModToUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public attachModToUser(
     requestParameters: ModApiAttachModToUserRequest,
@@ -4043,7 +3858,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiAttachVersionToBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public attachVersionToBuild(
     requestParameters: ModApiAttachVersionToBuildRequest,
@@ -4065,7 +3879,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiCreateModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public createMod(
     requestParameters: ModApiCreateModRequest,
@@ -4082,7 +3895,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiCreateModAvatarRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public createModAvatar(
     requestParameters: ModApiCreateModAvatarRequest,
@@ -4099,7 +3911,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiCreatePackAvatarRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public createPackAvatar(
     requestParameters: ModApiCreatePackAvatarRequest,
@@ -4120,7 +3931,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiCreateVersionRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public createVersion(
     requestParameters: ModApiCreateVersionRequest,
@@ -4141,7 +3951,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeleteModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deleteMod(
     requestParameters: ModApiDeleteModRequest,
@@ -4158,7 +3967,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeleteModAvatarRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deleteModAvatar(
     requestParameters: ModApiDeleteModAvatarRequest,
@@ -4175,7 +3983,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeleteModFromGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deleteModFromGroup(
     requestParameters: ModApiDeleteModFromGroupRequest,
@@ -4196,7 +4003,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeleteModFromUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deleteModFromUser(
     requestParameters: ModApiDeleteModFromUserRequest,
@@ -4217,7 +4023,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeletePackAvatarRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deletePackAvatar(
     requestParameters: ModApiDeletePackAvatarRequest,
@@ -4234,7 +4039,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeleteVersionRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deleteVersion(
     requestParameters: ModApiDeleteVersionRequest,
@@ -4255,7 +4059,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiDeleteVersionFromBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public deleteVersionFromBuild(
     requestParameters: ModApiDeleteVersionFromBuildRequest,
@@ -4277,7 +4080,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiListModGroupsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public listModGroups(
     requestParameters: ModApiListModGroupsRequest,
@@ -4302,7 +4104,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiListModUsersRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public listModUsers(
     requestParameters: ModApiListModUsersRequest,
@@ -4327,7 +4128,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiListModsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public listMods(
     requestParameters: ModApiListModsRequest = {},
@@ -4351,7 +4151,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiListVersionBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public listVersionBuilds(
     requestParameters: ModApiListVersionBuildsRequest,
@@ -4377,7 +4176,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiListVersionsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public listVersions(
     requestParameters: ModApiListVersionsRequest,
@@ -4402,7 +4200,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiPermitModGroupRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public permitModGroup(
     requestParameters: ModApiPermitModGroupRequest,
@@ -4423,7 +4220,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiPermitModUserRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public permitModUser(
     requestParameters: ModApiPermitModUserRequest,
@@ -4444,7 +4240,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiShowModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public showMod(
     requestParameters: ModApiShowModRequest,
@@ -4461,7 +4256,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiShowVersionRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public showVersion(
     requestParameters: ModApiShowVersionRequest,
@@ -4482,7 +4276,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiUpdateModRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public updateMod(
     requestParameters: ModApiUpdateModRequest,
@@ -4503,7 +4296,6 @@ export class ModApi extends BaseAPI {
    * @param {ModApiUpdateVersionRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ModApi
    */
   public updateVersion(
     requestParameters: ModApiUpdateVersionRequest,
@@ -4520,45 +4312,30 @@ export class ModApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
 export const ListModGroupsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListModGroupsOrderEnum =
   (typeof ListModGroupsOrderEnum)[keyof typeof ListModGroupsOrderEnum];
-/**
- * @export
- */
 export const ListModUsersOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListModUsersOrderEnum =
   (typeof ListModUsersOrderEnum)[keyof typeof ListModUsersOrderEnum];
-/**
- * @export
- */
 export const ListModsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListModsOrderEnum =
   (typeof ListModsOrderEnum)[keyof typeof ListModsOrderEnum];
-/**
- * @export
- */
 export const ListVersionBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",
 } as const;
 export type ListVersionBuildsOrderEnum =
   (typeof ListVersionBuildsOrderEnum)[keyof typeof ListVersionBuildsOrderEnum];
-/**
- * @export
- */
 export const ListVersionsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

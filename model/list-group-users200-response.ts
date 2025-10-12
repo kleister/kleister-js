@@ -17,42 +17,12 @@
 import type { Group } from "./group";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { GroupPack } from "./group-pack";
+import type { UserGroup } from "./user-group";
 
-/**
- *
- * @export
- * @interface InlineObject24
- */
-export interface InlineObject24 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject24
-   */
+export interface ListGroupUsers200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject24
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject24
-   */
   offset: number;
-  /**
-   *
-   * @type {Group}
-   * @memberof InlineObject24
-   */
   group?: Group;
-  /**
-   *
-   * @type {Array<GroupPack>}
-   * @memberof InlineObject24
-   */
-  packs: Array<GroupPack>;
+  users: Array<UserGroup>;
 }

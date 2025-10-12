@@ -21,51 +21,14 @@ import type { Pack } from "./pack";
 
 /**
  * Model to represent group pack
- * @export
- * @interface GroupPack
  */
 export interface GroupPack {
-  /**
-   *
-   * @type {string}
-   * @memberof GroupPack
-   */
   group_id: string;
-  /**
-   *
-   * @type {Group}
-   * @memberof GroupPack
-   */
   group?: Group;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupPack
-   */
   pack_id: string;
-  /**
-   *
-   * @type {Pack}
-   * @memberof GroupPack
-   */
   pack?: Pack;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupPack
-   */
   perm?: GroupPackPermEnum;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupPack
-   */
   created_at?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GroupPack
-   */
   updated_at?: string;
 }
 

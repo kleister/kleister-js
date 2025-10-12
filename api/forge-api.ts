@@ -44,14 +44,13 @@ import {
 // @ts-ignore
 import type { AttachMinecraftToBuildRequest } from "../model";
 // @ts-ignore
-import type { InlineObject3 } from "../model";
+import type { ListForgeBuilds200Response } from "../model";
 // @ts-ignore
-import type { InlineObject4 } from "../model";
+import type { ListForges200Response } from "../model";
 // @ts-ignore
 import type { Notification } from "../model";
 /**
  * ForgeApi - axios parameter creator
- * @export
  */
 export const ForgeApiAxiosParamCreator = function (
   configuration?: Configuration,
@@ -419,7 +418,6 @@ export const ForgeApiAxiosParamCreator = function (
 
 /**
  * ForgeApi - functional programming interface
- * @export
  */
 export const ForgeApiFp = function (configuration?: Configuration) {
   const localVarAxiosParamCreator = ForgeApiAxiosParamCreator(configuration);
@@ -513,7 +511,10 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       offset?: number,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject4>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListForgeBuilds200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listForgeBuilds(
         forgeId,
@@ -548,7 +549,10 @@ export const ForgeApiFp = function (configuration?: Configuration) {
       search?: string,
       options?: RawAxiosRequestConfig,
     ): Promise<
-      (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineObject3>
+      (
+        axios?: AxiosInstance,
+        basePath?: string,
+      ) => AxiosPromise<ListForges200Response>
     > {
       const localVarAxiosArgs = await localVarAxiosParamCreator.listForges(
         search,
@@ -598,7 +602,6 @@ export const ForgeApiFp = function (configuration?: Configuration) {
 
 /**
  * ForgeApi - factory interface
- * @export
  */
 export const ForgeApiFactory = function (
   configuration?: Configuration,
@@ -655,7 +658,7 @@ export const ForgeApiFactory = function (
     listForgeBuilds(
       requestParameters: ForgeApiListForgeBuildsRequest,
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject4> {
+    ): AxiosPromise<ListForgeBuilds200Response> {
       return localVarFp
         .listForgeBuilds(
           requestParameters.forgeId,
@@ -678,7 +681,7 @@ export const ForgeApiFactory = function (
     listForges(
       requestParameters: ForgeApiListForgesRequest = {},
       options?: RawAxiosRequestConfig,
-    ): AxiosPromise<InlineObject3> {
+    ): AxiosPromise<ListForges200Response> {
       return localVarFp
         .listForges(requestParameters.search, options)
         .then((request) => request(axios, basePath));
@@ -699,114 +702,81 @@ export const ForgeApiFactory = function (
 
 /**
  * Request parameters for attachForgeToBuild operation in ForgeApi.
- * @export
- * @interface ForgeApiAttachForgeToBuildRequest
  */
 export interface ForgeApiAttachForgeToBuildRequest {
   /**
    * A forge identifier or slug
-   * @type {string}
-   * @memberof ForgeApiAttachForgeToBuild
    */
   readonly forgeId: string;
 
   /**
    * The forge build data to create or update
-   * @type {AttachMinecraftToBuildRequest}
-   * @memberof ForgeApiAttachForgeToBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for deleteForgeFromBuild operation in ForgeApi.
- * @export
- * @interface ForgeApiDeleteForgeFromBuildRequest
  */
 export interface ForgeApiDeleteForgeFromBuildRequest {
   /**
    * A forge identifier or slug
-   * @type {string}
-   * @memberof ForgeApiDeleteForgeFromBuild
    */
   readonly forgeId: string;
 
   /**
    * The forge build data to create or update
-   * @type {AttachMinecraftToBuildRequest}
-   * @memberof ForgeApiDeleteForgeFromBuild
    */
   readonly attachMinecraftToBuildRequest: AttachMinecraftToBuildRequest;
 }
 
 /**
  * Request parameters for listForgeBuilds operation in ForgeApi.
- * @export
- * @interface ForgeApiListForgeBuildsRequest
  */
 export interface ForgeApiListForgeBuildsRequest {
   /**
    * A forge identifier or slug
-   * @type {string}
-   * @memberof ForgeApiListForgeBuilds
    */
   readonly forgeId: string;
 
   /**
    * Search query
-   * @type {string}
-   * @memberof ForgeApiListForgeBuilds
    */
   readonly search?: string;
 
   /**
    * Sorting column
-   * @type {string}
-   * @memberof ForgeApiListForgeBuilds
    */
   readonly sort?: string;
 
   /**
    * Sorting order
-   * @type {'asc' | 'desc'}
-   * @memberof ForgeApiListForgeBuilds
    */
   readonly order?: ListForgeBuildsOrderEnum;
 
   /**
    * Paging limit
-   * @type {number}
-   * @memberof ForgeApiListForgeBuilds
    */
   readonly limit?: number;
 
   /**
    * Paging offset
-   * @type {number}
-   * @memberof ForgeApiListForgeBuilds
    */
   readonly offset?: number;
 }
 
 /**
  * Request parameters for listForges operation in ForgeApi.
- * @export
- * @interface ForgeApiListForgesRequest
  */
 export interface ForgeApiListForgesRequest {
   /**
    * Search query
-   * @type {string}
-   * @memberof ForgeApiListForges
    */
   readonly search?: string;
 }
 
 /**
  * ForgeApi - object-oriented interface
- * @export
- * @class ForgeApi
- * @extends {BaseAPI}
  */
 export class ForgeApi extends BaseAPI {
   /**
@@ -815,7 +785,6 @@ export class ForgeApi extends BaseAPI {
    * @param {ForgeApiAttachForgeToBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ForgeApi
    */
   public attachForgeToBuild(
     requestParameters: ForgeApiAttachForgeToBuildRequest,
@@ -836,7 +805,6 @@ export class ForgeApi extends BaseAPI {
    * @param {ForgeApiDeleteForgeFromBuildRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ForgeApi
    */
   public deleteForgeFromBuild(
     requestParameters: ForgeApiDeleteForgeFromBuildRequest,
@@ -857,7 +825,6 @@ export class ForgeApi extends BaseAPI {
    * @param {ForgeApiListForgeBuildsRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ForgeApi
    */
   public listForgeBuilds(
     requestParameters: ForgeApiListForgeBuildsRequest,
@@ -882,7 +849,6 @@ export class ForgeApi extends BaseAPI {
    * @param {ForgeApiListForgesRequest} requestParameters Request parameters.
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ForgeApi
    */
   public listForges(
     requestParameters: ForgeApiListForgesRequest = {},
@@ -898,7 +864,6 @@ export class ForgeApi extends BaseAPI {
    * @summary Update the available Forge versions
    * @param {*} [options] Override http request option.
    * @throws {RequiredError}
-   * @memberof ForgeApi
    */
   public updateForge(options?: RawAxiosRequestConfig) {
     return ForgeApiFp(this.configuration)
@@ -907,9 +872,6 @@ export class ForgeApi extends BaseAPI {
   }
 }
 
-/**
- * @export
- */
 export const ListForgeBuildsOrderEnum = {
   Asc: "asc",
   Desc: "desc",

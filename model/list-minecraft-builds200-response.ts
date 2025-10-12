@@ -17,42 +17,12 @@
 import type { Build } from "./build";
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Quilt } from "./quilt";
+import type { Minecraft } from "./minecraft";
 
-/**
- *
- * @export
- * @interface InlineObject8
- */
-export interface InlineObject8 {
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject8
-   */
+export interface ListMinecraftBuilds200Response {
   total: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject8
-   */
   limit: number;
-  /**
-   *
-   * @type {number}
-   * @memberof InlineObject8
-   */
   offset: number;
-  /**
-   *
-   * @type {Quilt}
-   * @memberof InlineObject8
-   */
-  quilt?: Quilt;
-  /**
-   *
-   * @type {Array<Build>}
-   * @memberof InlineObject8
-   */
+  minecraft?: Minecraft;
   builds: Array<Build>;
 }

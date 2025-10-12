@@ -843,7 +843,7 @@ const { status, data } = await apiInstance.deleteVersionFromBuild(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listModGroups**
-> InlineObject13 listModGroups()
+> ListModGroups200Response listModGroups()
 
 
 ### Example
@@ -888,7 +888,7 @@ const { status, data } = await apiInstance.listModGroups(
 
 ### Return type
 
-**InlineObject13**
+**ListModGroups200Response**
 
 ### Authorization
 
@@ -911,7 +911,7 @@ const { status, data } = await apiInstance.listModGroups(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listModUsers**
-> InlineObject12 listModUsers()
+> ListModUsers200Response listModUsers()
 
 
 ### Example
@@ -956,7 +956,7 @@ const { status, data } = await apiInstance.listModUsers(
 
 ### Return type
 
-**InlineObject12**
+**ListModUsers200Response**
 
 ### Authorization
 
@@ -979,7 +979,7 @@ const { status, data } = await apiInstance.listModUsers(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listMods**
-> InlineObject11 listMods()
+> ListMods200Response listMods()
 
 
 ### Example
@@ -1021,7 +1021,7 @@ const { status, data } = await apiInstance.listMods(
 
 ### Return type
 
-**InlineObject11**
+**ListMods200Response**
 
 ### Authorization
 
@@ -1043,7 +1043,7 @@ const { status, data } = await apiInstance.listMods(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listVersionBuilds**
-> InlineObject15 listVersionBuilds()
+> ListVersionBuilds200Response listVersionBuilds()
 
 
 ### Example
@@ -1091,7 +1091,7 @@ const { status, data } = await apiInstance.listVersionBuilds(
 
 ### Return type
 
-**InlineObject15**
+**ListVersionBuilds200Response**
 
 ### Authorization
 
@@ -1114,7 +1114,7 @@ const { status, data } = await apiInstance.listVersionBuilds(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listVersions**
-> InlineObject14 listVersions()
+> ListVersions200Response listVersions()
 
 
 ### Example
@@ -1159,7 +1159,7 @@ const { status, data } = await apiInstance.listVersions(
 
 ### Return type
 
-**InlineObject14**
+**ListVersions200Response**
 
 ### Authorization
 
