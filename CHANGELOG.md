@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.0](https://github.com/kleister/kleister-js/compare/v2.17.0...v2.18.0) (2025-10-13)
+
+
+### Features
+
+* automated openapi client update ([f6a0d11](https://github.com/kleister/kleister-js/commit/f6a0d113ae1b3f96f3454e3da13f2882e90933e4))
+
 ## [2.17.0](https://github.com/kleister/kleister-js/compare/v2.16.0...v2.17.0) (2025-09-15)
 
 
