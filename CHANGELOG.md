@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/kleister/kleister-js/compare/v3.0.0...v3.0.1) (2025-11-10)
+
+
+### Bugfixes
+
+* **deps:** update dependency axios to v1.13.2 ([#206](https://github.com/kleister/kleister-js/issues/206)) ([31724f7](https://github.com/kleister/kleister-js/commit/31724f77424c4e1456da348cc623afbd8896251a))
+
 ## [3.0.0](https://github.com/kleister/kleister-js/compare/v2.18.0...v3.0.0) (2025-11-03)
 
 
