@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.0](https://github.com/kleister/kleister-js/compare/v3.0.1...v3.1.0) (2025-11-17)
+
+
+### Features
+
+* automated openapi client update ([5e2080e](https://github.com/kleister/kleister-js/commit/5e2080e426de01bcf531f6877c970c6619c013fd))
+* **minor:** update dependency typescript to ^5.9.3 ([#209](https://github.com/kleister/kleister-js/issues/209)) ([e9b430d](https://github.com/kleister/kleister-js/commit/e9b430d31a6a4d08a2864d20e990561acbdc625d))
+
+
+### Bugfixes
+
+* **patch:** update dependency @types/node to v24.10.1 ([#210](https://github.com/kleister/kleister-js/issues/210)) ([16af5a8](https://github.com/kleister/kleister-js/commit/16af5a842c4ce5852c0e40cfd0a4c120384fbdfd))
+
 ## [3.0.1](https://github.com/kleister/kleister-js/compare/v3.0.0...v3.0.1) (2025-11-10)
 
 
