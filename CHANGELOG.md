@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.2.0](https://github.com/kleister/kleister-js/compare/v3.1.0...v3.2.0) (2025-12-01)
+
+### Features
+
+* **minor:** update dependency prettier to v3.7.0 ([#216](https://github.com/kleister/kleister-js/issues/216)) ([fe857a1](https://github.com/kleister/kleister-js/commit/fe857a1786d8d0b74e59780655ffd462b0cf207c))
+
+### Bugfixes
+
+* **patch:** update dependency prettier to v3.7.1 ([#217](https://github.com/kleister/kleister-js/issues/217)) ([b543222](https://github.com/kleister/kleister-js/commit/b543222d61ccf93636756408e705f76d4339b8d8))
+
 ## [3.1.0](https://github.com/kleister/kleister-js/compare/v3.0.1...v3.1.0) (2025-11-17)
 
 
