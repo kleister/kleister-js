@@ -411,9 +411,10 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-      const localVarFormParams = new ((configuration &&
-        configuration.formDataCtor) ||
-        FormData)();
+      const localVarFormParams = new (
+        (configuration && configuration.formDataCtor) ||
+        FormData
+      )();
 
       // authentication Basic required
       // http basic authentication required
@@ -484,9 +485,10 @@ export const ModApiAxiosParamCreator = function (
       };
       const localVarHeaderParameter = {} as any;
       const localVarQueryParameter = {} as any;
-      const localVarFormParams = new ((configuration &&
-        configuration.formDataCtor) ||
-        FormData)();
+      const localVarFormParams = new (
+        (configuration && configuration.formDataCtor) ||
+        FormData
+      )();
 
       // authentication Basic required
       // http basic authentication required
