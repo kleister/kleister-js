@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/kleister/kleister-js/compare/v3.3.0...v3.3.1) (2025-12-15)
+
+### Bugfixes
+
+* **patch:** update dependency @types/node to v24.10.2 ([#229](https://github.com/kleister/kleister-js/issues/229)) ([531d654](https://github.com/kleister/kleister-js/commit/531d6544123a60190bac07abd0c559edb188c742))
+* **patch:** update dependency @types/node to v24.10.3 ([#230](https://github.com/kleister/kleister-js/issues/230)) ([c8cd22b](https://github.com/kleister/kleister-js/commit/c8cd22b9c28e699a2501d7f29566ed31f9ff1830))
+
 ## [3.3.0](https://github.com/kleister/kleister-js/compare/v3.2.0...v3.3.0) (2025-12-08)
 
 ### Features
