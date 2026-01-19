@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.4.0](https://github.com/kleister/kleister-js/compare/v3.3.2...v3.4.0) (2026-01-19)
+
+### Dependencies
+
+* **minor:** update dependency prettier to v3.8.0 ([#237](https://github.com/kleister/kleister-js/issues/237)) ([e90ae18](https://github.com/kleister/kleister-js/commit/e90ae186f4adf16d5d732400fa5f29f746f1e275))
+* **patch:** update dependency @types/node to v24.10.6 ([#233](https://github.com/kleister/kleister-js/issues/233)) ([8c26c96](https://github.com/kleister/kleister-js/commit/8c26c96b66a7ec4a1a0271b1a75c89480568e25e))
+* **patch:** update dependency @types/node to v24.10.7 ([#234](https://github.com/kleister/kleister-js/issues/234)) ([5b99d38](https://github.com/kleister/kleister-js/commit/5b99d384d06c91c8e0d3c783252e51c618d15e38))
+* **patch:** update dependency @types/node to v24.10.8 ([#236](https://github.com/kleister/kleister-js/issues/236)) ([83bff4f](https://github.com/kleister/kleister-js/commit/83bff4f9880e856e6342b45194c62bc68b404734))
+* **patch:** update dependency @types/node to v24.10.9 ([#238](https://github.com/kleister/kleister-js/issues/238)) ([033c1a5](https://github.com/kleister/kleister-js/commit/033c1a54dec15c59fef182e342a66ec3b96224dd))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([e4c94c5](https://github.com/kleister/kleister-js/commit/e4c94c57ec4bc27ee82f9125ea8d5c498a87cf00))
+* **flake:** updated lockfile [skip ci] ([1c71209](https://github.com/kleister/kleister-js/commit/1c71209e311326688c86fecb764478ebc6bd59d2))
+* **flake:** updated lockfile [skip ci] ([073c141](https://github.com/kleister/kleister-js/commit/073c141dd9746c0abfdf3da6bd0eaf9b16c19170))
+* **flake:** updated lockfile [skip ci] ([f5f40d2](https://github.com/kleister/kleister-js/commit/f5f40d23ef034ed0329257dd24e83f0826ae9664))
+
 ## [3.3.2](https://github.com/kleister/kleister-js/compare/v3.3.1...v3.3.2) (2025-12-22)
 
 ### Bugfixes
