@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.4.1](https://github.com/kleister/kleister-js/compare/v3.4.0...v3.4.1) (2026-01-26)
+
+### Dependencies
+
+* **patch:** update dependency prettier to v3.8.1 ([#239](https://github.com/kleister/kleister-js/issues/239)) ([0e72d5c](https://github.com/kleister/kleister-js/commit/0e72d5ced54543872d181c8b8fe953328c4cf9c6))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([a2e26ca](https://github.com/kleister/kleister-js/commit/a2e26cad8cc10350eb16f948dea19df9ab51552b))
+
 ## [3.4.0](https://github.com/kleister/kleister-js/compare/v3.3.2...v3.4.0) (2026-01-19)
 
 ### Dependencies
