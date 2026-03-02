@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.4.5](https://github.com/kleister/kleister-js/compare/v3.4.4...v3.4.5) (2026-03-02)
+
+### Dependencies
+
+* **deps:** lock file maintenance ([9a5abac](https://github.com/kleister/kleister-js/commit/9a5abac91f5fc60a078c608a4e2f7537974183fc))
+* **patch:** update dependency @types/node to v24.10.14 ([#248](https://github.com/kleister/kleister-js/issues/248)) ([d515085](https://github.com/kleister/kleister-js/commit/d515085299dc5cc5089e240cbc9cb13ec2402c96))
+* **patch:** update dependency @types/node to v24.10.15 ([#249](https://github.com/kleister/kleister-js/issues/249)) ([238575a](https://github.com/kleister/kleister-js/commit/238575ae57df71e85bb4174dd61705cbadb2f030))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([6e4bc0a](https://github.com/kleister/kleister-js/commit/6e4bc0a64c8f958eb512624be886cb3972a731fd))
+* **flake:** updated lockfile [skip ci] ([59a7caf](https://github.com/kleister/kleister-js/commit/59a7caf790831d834244c3936a80e35887e3d85d))
+* **locks:** lock file maintenance ([#250](https://github.com/kleister/kleister-js/issues/250)) ([69dd25e](https://github.com/kleister/kleister-js/commit/69dd25ea4ccc52474f5069f85e46aae472f3efc0))
+* replace nixfmt package ([04923ab](https://github.com/kleister/kleister-js/commit/04923abf45c3b74c0b0f0d56e7858b59cd4fe4af))
+
 ## [3.4.4](https://github.com/kleister/kleister-js/compare/v3.4.3...v3.4.4) (2026-02-16)
 
 ### Dependencies
