@@ -31,6 +31,7 @@ import {
   serializeDataIfNeeded,
   toPathString,
   createRequestFunction,
+  replaceWithSerializableTypeIfNeeded,
 } from "../common";
 // @ts-ignore
 import {
@@ -112,6 +113,7 @@ export const FabricApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       localVarHeaderParameter["Content-Type"] = "application/json";
+      localVarHeaderParameter["Accept"] = "application/json";
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
@@ -188,6 +190,7 @@ export const FabricApiAxiosParamCreator = function (
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
 
       localVarHeaderParameter["Content-Type"] = "application/json";
+      localVarHeaderParameter["Accept"] = "application/json";
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
@@ -285,6 +288,8 @@ export const FabricApiAxiosParamCreator = function (
         localVarQueryParameter["offset"] = offset;
       }
 
+      localVarHeaderParameter["Accept"] = "application/json";
+
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
         baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -345,6 +350,8 @@ export const FabricApiAxiosParamCreator = function (
         localVarQueryParameter["search"] = search;
       }
 
+      localVarHeaderParameter["Accept"] = "application/json";
+
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
         baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -398,6 +405,8 @@ export const FabricApiAxiosParamCreator = function (
       // authentication Bearer required
       // http bearer authentication required
       await setBearerAuthToObject(localVarHeaderParameter, configuration);
+
+      localVarHeaderParameter["Accept"] = "application/json";
 
       setSearchParams(localVarUrlObj, localVarQueryParameter);
       let headersFromBaseOptions =
