@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.0](https://github.com/kleister/kleister-js/compare/v3.6.0...v4.0.0) (2026-03-30)
+
+### Dependencies
+
+* **major:** update dependency typescript to v6 ([#256](https://github.com/kleister/kleister-js/issues/256)) ([ff8b765](https://github.com/kleister/kleister-js/commit/ff8b765253ca917f35301f64f7e62d2b09ccda5e))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([c842732](https://github.com/kleister/kleister-js/commit/c842732bc795c14a8155c69756a1492af4499dff))
+* **flake:** updated lockfile [skip ci] ([6b52328](https://github.com/kleister/kleister-js/commit/6b523280674f80df9a39506615c1239969fa7844))
+* **locks:** lock file maintenance ([#257](https://github.com/kleister/kleister-js/issues/257)) ([7e318ea](https://github.com/kleister/kleister-js/commit/7e318eab24497afb707ba62ea7d9007165ce03b3))
+
 ## [3.6.0](https://github.com/kleister/kleister-js/compare/v3.5.0...v3.6.0) (2026-03-16)
 
 ### Dependencies
