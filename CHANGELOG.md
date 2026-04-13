@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.1.0](https://github.com/kleister/kleister-js/compare/v4.0.0...v4.1.0) (2026-04-13)
+
+### Dependencies
+
+* **minor:** update dependency axios to v1.15.0 ([#260](https://github.com/kleister/kleister-js/issues/260)) ([94b4ac5](https://github.com/kleister/kleister-js/commit/94b4ac502deec0734b7f2f647ee8d1d7100372b5))
+* **patch:** update dependency @types/node to v24.12.2 ([#258](https://github.com/kleister/kleister-js/issues/258)) ([abdda11](https://github.com/kleister/kleister-js/commit/abdda1142d59d52d3eb551536ef5668dc6647d9b))
+* **patch:** update dependency prettier to v3.8.2 ([#261](https://github.com/kleister/kleister-js/issues/261)) ([cfc01c2](https://github.com/kleister/kleister-js/commit/cfc01c216c7796e26f7be079261a1fcc39189961))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([a5f2f75](https://github.com/kleister/kleister-js/commit/a5f2f757608485650938a7f2c88069621def5f3d))
+* **flake:** updated lockfile [skip ci] ([d85d135](https://github.com/kleister/kleister-js/commit/d85d135fbfc07d36e7cbf99b1c3bb4793da86979))
+
 ## [4.0.0](https://github.com/kleister/kleister-js/compare/v3.6.0...v4.0.0) (2026-03-30)
 
 ### Dependencies
