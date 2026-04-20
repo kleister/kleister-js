@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.1.1](https://github.com/kleister/kleister-js/compare/v4.1.0...v4.1.1) (2026-04-20)
+
+### Dependencies
+
+* **patch:** update dependency prettier to v3.8.3 ([#263](https://github.com/kleister/kleister-js/issues/263)) ([c973205](https://github.com/kleister/kleister-js/commit/c973205201cbfa478d210a125e028b0a1c8769ac))
+* **patch:** update dependency typescript to v6.0.3 ([#264](https://github.com/kleister/kleister-js/issues/264)) ([a8de954](https://github.com/kleister/kleister-js/commit/a8de9543128aa0a01e51b8131a2ad83ee4d8a4e0))
+
+### Miscellaneous
+
+* **deps:** bump follow-redirects from 1.15.11 to 1.16.0 ([a620a7c](https://github.com/kleister/kleister-js/commit/a620a7c08a8821c9f2c45eefe56ddbec7b09fdee))
+* **flake:** updated lockfile [skip ci] ([07e6177](https://github.com/kleister/kleister-js/commit/07e61779caef4cfb83ad4eda7d5907ed05a2a350))
+* **locks:** lock file maintenance ([#265](https://github.com/kleister/kleister-js/issues/265)) ([eb65807](https://github.com/kleister/kleister-js/commit/eb658071b61642e39e7da0565f6e4057a1051936))
+
 ## [4.1.0](https://github.com/kleister/kleister-js/compare/v4.0.0...v4.1.0) (2026-04-13)
 
 ### Dependencies
