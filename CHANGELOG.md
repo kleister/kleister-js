@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.2](https://github.com/kleister/kleister-js/compare/v4.1.1...v4.1.2) (2026-04-27)
+
+### Dependencies
+
+* **patch:** update dependency axios to v1.15.2 ([#266](https://github.com/kleister/kleister-js/issues/266)) ([4973095](https://github.com/kleister/kleister-js/commit/49730953ff5c6a9452237ee83ca08a79dfc356b3))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([f8c143a](https://github.com/kleister/kleister-js/commit/f8c143a0a70384da573dbdbdffc5689f7fc99b9e))
+
 ## [4.1.1](https://github.com/kleister/kleister-js/compare/v4.1.0...v4.1.1) (2026-04-20)
 
 ### Dependencies
