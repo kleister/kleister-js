@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.1.3](https://github.com/kleister/kleister-js/compare/v4.1.2...v4.1.3) (2026-05-11)
+
+### Dependencies
+
+* **patch:** update dependency @types/node to v24.12.3 ([#268](https://github.com/kleister/kleister-js/issues/268)) ([0fd7218](https://github.com/kleister/kleister-js/commit/0fd721889f205b6fb9c4c5367b49fcb112bbae5d))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([c8c0740](https://github.com/kleister/kleister-js/commit/c8c0740a903b4139a81a7a244ba5ef1877be391a))
+* **flake:** updated lockfile [skip ci] ([fe5824a](https://github.com/kleister/kleister-js/commit/fe5824a6f996009d9a4ccaf45efa6f0f0374a6ea))
+* **locks:** lock file maintenance ([#267](https://github.com/kleister/kleister-js/issues/267)) ([e7abe3b](https://github.com/kleister/kleister-js/commit/e7abe3bc41ffca00a4f512fe40cbd2f222b2619c))
+
 ## [4.1.2](https://github.com/kleister/kleister-js/compare/v4.1.1...v4.1.2) (2026-04-27)
 
 ### Dependencies
