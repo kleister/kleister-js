@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.2.0](https://github.com/kleister/kleister-js/compare/v4.1.4...v4.2.0) (2026-06-08)
+
+### Dependencies
+
+* **minor:** update dependency @types/node to v24.13.0 ([#274](https://github.com/kleister/kleister-js/issues/274)) ([88aabb7](https://github.com/kleister/kleister-js/commit/88aabb77956e52f3846fa56a8537073143280d00))
+* **minor:** update dependency axios to v1.17.0 ([#273](https://github.com/kleister/kleister-js/issues/273)) ([0deed1c](https://github.com/kleister/kleister-js/commit/0deed1c5d890f5fb524d5d7333cb1c5f785bd880))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([cf0708f](https://github.com/kleister/kleister-js/commit/cf0708f28c361b2b9215499b32dbc0b840afaa00))
+* **flake:** updated lockfile [skip ci] ([7e70f45](https://github.com/kleister/kleister-js/commit/7e70f45ebd07a3a82061e5930577f4712cfaf8d2))
+* **flake:** updated lockfile [skip ci] ([676b01e](https://github.com/kleister/kleister-js/commit/676b01e0f6d7eafeb63afa60db54e027cab61dec))
+* **locks:** lock file maintenance ([#271](https://github.com/kleister/kleister-js/issues/271)) ([d03b7b6](https://github.com/kleister/kleister-js/commit/d03b7b6bbdb6ba744d71741c121a92e289a7412b))
+* **locks:** lock file maintenance ([#272](https://github.com/kleister/kleister-js/issues/272)) ([16eb4cb](https://github.com/kleister/kleister-js/commit/16eb4cbe3f0bed5a91c8c9f399f67eb62c586c1f))
+
 ## [4.1.4](https://github.com/kleister/kleister-js/compare/v4.1.3...v4.1.4) (2026-05-18)
 
 ### Dependencies
